@@ -8,4 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-25.1.0 This is the first version of Acme ANS
+25.1.1 Change i18n files to adapt it to the situation of the project, add a markdown file for README.
+
+25.1.0 This is the first version of Acme ANS (files added to github repository).
