@@ -23,6 +23,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.manuel-link" action="https://google.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.alejandro-link" action="https://github.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.enrique-link" action="https://www.twitch.tv/"/>
+			<acme:menu-suboption code="master.menu.anonymous.mario-link" action="https://colorhunt.co/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
