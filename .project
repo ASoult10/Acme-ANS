@@ -43,7 +43,11 @@
 		<link>
 			<name>target/classes</name>
 			<type>2</type>
+<<<<<<< HEAD
 			<location>//C:/Users/MBG/Desktop/Universidad/EntornoDP2/Workspace-25/Projects/Acme-ANS-D01/target/classes/</location>
+=======
+			<location>//D:/Mis Cosas/WorkSpaces/Eclipse Projects/Workspace-25/Projects/Acme-ANS-D01/target/classes/</location>
+>>>>>>> branch 'main' of https://github.com/ASoult10/Acme-ANS-D01.git
 		</link>
 	</linkedResources>
 </projectDescription>
