@@ -8,8 +8,8 @@ this software. It has been tested carefully, but it is not guaranteed for any pa
 purposes.  The copyright owner does not offer any warranties or representations, nor do
 they accept any liabilities with respect to them.
 
-25.2.0 Change name of the project and make sure it works well. Make some files in md extension.
+D02 This is the version of the second deliverable of Acme-ANS
 
-25.1.1 Change i18n files to adapt it to the situation of the project, add a markdown file for README.
+D01 This is the version of the first deliverable of Acme-ANS
 
-25.1.0 This is the first version of Acme ANS (files added to github repository).
+D00 This is the first version of Acme ANS (files added to github repository).
