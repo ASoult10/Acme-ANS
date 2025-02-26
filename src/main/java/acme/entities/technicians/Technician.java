@@ -4,7 +4,6 @@ package acme.entities.technicians;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Size;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -24,9 +23,8 @@ public class Technician extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Valid
-	@Automapped
 	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@Automapped
 	@Column(unique = true)
 	private String				licenseNumber;
 
@@ -36,9 +34,8 @@ public class Technician extends AbstractEntity {
 	private String				phoneNumber;
 
 	@Mandatory
-	@Valid
+	@ValidString(max = 50)
 	@Automapped
-	@Size(max = 50)
 	private String				specialisation;
 
 	@Mandatory
@@ -47,7 +44,7 @@ public class Technician extends AbstractEntity {
 	private Boolean				annualHealthTest;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0)
 	@Automapped
 	private Integer				yearsOfExperience;
 

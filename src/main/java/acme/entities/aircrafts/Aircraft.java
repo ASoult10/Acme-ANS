@@ -4,9 +4,6 @@ package acme.entities.aircrafts;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -26,28 +23,24 @@ public class Aircraft extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@Valid
+	@ValidString(max = 50)
 	@Automapped
-	@Size(max = 50)
 	private String				model;
 
 	@Mandatory
-	@Valid
+	@ValidString(max = 50)
 	@Automapped
 	@Column(unique = true)
-	@ValidString(min = 1, max = 255)
 	private String				registrationNumber;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0)
 	@Automapped
 	private Integer				capacity;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 2000, max = 50000)
 	@Automapped
-	@Min(2000)
-	@Max(50000)
 	private Integer				cargoWeight;
 
 	@Mandatory
