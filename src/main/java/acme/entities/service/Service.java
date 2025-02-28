@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
-import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
@@ -28,7 +27,6 @@ public class Service extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(min = 1, max = 50)
-	@Automapped
 	private String				name;
 
 	@Mandatory
@@ -49,4 +47,5 @@ public class Service extends AbstractEntity {
 	@Mandatory
 	@ValidMoney
 	private Money				moneyDiscounted;
+
 }
