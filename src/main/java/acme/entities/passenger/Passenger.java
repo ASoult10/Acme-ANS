@@ -4,7 +4,9 @@ package acme.entities.passenger;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Moment;
+import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
@@ -16,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Passenger {
+public class Passenger extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -25,18 +27,22 @@ public class Passenger {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
+	@Automapped
 	@ValidString(min = 1, max = 255)
 	private String				fullName;
 
 	@Mandatory
+	@Automapped
 	@ManyToOne
 	private Booking				booking;
 
 	@Mandatory
+	@Automapped
 	@ValidEmail
 	private String				email;
 
 	@Mandatory
+	@Automapped
 	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
 	private String				passportNumber;
 
@@ -44,6 +50,7 @@ public class Passenger {
 	private Moment				birthDate;
 
 	@Optional
+	@Automapped
 	@ValidString(min = 1, max = 51)
 	private String				specialNeeds;
 }
