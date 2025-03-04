@@ -1,5 +1,5 @@
 
-package acme.entities.review;
+package acme.entities.flightAssignment;
 
 import java.util.Date;
 
@@ -7,14 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Review extends AbstractEntity {
-
+public class FlightAssignment extends AbstractEntity {
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -33,12 +30,7 @@ public class Review extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@Automapped
-	private ReviewTypeEnum		type;
-
-	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				name;
+	private Duty				duty;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -46,24 +38,14 @@ public class Review extends AbstractEntity {
 	private Date				moment;
 
 	@Mandatory
-	@NotBlank
-	@ValidString(min = 1, max = 50)
+	@Valid
 	@Automapped
-	private String				subject;
+	private AssignmentStatus	assignmentStatus;
 
-	@Mandatory
+	@Optional
 	@ValidString(min = 1, max = 255)
 	@Automapped
-	private String				text;
-
-	@Optional
-	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 3)
-	@Automapped
-	private Integer				score;
-
-	@Optional
-	@Automapped
-	private Boolean				recommended;
+	private String				remarks;
 
 	// Derived attributes -----------------------------------------------------
 
