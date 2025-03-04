@@ -46,7 +46,7 @@ public class Passenger extends AbstractRole {
 	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
 	private String				passportNumber;
 
-	@Mandatory // TODO: Como dice la mujer, in the past?
+	@Mandatory
 	private Moment				birthDate;
 
 	@Optional

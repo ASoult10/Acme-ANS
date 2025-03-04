@@ -32,7 +32,7 @@ public class Customer extends AbstractRole {
 	@Mandatory
 	@Automapped
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$") // TODO: Comprobar que los tres primeros caracteres son del nombre?
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
 	private String				identifier;
 
 	@Mandatory
