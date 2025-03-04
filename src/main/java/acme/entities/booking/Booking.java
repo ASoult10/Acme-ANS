@@ -60,10 +60,10 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	@ValidMoney // TODO: Cómo dice la mujer, precio máximo?
+	@ValidMoney
 	private Money				price;
 
-	@Optional // TODO: ???
+	@Optional
 	@Automapped
 	private String				lastNibble;
 }

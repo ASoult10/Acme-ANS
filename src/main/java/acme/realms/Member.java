@@ -1,5 +1,5 @@
 
-package acme.entities.customer;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +8,6 @@ import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,8 +15,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Customer extends AbstractRole {
-
+public class Member extends AbstractRole {
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -25,38 +23,42 @@ public class Customer extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@Automapped
-	@ValidString(min = 1, max = 50)
-	private String				name;
-
-	@Mandatory
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
-	private String				identifier;
+	private String				employeeCode;
 
 	@Mandatory
-	@Automapped
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
+	@ValidString(max = 255)
 	@Automapped
-	@ValidString(min = 0, max = 255)
-	private String				physicalAddress;
+	private String				languageSkills;
 
-	@Mandatory
-	@Automapped
-	@ValidString(min = 0, max = 50)
-	private String				city;
+	//@Mandatory
+	//@Valid
+	//@Automapped
+	//private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
 
-	@Mandatory
-	@Automapped
-	@ValidString(min = 0, max = 50)
-	private String				country;
+	//@Mandatory
+	//@Valid
+	//@Automapped
+	//private Airline							airline;
+
+	//@Mandatory
+	//@ValidMoney
+	//@Automapped
+	//private Money							salary;
 
 	@Optional
 	@Automapped
-	@ValidNumber(min = 0, max = 500000)
-	private Integer				points;
+	private Integer				yearsOfExperience;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
+
 }
