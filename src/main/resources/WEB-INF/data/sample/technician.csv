@@ -1,0 +1,4 @@
+key,key:userAccount,licenseNumber,phoneNumber,specialisation,annualHealthTest,yearsOfExperience,certifications
+technician-01,user-account-technician-01,AB123456,+1234567890,Avionics Systems,true,8,https://www.faa.gov/certifications/technician1
+technician-02,user-account-technician-02,CD987654,+1234567690,Structural Repairs,false,5,https://www.easa.europa.eu/certifications/technician2
+technician-03,user-account-technician-03,EF983654,+1254567690,Powerplant Maintenance,true,3,https://www.easa.europa.eu/certifications/technician3
