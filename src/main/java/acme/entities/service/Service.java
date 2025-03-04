@@ -40,15 +40,15 @@ public class Service extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	@ValidUrl // TODO: Url or URI?; TODO: Store where?
-	private String				link;
+	@ValidUrl
+	private String				imageLink;
 
 	@Mandatory
 	@Automapped
 	@ValidNumber(min = 0)
 	private Integer				dWellTime;
 
-	@Mandatory // TODO: Two lasts digits -> Current year?
+	@Mandatory
 	@Automapped
 	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
 	@Column(unique = true)
