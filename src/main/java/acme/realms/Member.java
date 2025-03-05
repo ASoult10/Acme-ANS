@@ -3,12 +3,16 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.entities.flightCrewMembers.FlightCrewAvailabilityStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,44 +22,43 @@ import lombok.Setter;
 public class Member extends AbstractRole {
 	// Serialisation version --------------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long				serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
-	@Automapped
 	@Column(unique = true)
-	private String				employeeCode;
+	private String							employeeCode;
 
 	@Mandatory
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private String				phoneNumber;
+	private String							phoneNumber;
 
 	@Mandatory
 	@ValidString(max = 255)
 	@Automapped
-	private String				languageSkills;
+	private String							languageSkills;
 
-	//@Mandatory
-	//@Valid
-	//@Automapped
-	//private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
+	@Mandatory
+	@Valid
+	@Automapped
+	private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
 
 	//@Mandatory
 	//@Valid
 	//@Automapped
 	//private Airline							airline;
 
-	//@Mandatory
-	//@ValidMoney
-	//@Automapped
-	//private Money							salary;
+	@Mandatory
+	@ValidMoney
+	@Automapped
+	private Money							salary;
 
 	@Optional
 	@Automapped
-	private Integer				yearsOfExperience;
+	private Integer							yearsOfExperience;
 
 	// Derived attributes -----------------------------------------------------
 
