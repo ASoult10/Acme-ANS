@@ -27,7 +27,6 @@ public class FlightCrewMembers extends AbstractRole {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
-	@Automapped
 	@Column(unique = true)
 	private String							employeeCode;
 
