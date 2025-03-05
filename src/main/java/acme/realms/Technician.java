@@ -1,5 +1,5 @@
 
-package acme.entities.technicians;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

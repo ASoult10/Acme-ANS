@@ -10,7 +10,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidUrl;
 import acme.entities.maintenancerecord.MaintenanceRecord;
-import acme.entities.technicians.Technician;
+import acme.realms.Technician;
 
 public class Task extends AbstractEntity {
 

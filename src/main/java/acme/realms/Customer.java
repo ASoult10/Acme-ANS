@@ -1,5 +1,5 @@
 
-package acme.entities.customer;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,13 +26,8 @@ public class Customer extends AbstractRole {
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 1, max = 50)
-	private String				name;
-
-	@Mandatory
-	@Automapped
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	private String				identifier;
 
 	@Mandatory
