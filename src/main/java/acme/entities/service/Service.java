@@ -9,6 +9,7 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
@@ -48,7 +49,7 @@ public class Service extends AbstractEntity {
 	@ValidNumber(min = 0)
 	private Integer				dWellTime;
 
-	@Mandatory
+	@Optional
 	@Automapped
 	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
 	@Column(unique = true)

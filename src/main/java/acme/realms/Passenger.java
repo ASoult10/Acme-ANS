@@ -1,5 +1,5 @@
 
-package acme.entities.passenger;
+package acme.realms;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;

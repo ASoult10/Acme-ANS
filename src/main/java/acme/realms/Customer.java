@@ -37,17 +37,17 @@ public class Customer extends AbstractRole {
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 0, max = 255)
+	@ValidString(min = 1, max = 255)
 	private String				physicalAddress;
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 0, max = 50)
+	@ValidString(min = 1, max = 50)
 	private String				city;
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 0, max = 50)
+	@ValidString(min = 1, max = 50)
 	private String				country;
 
 	@Optional
