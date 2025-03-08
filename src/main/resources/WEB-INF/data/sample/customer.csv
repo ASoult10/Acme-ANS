@@ -1,4 +1,3 @@
 key,key:userAccount,identifier,phoneNumber,physicalAddress,city,country,points
 customer-01,user-account-customer-01,PP123456,+1234567890,c/ Penélope Cruz,Madrid,España,0
 customer-02,user-account-customer-02,MS654321,987654321,Calle del Sol 123 Colonia Centro Ciudad de México CDMX 06000,Chiclana,México,499999
-customer-03,user-account-customer-03,CNP789012,+491234567890123,Calle Larga y Estrecha Número 789 Edificio Torre del Horizonte Infinito Piso 27 Apartamento 3001B Urbanización Vista al Mar Distrito Costero de las Brisas Doradas Municipio San Fernando del Valle Provincia del Este Código Postal 123456,Managua,Nicaragua,1
