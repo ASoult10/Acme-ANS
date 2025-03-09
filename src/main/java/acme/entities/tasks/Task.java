@@ -9,7 +9,6 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.maintenancerecord.MaintenanceRecord;
 import acme.realms.Technician;
 
 public class Task extends AbstractEntity {
@@ -38,12 +37,7 @@ public class Task extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
-	private MaintenanceRecord	maintenanceRecord;
-
-	@Mandatory
-	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Technician			technician;
 
 }
