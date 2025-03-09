@@ -1,0 +1,82 @@
+key,name,code,scope,city,country,website,email,phone
+airport-00,Aeropuerto de Sevilla,SVQ,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-01,L,SVA,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-02,Lo,SVB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-03,"Lorem ipsum dolor sit amet, consectetur adipiscin",SVC,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",SVD,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-05,Aeropuerto de Málaga,SVE,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-06,Aeropuerto,SVF,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-07,Aeropuerto subterráneo,SVG,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-08,โลเร็ม อิปซัม,SVH,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-09,لوريم إيبسوم,SVI,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-10,洛伦·伊普森,SVJ,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-11,<marquee>Hacked</marquee>,SVK,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-12,<script>alert(‘Hacked!’);</script>,SVL,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-13, or 'A' = 'A ,SVM,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-14,Aeropuerto de Sevilla,AAA,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-15,Aeropuerto de Sevilla,BBB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-16,Aeropuerto de Sevilla,ZZZ,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-17,Aeropuerto de Sevilla,ABZ,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-18,Aeropuerto de Sevilla,FHW,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-19,Aeropuerto de Sevilla,XIW,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-20,Aeropuerto de Sevilla,SVN,DOMESTIC,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-21,Aeropuerto de Sevilla,SVO,REGIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-22,Aeropuerto de Sevilla,SVP,INTERNATIONAL,L,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-23,Aeropuerto de Sevilla,SVR,INTERNATIONAL,Lo,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-24,Aeropuerto de Sevilla,SVS,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscin",España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-25,Aeropuerto de Sevilla,SVT,INTERNATIONAL,"Lorem ipsum dolor sit amet, consectetur adipiscing",España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-26,Aeropuerto de Sevilla,SVU,INTERNATIONAL,4Ciudad fícìcïa,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-27,Aeropuerto de Sevilla,SVV,INTERNATIONAL,Málaga,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-28,Aeropuerto de Sevilla,SVX,INTERNATIONAL,โลเร็ม อิปซัม,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-29,Aeropuerto de Sevilla,SVY,INTERNATIONAL,لوريم إيبسوم,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-30,Aeropuerto de Sevilla,SVZ,INTERNATIONAL,洛伦·伊普森,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-31,Aeropuerto de Sevilla,LOE,INTERNATIONAL,<marquee>Hacked</marquee>,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-32,Aeropuerto de Sevilla,LPO,INTERNATIONAL,<script>alert(‘Hacked!’);</script>,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-33,Aeropuerto de Sevilla,LPK,INTERNATIONAL, or 'A' = 'A ,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-34,Aeropuerto de Sevilla,LDE,INTERNATIONAL,Sevilla,L,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-35,Aeropuerto de Sevilla,WER,INTERNATIONAL,Sevilla,Lo,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-36,Aeropuerto de Sevilla,KGT,INTERNATIONAL,Sevilla,"Lorem ipsum dolor sit amet, consectetur adipiscin",https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-37,Aeropuerto de Sevilla,OIF,INTERNATIONAL,Sevilla,"Lorem ipsum dolor sit amet, consectetur adipiscing",https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-38,Aeropuerto de Sevilla,NRO,INTERNATIONAL,Sevilla,4Ciudad fícìcïa,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-39,Aeropuerto de Sevilla,AOQ,INTERNATIONAL,Sevilla,Málaga,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-40,Aeropuerto de Sevilla,NXJ,INTERNATIONAL,Sevilla,โลเร็ม อิปซัม,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-41,Aeropuerto de Sevilla,EFT,INTERNATIONAL,Sevilla,لوريم إيبسوم,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-42,Aeropuerto de Sevilla,ZXC,INTERNATIONAL,Sevilla,洛伦·伊普森,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-43,Aeropuerto de Sevilla,SDF,INTERNATIONAL,Sevilla,<marquee>Hacked</marquee>,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-44,Aeropuerto de Sevilla,VBN,INTERNATIONAL,Sevilla,<script>alert(‘Hacked!’);</script>,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-45,Aeropuerto de Sevilla,ERT,INTERNATIONAL,Sevilla, or 'A' = 'A ,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-46,Aeropuerto de Sevilla,QWE,INTERNATIONAL,Sevilla,España,ftp://a,acme@lorem-ipsum.org,913211000
+airport-47,Aeropuerto de Sevilla,RTY,INTERNATIONAL,Sevilla,España,ftp://a.b,acme@lorem-ipsum.org,913211000
+airport-48,Aeropuerto de Sevilla,POI,INTERNATIONAL,Sevilla,España,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",acme@lorem-ipsum.org,913211000
+airport-49,Aeropuerto de Sevilla,LKJ,INTERNATIONAL,Sevilla,España,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",acme@lorem-ipsum.org,913211000
+airport-50,Aeropuerto de Sevilla,QWF,INTERNATIONAL,Sevilla,España,https://www.lorem-ipsum.org,acme@lorem-ipsum.org,913211000
+airport-51,Aeropuerto de Sevilla,UYT,INTERNATIONAL,Sevilla,España,ftp://www.lorem-ipsum.org,acme@lorem-ipsum.org,913211000
+airport-52,Aeropuerto de Sevilla,NIY,INTERNATIONAL,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit.html,acme@lorem-ipsum.org,913211000
+airport-53,Aeropuerto de Sevilla,FVT,INTERNATIONAL,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit.html#dolor,acme@lorem-ipsum.org,913211000
+airport-54,Aeropuerto de Sevilla,EFW,INTERNATIONAL,Sevilla,España,http://example.org?a=1&b=2,acme@lorem-ipsum.org,913211000
+airport-55,Aeropuerto de Sevilla,CKI,INTERNATIONAL,Sevilla,España,http://example.org?,acme@lorem-ipsum.org,913211000
+airport-56,Aeropuerto de Sevilla,XAH,INTERNATIONAL,Sevilla,España,http://example.org?a,acme@lorem-ipsum.org,913211000
+airport-57,Aeropuerto de Sevilla,MUF,INTERNATIONAL,Sevilla,España,http://example.org?a&b,acme@lorem-ipsum.org,913211000
+airport-58,Aeropuerto de Sevilla,EFO,INTERNATIONAL,Sevilla,España,http://example.org/,acme@lorem-ipsum.org,913211000
+airport-59,Aeropuerto de Sevilla,OJU,INTERNATIONAL,Sevilla,España,http://example.org/a,acme@lorem-ipsum.org,913211000
+airport-60,Aeropuerto de Sevilla,LMU,INTERNATIONAL,Sevilla,España,http://example.org/a/b,acme@lorem-ipsum.org,913211000
+airport-61,Aeropuerto de Sevilla,FEO,INTERNATIONAL,Sevilla,España,http://example.org/a/b?,acme@lorem-ipsum.org,913211000
+airport-62,Aeropuerto de Sevilla,RTG,INTERNATIONAL,Sevilla,España,http://example.org/a/b?a&b,acme@lorem-ipsum.org,913211000
+airport-63,Aeropuerto de Sevilla,UHB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
+airport-64,Aeropuerto de Sevilla,EFB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme-password@lorem-ipsum.org,913211000
+airport-65,Aeropuerto de Sevilla,RGN,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,a@b.e,913211000
+airport-66,Aeropuerto de Sevilla,XDR,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,a@b.es,913211000
+airport-67,Aeropuerto de Sevilla,WDV,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,a@b.esx,913211000
+airport-68,Aeropuerto de Sevilla,PLM,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,913211000
+airport-69,Aeropuerto de Sevilla,OJB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,913211000
+airport-70,Aeropuerto de Sevilla,XDI,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,123456
+airport-71,Aeropuerto de Sevilla,ERO,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,2345678
+airport-72,Aeropuerto de Sevilla,XAA,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,123456789123456
+airport-73,Aeropuerto de Sevilla,XAB,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,12345678912345
+airport-74,Aeropuerto de Sevilla,XAC,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,9987654321
+airport-75,Aeropuerto de Sevilla,XAD,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,111111111
+airport-76,Aeropuerto de Sevilla,XAE,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,+000000
+airport-77,Aeropuerto de Sevilla,XAF,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,+123456789123456
+airport-78,Aeropuerto de Sevilla,XAG,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,+1234567890
+airport-79,Aeropuerto de Sevilla,XAX,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,+12345678909876
+airport-80,Aeropuerto de Sevilla,XAI,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,+9785326549
