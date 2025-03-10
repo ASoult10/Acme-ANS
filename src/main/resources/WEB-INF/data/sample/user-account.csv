@@ -16,3 +16,5 @@ user-account-technician-03,true,"UserIdentity{name: 'Rolo', surname: 'Villega', 
 user-account-customer-01,true,"UserIdentity{name: 'Pepito', surname: 'Pérez', email: 'elpp@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Manolito', surname: 'Suárez', email: 'mansua@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'Chine', surname: 'Nao Hüm', email: 'chinchanchunchin@acme.com'}",customer3,customer3
+user-account-administrator-01,true,"UserIdentity{name: 'Administrator1', surname: 'Acme', email: 'administrato1r@acme.com'}",administrator1,administrator1
+user-account-administrator-02,true,"UserIdentity{name: 'Administrator2', surname: 'Acme', email: 'administrator2@acme.com'}",administrator2,administrator2
