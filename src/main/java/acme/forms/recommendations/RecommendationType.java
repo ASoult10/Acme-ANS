@@ -2,5 +2,5 @@
 package acme.forms.recommendations;
 
 public enum RecommendationType {
-	EXPERIENCE, RESTAURANT, OTHER
+	EXPERIENCE, ACTIVITY, RESTAURANT, ACOMMODATION, OTHER
 }
