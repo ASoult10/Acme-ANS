@@ -1,10 +1,13 @@
 
 package acme.realms;
 
-import javax.persistence.Entity;
+import java.util.Date;
 
-import acme.client.components.basis.AbstractRole;
-import acme.client.components.datatypes.Moment;
+import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -16,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Passenger extends AbstractRole {
+public class Passenger extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -40,7 +43,10 @@ public class Passenger extends AbstractRole {
 	private String				passportNumber;
 
 	@Mandatory
-	private Moment				birthDate;
+	@Automapped
+	@Temporal(TemporalType.TIMESTAMP)
+	//@ValidMoment(past = true)
+	private Date				birthDate;
 
 	@Optional
 	@Automapped

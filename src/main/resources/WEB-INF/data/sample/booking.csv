@@ -1,0 +1,6 @@
+key,key:customer,seatNumber,locatorCode,purchaseMoment,travelClass,price,lastNibble
+booking-01,customer-01,1,XJ47KZ9T,2000/01/01 0:01,ECONOMY,EUR 500000.00,456
+booking-02,customer-02,A,9GHT67,2000/01/01 0:01,BUSINESS,EUR 500000.00,456
+booking-03,customer-01,A1,A2B3C4D5,2000/01/01 0:01,ECONOMY,EUR 500000.00,456
+booking-04,customer-02,A-1,Z89X7WQ,2000/01/01 0:01,BUSINESS,EUR 500000.00,456
+booking-05,customer-01,1A,LMN34PQR,2000/01/01 0:01,ECONOMY,EUR 500000.00,
