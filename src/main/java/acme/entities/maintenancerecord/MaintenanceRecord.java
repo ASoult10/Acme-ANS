@@ -46,7 +46,7 @@ public class MaintenanceRecord extends AbstractEntity {
 	@Mandatory
 	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date					inspectionDueDate;
+	private Date					nextInspectionDueDate;
 
 	@Mandatory
 	@ValidMoney
