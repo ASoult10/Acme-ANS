@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
-import acme.forms.CustomerDashboard;
+import acme.forms.customers.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiController
