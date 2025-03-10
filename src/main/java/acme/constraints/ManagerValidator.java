@@ -1,14 +1,12 @@
 
 package acme.constraints;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.principals.DefaultUserIdentity;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.realms.Manager;
 
 @Validator
@@ -33,11 +31,11 @@ public class ManagerValidator extends AbstractValidator<ValidManager, Manager> {
 		if (manager == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
+			// Comprobar que las dos primeras letras del número de identificación coinciden con las iniciales del gestor
 			DefaultUserIdentity identity = manager.getIdentity();
-			String iniciales = identity.getName().substring(0, 1) + Arrays.stream(identity.getSurname().split("\\s")).map(w -> w.substring(0, 1)).limit(2).collect(Collectors.joining()).toUpperCase();
-			String identifier = manager.getIdentifierNumber();
+			String iniciales = identity.getName().trim().substring(0, 1) + identity.getSurname().trim().substring(0, 1);
 
-			Boolean identificadorCorrecto = identifier.startsWith(iniciales) && identifier.length() == iniciales.length() + 6;
+			Boolean identificadorCorrecto = StringHelper.startsWith(manager.getIdentifierNumber(), iniciales, true);
 
 			super.state(context, identificadorCorrecto, "identifierNumber", "acme.validation.manager.wrong-initials.message");
 		}
