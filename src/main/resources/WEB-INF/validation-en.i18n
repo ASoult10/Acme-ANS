@@ -1,3 +1,7 @@
 # validation-en.i18n
 
 acme.validation.manager.wrong-initials.message = Wrong indentifier
+
+acme.validation.flight.overlapping-leg.message = There are overlapping legs
+
+acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be after scheduled departure
