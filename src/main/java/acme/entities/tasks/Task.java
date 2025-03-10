@@ -13,7 +13,11 @@ import acme.realms.Technician;
 
 public class Task extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@Valid
@@ -34,6 +38,8 @@ public class Task extends AbstractEntity {
 	@ValidNumber(min = 0, max = 1000)
 	@Automapped
 	private Integer				estimatedDuration;
+
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid

@@ -27,7 +27,11 @@ import lombok.Setter;
 @Setter
 public class MaintenanceRecord extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long		serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -53,6 +57,8 @@ public class MaintenanceRecord extends AbstractEntity {
 	@ValidString(min = 0, max = 255)
 	@Automapped
 	private String					notes;
+
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid
