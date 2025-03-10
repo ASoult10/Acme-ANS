@@ -12,6 +12,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Leg {
+public class Leg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
