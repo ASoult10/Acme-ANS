@@ -50,7 +50,6 @@ public class Service extends AbstractEntity {
 	private Integer				dWellTime;
 
 	@Optional
-	@Automapped
 	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
 	@Column(unique = true)
 	private String				promoteCode;
