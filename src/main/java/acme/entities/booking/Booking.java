@@ -4,6 +4,7 @@ package acme.entities.booking;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Moment;
@@ -14,7 +15,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
-import acme.entities.customer.Customer;
+import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,17 +32,12 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	@ValidString(min = 1, max = 50)
-	private String				name;
-
-	@Mandatory
-	@Automapped
 	@ManyToOne
 	private Customer			customer;
 
-	@Mandatory // TODO: Esto cómo va?
-	@Automapped
-	private Integer				seatNumber;
+	@Mandatory
+	@Optional
+	private String				seatNumber;
 
 	@Mandatory
 	@Automapped
@@ -56,6 +52,7 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
+	@Valid
 	private TravelClass			travelClass;
 
 	@Mandatory

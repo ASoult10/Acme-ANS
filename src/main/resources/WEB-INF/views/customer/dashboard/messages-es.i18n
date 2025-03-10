@@ -1,0 +1,26 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.dashboard.form.title = Customer Dashboard
+
+customer.dashboard.form.label.last-five-destinations = Últimos Cinco Destinos
+customer.dashboard.form.label.spent-money = Dinero Gastado en reservas durante el último año
+customer.dashboard.form.label.economy-bookings = Reservas en Clase Económica
+customer.dashboard.form.label.business-bookings = Reservas en Clase Ejecutiva
+customer.dashboard.form.label.booking-total-cost = Costo Total de las Reservas
+customer.dashboard.form.label.booking-average-cost = Costo Promedio de las Reservas
+customer.dashboard.form.label.booking-minimum-cost = Costo Mínimo de las Reservas
+customer.dashboard.form.label.booking-maximum-cost = Costo Máximo de las Reservas
+customer.dashboard.form.label.booking-deviation-cost = Desviación Estándar del Costo de las Reservas
+customer.dashboard.form.label.booking-total-passengers = Número Total de Pasajeros
+customer.dashboard.form.label.booking-average-passengers = Promedio de Pasajeros por Reserva
+customer.dashboard.form.label.booking-minimum-passengers = Mínimo de Pasajeros por Reserva
+customer.dashboard.form.label.booking-maximum-passengers = Máximo de Pasajeros por Reserva
+customer.dashboard.form.label.booking-deviation-passengers = Desviación Estándar de Pasajeros por Reserva

@@ -16,7 +16,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
-import acme.client.components.validation.ValidUrl;
+import acme.client.components.validation.ValidString;
 import acme.entities.aircrafts.Aircraft;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +30,7 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment(past = true)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIMESTAMP)//DATE TODO
 	private Date					moment;
 
 	@Mandatory
@@ -49,7 +49,7 @@ public class MaintenanceRecord extends AbstractEntity {
 	private Money					estimatedCost;
 
 	@Optional
-	@ValidUrl
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String					notes;
 

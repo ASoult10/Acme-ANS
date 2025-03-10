@@ -8,9 +8,9 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidUrl;
+import acme.client.components.validation.ValidString;
 import acme.entities.maintenancerecord.MaintenanceRecord;
-import acme.entities.technicians.Technician;
+import acme.realms.Technician;
 
 public class Task extends AbstractEntity {
 
@@ -22,7 +22,7 @@ public class Task extends AbstractEntity {
 	private TaskStatus			type;
 
 	@Mandatory
-	@ValidUrl
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
 
@@ -32,9 +32,9 @@ public class Task extends AbstractEntity {
 	private Integer				priority;
 
 	@Mandatory
-	@ValidNumber(min = 0)
+	@ValidNumber(min = 0, max = 1000)
 	@Automapped
-	private Double				estimatedDuration;
+	private Integer				estimatedDuration;
 
 	@Mandatory
 	@Valid

@@ -1,11 +1,11 @@
 
-package acme.entities.aircrafts;
+package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -17,38 +17,38 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Aircraft extends AbstractEntity {
+public class Technician extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				model;
-
-	@Mandatory
-	@ValidString(min = 1, max = 50)
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	private String				registrationNumber;
+	private String				licenseNumber;
 
 	@Mandatory
-	@ValidNumber(min = 1, max = 255)
+	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private Integer				capacity;
+	private String				phoneNumber;
 
 	@Mandatory
-	@ValidNumber(min = 2000, max = 50000)
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private Integer				cargoWeight;
+	private String				specialisation;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private AircraftStatus		status;
+	private Boolean				annualHealthTest;
+
+	@Mandatory
+	@ValidNumber(min = 0, max = 120)
+	@Automapped
+	private Integer				yearsOfExperience;
 
 	@Optional
 	@ValidString(min = 0, max = 255)
 	@Automapped
-	private String				details;
+	private String				certifications;
 
 }
