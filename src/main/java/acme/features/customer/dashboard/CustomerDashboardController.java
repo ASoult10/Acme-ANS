@@ -23,7 +23,7 @@ import acme.forms.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiController
-@RequestMapping("/customer/dashboard")
+@RequestMapping("Acme-ANS-D02/customer/dashboard/")
 public class CustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
 
 	// Internal state ---------------------------------------------------------
