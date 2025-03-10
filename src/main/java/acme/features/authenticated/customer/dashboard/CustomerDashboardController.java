@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.customer.dashboard;
+package acme.features.authenticated.customer.dashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -23,7 +23,7 @@ import acme.forms.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiController
-@RequestMapping("Acme-ANS-D02/customer/dashboard/")
+@RequestMapping("/customer/dashboard/")
 public class CustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
 
 	// Internal state ---------------------------------------------------------

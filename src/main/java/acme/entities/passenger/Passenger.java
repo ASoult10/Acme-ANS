@@ -1,5 +1,5 @@
 
-package acme.realms;
+package acme.entities.passenger;
 
 import java.util.Date;
 

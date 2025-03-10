@@ -1,11 +1,8 @@
 
-package acme.features.customer.dashboard;
-
-import java.util.List;
+package acme.features.authenticated.customer.dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -30,41 +27,25 @@ public class CustomerDashboardService extends AbstractGuiService<Customer, Custo
 
 	@Override
 	public void load() {
-		CustomerDashboard dashboard;
 		Integer userAccountId = this.getRequest().getPrincipal().getAccountId();
 
-		List<String> lastFiveDestinations;
-		Money spentMoney;
-		Integer economyBookings;
-		Integer businessBookings;
-		Money bookingTotalCost;
-		Money bookingAverageCost;
-		Money bookingMinimumCost;
-		Money bookingMaximumCost;
-		Money bookingDeviationCost;
-		Integer bookingTotalPassengers;
-		Double bookingAveragePassengers;
-		Integer bookingMinimumPassengers;
-		Integer bookingMaximumPassengers;
-		Double bookingDeviationPassengers;
+		CustomerDashboard dashboard = new CustomerDashboard();
 
-		//		lastFiveDestinations = this.repository.lastFiveDestinations(userAccountId);
-		//		spentMoney = this.repository.spentMoney(userAccountId);
-		//		economyBookings = this.repository.economyBookings(userAccountId);
-		//		businessBookings = this.repository.businessBookings(userAccountId);
-		//		bookingTotalCost = this.repository.bookingTotalCost(userAccountId);
-		//		bookingAverageCost = this.repository.bookingAverageCost(userAccountId);
-		//		bookingMinimumCost = this.repository.bookingMinimumCost(userAccountId);
-		//		bookingMaximumCost = this.repository.bookingMaximumCost(userAccountId);
-		//		bookingDeviationCost = this.repository.bookingDeviationCost(userAccountId);
-		//		bookingTotalPassengers = this.repository.bookingTotalPassengers(userAccountId);
-		//		bookingAveragePassengers = this.repository.bookingAveragePassengers(userAccountId);
-		//		bookingMinimumPassengers = this.repository.bookingMinimumPassengers(userAccountId);
-		//		bookingMaximumPassengers = this.repository.bookingMaximumPassengers(userAccountId);
-		//		bookingDeviationPassengers = this.repository.bookingDeviationPassengers(userAccountId);
-
-		dashboard = new CustomerDashboard();
-
+		//		List<String> lastFiveDestinations = this.repository.lastFiveDestinations(userAccountId);
+		//		Money spentMoney = this.repository.spentMoney(userAccountId);
+		//		Integer economyBookings = this.repository.economyBookings(userAccountId);
+		//		Integer businessBookings = this.repository.businessBookings(userAccountId);
+		//		Money bookingTotalCost = this.repository.bookingTotalCost(userAccountId);
+		//		Money bookingAverageCost = this.repository.bookingAverageCost(userAccountId);
+		//		Money bookingMinimumCost = this.repository.bookingMinimumCost(userAccountId);
+		//		Money bookingMaximumCost = this.repository.bookingMaximumCost(userAccountId);
+		//		Money bookingDeviationCost = this.repository.bookingDeviationCost(userAccountId);
+		//		Integer bookingTotalPassengers = this.repository.bookingTotalPassengers(userAccountId);
+		//		Double bookingAveragePassengers = this.repository.bookingAveragePassengers(userAccountId);
+		//		Integer bookingMinimumPassengers = this.repository.bookingMinimumPassengers(userAccountId);
+		//		Integer bookingMaximumPassengers = this.repository.bookingMaximumPassengers(userAccountId);
+		//		Double bookingDeviationPassengers = this.repository.bookingDeviationPassengers(userAccountId);
+		//
 		//		dashboard.setLastFiveDestinations(lastFiveDestinations);
 		//		dashboard.setSpentMoney(spentMoney);
 		//		dashboard.setEconomyBookings(economyBookings);

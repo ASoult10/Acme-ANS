@@ -36,16 +36,12 @@ public class Booking extends AbstractEntity {
 	//	@Automapped
 	//	@Valid
 	//	@ManyToOne
-	//	private String				a;
+	//	private Flight				flight;
 
 	@Mandatory
 	@Automapped
 	@ManyToOne
 	private Customer			customer;
-
-	@Mandatory
-	@Optional
-	private String				seatNumber;
 
 	@Mandatory
 	@Automapped
@@ -70,5 +66,6 @@ public class Booking extends AbstractEntity {
 
 	@Optional
 	@Automapped
+	@ValidString(min = 4, max = 4)
 	private String				lastNibble;
 }
