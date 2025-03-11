@@ -64,8 +64,7 @@ public class Booking extends AbstractEntity {
 	private Money				price;
 
 	@Optional
-	@ValidString(min = 4, max = 4)
-	//@ValidCreditCard // TODO: Patrón?
+	@ValidString(min = 4, max = 4, pattern = "[0-9]{4}")
 	@Automapped
 	private String				lastNibble;
 }
