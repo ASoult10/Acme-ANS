@@ -1,6 +1,6 @@
 
 package acme.entities.airlines;
 
-public enum Type {
+public enum AirlineType {
 	LUXURY, STANDARD, LOWCOST;
 }
