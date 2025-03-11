@@ -3,12 +3,18 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.entities.airlines.Airline;
+import acme.entities.flightCrewMembers.AvailabilityStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +30,6 @@ public class Member extends AbstractRole {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
-	@Automapped
 	@Column(unique = true)
 	private String				employeeCode;
 
@@ -34,27 +39,28 @@ public class Member extends AbstractRole {
 	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				languageSkills;
 
-	//@Mandatory
-	//@Valid
-	//@Automapped
-	//private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
+	@Mandatory
+	@Valid
+	@Automapped
+	private AvailabilityStatus	availabilityStatus;
 
 	//@Mandatory
-	//@Valid
-	//@Automapped
-	//private Airline							airline;
+	@Valid
+	@Automapped
+	private Airline				airline;
 
-	//@Mandatory
-	//@ValidMoney
-	//@Automapped
-	//private Money							salary;
+	@Mandatory
+	@ValidMoney(min = 0, max = 1000000)
+	@Automapped
+	private Money				salary;
 
 	@Optional
 	@Automapped
+	@ValidNumber(min = 0, max = 120)
 	private Integer				yearsOfExperience;
 
 	// Derived attributes -----------------------------------------------------
