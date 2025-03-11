@@ -11,38 +11,46 @@ technician-06,user-account-technician-01,CD000003,+1234567890,Robotics Engineeri
 
 # phoneNumber - variations
 technician-07,user-account-technician-01,AC123456,+34911234567,Robotics Engineering,true,8,Electrical Systems Specialist
-technician-08,user-account-technician-01,AD123456,+34876543210,Robotics Engineering,true,8,Electrical Systems Specialist
-technician-09,user-account-technician-01,AE123456,+34765432109,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-08,user-account-technician-01,AD123456,348765,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-09,user-account-technician-01,AE123456,3476543,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-10,user-account-technician-01,BED123456,34765432,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-11,user-account-technician-01,BER123456,347654321,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-12,user-account-technician-01,BEC123456,3476543210,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-13,user-account-technician-01,BET123456,34765432109,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-14,user-account-technician-01,BEL123456,347654321092,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-15,user-account-technician-01,BES123456,3476543210924,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-16,user-account-technician-01,BEP123456,34765432109246,Robotics Engineering,true,8,Electrical Systems Specialist
+technician-17,user-account-technician-01,BEQ123456,347654321092567,Robotics Engineering,true,8,Electrical Systems Specialist
 
 # specialisation - variations
-technician-10,user-account-technician-01,AF123456,+1234567890,L,true,8,Electrical Systems Specialist
-technician-11,user-account-technician-01,AG123456,+1234567890,Lo,true,8,Electrical Systems Specialist
-technician-12,user-account-technician-01,AY123456,+1234567890,Lorem ipsum dolor sit ame,true,8,Electrical Systems Specialist
-technician-13,user-account-technician-01,AKL123456,+1234567890,Lorem ipsum dolor sit amete consectetur adipiscin,true,8,Electrical Systems Specialist
-technician-14,user-account-technician-01,ABR123456,+1234567890,Lorem ipsum dolor sit amete consectetur adipiscing,true,8,Electrical Systems Specialist
-technician-15,user-account-technician-01,ABP123456,+1234567890,โลเร็ม อิปสัม,true,8,Electrical Systems Specialist
-technician-16,user-account-technician-01,ACO123456,+1234567890,لوريم إيبسوم,true,8,Electrical Systems Specialist
-technician-17,user-account-technician-01,GH123456,+1234567890,洛伦·伊普森,true,8,Electrical Systems Specialist
-technician-18,user-account-technician-01,GG123456,+1234567890,<marquee>Hacked</marquee>,true,8,Electrical Systems Specialist
-technician-19,user-account-technician-01,PT123456,+1234567890,<script>alert(‘Hacked!’);</script>,true,8,Electrical Systems Specialist
-technician-20,user-account-technician-01,PS123456,+1234567890,' or 'A' = 'A ,true,8,Electrical Systems Specialist
+technician-18,user-account-technician-01,AF123456,+1234567890,L,true,8,Electrical Systems Specialist
+technician-19,user-account-technician-01,AG123456,+1234567890,Lo,true,8,Electrical Systems Specialist
+technician-20,user-account-technician-01,AY123456,+1234567890,Lorem ipsum dolor sit ame,true,8,Electrical Systems Specialist
+technician-21,user-account-technician-01,AKL123456,+1234567890,Lorem ipsum dolor sit amete consectetur adipiscin,true,8,Electrical Systems Specialist
+technician-22,user-account-technician-01,ABR123456,+1234567890,Lorem ipsum dolor sit amete consectetur adipiscing,true,8,Electrical Systems Specialist
+technician-23,user-account-technician-01,ABP123456,+1234567890,โลเร็ม อิปสัม,true,8,Electrical Systems Specialist
+technician-24,user-account-technician-01,ACO123456,+1234567890,لوريم إيبسوم,true,8,Electrical Systems Specialist
+technician-25,user-account-technician-01,GH123456,+1234567890,洛伦·伊普森,true,8,Electrical Systems Specialist
+technician-26,user-account-technician-01,GG123456,+1234567890,<marquee>Hacked</marquee>,true,8,Electrical Systems Specialist
+technician-27,user-account-technician-01,PT123456,+1234567890,<script>alert(‘Hacked!’);</script>,true,8,Electrical Systems Specialist
+technician-28,user-account-technician-01,PS123456,+1234567890,' or 'A' = 'A ,true,8,Electrical Systems Specialist
 
 # yearsOfExperience - variations
-technician-21,user-account-technician-01,LT123456,+1234567890,Robotics Engineering,true,0,Electrical Systems Specialist
-technician-22,user-account-technician-01,LR123456,+1234567890,Robotics Engineering,true,1,Electrical Systems Specialist
-technician-23,user-account-technician-01,LQ123456,+1234567890,Robotics Engineering,true,60,Electrical Systems Specialist
-technician-24,user-account-technician-01,PTO123456,+1234567890,Robotics Engineering,true,119,Electrical Systems Specialist
-technician-25,user-account-technician-01,MRK123456,+1234567890,Robotics Engineering,true,120,Electrical Systems Specialist
+technician-29,user-account-technician-01,LT123456,+1234567890,Robotics Engineering,true,0,Electrical Systems Specialist
+technician-30,user-account-technician-01,LR123456,+1234567890,Robotics Engineering,true,1,Electrical Systems Specialist
+technician-31,user-account-technician-01,LQ123456,+1234567890,Robotics Engineering,true,60,Electrical Systems Specialist
+technician-32,user-account-technician-01,PTO123456,+1234567890,Robotics Engineering,true,119,Electrical Systems Specialist
+technician-33,user-account-technician-01,MRK123456,+1234567890,Robotics Engineering,true,120,Electrical Systems Specialist
 
 # certifications - variations
-technician-26,user-account-technician-01,MN123456,+1234567890,Robotics Engineering,true,8,
-technician-27,user-account-technician-01,PIT123456,+1234567890,Robotics Engineering,true,8,L
-technician-28,user-account-technician-01,LOC123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-technician-29,user-account-technician-01,SOT123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-technician-30,user-account-technician-01,RAS123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*
-technician-31,user-account-technician-01,PAL123456,+1234567890,Robotics Engineering,true,8,โลเร็ม อิปสัม
-technician-32,user-account-technician-01,MIA123456,+1234567890,Robotics Engineering,true,8,لوريم إيبسوم
-technician-33,user-account-technician-01,MU123456,+1234567890,Robotics Engineering,true,8,洛伦·伊普森
-technician-34,user-account-technician-01,BE123456,+1234567890,Robotics Engineering,true,8,<marquee>Hacked</marquee>
-technician-35,user-account-technician-01,CE123456,+1234567890,Robotics Engineering,true,8,<script>alert(‘Hacked!’);</script>
-technician-36,user-account-technician-01,EF123456,+1234567890,Robotics Engineering,true,8,' or 'A' = 'A 
+technician-34,user-account-technician-01,MN123456,+1234567890,Robotics Engineering,true,8,
+technician-35,user-account-technician-01,PIT123456,+1234567890,Robotics Engineering,true,8,L
+technician-36,user-account-technician-01,LOC123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+technician-37,user-account-technician-01,SOT123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+technician-38,user-account-technician-01,RAS123456,+1234567890,Robotics Engineering,true,8,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*
+technician-39,user-account-technician-01,PAL123456,+1234567890,Robotics Engineering,true,8,โลเร็ม อิปสัม
+technician-40,user-account-technician-01,MIA123456,+1234567890,Robotics Engineering,true,8,لوريم إيبسوم
+technician-41,user-account-technician-01,MU123456,+1234567890,Robotics Engineering,true,8,洛伦·伊普森
+technician-42,user-account-technician-01,BE123456,+1234567890,Robotics Engineering,true,8,<marquee>Hacked</marquee>
+technician-43,user-account-technician-01,CE123456,+1234567890,Robotics Engineering,true,8,<script>alert(‘Hacked!’);</script>
+technician-44,user-account-technician-01,EF123456,+1234567890,Robotics Engineering,true,8,' or 'A' = 'A 

@@ -9,7 +9,11 @@ import acme.client.components.datatypes.Money;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenancerecord.MaintenanceRecord;
 import acme.entities.maintenancerecord.MaintenanceRecordStatus;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TechnicianDashboard extends AbstractForm {
 
 	// Serialisation version --------------------------------------------------
