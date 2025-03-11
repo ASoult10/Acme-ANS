@@ -1,6 +1,6 @@
-key,name,key:airport,imageLink,dWellTime,promoteCode,moneyDiscounted
-service-01,Lorem ipsum dolor sit ame,airport-01,http://lorem.com/ipsum,50,ABCD-12,EUR 500000.00
-service-02,L,airport-01,ftp://a,0,WXYZ-34,EUR 0.00
-service-03,Lo,airport-01,ftp://a.b,1,QWER-56,EUR 0.01
-service-04,Lorem ipsum dolor sit amete consectetur adipiscin,airport-01,http://example.org?a&b,100,TYUI-78,EUR 999999.99
-service-05,Lorem ipsum dolor sit amete consectetur adipiscing,airport-01,http://example.org/a/b?a&b,99,MNBV-90,EUR 1000000.00
+key,name,imageLink,dWellTime,promoteCode,discount
+service-01,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,ABCD-12,0.00
+service-02,L,ftp://a,0,WXYZ-34,0.10
+service-03,Lo,ftp://a.b,1,QWER-56,100.00
+service-04,Lorem ipsum dolor sit amete consectetur adipiscin,http://example.org?a&b,100,TYUI-78,99.90
+service-05,Lorem ipsum dolor sit amete consectetur adipiscing,http://example.org/a/b?a&b,99,MNBV-90,50.50
