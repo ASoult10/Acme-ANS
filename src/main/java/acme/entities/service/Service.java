@@ -37,7 +37,7 @@ public class Service extends AbstractEntity {
 	private String				imageLink;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 100, fraction = 2) // TODO: 2 numeros decimales
+	@ValidNumber(min = 0, max = 100, fraction = 2)
 	@Automapped
 	private Double				dWellTime;
 
