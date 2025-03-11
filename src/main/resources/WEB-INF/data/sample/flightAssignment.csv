@@ -1,0 +1,33 @@
+key,duty,moment,assignmentStatus,remarks,key:member
+# base entity
+flight-01,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+
+# duty
+flight-02,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+flight-03,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+flight-04,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+
+# moment
+flight-05,PILOT,2000/01/01 00:00,CONFIRMED,Lorem,member-01
+flight-06,PILOT,2000/01/01 00:01,CONFIRMED,Lorem,member-01
+flight-07,PILOT,2024/12/31 23:59,CONFIRMED,Lorem,member-01
+flight-08,PILOT,2025/01/01 00:00,CONFIRMED,Lorem,member-01
+
+# assignment status
+flight-09,PILOT,2000/09/01 10:00,PENDING,Lorem,member-01
+flight-10,PILOT,2000/09/01 10:00,CANCELLED,Lorem,member-01
+
+# remarks
+flight-11,PILOT,2000/09/01 10:00,CONFIRMED,"",member-01
+flight-12,PILOT,2000/09/01 10:00,CONFIRMED,"L",member-01
+flight-13,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",member-01
+flight-14,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",member-01
+flight-15,PILOT,2000/09/01 10:00,CONFIRMED,"โลเร็ม อิปซัม",member-01
+flight-16,PILOT,2000/09/01 10:00,CONFIRMED,"لوريم إيبسوم",member-01
+flight-17,PILOT,2000/09/01 10:00,CONFIRMED,"洛伦·伊普森",member-01
+flight-18,PILOT,2000/09/01 10:00,CONFIRMED,"<marquee>Hacked</marquee>",member-01
+flight-19,PILOT,2000/09/01 10:00,CONFIRMED,"<script>alert(‘Hacked!’);</script>",member-01
+flight-20,PILOT,2000/09/01 10:00,CONFIRMED,"' or 'A' = 'A ",member-01
+
+# member
+flight-21,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-02

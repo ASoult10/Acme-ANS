@@ -1,0 +1,12 @@
+key,registrationMoment,typeOfIncident,description,severityLevel,key:flightAssignment
+log-01,2022/07/30 00:00,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,0,flight-01
+log-02,2022/07/29 23:59,L,L,5,flight-02
+log-03,2000/01/01 0:00,Lo,Lo,9,flight-03
+log-04,2000/01/01 0:01,"Lorem ipsum dolor sit amet, consectetur adipiscin","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",4,flight-04
+log-05,2020/07/19 05:20,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",10,flight-05
+log-06,2020/12/01 13:10,"โลเร็ม อิปซัม","โลเร็ม อิปซัม",6,flight-06
+log-07,2019/09/27 16:45,"لوريم إيبسوم","لوريم إيبسوم",7,flight-07
+log-08,2018/04/05 11:55,"洛伦·伊普森","洛伦·伊普森",9,flight-08
+log-09,2017/08/21 09:30,"<marquee>Hacked</marquee>","<marquee>Hacked</marquee>",5,flight-09
+log-10,2016/01/10 23:10,"<script>alert(‘Hacked!’);</script>","<script>alert(‘Hacked!’);</script>",10,flight-10
+log-11,2016/01/10 23:10,"' or 'A' = 'A","' or 'A' = 'A",10,flight-10

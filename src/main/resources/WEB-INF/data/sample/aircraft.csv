@@ -1,0 +1,7 @@
+key,model,registrationNumber,capacity,cargoWeight,status,details,key:airline
+aircraft-01,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,128,26000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,airline-01
+aircraft-02,L,L,1,2000,MAINTENANCE,L,airline-03
+aircraft-03,Lo,Lo,2,2001,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,airline-05
+aircraft-04,Lorem ipsum dolor sit amete consectetur adipiscin,Lorem ipsum dolor sit amete consectetur adipiscin,254,49999,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,airline-01
+aircraft-05,Lorem ipsum dolor sit amete consectetur adipiscing,Lorem ipsum dolor sit amete consectetur adipiscing,255,50000,ACTIVE,,airline-02
+aircraft-06,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,128,26000,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,airline-06

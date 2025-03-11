@@ -1,63 +1,56 @@
 
-package acme.entities.flightCrewMembers;
+package acme.realms;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.Valid;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractRole;
-import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidManager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class FlightCrewMembers extends AbstractRole {
+@ValidManager
+public class Manager extends AbstractRole {
+
 	// Serialisation version --------------------------------------------------
 
-	private static final long				serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
 	@Column(unique = true)
-	private String							employeeCode;
+	private String				identifierNumber;
 
 	@Mandatory
-	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
-	private String							phoneNumber;
+	private Integer				yearsOfExperience;
 
 	@Mandatory
-	@ValidString(max = 255)
-	@Automapped
-	private String							languageSkills;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
-
-	//@Mandatory
-	//@Valid
-	//@Automapped
-	//private Airline							airline;
-
-	@Mandatory
-	@ValidMoney
-	@Automapped
-	private Money							salary;
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				birthDate;
 
 	@Optional
+	@ValidUrl
 	@Automapped
-	private Integer							yearsOfExperience;
+	private String				picture;
 
 	// Derived attributes -----------------------------------------------------
 

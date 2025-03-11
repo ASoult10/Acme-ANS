@@ -1,0 +1,13 @@
+key,name,moment,subject,text,score,recommended
+review-01,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado la poca limpieza,9.00,true
+review-02,Lorem ipsum dolor sit ame,2000/01/01 0:00,Lorem ipsum dolor sit ame,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0.00,false
+review-03,L,2000/01/01 0:01,L,"L",0.01,true
+review-04,Lo,2022/07/29 23:59,Lo,Lo,9.99,true
+review-05,"Lorem ipsum dolor sit amet, consectetur adipiscin",2022/07/30 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscin","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",10.00,true
+review-06,"Lorem ipsum dolor sit amet, consectetur adipiscing",2000/09/01 10:00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",9.00,true
+review-07,"โลเร็ม อิปซัม",2000/09/01 10:00,"โลเร็ม อิปซัม","โลเร็ม อิปซัม",9.00,true
+review-08,لوريم إيبسوم,2000/09/01 10:00,"لوريم إيبسوم","لوريم إيبسوم",9.00,true
+review-09,"洛伦·伊普森",2000/09/01 10:00,"洛伦·伊普森","洛伦·伊普森",9.00,true
+review-10,"<marquee>Hacked</marquee>",2000/09/01 10:00,"<marquee>Hacked</marquee>","<marquee>Hacked</marquee>",9.00,true
+review-11,"<script>alert(‘Hacked!’);</script>",2000/09/01 10:00,"<script>alert(‘Hacked!’);</script>","<script>alert(‘Hacked!’);</script>",9.00,true
+review-12,"' or 'A' = 'A",2000/09/01 10:00,"' or 'A' = 'A","' or 'A' = 'A",9.00,true
