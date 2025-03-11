@@ -25,32 +25,32 @@ public class Customer extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$") // TODO: CustomValidator dos/tres primeros dígitos con iniciales
 	@Column(unique = true)
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	private String				identifier;
 
 	@Mandatory
-	@Automapped
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
-	private String				phoneNumber;
+	@Automapped
+	private String				customerPhoneNumber;
 
 	@Mandatory
-	@Automapped
 	@ValidString(min = 1, max = 255)
+	@Automapped
 	private String				physicalAddress;
 
 	@Mandatory
-	@Automapped
 	@ValidString(min = 1, max = 50)
+	@Automapped
 	private String				city;
 
 	@Mandatory
-	@Automapped
 	@ValidString(min = 1, max = 50)
+	@Automapped
 	private String				country;
 
 	@Optional
-	@Automapped
 	@ValidNumber(min = 0, max = 500000)
+	@Automapped
 	private Integer				points;
 }

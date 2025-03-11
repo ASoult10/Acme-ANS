@@ -35,12 +35,12 @@ public class Booking extends AbstractEntity {
 
 	//	@Mandatory
 	//	@Valid
-	//	@ManyToOne
+	//	@ManyToOne(optional = false)
 	//	private Flight				flight;
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Customer			customer;
 
 	@Mandatory
@@ -54,17 +54,17 @@ public class Booking extends AbstractEntity {
 	private Date				purchaseMoment;
 
 	@Mandatory
-	@Automapped
 	@Valid
+	@Automapped
 	private TravelClass			travelClass;
 
 	@Mandatory
+	@ValidMoney(min = 0)
 	@Automapped
-	@ValidMoney
 	private Money				price;
 
 	@Optional
+	@ValidString(min = 4, max = 4, pattern = "[0-9]{4}")
 	@Automapped
-	@ValidString(min = 4, max = 4)
 	private String				lastNibble;
 }
