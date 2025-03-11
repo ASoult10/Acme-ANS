@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -48,6 +50,7 @@ public class Airline extends AbstractEntity {
 	private Type				type;
 
 	@Mandatory
+	@Temporal(TemporalType.TIMESTAMP)
 	@ValidMoment(past = true)
 	@Automapped
 	private Date				foundationMoment;
