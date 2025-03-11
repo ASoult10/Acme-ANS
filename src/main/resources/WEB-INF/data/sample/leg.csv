@@ -1,0 +1,53 @@
+key,flight-number,scheduled-departure,scheduled-arrival,status,key:airline,key:flight,key:departure-airport,key:arrival-airport,key:aircraft
+
+# base entity
+leg-00,AAX1001,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+
+# flight-number - standard variations
+leg-01,AAX0000,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+leg-02,AAX0001,2000/02/01 11:01,2000/02/01 12:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+leg-03,AAX9998,2000/02/01 13:01,2000/02/01 14:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+leg-04,AAX9999,2000/02/01 14:01,2000/02/01 15:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+# flight-number - singular values
+leg-05,AAX3466,2000/02/01 12:01,2000/02/01 13:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+
+# scheduled-departure - standard variations
+leg-06,AAX1002,2000/01/01 0:00,2000/02/01 11:00,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+leg-07,AAX1003,2000/01/01 0:01,2000/02/01 11:00,ON_TIME,airline-00,flight-02,airport-00,airport-01,aircraft-01
+leg-08,AAX1004,2200/12/31 23:57,2200/12/31 23:58,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+leg-09,AAX1005,2200/12/31 23:58,2200/12/31 23:59,ON_TIME,airline-00,flight-01,airport-00,airport-01,aircraft-01
+# scheduled-departure - no singular values
+
+# scheduled-arrival - standard variations
+leg-11,AAX1006,2000/01/01 0:00,2000/01/01 0:01,ON_TIME,airline-01,flight-03,airport-00,airport-01,aircraft-01
+leg-12,AAX1007,2000/01/01 0:02,2000/02/01 0:03,ON_TIME,airline-01,flight-01,airport-00,airport-01,aircraft-01
+leg-13,AAX1008,2000/02/01 10:00,2200/12/31 23:58,ON_TIME,airline-01,flight-01,airport-00,airport-01,aircraft-01
+leg-14,AAX1009,2000/02/01 10:00,2200/12/31 23:59,ON_TIME,airline-01,flight-02,airport-00,airport-01,aircraft-01
+# scheduled-arrival - no singular values
+
+# status - standard variations
+leg-15,AAX1010,2000/02/01 10:00,2000/02/01 11:00,DELAYED,airline-00,flight-04,airport-00,airport-01,aircraft-01
+leg-16,AAX1011,2000/02/01 10:00,2000/02/01 11:00,CANCELLED,airline-00,flight-05,airport-00,airport-01,aircraft-01
+leg-17,AAX1012,2000/02/01 10:00,2000/02/01 11:00,LANDED,airline-00,flight-06,airport-00,airport-01,aircraft-01
+# status - no singular values
+
+# airline - standard variations
+leg-18,ACX1001,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-02,flight-07,airport-00,airport-01,aircraft-01
+leg-19,ADX1001,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-03,flight-08,airport-00,airport-01,aircraft-01
+# airline - no singular values
+
+# flight - standard variations
+leg-20,AAX1013,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-22,airport-00,airport-01,aircraft-01
+# flight - no singular values
+
+# departure-airport - standard variations
+leg-21,AAX1014,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-08,airport-10,airport-00,aircraft-01
+# departure-airport - no singular values
+
+# arrival-airport - standard variations
+leg-22,AAX1015,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-09,airport-00,airport-11,aircraft-01
+# arrival-airport - no singular values
+
+# aircraft - standard variations
+leg-23,AAX1016,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,airline-00,flight-10,airport-00,airport-01,aircraft-11
+# aircraft - no singular values
