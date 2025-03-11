@@ -35,7 +35,7 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			String initials = identity.getName().trim().substring(0, 1) + identity.getSurname().trim().substring(0, 1);
 
 			Boolean sameInitials = StringHelper.startsWith(ag.getEmployeeCode(), initials, true);
-			super.state(context, sameInitials, "employeeCode", "acme.validation.assistanceagent.initials-dont-match.message");
+			super.state(context, sameInitials, "employeeCode", "acme.validation.identifier.notInitials.message");
 		}
 
 		result = !super.hasErrors(context);

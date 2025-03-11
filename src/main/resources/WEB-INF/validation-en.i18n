@@ -6,5 +6,3 @@ acme.validation.flight.overlapping-leg.message = There are overlapping legs
 
 acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be after scheduled departure
 acme.validation.leg.wrong-flight-number.message = Flight number does not start with the airline IATA code
-
-acme.validation.assistanceagent.initials-dont-match.message = The first two or three letters of your employee code don't correspond to your initials

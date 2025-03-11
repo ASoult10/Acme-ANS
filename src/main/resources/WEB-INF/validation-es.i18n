@@ -6,6 +6,3 @@ acme.validation.flight.overlapping-leg.message = Hay tramos de vuelos que se sol
 
 acme.validation.leg.wrong-scheduled-arrival.message = La fecha prevista de llegada debe ser posterior a la de salida
 acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienza con el código IATA de la aerolínea
-
-acme.validation.assistanceagent.initials-dont-match.message = Las primeras dos o tres letras de tu código de empleado no correponden a tus iniciales
-
