@@ -5,26 +5,30 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
-import acme.constraints.ValidManager;
+import acme.constraints.ValidAssistanceAgent;
+import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@ValidManager
-public class Manager extends AbstractRole {
+@ValidAssistanceAgent
+public class AssistanceAgent extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -33,27 +37,38 @@ public class Manager extends AbstractRole {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
+	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
 	@Column(unique = true)
-	private String				identifierNumber;
+	private String				employeeCode;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 120)
+	@ValidString(min = 1, max = 255, pattern = "^([A-Za-z ]+)(,[A-Za-z ]+)*$")
 	@Automapped
-	private Integer				yearsOfExperience;
+	private String				spokenLanguages;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				airline;
 
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				birthDate;
+	private Date				startingMoment;
+
+	@Optional
+	@ValidString(min = 0, max = 255)
+	@Automapped
+	private String				bio;
+
+	@Optional
+	@ValidMoney
+	@Automapped
+	private Money				salary;
 
 	@Optional
 	@ValidUrl
 	@Automapped
-	private String				picture;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	private String				photoLink;
 
 }
