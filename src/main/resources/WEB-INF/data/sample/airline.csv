@@ -1,44 +1,58 @@
 ﻿key,name,IATA,website,type,foundationMoment,email,phoneNumber
+# base entity
 airline-00,American Airlines,AAX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,"2012/07/02 00:00",acme@lorem-ipsum.org,913211000
+# name - standard variations
 airline-01,A,ABX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-02,Am,ACX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-03,The attribute name must be exactly fifty charac,ADX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-04,The attribute name must be exactly fifty chara,AFX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-05,Qatar Airways,QRX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-06,Qatar Airways,AAA,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-07,Qatar Airways,ZZZ,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-08,Tukish Airlines,TKX,http://lorem.com/ipsum,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-09,Tukish Airlines,TAX,ftp://a.b,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-10,Tukish Airlines,TBX,https://www.lorem-ipsum.org,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-11,Tukish Airlines,TCX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-12,Tukish Airlines,TDX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-13,Tukish Airlines,TEX,http://www.lorem-ipsum.org/dolor/sit.html,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-14,Tukish Airlines,TFX,http://example.org/a/b?,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-15,Turkish Airlines,TGX,https://www.turkishairlines.com/,LUXURY,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-16,Turkish Airlines,THX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-17,Turkish Airlines,TIX,https://www.turkishairlines.com/,LOWCOST,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-18,Turkish Airlines,TJX,https://www.turkishairlines.com/,STANDARD,2000/01/01  00:00,acme@lorem-ipsum.org,913211000
-airline-19,Turkish Airlines,TLX,https://www.turkishairlines.com/,STANDARD,2022/07/29  23:59,acme@lorem-ipsum.org,913211000
-airline-20,Turkish Airlines,TMX,https://www.turkishairlines.com/,STANDARD,2022/07/29  23:58,acme@lorem-ipsum.org,913211000
-airline-21,Turkish Airlines,TNX,https://www.turkishairlines.com/,STANDARD,2000/01/01  00:01,acme@lorem-ipsum.org,913211000
-airline-22,Turkish Airlines,TOX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-23,Turkish Airlines,TPX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-24,Turkish Airlines,TQX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme-password@lorem-ipsum.org,913211000
-airline-25,Turkish Airlines,TRX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.e,913211000
-airline-26,Turkish Airlines,TSX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.es,913211000
-airline-27,Turkish Airlines,TTX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.esx,913211000
-airline-28,Turkish Airlines,TUX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,913211000
-airline-29,Turkish Airlines,TVX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,913211000
-airline-30,Turkish Airlines,TWX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,123456
-airline-31,Turkish Airlines,TXX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,2345678
-airline-32,Turkish Airlines,TZX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,123456789123456
-airline-33,Turkish Airlines,TKA,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,12345678912345
-airline-34,Turkish Airlines,TKB,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,9987654321
-airline-35,Turkish Airlines,TKC,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,111111111
-airline-36,Turkish Airlines,TKD,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+000000
-airline-37,Turkish Airlines,TKE,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+123456789123456
-airline-38,Turkish Airlines,TKF,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+1234567890
-airline-39,Turkish Airlines,TKG,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+12345678909876
-airline-40,Turkish Airlines,TKH,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+9785326549
-airline-41,Turkish Airlines,TKI,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,null
-airline-42,Turkish Airlines,TKJ,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,null,913211000
+airline-05,โลเร็ม อิปซัม,AFA,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-06,لوريم إيبسوم,AFB,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-07,洛伦·伊普森,AFC,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-08,<marquee>Hacked</marquee>,AFD,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-09,<script>alert(‘Hacked!’);</script>,AFE,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-10,' or 'A' = 'A,AFF,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+# IATA - variations
+airline-11,American Airlines,QRX,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-12,American Airlines,AAA,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-13,American Airlines,ZZZ,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+# website - standard variations
+airline-14,Tukish Airlines,TKX,http://lorem.com/ipsum,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-15,Tukish Airlines,TAX,ftp://a.b,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-16,Tukish Airlines,TBX,https://www.lorem-ipsum.org,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-17,Tukish Airlines,TCX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-18,Tukish Airlines,TDX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-19,Tukish Airlines,TEX,http://www.lorem-ipsum.org/dolor/sit.html,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-20,Tukish Airlines,TFX,http://example.org/a/b?,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+# type - standard variations
+airline-21,Turkish Airlines,TGX,https://www.turkishairlines.com/,LUXURY,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-22,Turkish Airlines,THX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-23,Turkish Airlines,TIX,https://www.turkishairlines.com/,LOWCOST,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+# foundationMoment - standard variations
+airline-24,Turkish Airlines,TJX,https://www.turkishairlines.com/,STANDARD,2000/01/01  00:00,acme@lorem-ipsum.org,913211000
+airline-25,Turkish Airlines,TLX,https://www.turkishairlines.com/,STANDARD,2024/12/31  23:59,acme@lorem-ipsum.org,913211000
+airline-26,Turkish Airlines,TMX,https://www.turkishairlines.com/,STANDARD,2025/01/01  00:00,acme@lorem-ipsum.org,913211000
+airline-27,Turkish Airlines,TNX,https://www.turkishairlines.com/,STANDARD,2000/01/01  00:01,acme@lorem-ipsum.org,913211000
+# email - standard variations
+airline-28,Turkish Airlines,TOX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-29,Turkish Airlines,TQX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme-password@lorem-ipsum.org,913211000
+airline-30,Turkish Airlines,TRX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.e,913211000
+airline-31,Turkish Airlines,TSX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.es,913211000
+airline-32,Turkish Airlines,TTX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,a@b.esx,913211000
+airline-33,Turkish Airlines,TUX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,913211000
+airline-34,Turkish Airlines,TVX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,913211000
+# phoneNumber - standard variations
+airline-35,Turkish Airlines,TWX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,123456
+airline-36,Turkish Airlines,TXX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,2345678
+airline-37,Turkish Airlines,TZX,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,123456789123456
+airline-38,Turkish Airlines,TKA,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,12345678912345
+airline-39,Turkish Airlines,TKB,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,9987654321
+airline-40,Turkish Airlines,TKC,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,111111111
+airline-41,Turkish Airlines,TKD,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+000000
+airline-42,Turkish Airlines,TKE,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+123456789123456
+airline-43,Turkish Airlines,TKF,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+1234567890
+airline-44,Turkish Airlines,TKG,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+12345678909876
+airline-45,Turkish Airlines,TKH,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,+9785326549
+# optional values
+airline-46,Turkish Airlines,TKI,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,null
+airline-47,Turkish Airlines,TKJ,https://www.turkishairlines.com/,STANDARD,2012/07/02 00:00,null,913211000
