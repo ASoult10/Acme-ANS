@@ -1,8 +1,12 @@
 # validation-es.i18n
 
-acme.validation.manager.wrong-initials.message = El identificador no corresponde con sus iniciales
+acme.validation.flight.overlapping-leg.message = Hay tramos superpuestos
 
-acme.validation.flight.overlapping-leg.message = Hay tramos de vuelos que se solapan
-
-acme.validation.leg.wrong-scheduled-arrival.message = La fecha prevista de llegada debe ser posterior a la de salida
+acme.validation.leg.wrong-scheduled-arrival.message = La llegada programada debe ser posterior a la salida programada
 acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienza con el código IATA de la aerolínea
+
+acme.validation.identifier.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón
+acme.validation.identifier.notInitials.message = El identificador debe comenzar con las iniciales del usuario
+acme.validation.userAcount.null.message = La cuenta de usuario y la identidad no deben ser nulas
+acme.validation.userName.null.message = El nombre del usuario debe ser rellenado
+acme.validation.userSurname.null.message = El apellido del usuario debe ser rellenado
