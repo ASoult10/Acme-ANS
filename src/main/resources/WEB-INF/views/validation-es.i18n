@@ -15,3 +15,6 @@ acme.validation.userSurname.null.message = El apellido del usuario debe ser rell
 
 acme.validation.promoteCode.notPattern.message = El código de promoción debe seguir el patrón
 acme.validation.promoteCode.notCurrentYear.message = El código de promoción debe incluir el año actual
+
+
+acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
