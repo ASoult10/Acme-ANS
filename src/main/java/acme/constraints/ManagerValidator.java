@@ -37,7 +37,7 @@ public class ManagerValidator extends AbstractValidator<ValidManager, Manager> {
 
 			Boolean identificadorCorrecto = StringHelper.startsWith(manager.getIdentifierNumber(), iniciales, true);
 
-			super.state(context, identificadorCorrecto, "identifierNumber", "acme.validation.identifier.notInitials.message");
+			super.state(context, identificadorCorrecto, "identifierNumber", "acme.validation.manager.wrong-initials.message");
 		}
 
 		result = !super.hasErrors(context);
