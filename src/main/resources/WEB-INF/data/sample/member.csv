@@ -1,6 +1,11 @@
-key,key:userAccount,employeeCode,phoneNumber,languageSkills,yearsOfExperience,flightCrewAvailabilityStatus,salary
+key,key:userAccount,employeeCode,phoneNumber,languageSkills,yearsOfExperience,availabilityStatus,salary
 member-01,user-account-member-01,AB123456,123456,poco nivel,1,AVAILABLE,EUR 5000.00
-member-02,user-account-member-02,XYZ987654,+123456789012345,nivel alto de ingles,10,ON_VACATION,EUR 5000.00
-member-03,user-account-member-03,CD456789,9876543210,sin idioma,9,AVAILABLE,EUR 5000.00
-member-04,user-account-member-04,EFG123789,9876543210,sin idioma,9,ON_LEAVE,EUR 5000.00
-member-05,user-account-member-05,LM789012,9876543210,sin idioma,9,ON_VACATION,EUR 5000.00
+member-02,user-account-member-02,XYZ987654,+123456789012345,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",10,ON_VACATION,EUR 5000.00
+member-03,user-account-member-03,CD456789,9876543210,h,0,AVAILABLE,EUR 5000.00
+member-04,user-account-member-04,EFG123789,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-05,user-account-member-01,GH112233,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-06,user-account-member-01,IJ445566,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-07,user-account-member-01,KL778899,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-08,user-account-member-01,MN223344,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-09,user-account-member-01,OP556677,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+member-10,user-account-member-01,QR889900,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00

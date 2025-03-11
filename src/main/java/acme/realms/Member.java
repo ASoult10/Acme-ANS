@@ -4,6 +4,8 @@ package acme.realms;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Money;
@@ -12,7 +14,8 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
-import acme.entities.flightCrewMembers.FlightCrewAvailabilityStatus;
+import acme.entities.airlines.Airline;
+import acme.entities.flightCrewMembers.AvailabilityStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,43 +25,45 @@ import lombok.Setter;
 public class Member extends AbstractRole {
 	// Serialisation version --------------------------------------------------
 
-	private static final long				serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	private String							employeeCode;
+	private String				employeeCode;
 
 	@Mandatory
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
 	@Automapped
-	private String							phoneNumber;
+	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
-	private String							languageSkills;
+	private String				languageSkills;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private FlightCrewAvailabilityStatus	flightCrewAvailabilityStatus;
+	private AvailabilityStatus	availabilityStatus;
 
 	//@Mandatory
-	//@Valid
-	//@Automapped
-	//private Airline							airline;
+	@Valid
+	@Automapped
+	private Airline				airline;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
-	private Money							salary;
+	private Money				salary;
 
 	@Optional
 	@Automapped
-	private Integer							yearsOfExperience;
+	@Min(0)
+	@Max(120)
+	private Integer				yearsOfExperience;
 
 	// Derived attributes -----------------------------------------------------
 
