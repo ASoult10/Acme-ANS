@@ -4,7 +4,6 @@ package acme.constraints;
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.principals.DefaultUserIdentity;
-import acme.client.components.principals.UserAccount;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.realms.Customer;
@@ -28,27 +27,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 			return false;
 		}
 
-		UserAccount userAccount = customer.getUserAccount();
-
-		if (userAccount == null || userAccount.getIdentity() == null) {
-			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.userAcount.null.message").addConstraintViolation();
-			return false;
-		}
-
-		if (userAccount.getIdentity().getName() == null || userAccount.getIdentity().getName().isBlank()) {
-			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.userName.null.message").addConstraintViolation();
-			return false;
-		}
-
-		if (userAccount.getIdentity().getSurname() == null || userAccount.getIdentity().getSurname().isBlank()) {
-			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.userSurname.null.message").addConstraintViolation();
-			return false;
-		}
-
-		DefaultUserIdentity identity = userAccount.getIdentity();
+		DefaultUserIdentity identity = customer.getUserAccount().getIdentity();
 
 		String inicialNombre = String.valueOf(identity.getName().charAt(0)).toUpperCase();
 		String inicial1Apellido = String.valueOf(identity.getSurname().charAt(0)).toUpperCase();
