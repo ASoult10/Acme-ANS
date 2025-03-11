@@ -1,11 +1,39 @@
 key,key:userAccount,employeeCode,phoneNumber,languageSkills,yearsOfExperience,availabilityStatus,salary
-member-01,user-account-member-01,AB123456,123456,poco nivel,1,AVAILABLE,EUR 5000.00
-member-02,user-account-member-02,XYZ987654,+123456789012345,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",10,ON_VACATION,EUR 5000.00
-member-03,user-account-member-03,CD456789,9876543210,h,0,AVAILABLE,EUR 5000.00
-member-04,user-account-member-04,EFG123789,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-05,user-account-member-01,GH112233,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-06,user-account-member-01,IJ445566,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-07,user-account-member-01,KL778899,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-08,user-account-member-01,MN223344,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-09,user-account-member-01,OP556677,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
-member-10,user-account-member-01,QR889900,9876543210,sin idioma,120,ON_LEAVE,EUR 5000.00
+# base entity
+member-00,user-account-member-01,XY123456,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+#  userAccount - standard variations
+member-01,user-account-member-01,GH789012,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+member-02,user-account-member-02,JK345678,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+member-03,user-account-member-03,LM901234,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+member-04,user-account-member-04,NP567890,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+# employee code - no singular values
+# phoneNumber
+member-05,user-account-member-01,QW234567,123456,poco nivel,5,AVAILABLE,EUR 5000.00
+member-06,user-account-member-01,ER890123,+123456789012345,poco nivel,5,AVAILABLE,EUR 5000.00
+# language skills
+member-07,user-account-member-01,TY456789,9876543210,L,5,AVAILABLE,EUR 5000.00
+member-08,user-account-member-01,UI012345,9876543210,Lo,5,AVAILABLE,EUR 5000.00
+member-09,user-account-member-01,OP678901,9876543210,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5,AVAILABLE,EUR 5000.00
+member-10,user-account-member-01,AS345678,9876543210,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,AVAILABLE,EUR 5000.00
+member-11,user-account-member-01,DZ901234,9876543210,โลเร็ม อิปซัม,5,AVAILABLE,EUR 5000.00
+member-12,user-account-member-01,XC567890,9876543210,لوريم إيبسوم,5,AVAILABLE,EUR 5000.00
+member-13,user-account-member-01,VN234567,9876543210,洛伦·伊普森,5,AVAILABLE,EUR 5000.00
+member-14,user-account-member-01,BM890123,9876543210,<marquee>Hacked</marquee>,5,AVAILABLE,EUR 5000.00
+member-15,user-account-member-01,NM456789,9876543210,<script>alert(‘Hacked!’);</script>,5,AVAILABLE,EUR 5000.00
+member-16,user-account-member-01,ZQ012345,9876543210,' or 'A' = 'A,5,AVAILABLE,EUR 5000.00
+
+# years of experience
+member-17,user-account-member-01,PL678901,9876543210,poco nivel,0,AVAILABLE,EUR 5000.00
+member-18,user-account-member-01,WA345678,9876543210,poco nivel,1,AVAILABLE,EUR 5000.00
+member-19,user-account-member-01,SD901234,9876543210,poco nivel,119,AVAILABLE,EUR 5000.00
+member-20,user-account-member-01,RF567890,9876543210,poco nivel,120,AVAILABLE,EUR 5000.00
+
+# availability status
+member-21,user-account-member-01,TG234567,9876543210,poco nivel,5,ON_VACATION,EUR 5000.00
+member-22,user-account-member-01,YH890123,9876543210,poco nivel,5,ON_LEAVE,EUR 5000.00
+
+# salary
+member-23,user-account-member-01,JK456789,9876543210,poco nivel,5,AVAILABLE,EUR 0.00
+member-24,user-account-member-01,QL012345,9876543210,poco nivel,5,AVAILABLE,EUR 0.01
+member-25,user-account-member-01,WX678901,9876543210,poco nivel,5,AVAILABLE,EUR 999999.99
+member-26,user-account-member-01,ER345678,9876543210,poco nivel,5,AVAILABLE,EUR 1000000.00
