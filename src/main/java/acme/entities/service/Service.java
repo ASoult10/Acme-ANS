@@ -12,6 +12,7 @@ import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidPromoteCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,7 +43,7 @@ public class Service extends AbstractEntity {
 	private Double				dWellTime;
 
 	@Optional
-	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$") // TODO: Custom validator (servicio) para dos últimos dígitos --> año
+	@ValidPromoteCode
 	@Column(unique = true)
 	private String				promoteCode;
 
