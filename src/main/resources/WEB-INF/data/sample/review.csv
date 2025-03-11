@@ -1,13 +1,51 @@
 key,name,moment,subject,text,score,recommended
-review-01,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado la poca limpieza,9.00,true
-review-02,Lorem ipsum dolor sit ame,2000/01/01 0:00,Lorem ipsum dolor sit ame,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0.00,false
-review-03,L,2000/01/01 0:01,L,"L",0.01,true
-review-04,Lo,2022/07/29 23:59,Lo,Lo,9.99,true
-review-05,"Lorem ipsum dolor sit amet, consectetur adipiscin",2022/07/30 0:00,"Lorem ipsum dolor sit amet, consectetur adipiscin","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",10.00,true
-review-06,"Lorem ipsum dolor sit amet, consectetur adipiscing",2000/09/01 10:00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",9.00,true
-review-07,"โลเร็ม อิปซัม",2000/09/01 10:00,"โลเร็ม อิปซัม","โลเร็ม อิปซัม",9.00,true
-review-08,لوريم إيبسوم,2000/09/01 10:00,"لوريم إيبسوم","لوريم إيبسوم",9.00,true
-review-09,"洛伦·伊普森",2000/09/01 10:00,"洛伦·伊普森","洛伦·伊普森",9.00,true
-review-10,"<marquee>Hacked</marquee>",2000/09/01 10:00,"<marquee>Hacked</marquee>","<marquee>Hacked</marquee>",9.00,true
-review-11,"<script>alert(‘Hacked!’);</script>",2000/09/01 10:00,"<script>alert(‘Hacked!’);</script>","<script>alert(‘Hacked!’);</script>",9.00,true
-review-12,"' or 'A' = 'A",2000/09/01 10:00,"' or 'A' = 'A","' or 'A' = 'A",9.00,true
+# base entity
+review-01,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+# name
+review-02,L,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-03,Lo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-04,"Lorem ipsum dolor sit amet, consectetur adipiscin",2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-05,"Lorem ipsum dolor sit amet, consectetur adipiscing",2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-06,โลเร็ม อิปซัม,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-07,لوريم إيبسوم,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-08,洛伦·伊普森,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-09,<marquee>Hacked</marquee>,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-10,<script>alert(‘Hacked!’);</script>,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-11,' or 'A' = 'A,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+# moment
+review-12,Ricardo,2000/01/01 0:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-13,Ricardo,2000/01/01 0:01,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-14,Ricardo,2024/12/31 23:59,La limpieza es destacable,Me ha decepcionado,7.00,true
+review-15,Ricardo,2025/01/01 00:00,La limpieza es destacable,Me ha decepcionado,7.00,true
+# subject
+review-16,Ricardo,2000/09/01 10:00,L,Me ha decepcionado,7.00,true
+review-17,Ricardo,2000/09/01 10:00,Lo,Me ha decepcionado,7.00,true
+review-18,Ricardo,2000/09/01 10:00,"Lorem ipsum dolor sit amet, consectetur adipiscin",Me ha decepcionado,7.00,true
+review-19,Ricardo,2000/09/01 10:00,"Lorem ipsum dolor sit amet, consectetur adipiscing",Me ha decepcionado,7.00,true
+review-20,Ricardo,2000/09/01 10:00,โลเร็ม อิปซัม,Me ha decepcionado,7.00,true
+review-21,Ricardo,2000/09/01 10:00,لوريم إيبسوم,Me ha decepcionado,7.00,true
+review-22,Ricardo,2000/09/01 10:00,洛伦·伊普森,Me ha decepcionado,7.00,true
+review-23,Ricardo,2000/09/01 10:00,<marquee>Hacked</marquee>,Me ha decepcionado,7.00,true
+review-24,Ricardo,2000/09/01 10:00,<script>alert(‘Hacked!’);</script>,Me ha decepcionado,7.00,true
+review-25,Ricardo,2000/09/01 10:00,' or 'A' = 'A,Me ha decepcionado,7.00,true
+
+# text
+review-26,Ricardo,2000/09/01 10:00,La limpieza es destacable,"L",7.00,true
+review-27,Ricardo,2000/09/01 10:00,La limpieza es destacable,"Lo",7.00,true
+review-28,Ricardo,2000/09/01 10:00,La limpieza es destacable,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",7.00,true
+review-29,Ricardo,2000/09/01 10:00,La limpieza es destacable,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",7.00,true
+review-30,Ricardo,2000/09/01 10:00,La limpieza es destacable,"โลเร็ม อิปซัม",7.00,true
+review-31,Ricardo,2000/09/01 10:00,La limpieza es destacable,"لوريم إيبسوم",7.00,true
+review-32,Ricardo,2000/09/01 10:00,La limpieza es destacable,"洛伦·伊普森",7.00,true
+review-33,Ricardo,2000/09/01 10:00,La limpieza es destacable,"<marquee>Hacked</marquee>",7.00,true
+review-34,Ricardo,2000/09/01 10:00,La limpieza es destacable,"<script>alert(‘Hacked!’);</script>",7.00,true
+review-35,Ricardo,2000/09/01 10:00,La limpieza es destacable,"' or 'A' = 'A ",7.00,true
+
+# score
+review-36,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,0.00,true
+review-37,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,0.01,true
+review-38,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,9.99,true
+review-39,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,10.00,true
+
+# recommended
+review-40,Ricardo,2000/09/01 10:00,La limpieza es destacable,Me ha decepcionado,7.00,false
