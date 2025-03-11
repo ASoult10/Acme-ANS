@@ -134,6 +134,6 @@
 
 <div>  
     <canvas id="canvas"></canvas>  
-</div>  
+</div>
 
 <acme:return/>

@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.customer.dashboard;
+package acme.features.authenticated.customer.dashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
-import acme.forms.CustomerDashboard;
+import acme.forms.customers.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiController
-@RequestMapping("/customer/dashboard")
+@RequestMapping("/customer/dashboard/")
 public class CustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
 
 	// Internal state ---------------------------------------------------------
