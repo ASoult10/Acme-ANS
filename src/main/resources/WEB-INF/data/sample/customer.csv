@@ -1,3 +1,62 @@
 key,key:userAccount,identifier,customerPhoneNumber,physicalAddress,city,country,points
+# base entities
 customer-01,user-account-customer-01,PP123456,+1234567890,c/ Penélope Cruz,Madrid,España,0
 customer-02,user-account-customer-02,MS654321,987654321,Calle del Sol 123 Colonia Centro Ciudad de México CDMX 06000,Chiclana,México,499999
+# identifier - variations
+customer-03,user-account-customer-01,PP000001,1234567890,Calle Ficticia 125,Ciudad Ficticia,País Ficticio,100
+customer-04,user-account-customer-01,PP000002,1234567890,Calle Ficticia 126,Ciudad Ficticia,País Ficticio,100
+customer-05,user-account-customer-01,PP000003,1234567890,Calle Ficticia 127,Ciudad Ficticia,País Ficticio,100
+customer-06,user-account-customer-01,PP000004,1234567890,Calle Ficticia 128,Ciudad Ficticia,País Ficticio,100
+customer-07,user-account-customer-01,PP000005,1234567890,Calle Ficticia 130,Ciudad Ficticia,País Ficticio,100
+customer-08,user-account-customer-01,PP000006,1234567890,Calle Ficticia 131,Ciudad Ficticia,País Ficticio,100
+customer-09,user-account-customer-01,PP000007,1234567890,Calle Ficticia 132,Ciudad Ficticia,País Ficticio,100
+customer-10,user-account-customer-01,PP000008,1234567890,Calle Ficticia 133,Ciudad Ficticia,País Ficticio,100
+customer-11,user-account-customer-01,PP000009,1234567890,Calle Ficticia 134,Ciudad Ficticia,País Ficticio,100
+# customerPhoneNumber - variations
+customer-12,user-account-customer-01,PP000010,+34911234567,Calle Ficticia 134,Ciudad Ficticia,País Ficticio,100
+customer-13,user-account-customer-01,PP000011,+34876543210,Calle Ficticia 135,Ciudad Ficticia,País Ficticio,100
+customer-14,user-account-customer-01,PP000012,+34987654321,Calle Ficticia 136,Ciudad Ficticia,País Ficticio,100
+customer-15,user-account-customer-01,PP000013,+34765432109,Calle Ficticia 137,Ciudad Ficticia,País Ficticio,100
+customer-16,user-account-customer-01,PP000014,+34923456789,Calle Ficticia 138,Ciudad Ficticia,País Ficticio,100
+# physicalAddress - variations
+customer-17,user-account-customer-01,PP000015,1234567890,L,Ciudad Ficticia,País Ficticio,100
+customer-18,user-account-customer-01,PP000016,1234567890,Lo,Ciudad Ficticia,País Ficticio,100
+customer-19,user-account-customer-01,PP000017,1234567890,Lorem,Ciudad Ficticia,País Ficticio,100
+customer-20,user-account-customer-01,PP000018,1234567890,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,Ciudad Ficticia,País Ficticio,100
+customer-21,user-account-customer-01,PP000019,1234567890,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,Ciudad Ficticia,País Ficticio,100
+customer-22,user-account-customer-01,PP000020,1234567890,โลเร็ม อิปซัม,Ciudad Ficticia,País Ficticio,100
+customer-23,user-account-customer-01,PP000021,1234567890,لوريم إيبسوم,Ciudad Ficticia,País Ficticio,100
+customer-24,user-account-customer-01,PP000022,1234567890,洛伦·伊普森,Ciudad Ficticia,País Ficticio,100
+customer-25,user-account-customer-01,PP000023,1234567890,<marquee>Hacked</marquee>,Ciudad Ficticia,País Ficticio,100
+customer-26,user-account-customer-01,PP000024,1234567890,<script>alert(‘Hacked!’);</script>,Ciudad Ficticia,País Ficticio,100
+customer-27,user-account-customer-01,PP000025,1234567890,' or 'A' = 'A,Ciudad Ficticia,País Ficticio,100
+# city - variations
+customer-28,user-account-customer-01,PP000026,1234567890,Calle Ficticia 132,L,Colombia,100
+customer-29,user-account-customer-01,PP000027,1234567890,Calle Ficticia 133,Lo,Colombia,100
+customer-30,user-account-customer-01,PP000028,1234567890,Calle Ficticia 134,Lorem,Colombia,100
+customer-31,user-account-customer-01,PP000029,1234567890,Calle Ficticia 135,Lorem ipsum dolor sit amete consectetur adipiscing,Colombia,100
+customer-32,user-account-customer-01,PP000030,1234567890,Calle Ficticia 136,Lorem ipsum dolor sit amete consectetur adipiscin,Colombia,100
+customer-33,user-account-customer-01,PP000031,1234567890,Calle Ficticia 137,โลเร็ม อิปซัม,Colombia,100
+customer-34,user-account-customer-01,PP000032,1234567890,Calle Ficticia 138,لوريم إيبسوم,Colombia,100
+customer-35,user-account-customer-01,PP000033,1234567890,Calle Ficticia 139,洛伦·伊普森,Colombia,100
+customer-36,user-account-customer-01,PP000034,1234567890,Calle Ficticia 140,<marquee>Hacked</marquee>,Colombia,100
+customer-37,user-account-customer-01,PP000035,1234567890,Calle Ficticia 141,<script>alert(‘Hacked!’);</script>,Colombia,100
+customer-38,user-account-customer-01,PP000036,1234567890,Calle Ficticia 142,' or 'A' = 'A,Colombia,100
+# country - variations
+customer-39,user-account-customer-01,PP000037,1234567890,Calle Ficticia 143,Medellín,L,100
+customer-40,user-account-customer-01,PP000038,1234567890,Calle Ficticia 144,Bogotá,Lo,100
+customer-41,user-account-customer-01,PP000039,1234567890,Calle Ficticia 145,Cali,Lorem,100
+customer-42,user-account-customer-01,PP000040,1234567890,Calle Ficticia 146,Cartagena,Lorem ipsum dolor sit amete consectetur adipiscing,100
+customer-43,user-account-customer-01,PP000041,1234567890,Calle Ficticia 147,Barranquilla,Lorem ipsum dolor sit amete consectetur adipiscin,100
+customer-44,user-account-customer-01,PP000042,1234567890,Calle Ficticia 148,Barranquilla,โลเร็ม อิปซัม,100
+customer-45,user-account-customer-01,PP000043,1234567890,Calle Ficticia 149,Barranquilla,لوريم إيبسوم,100
+customer-46,user-account-customer-01,PP000044,1234567890,Calle Ficticia 150,Barranquilla,洛伦·伊普森,100
+customer-47,user-account-customer-01,PP000045,1234567890,Calle Ficticia 151,Barranquilla,<marquee>Hacked</marquee>,100
+customer-48,user-account-customer-01,PP000046,1234567890,Calle Ficticia 152,Barranquilla,<script>alert(‘Hacked!’);</script>,100
+customer-49,user-account-customer-01,PP000047,1234567890,Calle Ficticia 153,Barranquilla,' or 'A' = 'A,100
+# points - variations
+customer-50,user-account-customer-01,PP000048,1234567890,Calle Ficticia 154,Medellín,Colombia,0
+customer-51,user-account-customer-01,PP000049,1234567890,Calle Ficticia 155,Bogotá,Colombia,150
+customer-52,user-account-customer-01,PP000050,1234567890,Calle Ficticia 156,Cali,Colombia,350
+customer-53,user-account-customer-01,PP000051,1234567890,Calle Ficticia 157,Cartagena,Colombia,49999
+customer-54,user-account-customer-01,PP000052,1234567890,Calle Ficticia 158,Barranquilla,Colombia,50000
