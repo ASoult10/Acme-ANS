@@ -1,6 +1,45 @@
 key,fullName,email,passportNumber,birthDate,specialNeeds
-passenger-01,L,passenger01@gmail.com,A1B2C3D4E,2000/01/01 0:01,Lorem ipsum dolor sit amete consectetur adipiscin
-passenger-02,Lo,passenger01@passengers.com,X7Y8Z9WQ,2000/01/01 0:01,Lorem ipsum dolor sit amete consectetur adipiscing
-passenger-03,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,passenger01@icloud.com,LMN456PQ,2000/01/01 0:01,L
-passenger-04,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,passenger01@yahoo.com,9GHT67KM,2000/01/01 0:01,Lo
-passenger-05,Lorem,passenger01@hotmail.com,Z89X7WQPQ,2000/01/01 0:01,
+
+# base entity
+passenger-00,Lorem Ipsum,passenger00@example.com,ABC12345,2025/01/01 00:00,None
+
+# fullName - variations
+passenger-01,L,passenger01@example.com,ABC12345,2025/01/01 00:00,None
+passenger-02,Lo,passenger02@example.com,ABC12345,2025/01/01 00:00,None
+passenger-03,Lorem ipsum dolor sit amet consectetur adipiscing elit,passenger03@example.com,ABC12345,2025/01/01 00:00,None
+passenger-04,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,passenger04@example.com,ABC12345,2025/01/01 00:00,None
+passenger-05,โลเร็ม อิปซัม,passenger05@example.com,ABC12345,2025/01/01 00:00,None
+passenger-06,لوريم إيبسوم,passenger06@example.com,ABC12345,2025/01/01 00:00,None
+passenger-07,洛伦·伊普森,passenger07@example.com,ABC12345,2025/01/01 00:00,None
+passenger-08,<marquee>Hacked</marquee>,passenger08@example.com,ABC12345,2025/01/01 00:00,None
+passenger-09,<script>alert(‘Hacked!’);</script>,passenger09@example.com,ABC12345,2025/01/01 00:00,None
+passenger-10,' or 'A' = 'A,passenger10@example.com,ABC12345,2025/01/01 00:00,None
+
+# email - variations
+passenger-11,Lorem Ipsum,a@b.es,ABC12345,2025/01/01 00:00,None
+passenger-12,Lorem Ipsum,acme@lorem-ipsum.org,ABC12345,2025/01/01 00:00,None
+passenger-13,Lorem Ipsum,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,ABC12345,2025/01/01 00:00,None
+
+# passportNumber - variations
+passenger-14,Lorem Ipsum,passenger14@example.com,A1B2C3,2025/01/01 00:00,None
+passenger-15,Lorem Ipsum,passenger15@example.com,X7Y8Z9WQ,2025/01/01 00:00,None
+passenger-16,Lorem Ipsum,passenger16@example.com,123456789,2025/01/01 00:00,None
+passenger-17,Lorem Ipsum,passenger17@example.com,QWER5678,2025/01/01 00:00,None
+
+# birthDate - variations
+passenger-18,Lorem Ipsum,passenger18@example.com,ABC12345,2000/01/01 00:00,None
+passenger-19,Lorem Ipsum,passenger19@example.com,ABC12345,2025/01/01 00:00,None
+passenger-20,Lorem Ipsum,passenger20@example.com,ABC12345,2024/12/31 23:59,None
+
+# specialNeeds - variations
+passenger-21,Lorem Ipsum,passenger21@example.com,ABC12345,2025/01/01 00:00,
+passenger-22,Lorem Ipsum,passenger22@example.com,ABC12345,2025/01/01 00:00,L
+passenger-23,Lorem Ipsum,passenger23@example.com,ABC12345,2025/01/01 00:00,Lo
+passenger-24,Lorem Ipsum,passenger24@example.com,ABC12345,2025/01/01 00:00,Lorem ipsum dolor sit amet consectetur adipiscing
+passenger-25,Lorem Ipsum,passenger25@example.com,ABC12345,2025/01/01 00:00,AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+passenger-26,Lorem Ipsum,passenger26@example.com,ABC12345,2025/01/01 00:00,โลเร็ม อิปซัม
+passenger-27,Lorem Ipsum,passenger27@example.com,ABC12345,2025/01/01 00:00,لوريم إيبسوم
+passenger-28,Lorem Ipsum,passenger28@example.com,ABC12345,2025/01/01 00:00,洛伦·伊普森
+passenger-29,Lorem Ipsum,passenger29@example.com,ABC12345,2025/01/01 00:00,<marquee>Hacked</marquee>
+passenger-30,Lorem Ipsum,passenger30@example.com,ABC12345,2025/01/01 00:00,<script>alert(‘Hacked!’);</script>
+passenger-31,Lorem Ipsum,passenger31@example.com,ABC12345,2025/01/01 00:00,' or 'A' = 'A
