@@ -4,8 +4,6 @@ package acme.realms;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.datatypes.Money;
@@ -13,6 +11,7 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.airlines.Airline;
 import acme.entities.flightCrewMembers.AvailabilityStatus;
@@ -61,8 +60,7 @@ public class Member extends AbstractRole {
 
 	@Optional
 	@Automapped
-	@Min(0)
-	@Max(120)
+	@ValidNumber(min = 0, max = 120)
 	private Integer				yearsOfExperience;
 
 	// Derived attributes -----------------------------------------------------
