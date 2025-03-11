@@ -9,12 +9,15 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.maintenancerecord.MaintenanceRecord;
 import acme.realms.Technician;
 
 public class Task extends AbstractEntity {
 
+	// Serialisation version --------------------------------------------------
+
 	private static final long	serialVersionUID	= 1L;
+
+	// Attributes -------------------------------------------------------------
 
 	@Mandatory
 	@Valid
@@ -36,14 +39,11 @@ public class Task extends AbstractEntity {
 	@Automapped
 	private Integer				estimatedDuration;
 
-	@Mandatory
-	@Valid
-	@ManyToOne
-	private MaintenanceRecord	maintenanceRecord;
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Technician			technician;
 
 }
