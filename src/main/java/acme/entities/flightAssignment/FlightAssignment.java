@@ -53,7 +53,7 @@ public class FlightAssignment extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	@Mandatory
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@Valid
 	private Member				member;
 

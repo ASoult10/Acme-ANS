@@ -1,8 +1,15 @@
 # validation-en.i18n
 
-acme.validation.manager.wrong-initials.message = Wrong indentifier
-
 acme.validation.flight.overlapping-leg.message = There are overlapping legs
 
 acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be after scheduled departure
 acme.validation.leg.wrong-flight-number.message = Flight number does not start with the airline IATA code
+
+acme.validation.identifier.nullornotpattern.message = The identifier must not be null and must follow the pattern
+acme.validation.identifier.notInitials.message = Identifier must start with initials of the user
+acme.validation.userAcount.null.message = User Account and Identity must not be null
+acme.validation.userName.null.message = User Name must be fullfilled
+acme.validation.userSurname.null.message = User Surname must be fullfilled
+
+acme.validation.promoteCode.notPattern.message = Promote Code must follow the pattern
+acme.validation.promoteCode.notCurrentYear.message = Promote Code must include current year

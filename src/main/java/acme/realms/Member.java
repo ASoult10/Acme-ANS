@@ -3,6 +3,7 @@ package acme.realms;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
@@ -48,11 +49,6 @@ public class Member extends AbstractRole {
 	@Automapped
 	private AvailabilityStatus	availabilityStatus;
 
-	//@Mandatory
-	@Valid
-	@Automapped
-	private Airline				airline;
-
 	@Mandatory
 	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
@@ -67,4 +63,8 @@ public class Member extends AbstractRole {
 
 	// Relationships ----------------------------------------------------------
 
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				airline;
 }
