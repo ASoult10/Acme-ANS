@@ -18,3 +18,6 @@ user-account-customer-02,true,"UserIdentity{name: 'Manolito', surname: 'Suárez'
 user-account-customer-03,true,"UserIdentity{name: 'Chine', surname: 'Nao Hüm', email: 'chinchanchunchin@acme.com'}",customer3,customer3
 user-account-administrator-02,true,"UserIdentity{name: 'Administrator1', surname: 'Acme', email: 'administrato1r@acme.com'}",administrator1,administrator1
 user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname: 'Acme', email: 'administrator2@acme.com'}",administrator2,administrator2
+user-account-manager-01,true,"UserIdentity{name: 'Manager', surname: 'One', email: 'manager1@mail.com' }",manager1,manager1
+user-account-manager-02,true,"UserIdentity{name: 'Manager', surname: 'Two', email: 'manager2@mail.com' }",manager2,manager2
+user-account-manager-03,true,"UserIdentity{name: 'Manager', surname: 'Three', email: 'manager3@mail.com' }",manager3,manager3
