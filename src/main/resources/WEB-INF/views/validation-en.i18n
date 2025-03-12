@@ -24,4 +24,4 @@ acme.validation.license-number.not-matching-initials.message = The license numbe
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the completion of leg
 
-
+acme.validation.trackingLog.incorrectIndicator.message = Resolution percentage can only be 100% if status is REJECTED or ACCEPTED
