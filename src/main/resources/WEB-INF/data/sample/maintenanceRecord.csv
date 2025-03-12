@@ -1,4 +1,4 @@
-key,moment,status,nextInspectionDueDate,estimatedCost,notes,key:aircraft,key:technician
+key,maintenanceMoment,status,nextInspectionDueDate,estimatedCost,notes,key:aircraft,key:technician
 
 #base entity
 maintenance-01,2014/12/05 00:00,PENDING,2014/12/06 00:00,EUR 500000.00,General maintenance notes,aircraft-01,technician-01

@@ -1,6 +1,8 @@
 
 package acme.constraints;
 
+import java.util.Date;
+
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
@@ -20,31 +22,21 @@ public class InspectionDateValidator extends AbstractValidator<ValidInspectionDa
 	public boolean isValid(final MaintenanceRecord record, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		if (record == null) {
-			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			return false;
+		boolean result;
+		boolean isNull;
+		isNull = record == null || record.getMaintenanceMoment() == null || record.getNextInspectionDueDate() == null;
+
+		if (!isNull) {
+			boolean nextInspectionIsAfterMaintenance;
+
+			Date maintenanceDate = record.getMaintenanceMoment();
+			Date nextInspection = record.getNextInspectionDueDate();
+			nextInspectionIsAfterMaintenance = MomentHelper.isAfter(nextInspection, maintenanceDate);
+
+			super.state(context, nextInspectionIsAfterMaintenance, "nextInspectionDueDate", "{acme.validation.maintenance-record.next-inspection.message}");
 		}
 
-		boolean valid = true;
-
-		if (record.getMoment() == null) {
-			super.state(context, false, "moment", "acme.validation.maintenance-record.null-moment.message");
-			valid = false;
-		}
-
-		if (record.getNextInspectionDueDate() == null) {
-			super.state(context, false, "nextInspectionDueDate", "acme.validation.maintenance-record.null-next-inspection.message");
-			valid = false;
-		}
-
-		if (valid) {
-			// Validar que nextInspectionDueDate es posterior a moment
-			boolean isAfter = MomentHelper.isAfter(record.getNextInspectionDueDate(), record.getMoment());
-			super.state(context, isAfter, "nextInspectionDueDate", "acme.validation.maintenance-record.invalid-inspection-date.message");
-
-			valid = isAfter;
-		}
-
-		return !super.hasErrors(context);
+		result = !super.hasErrors(context);
+		return result;
 	}
 }
