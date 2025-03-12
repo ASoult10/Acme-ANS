@@ -24,7 +24,7 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 
 		if (!promoteCode.matches("^[A-Z]{4}-[0-9]{2}$")) {
 			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.promoteCode.notPattern.message  " + promoteCode).addConstraintViolation();
+			context.buildConstraintViolationWithTemplate("{acme.validation.promoteCode.notPattern.message}  " + promoteCode).addConstraintViolation();
 			return false;
 		}
 
@@ -34,7 +34,7 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 
 		if (!promoteCodeYear.equals(actualCurrentYear)) {
 			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.promoteCode.notCurrentYear.message").addConstraintViolation();
+			context.buildConstraintViolationWithTemplate("{acme.validation.promoteCode.notCurrentYear.message}").addConstraintViolation();
 			return false;
 		}
 

@@ -17,6 +17,10 @@ acme.validation.promoteCode.notPattern.message = El código de promoción debe s
 acme.validation.promoteCode.notCurrentYear.message = El código de promoción debe incluir el año actual
 
 
+<<<<<<< HEAD
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
 
 acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe ser posterior al momento de mantenimiento
+=======
+acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
+>>>>>>> main

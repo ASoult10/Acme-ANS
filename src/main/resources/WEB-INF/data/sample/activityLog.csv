@@ -2,8 +2,8 @@ key,registrationMoment,typeOfIncident,description,severityLevel,key:flightAssign
 # base entity
 log-01,2002/07/30 00:00,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
 # registration moment
-log-02,2000/01/01 00:00,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
-log-03,2000/01/01 00:01,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
+log-02,2000/02/01 11:01,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
+log-03,2000/02/01 11:02,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
 log-04,2024/12/31 23:59,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
 log-05,2025/01/01 00:00,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,5,flightAssignment-01
 # type of incident

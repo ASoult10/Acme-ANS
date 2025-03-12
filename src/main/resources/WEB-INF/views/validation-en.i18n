@@ -16,6 +16,10 @@ acme.validation.userSurname.null.message = User Surname must be fullfilled
 acme.validation.promoteCode.notPattern.message = Promote Code must follow the pattern
 acme.validation.promoteCode.notCurrentYear.message = Promote Code must include current year
 
+<<<<<<< HEAD
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
 
 acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be after the maintenance moment
+=======
+acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the completion of leg
+>>>>>>> main
