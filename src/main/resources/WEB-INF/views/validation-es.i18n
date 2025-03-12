@@ -22,3 +22,5 @@ acme.validation.maintenance-record.next-inspection.message = La fecha de la pró
 acme.validation.license-number.not-matching-initials.message = El número de licencia debe seguir el patrón "^[A-Z]{2,3}\d{6}$" y coincidir con las iniciales del técnico
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
+
+acme.validation.trackingLog.incorrectIndicator.message = Si el porcentage es 100%, el estado debe ser ACCEPTED o REJECTED
