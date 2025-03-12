@@ -6,7 +6,7 @@ import java.util.Map;
 
 import acme.client.components.basis.AbstractForm;
 import acme.client.components.datatypes.Money;
-import acme.entities.maintenancerecord.MaintenanceRecordStatus;
+import acme.entities.maintenanceRecord.MaintenanceRecordStatus;
 import lombok.Getter;
 import lombok.Setter;
 
