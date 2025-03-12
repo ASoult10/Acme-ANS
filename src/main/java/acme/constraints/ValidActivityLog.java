@@ -8,16 +8,14 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.ReportAsSingleViolation;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = InspectionDateValidator.class)
-@ReportAsSingleViolation
+@Constraint(validatedBy = ActivityLogValidator.class)
+public @interface ValidActivityLog {
 
-public @interface ValidInspectionDate {
-
-	String message() default "";
+	String message() default "{acme.validation.text.message}";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
+
 }

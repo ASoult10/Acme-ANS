@@ -23,7 +23,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 
 		if (identifier == null || !identifier.matches("^[A-Z]{2,3}\\d{6}$")) {
 			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.identifier.nullornotpattern.message").addConstraintViolation();
+			context.buildConstraintViolationWithTemplate("{acme.validation.identifier.nullornotpattern.message}").addConstraintViolation();
 			return false;
 		}
 
@@ -45,7 +45,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 
 		if (!iniciales.equals(identifierInitials)) {
 			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("acme.validation.identifier.notInitials.message").addConstraintViolation();
+			context.buildConstraintViolationWithTemplate("{acme.validation.identifier.notInitials.message}").addConstraintViolation();
 			return false;
 		}
 

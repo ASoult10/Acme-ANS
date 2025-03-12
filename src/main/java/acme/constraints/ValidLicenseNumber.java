@@ -10,14 +10,15 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
 
+@Constraint(validatedBy = LicenseNumberValidator.class)
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = InspectionDateValidator.class)
 @ReportAsSingleViolation
+public @interface ValidLicenseNumber {
 
-public @interface ValidInspectionDate {
+	String message() default "{acme.validation.technician.license-number}";
 
-	String message() default "";
 	Class<?>[] groups() default {};
+
 	Class<? extends Payload>[] payload() default {};
 }

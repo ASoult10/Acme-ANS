@@ -1,5 +1,5 @@
 
-package acme.entities.flightAssignment;
+package acme.entities.claims;
 
 import java.util.Date;
 
@@ -12,18 +12,18 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
-import acme.entities.legs.Leg;
-import acme.realms.Member;
+import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class FlightAssignment extends AbstractEntity {
+public class Claim extends AbstractEntity {
+
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -31,36 +31,34 @@ public class FlightAssignment extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@Valid
-	@Automapped
-	private Duty				duty;
-
-	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				moment;
+	private Date				registrationMoment;
+
+	@Mandatory
+	@ValidEmail
+	@Automapped
+	private String				email;
+
+	@Mandatory
+	@ValidString(min = 1, max = 255)
+	@Automapped
+	private String				description;
 
 	@Mandatory
 	@Valid
 	@Automapped
-	private AssignmentStatus	assignmentStatus;
+	private ClaimType			type;
 
-	@Optional
-	@ValidString(min = 0, max = 255)
+	@Mandatory
+	@Valid
 	@Automapped
-	private String				remarks;
-
-	// Derived attributes -----------------------------------------------------
+	private Boolean				indicator;
 
 	// Relationships ----------------------------------------------------------
 	@Mandatory
-	@ManyToOne(optional = false)
 	@Valid
-	private Member				member;
-
-	@Mandatory
 	@ManyToOne
-	@Valid
-	private Leg					leg;
+	private AssistanceAgent		assistanceAgent;
 
 }
