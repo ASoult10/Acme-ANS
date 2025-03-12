@@ -37,13 +37,16 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 	//The status can be “ACCEPTED” or “REJECTED” only when the resolution percentage gets to 100%.
 	public boolean checkStatus(final TrackingLog tl, final ConstraintValidatorContext context) {
 		boolean result;
-		if (tl.getResolutionPercentage() == 100)
+		if (tl.getResolutionPercentage() == 100) {
 			if (tl.getIndicator() == TrackingLogStatus.ACCEPTED || tl.getIndicator() == TrackingLogStatus.REJECTED)
 				super.state(context, false, "trackingLogIndicator", "acme.validation.trackingLog.incorrectIndicator.message");
+		} else if (tl.getIndicator() != TrackingLogStatus.PENDING)
+			super.state(context, false, "trackingLogIndicator", "acme.validation.trackingLog.mustBePending.message");
 
 		result = !super.hasErrors(context);
 
 		return result;
+
 	}
 
 	//If the status is not “PENDING”, then the resolution is mandatory; otherwise, it’s optional.
