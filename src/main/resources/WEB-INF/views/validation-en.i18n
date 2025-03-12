@@ -17,3 +17,5 @@ acme.validation.promoteCode.notPattern.message = Promote Code must follow the pa
 acme.validation.promoteCode.notCurrentYear.message = Promote Code must include current year
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
+
+acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be after the maintenance moment
