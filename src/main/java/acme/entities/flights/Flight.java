@@ -17,7 +17,6 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
 import acme.constraints.ValidFlight;
-import acme.entities.legs.Leg;
 import acme.entities.legs.LegRepository;
 import acme.realms.Manager;
 import lombok.Getter;
@@ -66,12 +65,10 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public Date getSheduledDeparture() {
 		Date result;
-		Leg leg;
 		LegRepository repository;
 
 		repository = SpringHelper.getBean(LegRepository.class);
-		leg = repository.findFirstLegByFlight(this.getId());
-		result = leg.getScheduledDeparture();
+		result = repository.findSheduledDepartureByFlight(this.getId());
 
 		return result;
 	}
@@ -79,12 +76,10 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public Date getSheduledArrival() {
 		Date result;
-		Leg leg;
 		LegRepository repository;
 
 		repository = SpringHelper.getBean(LegRepository.class);
-		leg = repository.findLastLegByFlight(this.getId());
-		result = leg.getScheduledArrival();
+		result = repository.findSheduledArrivalByFlight(this.getId());
 
 		return result;
 	}
@@ -92,12 +87,10 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public String getOriginCity() {
 		String result;
-		Leg leg;
 		LegRepository repository;
 
 		repository = SpringHelper.getBean(LegRepository.class);
-		leg = repository.findFirstLegByFlight(this.getId());
-		result = leg.getDepartureAirport().getCity();
+		result = repository.findOriginCityByFlight(this.getId());
 
 		return result;
 	}
@@ -105,12 +98,10 @@ public class Flight extends AbstractEntity {
 	@Transient
 	public String getDestinationCity() {
 		String result;
-		Leg leg;
 		LegRepository repository;
 
 		repository = SpringHelper.getBean(LegRepository.class);
-		leg = repository.findLastLegByFlight(this.getId());
-		result = leg.getArrivalAirport().getCity();
+		result = repository.findDestinationCityByFlight(this.getId());
 
 		return result;
 	}
