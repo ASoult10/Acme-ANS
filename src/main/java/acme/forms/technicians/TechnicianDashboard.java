@@ -23,10 +23,10 @@ public class TechnicianDashboard extends AbstractForm {
 	private Map<MaintenanceRecordStatus, Integer>	maintenanceRecordsByStatus;
 	private String									nearestInspectionRecord;
 	private List<String>							topFiveAircraftByTasks;
-	private Money									maintenanceAverageCost;
+	private Double									maintenanceAverageCost;
 	private Money									maintenanceMinimumCost;
 	private Money									maintenanceMaximumCost;
-	private Money									maintenanceDeviationCost;
+	private Double									maintenanceDeviationCost;
 	private Double									taskAverageDuration;
 	private Integer									taskMinimumDuration;
 	private Integer									taskMaximumDuration;
