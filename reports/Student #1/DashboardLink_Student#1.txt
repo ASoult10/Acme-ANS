@@ -1,4 +1,13 @@
 Enlace al tablero de planificación del estudiante #1:
 
-https://github.com/users/ASoult10/projects/3/views/1
+	https://github.com/users/ASoult10/projects/3/views/1
 
+Se muestran por defecto las tareas relacionadas con el entregable en desarrollo.
+Para visualizar todas las tareas de todos los entregables del estudiante 1, debe
+borrar el filtro de visualización. Para visualizar únicamente las tareas del
+estudiante 1 asociadas a otra entrega diferente a la mostrada por defecto
+debe borrar el filtro de visualización e introducir:
+
+	milestone:"S01 - Entregable D0X"
+
+Reemplazando la X por el entregable correspondiente.
