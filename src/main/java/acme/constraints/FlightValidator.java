@@ -40,19 +40,29 @@ public class FlightValidator extends AbstractValidator<ValidFlight, Flight> {
 		if (flight == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			// Comprobar que los tramos de vuelos no se solapan
-			boolean tramosSeparados = false;
+			{
+				// Comprobar que los tramos de vuelos no se solapan
+				boolean tramosSeparados = true;
+				List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
 
-			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
+				for (Integer i = 0; i < legs.size() - 1; i++) {
+					Leg primerTramo = legs.get(i);
+					Leg segundoTramo = legs.get(i + 1);
 
-			for (Integer i = 0; i < legs.size() - 1; i++) {
-				Leg primerTramo = legs.get(i);
-				Leg segundoTramo = legs.get(i - 1);
+					tramosSeparados &= MomentHelper.isBefore(primerTramo.getScheduledArrival(), segundoTramo.getScheduledDeparture());
+				}
 
-				tramosSeparados &= MomentHelper.isBefore(primerTramo.getScheduledArrival(), segundoTramo.getScheduledDeparture());
+				super.state(context, tramosSeparados, "*", "acme.validation.flight.overlapping-legs.message");
 			}
+			{
+				// Comprobar que si el vuelo está publicado tenga, al menos, un tramo de vuelo asociado
+				boolean correctLegs;
+				Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
 
-			super.state(context, tramosSeparados, "legs", "acme.validation.flight.overlapping-legs.message");
+				correctLegs = flight.isDraftMode() || numberOfLegs > 0;
+
+				super.state(context, correctLegs, "*", "acme.validation.flight.no-legs.message");
+			}
 		}
 
 		result = !super.hasErrors(context);

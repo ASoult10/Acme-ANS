@@ -2,7 +2,8 @@
 
 acme.validation.manager.wrong-initials.message = Identifier number must start with the manager initials
 
-acme.validation.flight.overlapping-leg.message = There are overlapping legs
+acme.validation.flight.overlapping-legs.message = There are overlapping legs
+acme.validation.flight.no-legs.message = Flight has no legs
 
 acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be after scheduled departure
 acme.validation.leg.wrong-flight-number.message = Flight number does not start with the airline IATA code
