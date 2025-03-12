@@ -17,3 +17,5 @@ acme.validation.promoteCode.notPattern.message = Promote Code must follow the pa
 acme.validation.promoteCode.notCurrentYear.message = Promote Code must include current year
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
+
+acme.validation.trackingLog.incorrectIndicator.message = Resolution percentage can only be 100% if status is REJECTED or ACCEPTED
