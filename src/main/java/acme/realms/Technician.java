@@ -11,9 +11,11 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidLicenseNumber;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidLicenseNumber
 @Entity
 @Getter
 @Setter
