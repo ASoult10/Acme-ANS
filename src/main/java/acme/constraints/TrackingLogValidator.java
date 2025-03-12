@@ -58,13 +58,13 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		return result;
 	}
 
-	//The resolution percentage must be monotonically increasing.
+	//TODO: he resolution percentage must be monotonically increasing.
 	public boolean isIncreasing(final TrackingLog tl, final ConstraintValidatorContext context) {
 		boolean result;
 
 		result = !super.hasErrors(context);
 
-		return result;
+		return true;
 	}
 
 }

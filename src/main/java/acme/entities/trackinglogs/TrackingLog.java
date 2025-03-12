@@ -4,6 +4,7 @@ package acme.entities.trackinglogs;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -58,8 +59,8 @@ public class TrackingLog extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	//@Mandatory
-	//@Valid
-	//@ManyToOne
-	//private Claim				claim;
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Claim				claim;
 }
