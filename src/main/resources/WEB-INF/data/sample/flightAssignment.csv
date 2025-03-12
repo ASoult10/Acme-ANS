@@ -1,33 +1,33 @@
-key,duty,moment,assignmentStatus,remarks,key:member
+key,duty,moment,assignmentStatus,remarks,key:member,key:leg
 # base entity
-flightAssignment-01,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+flightAssignment-01,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00
 
 # duty
-flightAssignment-02,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
-flightAssignment-03,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
-flightAssignment-04,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01
+flightAssignment-02,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00
+flightAssignment-03,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00
+flightAssignment-04,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00
 
 # moment
-flightAssignment-05,PILOT,2000/01/01 00:00,CONFIRMED,Lorem,member-01
-flightAssignment-06,PILOT,2000/01/01 00:01,CONFIRMED,Lorem,member-01
-flightAssignment-07,PILOT,2024/12/31 23:59,CONFIRMED,Lorem,member-01
-flightAssignment-08,PILOT,2025/01/01 00:00,CONFIRMED,Lorem,member-01
+flightAssignment-05,PILOT,2000/01/01 00:00,CONFIRMED,Lorem,member-01,leg-00
+flightAssignment-06,PILOT,2000/01/01 00:01,CONFIRMED,Lorem,member-01,leg-00
+flightAssignment-07,PILOT,2024/12/31 23:59,CONFIRMED,Lorem,member-01,leg-00
+flightAssignment-08,PILOT,2025/01/01 00:00,CONFIRMED,Lorem,member-01,leg-00
 
 # assignment status
-flightAssignment-09,PILOT,2000/09/01 10:00,PENDING,Lorem,member-01
-flightAssignment-10,PILOT,2000/09/01 10:00,CANCELLED,Lorem,member-01
+flightAssignment-09,PILOT,2000/09/01 10:00,PENDING,Lorem,member-01,leg-00
+flightAssignment-10,PILOT,2000/09/01 10:00,CANCELLED,Lorem,member-01,leg-00
 
 # remarks
-flightAssignment-11,PILOT,2000/09/01 10:00,CONFIRMED,"",member-01
-flightAssignment-12,PILOT,2000/09/01 10:00,CONFIRMED,"L",member-01
-flightAssignment-13,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",member-01
-flightAssignment-14,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",member-01
-flightAssignment-15,PILOT,2000/09/01 10:00,CONFIRMED,"โลเร็ม อิปซัม",member-01
-flightAssignment-16,PILOT,2000/09/01 10:00,CONFIRMED,"لوريم إيبسوم",member-01
-flightAssignment-17,PILOT,2000/09/01 10:00,CONFIRMED,"洛伦·伊普森",member-01
-flightAssignment-18,PILOT,2000/09/01 10:00,CONFIRMED,"<marquee>Hacked</marquee>",member-01
-flightAssignment-19,PILOT,2000/09/01 10:00,CONFIRMED,"<script>alert(‘Hacked!’);</script>",member-01
-flightAssignment-20,PILOT,2000/09/01 10:00,CONFIRMED,"' or 'A' = 'A ",member-01
+flightAssignment-11,PILOT,2000/09/01 10:00,CONFIRMED,"",member-01,leg-00
+flightAssignment-12,PILOT,2000/09/01 10:00,CONFIRMED,"L",member-01,leg-00
+flightAssignment-13,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",member-01,leg-00
+flightAssignment-14,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",member-01,leg-00
+flightAssignment-15,PILOT,2000/09/01 10:00,CONFIRMED,"โลเร็ม อิปซัม",member-01,leg-00
+flightAssignment-16,PILOT,2000/09/01 10:00,CONFIRMED,"لوريم إيبسوم",member-01,leg-00
+flightAssignment-17,PILOT,2000/09/01 10:00,CONFIRMED,"洛伦·伊普森",member-01,leg-00
+flightAssignment-18,PILOT,2000/09/01 10:00,CONFIRMED,"<marquee>Hacked</marquee>",member-01,leg-00
+flightAssignment-19,PILOT,2000/09/01 10:00,CONFIRMED,"<script>alert(‘Hacked!’);</script>",member-01,leg-00
+flightAssignment-20,PILOT,2000/09/01 10:00,CONFIRMED,"' or 'A' = 'A ",member-01,leg-00
 
 # member
-flightAssignment-21,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-02
+flightAssignment-21,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-02,leg-00
