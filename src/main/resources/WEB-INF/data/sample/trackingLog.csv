@@ -1,30 +1,28 @@
 ﻿key,lastUpdateMoment,step,resolutionPercentage,indicator,resolution,key:claim
 # base entity
-log-00,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-00,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
 # lastUpdateMoment - standard variations
-log-01,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-log-02,2024/12/31  23:59,this is a test step,55,PENDING,this is a test resolution,claim-01
-log-03,2025/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-log-04,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-log-05,2000/01/01  00:01,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-01,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-02,2024/12/31  23:59,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-03,2025/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-04,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-05,2000/01/01  00:01,this is a test step,55,PENDING,this is a test resolution,claim-01
 # step - standard variations
-log-06,2012/07/02 00:00,L,55,PENDING,this is a test resolution,claim-01
-log-07,2012/07/02 00:00,Lo,55,PENDING,this is a test resolution,claim-01
-log-08,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",55,PENDING,this is a test resolution,claim-01
-log-09,2012/07/02 00:00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",55,PENDING,this is a test resolution,claim-01
-log-10,2012/07/02 00:00,โลเร็ม อิปซัม,55,PENDING,this is a test resolution,claim-01
-log-11,2012/07/02 00:00,洛伦·伊普森,55,PENDING,this is a test resolution,claim-01
-log-12,2012/07/02 00:00,<marquee>Hacked</marquee>,55,PENDING,this is a test resolution,claim-01
-log-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,55,PENDING,this is a test resolution,claim-01
-log-14,2012/07/02 00:00,' or 'A' = 'A,55,PENDING,this is a test resolution,claim-01
+trackingLog-06,2012/07/02 00:00,L,55,PENDING,this is a test resolution,claim-01
+trackingLog-07,2012/07/02 00:00,Lo,55,PENDING,this is a test resolution,claim-01
+trackingLog-08,2012/07/02 00:00,"The attribute name must be exactly fifty charac",55,PENDING,this is a test resolution,claim-01
+trackingLog-09,2012/07/02 00:00,"The attribute name must be exactly fifty chara",55,PENDING,this is a test resolution,claim-01
+trackingLog-10,2012/07/02 00:00,โลเร็ม อิปซัม,55,PENDING,this is a test resolution,claim-01
+trackingLog-11,2012/07/02 00:00,洛伦·伊普森,55,PENDING,this is a test resolution,claim-01
+trackingLog-12,2012/07/02 00:00,<marquee>Hacked</marquee>,55,PENDING,this is a test resolution,claim-01
+trackingLog-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,55,PENDING,this is a test resolution,claim-01
+trackingLog-14,2012/07/02 00:00,' or 'A' = 'A,55,PENDING,this is a test resolution,claim-01
 # resolutionPercentage - standard variations
-log-15,2000/01/01  00:00,this is a test step,0.00,PENDING,this is a test resolution,claim-01
-log-16,2024/12/31  23:59,this is a test step,0.01,PENDING,this is a test resolution,claim-01
-log-17,2025/01/01  00:00,this is a test step,100,PENDING,this is a test resolution,claim-01
-log-18,2000/01/01  00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-01
+trackingLog-15,2000/01/01  00:00,this is a test step,0.00,PENDING,this is a test resolution,claim-01
+trackingLog-16,2024/12/31  23:59,this is a test step,0.01,PENDING,this is a test resolution,claim-01
+trackingLog-17,2025/01/01  00:00,this is a test step,100,PENDING,this is a test resolution,claim-01
+trackingLog-18,2000/01/01  00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-01
 # indicator - standard variations
-log-15,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-log-16,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01
-log-17,2012/07/02 00:00,this is a test step,100,REJECTED,this is a test resolution,claim-01
-# resolution - standard variation
-log-18,2012/07/02 00:00,this is a test step,55,PENDING,null,claim-01
+trackingLog-19,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-20,2012/07/02 00:00,this is a test step,100.00,ACCEPTED,this is a test resolution,claim-01
+trackingLog-21,2012/07/02 00:00,this is a test step,100.00,REJECTED,this is a test resolution,claim-01
