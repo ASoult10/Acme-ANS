@@ -6,8 +6,6 @@ import java.util.Map;
 
 import acme.client.components.basis.AbstractForm;
 import acme.client.components.datatypes.Money;
-import acme.entities.aircrafts.Aircraft;
-import acme.entities.maintenancerecord.MaintenanceRecord;
 import acme.entities.maintenancerecord.MaintenanceRecordStatus;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +21,8 @@ public class TechnicianDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	private Map<MaintenanceRecordStatus, Integer>	maintenanceRecordsByStatus;
-	private MaintenanceRecord						nearestInspectionRecord;
-	private List<Aircraft>							topFiveAircraftByTasks;
+	private String									nearestInspectionRecord;
+	private List<String>							topFiveAircraftByTasks;
 	private Money									maintenanceAverageCost;
 	private Money									maintenanceMinimumCost;
 	private Money									maintenanceMaximumCost;
