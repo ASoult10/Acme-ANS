@@ -33,8 +33,8 @@ public class Service extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@Automapped
 	@ValidUrl
+	@Automapped
 	private String				imageLink;
 
 	@Mandatory
