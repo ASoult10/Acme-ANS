@@ -1,4 +1,51 @@
 key,identifier-number,years-of-experience,birth-date,picture,key:user-account
-manager-01,"MO123456",3,2005/11/23 16:07,,user-account-manager-01
-manager-02,"MT123456",1,2004/01/01 10:00,,user-account-manager-02
-manager-03,"MT098767",0,2024/02/18 23:59,,user-account-manager-03
+manager-01,"MO123456",3,2022/09/01 10:00,,user-account-manager-01
+manager-02,"MT123456",3,2022/09/01 10:00,,user-account-manager-02
+manager-03,"MT098767",3,2022/09/01 10:00,,user-account-manager-03
+
+# identifier-number - standard variations
+manager-04,"MF000000",3,2022/09/01 10:00,,user-account-manager-04
+manager-05,"MF000001",3,2022/09/01 10:00,,user-account-manager-05
+manager-06,"MS999998",3,2022/09/01 10:00,,user-account-manager-06
+manager-07,"MS999999",3,2022/09/01 10:00,,user-account-manager-07
+manager-08,"MSA000000",3,2022/09/01 10:00,,user-account-manager-08
+manager-09,"MSA000001",3,2022/09/01 10:00,,user-account-manager-09
+manager-10,"MSA999998",3,2022/09/01 10:00,,user-account-manager-10
+manager-11,"MSZ999999",3,2022/09/01 10:00,,user-account-manager-11
+# identifier-number - singular values
+manager-12,"MSG849631",3,2022/09/01 10:00,,user-account-manager-12
+
+# years-of-experience - standard variations
+manager-13,"MOA123456",0,2022/09/01 10:00,,user-account-manager-13
+manager-14,"MOB123456",1,2022/09/01 10:00,,user-account-manager-14
+manager-15,"MOC123456",119,2022/09/01 10:00,,user-account-manager-15
+manager-16,"MOD123456",120,2022/09/01 10:00,,user-account-manager-16
+# years-of-experience - no singular values
+
+# birth-date - standard variations
+manager-17,"MOE123456",3,2000/01/01 0:00,,user-account-manager-17
+manager-18,"MOF123456",3,2000/01/01 0:01,,user-account-manager-18
+manager-19,"MOG123456",3,2024/12/31 23:59,,user-account-manager-19
+manager-20,"MOH123456",3,2025/01/01 0:00,,user-account-manager-20
+# birth-date - no singular values
+
+# picture - standard variations
+manager-21,"MOI123456",3,2022/09/01 10:00,http://lorem.com/ipsum,user-account-manager-21
+manager-22,"MOJ123456",3,2022/09/01 10:00,ftp://a,user-account-manager-22
+manager-23,"MOK123456",3,2022/09/01 10:00,ftp://a.b,user-account-manager-23
+manager-24,"MOL123456",3,2022/09/01 10:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",user-account-manager-24
+manager-25,"MOM123456",3,2022/09/01 10:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",user-account-manager-25
+manager-26,"MON123456",3,2022/09/01 10:00,https://www.lorem-ipsum.org,user-account-manager-26
+manager-27,"MOO123456",3,2022/09/01 10:00,ftp://www.lorem-ipsum.org,user-account-manager-27
+manager-28,"MOP123456",3,2022/09/01 10:00,http://www.lorem-ipsum.org/dolor/sit.html,user-account-manager-28
+manager-29,"MOQ123456",3,2022/09/01 10:00,http://www.lorem-ipsum.org/dolor/sit.html#dolor,user-account-manager-29
+manager-30,"MOR123456",3,2022/09/01 10:00,http://example.org?a=1&b=2,user-account-manager-30
+manager-31,"MOS123456",3,2022/09/01 10:00,http://example.org?,user-account-manager-31
+manager-32,"MOT123456",3,2022/09/01 10:00,http://example.org?a,user-account-manager-32
+manager-33,"MOU123456",3,2022/09/01 10:00,http://example.org?a&b,user-account-manager-33
+manager-34,"MOV123456",3,2022/09/01 10:00,http://example.org/,user-account-manager-34
+manager-35,"MOW123456",3,2022/09/01 10:00,http://example.org/a,user-account-manager-35
+manager-36,"MOX123456",3,2022/09/01 10:00,http://example.org/a/b,user-account-manager-36
+manager-37,"MOY123456",3,2022/09/01 10:00,http://example.org/a/b?,user-account-manager-37
+manager-38,"MOZ123456",3,2022/09/01 10:00,http://example.org/a/b?a&b,user-account-manager-38
+# picture - no singular values
