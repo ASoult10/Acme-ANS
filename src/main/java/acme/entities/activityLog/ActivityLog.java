@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidActivityLog
-public class ActivityLogs extends AbstractEntity {
+public class ActivityLog extends AbstractEntity {
 	// Serialisation version --------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;

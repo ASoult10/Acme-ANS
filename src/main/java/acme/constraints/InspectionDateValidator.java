@@ -8,7 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
-import acme.entities.maintenancerecord.MaintenanceRecord;
+import acme.entities.maintenanceRecord.MaintenanceRecord;
 
 @Validator
 public class InspectionDateValidator extends AbstractValidator<ValidInspectionDate, MaintenanceRecord> {

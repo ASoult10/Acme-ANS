@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>260</y>
+      <w>470</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Form&gt;&gt;
+MemberDashboard
+--
++ lastFiveDestinations: List&lt;String&gt;
++ severityranging: String
++ memberAssignedWith: List&lt;Member&gt;
++ flightAssignmentGrouped: Map&lt;FlightAssignment, AssignmentStatus&gt;
++ monthFlightAssignmentAverage: Integer
++ monthFlightAssignmentMax: Integer
++ monthFlightAssignmentMin: Integer
++ monthFlightAssignmentStandardDeviation: Double
+bg=cyan
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>270</y>
+      <w>570</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Member
+--
++ employeeCode: String {Mandatory, ValidString(pattern="^[A-Z]{2,3}\\d{6}$"), Unique}
++ phoneNumber: String {Mandatory, ValidString(pattern="^\\+?\\d{6,15}$"), Automapped}
++ languageSkills: String {Mandatory, ValidString(min=1, max=255), Automapped}
++ availabilityStatus: AvailabilityStatus {Mandatory, Valid, Automapped}
++ salary: Money {Mandatory, ValidMoney(min=0, max=1000000), Automapped}
++ yearsOfExperience: Integer {Optional, ValidNumber(min=0, max=120), Automapped}
++ airline: Airline {Mandatory, Valid, ManyToOne(optional=false)}
+bg=pink
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1780</x>
+      <y>410</y>
+      <w>360</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+MoneyExchange
+--
++ source: Money {Mandatory, ValidMoney}
++ targetCurrency: String {Mandatory, ValidCurrency}
++ moment: Date {Optional, ValidMoment(past=true)}
++ target: Money {Optional, ValidMoney}
++ oops: Throwable {Optional, Valid}</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

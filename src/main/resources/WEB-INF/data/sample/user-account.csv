@@ -21,3 +21,6 @@ user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname
 user-account-manager-01,true,"UserIdentity{name: 'Manager', surname: 'One', email: 'manager1@mail.com' }",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Manager', surname: 'Two', email: 'manager2@mail.com' }",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Manager', surname: 'Three', email: 'manager3@mail.com' }",manager3,manager3
+user-account-assistanceAgent-01,true,"UserIdentity{name: 'Miguel', surname: 'Gonzalez', email: 'assistanceagent1@mail.com' }",agent1,agent1
+user-account-assistanceAgent-02,true,"UserIdentity{name: 'Juan', surname: 'Garcia', email: 'assistanceagent2@mail.com' }",agent2,agent2
+user-account-assistanceAgent-03,true,"UserIdentity{name: 'Henry', surname: 'Sheridan', email: 'assistanceagent2@mail.com' }",agent3,agent3
