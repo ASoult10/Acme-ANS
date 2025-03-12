@@ -8,10 +8,10 @@ import javax.validation.ConstraintValidatorContext;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
-import acme.entities.activityLog.ActivityLog;
+import acme.entities.activityLog.ActivityLogs;
 
 @Validator
-public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, ActivityLog> {
+public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, ActivityLogs> {
 
 	@Override
 	protected void initialise(final ValidActivityLog annotation) {
@@ -19,7 +19,7 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 	}
 
 	@Override
-	public boolean isValid(final ActivityLog activityLog, final ConstraintValidatorContext context) {
+	public boolean isValid(final ActivityLogs activityLog, final ConstraintValidatorContext context) {
 
 		Date activityLogMoment = activityLog.getRegistrationMoment();
 		Date scheduledArrival = activityLog.getFlightAssignment().getLeg().getScheduledArrival();

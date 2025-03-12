@@ -6,7 +6,7 @@ maintenance-01,2014/12/05 00:00,PENDING,2014/12/06 00:00,EUR 500000.00,General m
 #moment - variations
 maintenance-02,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
 maintenance-03,2000/01/01 00:01,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
-maintenance-04,2012/07/02 00:00,PENDING,2000/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
+maintenance-04,2012/07/02 00:00,PENDING,2014/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
 maintenance-05,2024/12/31 23:59,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
 maintenance-06,2025/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01
 
