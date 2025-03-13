@@ -20,9 +20,9 @@ trackingLog-14,2012/07/02 00:00,' or 'A' = 'A,55,PENDING,this is a test resoluti
 # resolutionPercentage - standard variations
 trackingLog-15,2000/01/01  00:00,this is a test step,0.00,PENDING,this is a test resolution,claim-01
 trackingLog-16,2024/12/31  23:59,this is a test step,0.01,PENDING,this is a test resolution,claim-01
-trackingLog-17,2025/01/01  00:00,this is a test step,100,PENDING,this is a test resolution,claim-01
+trackingLog-17,2025/01/01  00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01
 trackingLog-18,2000/01/01  00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-01
 # indicator - standard variations
 trackingLog-19,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-20,2012/07/02 00:00,this is a test step,100.00,ACCEPTED,this is a test resolution,claim-01
-trackingLog-21,2012/07/02 00:00,this is a test step,100.00,REJECTED,this is a test resolution,claim-01
+trackingLog-20,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01
+trackingLog-21,2012/07/02 00:00,this is a test step,100,REJECTED,this is a test resolution,claim-01
