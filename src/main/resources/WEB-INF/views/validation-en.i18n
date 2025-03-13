@@ -19,7 +19,7 @@ acme.validation.promoteCode.notCurrentYear.message = Promote Code must include c
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
 
-acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be after the maintenance moment
+acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be in the future
 
 acme.validation.license-number.not-matching-initials.message = The license number must follow the pattern "^[A-Z]{2,3}\\d{6}$" and match the technician's initials  
 

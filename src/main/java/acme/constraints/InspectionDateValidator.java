@@ -24,16 +24,15 @@ public class InspectionDateValidator extends AbstractValidator<ValidInspectionDa
 
 		boolean result;
 		boolean isNull;
-		isNull = record == null || record.getMaintenanceMoment() == null || record.getNextInspectionDueDate() == null;
+		isNull = record == null || record.getNextInspectionDueDate() == null;
 
 		if (!isNull) {
-			boolean nextInspectionIsAfterMaintenance;
+			boolean nextInspectionIsFuture;
 
-			Date maintenanceDate = record.getMaintenanceMoment();
 			Date nextInspection = record.getNextInspectionDueDate();
-			nextInspectionIsAfterMaintenance = MomentHelper.isAfter(nextInspection, maintenanceDate);
+			nextInspectionIsFuture = MomentHelper.isFuture(nextInspection);
 
-			super.state(context, nextInspectionIsAfterMaintenance, "nextInspectionDueDate", "{acme.validation.maintenance-record.next-inspection.message}");
+			super.state(context, nextInspectionIsFuture, "nextInspectionDueDate", "{acme.validation.maintenance-record.next-inspection.message}");
 		}
 
 		result = !super.hasErrors(context);
