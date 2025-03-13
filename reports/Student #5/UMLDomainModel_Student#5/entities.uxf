@@ -43,7 +43,7 @@ bg=green</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Maintenance Record {ValidInspectionDate}
 --
-+ moment: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
++ maintenanceMoment: Date {Mandatory, ValidMoment(past=true), Temporal(TIMESTAMP)}
 + status: MaintenanceRecordStatus {Mandatory, Valid, Automapped}
 + nextInspectionDueDate: Date {Mandatory, ValidMoment, Temporal(TIMESTAMP)}
 + estimatedCost: Money {Mandatory, ValidMoney, Automapped}
