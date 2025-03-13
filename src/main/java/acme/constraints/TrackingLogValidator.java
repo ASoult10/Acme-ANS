@@ -38,7 +38,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 	public boolean checkStatus(final TrackingLog tl, final ConstraintValidatorContext context) {
 		boolean result;
 		if (tl.getResolutionPercentage() == 100) {
-			if (tl.getIndicator() == TrackingLogStatus.ACCEPTED || tl.getIndicator() == TrackingLogStatus.REJECTED)
+			if (tl.getIndicator() != TrackingLogStatus.ACCEPTED && tl.getIndicator() != TrackingLogStatus.REJECTED)
 				super.state(context, false, "trackingLogIndicator", "acme.validation.trackingLog.incorrectIndicator.message");
 		} else if (tl.getIndicator() != TrackingLogStatus.PENDING)
 			super.state(context, false, "trackingLogIndicator", "acme.validation.trackingLog.mustBePending.message");
