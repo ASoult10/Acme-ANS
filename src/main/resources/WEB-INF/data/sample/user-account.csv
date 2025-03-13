@@ -5,6 +5,7 @@ user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
+user-account-member-00,true,"UserIdentity{name: 'Miguel', surname: 'Palacios', email: 'miguel@acme.com'}",member0,member0
 user-account-member-01,true,"UserIdentity{name: 'Pepe', surname: 'Member', email: 'pepe@acme.com'}",member1,member1
 user-account-member-02,true,"UserIdentity{name: 'Juan', surname: 'Heredia', email: 'manuel@acme.com'}",member2,member2
 user-account-member-03,true,"UserIdentity{name: 'Alberto', surname: 'Lupa', email: 'alberto@acme.com'}",member3,member3
@@ -21,3 +22,41 @@ user-account-administrator-03,true,"UserIdentity{name: 'Administrator2', surname
 user-account-manager-01,true,"UserIdentity{name: 'Manager', surname: 'One', email: 'manager1@mail.com' }",manager1,manager1
 user-account-manager-02,true,"UserIdentity{name: 'Manager', surname: 'Two', email: 'manager2@mail.com' }",manager2,manager2
 user-account-manager-03,true,"UserIdentity{name: 'Manager', surname: 'Three', email: 'manager3@mail.com' }",manager3,manager3
+user-account-assistanceAgent-01,true,"UserIdentity{name: 'Miguel', surname: 'Gonzalez', email: 'assistanceagent1@mail.com' }",agent1,agent1
+user-account-assistanceAgent-02,true,"UserIdentity{name: 'Juan', surname: 'Garcia', email: 'assistanceagent2@mail.com' }",agent2,agent2
+user-account-assistanceAgent-03,true,"UserIdentity{name: 'Henry', surname: 'Sheridan', email: 'assistanceagent2@mail.com' }",agent3,agent3
+user-account-manager-04,true,"UserIdentity{name: 'Manager', surname: 'Four', email: 'manager4@mail.com' }",manager4,manager4
+user-account-manager-05,true,"UserIdentity{name: 'Manager', surname: 'Five', email: 'manager5@mail.com' }",manager5,manager5
+user-account-manager-06,true,"UserIdentity{name: 'Manager', surname: 'Six', email: 'manager6@mail.com' }",manager6,manager6
+user-account-manager-07,true,"UserIdentity{name: 'Manager', surname: 'Seven', email: 'manager7@mail.com' }",manager7,manager7
+user-account-manager-08,true,"UserIdentity{name: 'Manager', surname: 'S Eight', email: 'manager8@mail.com' }",manager8,manager8
+user-account-manager-09,true,"UserIdentity{name: 'Manager', surname: 'S Nine', email: 'manager9@mail.com' }",manager9,manager9
+user-account-manager-10,true,"UserIdentity{name: 'Manager', surname: 'S Ten', email: 'manager10@mail.com' }",manager10,manager10
+user-account-manager-11,true,"UserIdentity{name: 'Manager', surname: 'S 11', email: 'manager11@mail.com' }",manager11,manager11
+user-account-manager-12,true,"UserIdentity{name: 'Manager', surname: 'S 12', email: 'manager12@mail.com' }",manager12,manager12
+user-account-manager-13,true,"UserIdentity{name: 'Manager', surname: 'O 13', email: 'manager13@mail.com' }",manager13,manager13
+user-account-manager-14,true,"UserIdentity{name: 'Manager', surname: 'O 14', email: 'manager14@mail.com' }",manager14,manager14
+user-account-manager-15,true,"UserIdentity{name: 'Manager', surname: 'O 15', email: 'manager15@mail.com' }",manager15,manager15
+user-account-manager-16,true,"UserIdentity{name: 'Manager', surname: 'O 16', email: 'manager16@mail.com' }",manager16,manager16
+user-account-manager-17,true,"UserIdentity{name: 'Manager', surname: 'O 17', email: 'manager17@mail.com' }",manager17,manager17
+user-account-manager-18,true,"UserIdentity{name: 'Manager', surname: 'O 18', email: 'manager18@mail.com' }",manager18,manager18
+user-account-manager-19,true,"UserIdentity{name: 'Manager', surname: 'O 19', email: 'manager19@mail.com' }",manager19,manager19
+user-account-manager-20,true,"UserIdentity{name: 'Manager', surname: 'O 20', email: 'manager20@mail.com' }",manager20,manager20
+user-account-manager-21,true,"UserIdentity{name: 'Manager', surname: 'O 21', email: 'manager21@mail.com' }",manager21,manager21
+user-account-manager-22,true,"UserIdentity{name: 'Manager', surname: 'O 22', email: 'manager22@mail.com' }",manager22,manager22
+user-account-manager-23,true,"UserIdentity{name: 'Manager', surname: 'O 23', email: 'manager23@mail.com' }",manager23,manager23
+user-account-manager-24,true,"UserIdentity{name: 'Manager', surname: 'O 24', email: 'manager24@mail.com' }",manager24,manager24
+user-account-manager-25,true,"UserIdentity{name: 'Manager', surname: 'O 25', email: 'manager25@mail.com' }",manager25,manager25
+user-account-manager-26,true,"UserIdentity{name: 'Manager', surname: 'O 26', email: 'manager26@mail.com' }",manager26,manager26
+user-account-manager-27,true,"UserIdentity{name: 'Manager', surname: 'O 27', email: 'manager27@mail.com' }",manager27,manager27
+user-account-manager-28,true,"UserIdentity{name: 'Manager', surname: 'O 28', email: 'manager28@mail.com' }",manager28,manager28
+user-account-manager-29,true,"UserIdentity{name: 'Manager', surname: 'O 29', email: 'manager29@mail.com' }",manager29,manager29
+user-account-manager-30,true,"UserIdentity{name: 'Manager', surname: 'O 30', email: 'manager30@mail.com' }",manager30,manager30
+user-account-manager-31,true,"UserIdentity{name: 'Manager', surname: 'O 31', email: 'manager31@mail.com' }",manager31,manager31
+user-account-manager-32,true,"UserIdentity{name: 'Manager', surname: 'O 32', email: 'manager32@mail.com' }",manager32,manager32
+user-account-manager-33,true,"UserIdentity{name: 'Manager', surname: 'O 33', email: 'manager33@mail.com' }",manager33,manager33
+user-account-manager-34,true,"UserIdentity{name: 'Manager', surname: 'O 34', email: 'manager34@mail.com' }",manager34,manager34
+user-account-manager-35,true,"UserIdentity{name: 'Manager', surname: 'O 35', email: 'manager35@mail.com' }",manager35,manager35
+user-account-manager-36,true,"UserIdentity{name: 'Manager', surname: 'O 36', email: 'manager36@mail.com' }",manager36,manager36
+user-account-manager-37,true,"UserIdentity{name: 'Manager', surname: 'O 37', email: 'manager37@mail.com' }",manager37,manager37
+user-account-manager-38,true,"UserIdentity{name: 'Manager', surname: 'O 38', email: 'manager38@mail.com' }",manager38,manager38

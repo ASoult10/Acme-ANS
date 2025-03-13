@@ -2,7 +2,8 @@
 
 acme.validation.manager.wrong-initials.message = El número de identificación debe comenzar con las iniciales del gestor
 
-acme.validation.flight.overlapping-leg.message = Hay tramos de vuelos que se solapan
+acme.validation.flight.overlapping-legs.message = Hay tramos de vuelos que se solapan
+acme.validation.flight.no-legs.message = El vuelo no tiene tramos asociados
 
 acme.validation.leg.wrong-scheduled-arrival.message = La fecha prevista de llegada debe ser posterior a la de salida
 acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienza con el código IATA de la aerolínea
@@ -24,3 +25,4 @@ acme.validation.license-number.not-matching-initials.message = El número de lic
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
 
 acme.validation.trackingLog.incorrectIndicator.message = Si el porcentage es 100%, el estado debe ser ACCEPTED o REJECTED
+acme.validation.trackingLog.mustBePending.message = Si el porcentaje no es 100%, el estado debe ser PENDING

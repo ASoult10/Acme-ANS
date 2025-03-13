@@ -16,7 +16,7 @@ import javax.validation.ReportAsSingleViolation;
 @ReportAsSingleViolation
 public @interface ValidLicenseNumber {
 
-	String message() default "{acme.validation.technician.license-number}";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 

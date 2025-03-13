@@ -33,7 +33,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		else {
 			{
 				// Comprobar que el momento de llegada es posterior al de salida
-				Boolean horarioCorrecto = MomentHelper.isAfter(leg.getScheduledDeparture(), leg.getScheduledArrival());
+				Boolean horarioCorrecto = MomentHelper.isAfter(leg.getScheduledArrival(), leg.getScheduledDeparture());
 
 				super.state(context, horarioCorrecto, "scheduledArrival", "acme.validation.leg.wrong-scheduled-arrival.message");
 			}
