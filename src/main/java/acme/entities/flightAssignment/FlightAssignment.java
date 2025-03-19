@@ -59,7 +59,7 @@ public class FlightAssignment extends AbstractEntity {
 	private Member				member;
 
 	@Mandatory
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@Valid
 	private Leg					leg;
 
