@@ -28,7 +28,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 	@Override
 	public boolean isValid(final Customer customer, final ConstraintValidatorContext context) {
 
-		String identifier = customer.getIdentifier();
+		String identifier = customer.getCustomerIdentifier();
 
 		if (identifier == null) {
 			super.state(context, false, "*", "{acme.validation.identifier.nullornotpattern.message}");
@@ -40,12 +40,6 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 		String inicialNombre = String.valueOf(identity.getName().charAt(0)).toUpperCase();
 		String inicial1Apellido = String.valueOf(identity.getSurname().charAt(0)).toUpperCase();
 		Integer initialsLenght = 2;
-
-		//		String inicial2Apellido = "";
-		//		if (identity.getSurname().contains(" ")) {
-		//			inicial2Apellido = String.valueOf(identity.getSurname().split(" ")[1].charAt(0)).toUpperCase();
-		//			initialsLenght++;
-		//		}
 
 		String iniciales = inicialNombre + inicial1Apellido;
 
