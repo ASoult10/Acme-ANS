@@ -10,6 +10,7 @@ acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienz
 
 acme.validation.identifier.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón
 acme.validation.identifier.notInitials.message = El identificador debe comenzar con las iniciales del usuario
+acme.validation.identifier.repeated.message = Ya hay una entidad con este código
 acme.validation.userAcount.null.message = La cuenta de usuario y la identidad no deben ser nulas
 acme.validation.userName.null.message = El nombre del usuario debe ser rellenado
 acme.validation.userSurname.null.message = El apellido del usuario debe ser rellenado

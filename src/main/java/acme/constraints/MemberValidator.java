@@ -62,7 +62,7 @@ public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 		List<Member> memberWithSameCode = this.repository.findManyMembersByEmployeeCode(identifier);
 		for (Integer i = 0; i < memberWithSameCode.size(); i++)
 			if (memberWithSameCode.get(i).getId() != member.getId()) {
-				super.state(context, false, "*", "Estaba ya" + identifier);
+				super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + identifier);
 				return false;
 			}
 
