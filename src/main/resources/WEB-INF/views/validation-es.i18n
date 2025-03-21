@@ -26,3 +26,4 @@ acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment
 
 acme.validation.trackingLog.incorrectIndicator.message = Si el porcentage es 100%, el estado debe ser ACCEPTED o REJECTED
 acme.validation.trackingLog.mustBePending.message = Si el porcentaje no es 100%, el estado debe ser PENDING
+acme.validation.trackingLog.increasingPercentage.message = El porcentaje debe ser mayor que el del ultimo log

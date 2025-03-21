@@ -27,3 +27,4 @@ acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment
 
 acme.validation.trackingLog.incorrectIndicator.message = Resolution percentage can only be 100% if status is REJECTED or ACCEPTED
 acme.validation.trackingLog.mustBePending.message = Status can only be PENDING if percentage isnt 100%
+acme.validation.trackingLog.increasingPercentage.message = The percentage must increase since last tracking log

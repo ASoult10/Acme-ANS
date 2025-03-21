@@ -1,17 +1,26 @@
 
 package acme.constraints;
 
+import java.util.List;
+
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.entities.trackinglogs.TrackingLog;
+import acme.entities.trackinglogs.TrackingLogRepository;
 import acme.entities.trackinglogs.TrackingLogStatus;
 
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
 
 	// Internal state ---------------------------------------------------------
 
+	@Autowired
+	private TrackingLogRepository repository;
+
 	// ConstraintValidator interface ------------------------------------------
+
 
 	@Override
 	protected void initialise(final ValidTrackingLog annotation) {
@@ -27,9 +36,11 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		if (tl == null) {
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 			result = !super.hasErrors(context);
+		} else if (tl.getIndicator() == null || tl.getResolution() == null || tl.getCreationMoment() == null) {
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			result = !super.hasErrors(context);
 		} else
 			result = this.checkStatus(tl, context) && this.mandatoryResolution(tl, context) && this.isIncreasing(tl, context);
-
 		return result;
 	}
 
@@ -61,13 +72,18 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		return result;
 	}
 
-	//TODO: he resolution percentage must be monotonically increasing.
+	//the resolution percentage must be monotonically increasing.
 	public boolean isIncreasing(final TrackingLog tl, final ConstraintValidatorContext context) {
 		boolean result;
 
+		List<TrackingLog> logs = this.repository.findAllLogsFromClaimSortedByCreationMoment(tl.getClaim().getId());
+		if (logs.size() > 0)
+			if (logs.get(0).getResolutionPercentage() >= tl.getResolutionPercentage())
+				super.state(context, false, "resolutionPercentage", "acme.validation.trackingLog.increasingPercentage.message");
+
 		result = !super.hasErrors(context);
 
-		return true;
+		return result;
 	}
 
 }
