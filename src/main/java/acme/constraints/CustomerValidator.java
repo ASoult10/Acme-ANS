@@ -50,7 +50,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 			return false;
 		}
 
-		List<Customer> customerWithSameIdentifier = this.repository.findManyCustomersByIdentifier(identifier);
+		List<Customer> customerWithSameIdentifier = (List<Customer>) this.repository.findManyCustomersByIdentifier(identifier);
 		for (Integer i = 0; i < customerWithSameIdentifier.size(); i++)
 			if (customerWithSameIdentifier.get(i).getId() != customer.getId()) {
 				super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + identifier);

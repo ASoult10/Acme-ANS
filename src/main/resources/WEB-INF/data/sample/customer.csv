@@ -1,4 +1,4 @@
-key,key:userAccount,identifier,customerPhoneNumber,physicalAddress,city,country,points
+key,key:userAccount,customerIdentifier,customerPhoneNumber,physicalAddress,city,country,points
 # base entities
 customer-01,user-account-customer-01,PP123456,+1234567890,c/ Penélope Cruz,Madrid,España,0
 customer-02,user-account-customer-02,MS654321,987654321,Calle del Sol 123 Colonia Centro Ciudad de México CDMX 06000,Chiclana,México,499999
