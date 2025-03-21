@@ -1,28 +1,28 @@
-﻿key,lastUpdateMoment,step,resolutionPercentage,indicator,resolution,key:claim
+﻿key,lastUpdateMoment,step,resolutionPercentage,indicator,resolution,key:claim,creationMoment
 # base entity
-trackingLog-00,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-00,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/02 00:00
 # lastUpdateMoment - standard variations
-trackingLog-01,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-02,2024/12/31  23:59,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-03,2025/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-04,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-05,2000/01/01  00:01,this is a test step,55,PENDING,this is a test resolution,claim-01
+trackingLog-01,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/12 00:00
+trackingLog-02,2024/12/31  23:59,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/24 00:00
+trackingLog-03,2025/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/27 00:00
+trackingLog-04,2000/01/01  00:00,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/02 00:00
+trackingLog-05,2000/01/01  00:01,this is a test step,55,PENDING,this is a test resolution,claim-01, 2012/07/02 00:00
 # step - standard variations
-trackingLog-06,2012/07/02 00:00,L,55,PENDING,this is a test resolution,claim-01
-trackingLog-07,2012/07/02 00:00,Lo,55,PENDING,this is a test resolution,claim-01
-trackingLog-08,2012/07/02 00:00,"The attribute name must be exactly fifty charac",55,PENDING,this is a test resolution,claim-01
-trackingLog-09,2012/07/02 00:00,"The attribute name must be exactly fifty chara",55,PENDING,this is a test resolution,claim-01
-trackingLog-10,2012/07/02 00:00,โลเร็ม อิปซัม,55,PENDING,this is a test resolution,claim-01
-trackingLog-11,2012/07/02 00:00,洛伦·伊普森,55,PENDING,this is a test resolution,claim-01
-trackingLog-12,2012/07/02 00:00,<marquee>Hacked</marquee>,55,PENDING,this is a test resolution,claim-01
-trackingLog-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,55,PENDING,this is a test resolution,claim-01
-trackingLog-14,2012/07/02 00:00,' or 'A' = 'A,55,PENDING,this is a test resolution,claim-01
+trackingLog-06,2012/07/02 00:00,L,55,PENDING,this is a test resolution,claim-01, 2012/07/02 10:00
+trackingLog-07,2012/07/02 00:00,Lo,55,PENDING,this is a test resolution,claim-01, 2012/07/02 20:00
+trackingLog-08,2012/07/02 00:00,"The attribute name must be exactly fifty charac",55,PENDING,this is a test resolution,claim-01, 2012/07/22 00:00
+trackingLog-09,2012/07/02 00:00,"The attribute name must be exactly fifty chara",55,PENDING,this is a test resolution,claim-01, 2012/07/27 00:00
+trackingLog-10,2012/07/02 00:00,โลเร็ม อิปซัม,55,PENDING,this is a test resolution,claim-01, 2012/07/22 00:00
+trackingLog-11,2012/07/02 00:00,洛伦·伊普森,55,PENDING,this is a test resolution,claim-01, 2012/09/02 00:00
+trackingLog-12,2012/07/02 00:00,<marquee>Hacked</marquee>,55,PENDING,this is a test resolution,claim-01, 2012/09/02 00:00
+trackingLog-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,55,PENDING,this is a test resolution,claim-01, 2014/07/02 00:00
+trackingLog-14,2012/07/02 00:00,' or 'A' = 'A,55,PENDING,this is a test resolution,claim-01, 2014/07/22 00:00
 # resolutionPercentage - standard variations
-trackingLog-15,2000/01/01  00:00,this is a test step,0.00,PENDING,this is a test resolution,claim-01
-trackingLog-16,2024/12/31  23:59,this is a test step,0.01,PENDING,this is a test resolution,claim-01
-trackingLog-17,2025/01/01  00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01
-trackingLog-18,2000/01/01  00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-01
+trackingLog-15,2000/01/01  00:00,this is a test step,0.00,PENDING,this is a test resolution,claim-01, 2016/07/02 00:00
+trackingLog-16,2024/12/31  23:59,this is a test step,0.01,PENDING,this is a test resolution,claim-01, 2016/09/02 00:00
+trackingLog-17,2025/01/01  00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01, 2018/07/02 00:00
+trackingLog-18,2000/01/01  00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-01, 2018/09/02 00:00
 # indicator - standard variations
-trackingLog-19,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01
-trackingLog-20,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01
-trackingLog-21,2012/07/02 00:00,this is a test step,100,REJECTED,this is a test resolution,claim-01
+trackingLog-19,2012/07/02 00:00,this is a test step,55,PENDING,this is a test resolution,claim-01, 2019/09/02 00:00
+trackingLog-20,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01, 2019/07/02 00:00
+trackingLog-21,2012/07/02 00:00,this is a test step,100,REJECTED,this is a test resolution,claim-01, 2012/07/02 10:00

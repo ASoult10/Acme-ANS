@@ -58,6 +58,12 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private String				resolution;
 
+	//Attribute to keep track of moment of creation
+	@Mandatory
+	@ValidMoment(past = true)
+	@Automapped
+	private Date				creationMoment;
+
 	// Relationships ----------------------------------------------------------
 
 	@Mandatory
