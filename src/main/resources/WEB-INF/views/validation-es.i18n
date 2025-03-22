@@ -21,7 +21,11 @@ acme.validation.promoteCode.notCurrentYear.message = El código de promoción de
 
 acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro
 
-acme.validation.license-number.not-matching-initials.message = El número de licencia debe seguir el patrón "^[A-Z]{2,3}\d{6}$" y coincidir con las iniciales del técnico
+acme.validation.license-number.not-matching-initials.message = El número de licencia debe coincidir con las iniciales del técnico
+acme.validation.license-number.repeated.message = El número de licencia del técnico debe ser único
+
+acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
+
 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
 
