@@ -12,10 +12,12 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidRegistrationNumber;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
+@ValidRegistrationNumber
 @Entity
 @Getter
 @Setter
