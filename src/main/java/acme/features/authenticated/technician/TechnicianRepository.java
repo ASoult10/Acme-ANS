@@ -12,6 +12,6 @@ import acme.realms.Technician;
 @Repository
 public interface TechnicianRepository extends AbstractRepository {
 
-	@Query("SELECT t FROM Technician t WHERE t.licenseNumber = :licenseNumber")
+	@Query("select t from Technician t where t.licenseNumber = :licenseNumber")
 	List<Technician> findTechniciansByLicenseNumber(String licenseNumber);
 }
