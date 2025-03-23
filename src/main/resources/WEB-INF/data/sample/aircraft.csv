@@ -1,61 +1,61 @@
-key,model,registrationNumber,capacity,cargoWeight,status,details,key:airline
+key,model,registrationNumber,capacity,cargoWeight,status,details,key:airline,key:administrator
 
 #base entity
-aircraft-01,Boeing 737-800,EC-XYZ,189,22000,ACTIVE,The Boeing 737-800 is a popular narrow-body commercial airliner. It is used for short to medium-haul flights and typically carries up to 189 passengers. This aircraft is part of the airline's regular fleet and operates daily flights.,airline-01
+aircraft-01,Boeing 737-800,EC-XYZ,189,22000,ACTIVE,The Boeing 737-800 is a popular narrow-body commercial airliner. It is used for short to medium-haul flights and typically carries up to 189 passengers. This aircraft is part of the airline's regular fleet and operates daily flights.,airline-01,administrator-02
 
 #model - variations
-aircraft-02,L,EC-AAA,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-03,Lo,EC-BBB,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-04,Lorem ipsum dolor sit ame,EC-CCC,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-05,Lorem ipsum dolor sit amete consectetur adipiscin,EC-ATO,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-06,Lorem ipsum dolor sit amete consectetur adipiscing,EC-ALE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-07,โลเร็ม อิปซัม,EC-DDD,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-08,لوريم إيبسوم,EC-EEE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-09,洛伦·伊普森,EC-GGG,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-10,<marquee>Hacked</marquee>,EC-HHH,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-11,<script>alert(‘Hacked!’);</script>,EC-JJJ,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-12,' or 'A' = 'A ,EC-KKK,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-02,L,EC-AAA,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-03,Lo,EC-BBB,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-04,Lorem ipsum dolor sit ame,EC-CCC,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-05,Lorem ipsum dolor sit amete consectetur adipiscin,EC-ATO,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-06,Lorem ipsum dolor sit amete consectetur adipiscing,EC-ALE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-07,โลเร็ม อิปซัม,EC-DDD,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-08,لوريم إيبسوم,EC-EEE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-09,洛伦·伊普森,EC-GGG,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-10,<marquee>Hacked</marquee>,EC-HHH,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-11,<script>alert(‘Hacked!’);</script>,EC-JJJ,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-12,' or 'A' = 'A ,EC-KKK,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
 
 #registrationNumber - variations
-aircraft-13,Boeing 737-800,L,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-14,Boeing 737-800,Lo,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-15,Boeing 737-800,Lorem ipsum dolor sit ame,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-16,Boeing 737-800,Lorem ipsum dolor sit amete consectetur adipiscin,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-17,Boeing 737-800,Lorem ipsum dolor sit amete consectetur adipiscing,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-18,Boeing 737-800,โลเร็ม อิปซัม,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-19,Boeing 737-800,لوريم إيبسوم,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-20,Boeing 737-800,洛伦·伊普森,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-21,Boeing 737-800,<marquee>Hacked</marquee>,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-22,Boeing 737-800,<script>alert(‘Hacked!’);</script>,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-23,Boeing 737-800,' or 'A' = 'A ,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-13,Boeing 737-800,L,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-14,Boeing 737-800,Lo,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-15,Boeing 737-800,Lorem ipsum dolor sit ame,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-16,Boeing 737-800,Lorem ipsum dolor sit amete consectetur adipiscin,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-17,Boeing 737-800,Lorem ipsum dolor sit amete consectetur adipiscing,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-18,Boeing 737-800,โลเร็ม อิปซัม,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-19,Boeing 737-800,لوريم إيبسوم,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-20,Boeing 737-800,洛伦·伊普森,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-21,Boeing 737-800,<marquee>Hacked</marquee>,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-22,Boeing 737-800,<script>alert(‘Hacked!’);</script>,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-23,Boeing 737-800,' or 'A' = 'A ,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
 
 #capacity - variations
-aircraft-24,Boeing 737-800,EC-LLL,1,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-25,Boeing 737-800,EC-MMM,2,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-26,Boeing 737-800,EC-NNN,128,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-27,Boeing 737-800,EC-OOO,254,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-28,Boeing 737-800,EC-PPP,255,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-24,Boeing 737-800,EC-LLL,1,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-25,Boeing 737-800,EC-MMM,2,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-26,Boeing 737-800,EC-NNN,128,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-27,Boeing 737-800,EC-OOO,254,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-28,Boeing 737-800,EC-PPP,255,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
 
 #cargoWeight - variations
-aircraft-29,Boeing 737-800,EC-QQQ,189,2000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-30,Boeing 737-800,EC-RRR,189,2001,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-31,Boeing 737-800,EC-SSS,189,26000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-32,Boeing 737-800,EC-TTT,189,49999,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-33,Boeing 737-800,EC-UUU,189,50000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-29,Boeing 737-800,EC-QQQ,189,2000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-30,Boeing 737-800,EC-RRR,189,2001,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-31,Boeing 737-800,EC-SSS,189,26000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-32,Boeing 737-800,EC-TTT,189,49999,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-33,Boeing 737-800,EC-UUU,189,50000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
 
 #status - variations
-aircraft-34,Boeing 737-800,EC-VVV,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-35,Boeing 737-800,EC-WWW,189,22000,MAINTENANCE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-34,Boeing 737-800,EC-VVV,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
+aircraft-35,Boeing 737-800,EC-WWW,189,22000,MAINTENANCE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01,administrator-02
 
 #details - variations
-aircraft-36,Boeing 737-800,EC-XXX,189,22000,ACTIVE,,airline-01
-aircraft-37,Boeing 737-800,EC-YYY,189,22000,ACTIVE,L,airline-01
-aircraft-38,Boeing 737-800,EC-ZZZ,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,airline-01
-aircraft-39,Boeing 737-800,EC-AZZ,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,airline-01
-aircraft-40,Boeing 737-800,EC-AXX,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,airline-01
-aircraft-41,Boeing 737-800,EC-AYY,189,22000,ACTIVE,โลเร็ม อิปซัม,airline-01
-aircraft-42,Boeing 737-800,EC-AMM,189,22000,ACTIVE,لوريم إيبسوم,airline-01
-aircraft-43,Boeing 737-800,EC-ANN,189,22000,ACTIVE,洛伦·伊普森,airline-01
-aircraft-44,Boeing 737-800,EC-ALL,189,22000,ACTIVE,<marquee>Hacked</marquee>,airline-01
-aircraft-45,Boeing 737-800,EC-AOP,189,22000,ACTIVE,<script>alert(‘Hacked!’);</script>,airline-01
-aircraft-46,Boeing 737-800,EC-AHQ,189,22000,ACTIVE,' or 'A' = 'A ,airline-01
+aircraft-36,Boeing 737-800,EC-XXX,189,22000,ACTIVE,,airline-01,administrator-02
+aircraft-37,Boeing 737-800,EC-YYY,189,22000,ACTIVE,L,airline-01,administrator-02
+aircraft-38,Boeing 737-800,EC-ZZZ,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,airline-01,administrator-02
+aircraft-39,Boeing 737-800,EC-AZZ,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,airline-01,administrator-02
+aircraft-40,Boeing 737-800,EC-AXX,189,22000,ACTIVE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,airline-01,administrator-02
+aircraft-41,Boeing 737-800,EC-AYY,189,22000,ACTIVE,โลเร็ม อิปซัม,airline-01,administrator-02
+aircraft-42,Boeing 737-800,EC-AMM,189,22000,ACTIVE,لوريم إيبسوم,airline-01,administrator-02
+aircraft-43,Boeing 737-800,EC-ANN,189,22000,ACTIVE,洛伦·伊普森,airline-01,administrator-02
+aircraft-44,Boeing 737-800,EC-ALL,189,22000,ACTIVE,<marquee>Hacked</marquee>,airline-01,administrator-02
+aircraft-45,Boeing 737-800,EC-AOP,189,22000,ACTIVE,<script>alert(‘Hacked!’);</script>,airline-01,administrator-02
+aircraft-46,Boeing 737-800,EC-AHQ,189,22000,ACTIVE,' or 'A' = 'A ,airline-01,administrator-02

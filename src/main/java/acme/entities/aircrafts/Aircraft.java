@@ -8,6 +8,7 @@ import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
+import acme.client.components.principals.Administrator;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
@@ -65,5 +66,10 @@ public class Aircraft extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Airline				airline;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = true)
+	private Administrator		administrator;
 
 }
