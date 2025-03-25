@@ -1,7 +1,7 @@
 key,key:userAccount,customerIdentifier,customerPhoneNumber,physicalAddress,city,country,points
 # base entities
-customer-01,user-account-customer-01,PP123456,+1234567890,c/ Penélope Cruz,Madrid,España,0
-customer-02,user-account-customer-02,MS654321,987654321,Calle del Sol 123 Colonia Centro Ciudad de México CDMX 06000,Chiclana,México,499999
+customer-01,user-account-customer-01,PP123456,+1234567890,c/ Penélope Cruz,Madrid,España,5000
+customer-02,user-account-customer-02,MS654321,987654321,Calle del Sol 123 Colonia Centro Ciudad de México CDMX 06000,Chiclana,México,5000
 # identifier - variations
 customer-03,user-account-customer-01,PP000001,1234567890,Calle Ficticia 125,Ciudad Ficticia,País Ficticio,100
 customer-04,user-account-customer-01,PP000002,1234567890,Calle Ficticia 126,Ciudad Ficticia,País Ficticio,100
@@ -17,7 +17,7 @@ customer-12,user-account-customer-01,PP000010,+34911234567,Calle Ficticia 134,Ci
 customer-13,user-account-customer-01,PP000011,+34876543210,Calle Ficticia 135,Ciudad Ficticia,País Ficticio,100
 customer-14,user-account-customer-01,PP000012,+34987654321,Calle Ficticia 136,Ciudad Ficticia,País Ficticio,100
 customer-15,user-account-customer-01,PP000013,+34765432109,Calle Ficticia 137,Ciudad Ficticia,País Ficticio,100
-customer-16,user-account-customer-01,PP000014,+34923456789,Calle Ficticia 138,Ciudad Ficticia,País Ficticio,100
+customer-16,user-account-customer-01,PP000014,923456789,Calle Ficticia 138,Ciudad Ficticia,País Ficticio,100
 # physicalAddress - variations
 customer-17,user-account-customer-01,PP000015,1234567890,L,Ciudad Ficticia,País Ficticio,100
 customer-18,user-account-customer-01,PP000016,1234567890,Lo,Ciudad Ficticia,País Ficticio,100
@@ -56,7 +56,6 @@ customer-48,user-account-customer-01,PP000046,1234567890,Calle Ficticia 152,Barr
 customer-49,user-account-customer-01,PP000047,1234567890,Calle Ficticia 153,Barranquilla,' or 'A' = 'A,100
 # points - variations
 customer-50,user-account-customer-01,PP000048,1234567890,Calle Ficticia 154,Medellín,Colombia,0
-customer-51,user-account-customer-01,PP000049,1234567890,Calle Ficticia 155,Bogotá,Colombia,150
-customer-52,user-account-customer-01,PP000050,1234567890,Calle Ficticia 156,Cali,Colombia,350
+customer-51,user-account-customer-01,PP000049,1234567890,Calle Ficticia 155,Bogotá,Colombia,1
 customer-53,user-account-customer-01,PP000051,1234567890,Calle Ficticia 157,Cartagena,Colombia,49999
 customer-54,user-account-customer-01,PP000052,1234567890,Calle Ficticia 158,Barranquilla,Colombia,50000

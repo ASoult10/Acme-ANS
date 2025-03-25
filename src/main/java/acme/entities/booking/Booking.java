@@ -47,7 +47,7 @@ public class Booking extends AbstractEntity {
 	private Customer			customer;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$", message = "") // TODO: Mensaje
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -67,7 +67,7 @@ public class Booking extends AbstractEntity {
 	private Money				price;
 
 	@Optional
-	@ValidString(min = 4, max = 4, pattern = "[0-9]{4}")
+	@ValidString(min = 4, max = 4, pattern = "[0-9]{4}", message = "") // TODO: Mensaje
 	@Automapped
 	private String				lastNibble;
 }

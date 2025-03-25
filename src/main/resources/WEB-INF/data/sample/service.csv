@@ -28,7 +28,7 @@ service-20,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100,ABCX-25,50.0
 service-22,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,TYUI-25,50.0
 service-23,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,QWER-25,50.0
 service-24,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,OIOI-25,50.0
-service-25,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,,0.0
+service-25,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,,50.0
 service-26,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,WXYZ-25,50.0
 # discount - variations
 service-27,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50,ABCZ-25,0.0
