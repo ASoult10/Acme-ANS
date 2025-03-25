@@ -11,5 +11,5 @@ import acme.realms.Customer;
 public interface CustomerRepository extends AbstractRepository {
 
 	@Query("SELECT c FROM Customer c WHERE c.customerIdentifier = :customerIdentifier")
-	Iterable<Customer> findManyCustomersByIdentifier(String customerIdentifier);
+	Customer findCustomerByIdentifier(String customerIdentifier);
 }

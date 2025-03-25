@@ -39,7 +39,7 @@ public class Passenger extends AbstractEntity {
 	private String				email;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,9}$", message = "") // TODO: Mensaje
+	@ValidString(pattern = "^[A-Z0-9]{6,9}$", message = "{acme.validation.passportNumber.notPattern.message}")
 	@Automapped
 	private String				passportNumber;
 
@@ -49,7 +49,7 @@ public class Passenger extends AbstractEntity {
 	private Date				birthDate;
 
 	@Optional
-	@ValidString(min = 0, max = 51, message = "") // TODO: Mensaje
+	@ValidString(min = 0, max = 51)
 	@Automapped
 	private String				specialNeeds;
 }

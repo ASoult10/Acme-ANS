@@ -19,12 +19,11 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 	@Override
 	public boolean isValid(final String promoteCode, final ConstraintValidatorContext context) {
 
-		if (promoteCode == null || promoteCode == "")
+		if (promoteCode == null || promoteCode.equals(""))
 			return true;
 
 		if (!promoteCode.matches("^[A-Z]{4}-[0-9]{2}$")) {
-			context.disableDefaultConstraintViolation(); // TODO: Cambiar super
-			context.buildConstraintViolationWithTemplate("{acme.validation.promoteCode.notPattern.message}  " + promoteCode).addConstraintViolation();
+			super.state(context, false, "*", "{acme.validation.promoteCode.notPattern.message}" + promoteCode);
 			return false;
 		}
 
@@ -33,8 +32,7 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 		String actualCurrentYear = String.valueOf(LocalDate.now().getYear()).substring(2); // TODO: Cambiar por hora del properties
 
 		if (!promoteCodeYear.equals(actualCurrentYear)) {
-			context.disableDefaultConstraintViolation();
-			context.buildConstraintViolationWithTemplate("{acme.validation.promoteCode.notCurrentYear.message}").addConstraintViolation();
+			super.state(context, false, "*", "{acme.validation.promoteCode.notCurrentYear.message}");
 			return false;
 		}
 

@@ -1,8 +1,6 @@
 
 package acme.constraints;
 
-import java.util.List;
-
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,13 +48,11 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 			return false;
 		}
 
-		List<Customer> customerWithSameIdentifier = (List<Customer>) this.repository.findManyCustomersByIdentifier(identifier);
-		for (Integer i = 0; i < customerWithSameIdentifier.size(); i++)
-			if (customerWithSameIdentifier.get(i).getId() != customer.getId()) {
-				super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + identifier);
-				return false;
-			}
-
+		Customer customerWithSameIdentifier = this.repository.findCustomerByIdentifier(identifier);
+		if (customerWithSameIdentifier != null && customerWithSameIdentifier.getId() != customer.getId()) {
+			super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + identifier);
+			return false;
+		}
 		return true;
 	}
 
