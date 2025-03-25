@@ -1,12 +1,14 @@
 
 package acme.constraints;
 
-import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
 
 @Validator
 public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, String> {
@@ -29,7 +31,10 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 
 		String promoteCodeYear = promoteCode.substring(promoteCode.length() - 2);
 
-		String actualCurrentYear = String.valueOf(LocalDate.now().getYear()).substring(2); // TODO: Cambiar por hora del properties
+		Date moment = MomentHelper.getCurrentMoment();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(moment);
+		String actualCurrentYear = String.valueOf(calendar.get(Calendar.YEAR));
 
 		if (!promoteCodeYear.equals(actualCurrentYear)) {
 			super.state(context, false, "*", "{acme.validation.promoteCode.notCurrentYear.message}");
