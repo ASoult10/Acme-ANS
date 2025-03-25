@@ -29,10 +29,8 @@ public class RegistrationNumberAircraftValidator extends AbstractValidator<Valid
 	public boolean isValid(final Aircraft aircraft, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		if (aircraft == null) {
-			super.state(context, false, "*", "{acme.validation.aircraft.null.message}");
+		if (aircraft == null)
 			return false;
-		}
 
 		String registrationNumber = aircraft.getRegistrationNumber();
 

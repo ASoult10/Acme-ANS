@@ -23,14 +23,14 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 			return true;
 
 		if (!promoteCode.matches("^[A-Z]{4}-[0-9]{2}$")) {
-			context.disableDefaultConstraintViolation();
+			context.disableDefaultConstraintViolation(); // TODO: Cambiar super
 			context.buildConstraintViolationWithTemplate("{acme.validation.promoteCode.notPattern.message}  " + promoteCode).addConstraintViolation();
 			return false;
 		}
 
 		String promoteCodeYear = promoteCode.substring(promoteCode.length() - 2);
 
-		String actualCurrentYear = String.valueOf(LocalDate.now().getYear()).substring(2);
+		String actualCurrentYear = String.valueOf(LocalDate.now().getYear()).substring(2); // TODO: Cambiar por hora del properties
 
 		if (!promoteCodeYear.equals(actualCurrentYear)) {
 			context.disableDefaultConstraintViolation();
