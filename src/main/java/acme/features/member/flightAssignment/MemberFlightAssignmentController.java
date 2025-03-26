@@ -1,5 +1,5 @@
 
-package acme.features.flightAssignment;
+package acme.features.member.flightAssignment;
 
 import javax.annotation.PostConstruct;
 
