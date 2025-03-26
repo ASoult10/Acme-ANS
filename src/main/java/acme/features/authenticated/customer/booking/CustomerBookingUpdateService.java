@@ -10,7 +10,7 @@ import acme.entities.booking.Booking;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingListService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingUpdateService extends AbstractGuiService<Customer, Booking> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,6 +38,21 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Booking booking) {
+
+	}
+
+	@Override
+	public void validate(final Booking booking) {
+		// TODO: Solo se pueden actualizar al ser publicados
+	}
+
+	@Override
+	public void perform(final Booking booking) {
+		this.customerBookingRepository.save(booking);
 	}
 
 	@Override

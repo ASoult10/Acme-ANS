@@ -7,7 +7,6 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
-import acme.features.authenticated.customer.CustomerRepository;
 import acme.realms.Customer;
 
 @GuiService
@@ -16,10 +15,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository	cutomerBookingRepository;
-
-	@Autowired
-	private CustomerRepository			customerRepository;
+	private CustomerBookingRepository customerBookingRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -39,18 +35,18 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		int userAccountId;
 
 		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerRepository.findCustomerByUserAccountId(userAccountId);
+		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void unbind(final Booking object) {
-		assert object != null;
+	public void unbind(final Booking booking) {
+		assert booking != null;
 
 		Dataset dataset;
 
-		dataset = super.unbindObject(object, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
 		super.getResponse().addData(dataset);
 	}
 
