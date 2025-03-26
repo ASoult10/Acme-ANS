@@ -7,6 +7,7 @@ member.flight-assignment.form.label.duty = Duty:
 member.flight-assignment.form.label.moment = Moment: 
 member.flight-assignment.form.label.assignmentStatus = AssignmentStatus:
 member.flight-assignment.form.label.remarks = Remarks:
+member.flight-assignment.form.label.leg = Leg:
 		
 member.flight-assignment.form.button.update = Update
 member.flight-assignment.form.button.delete = Delete

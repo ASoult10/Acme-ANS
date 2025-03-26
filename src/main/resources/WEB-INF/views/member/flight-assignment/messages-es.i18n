@@ -7,6 +7,7 @@ member.flight-assignment.form.label.duty = Deber:
 member.flight-assignment.form.label.moment = Momento:
 member.flight-assignment.form.label.assignmentStatus = Estado de asignación:
 member.flight-assignment.form.label.remarks = Observaciones:
+member.flight-assignment.form.label.leg = Tramo de vuelo:
 
 member.flight-assignment.form.button.update = Actualizar
 member.flight-assignment.form.button.delete = Eliminar
