@@ -1,8 +1,6 @@
 
 package acme.constraints;
 
-import java.util.List;
-
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +27,11 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 
 		String locatorCode = booking.getLocatorCode();
 
-		List<Booking> bookingsWithSameLocatorCode = this.repository.findManyBookingsByLocatorCode(locatorCode);
-		for (Integer i = 0; i < bookingsWithSameLocatorCode.size(); i++)
-			if (bookingsWithSameLocatorCode.get(i).getId() != booking.getId()) {
-				super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + locatorCode);
-				return false;
-			}
+		Booking bookingWithSameLocatorCode = this.repository.findBookingByLocatorCode(locatorCode);
+		if (bookingWithSameLocatorCode != null && bookingWithSameLocatorCode.getId() != booking.getId()) {
+			super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + locatorCode);
+			return false;
+		}
 
 		return true;
 	}
