@@ -1,7 +1,7 @@
 
 package acme.constraints;
 
-import java.util.List;
+import java.util.Optional;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -34,17 +34,14 @@ public class RegistrationNumberAircraftValidator extends AbstractValidator<Valid
 
 		String registrationNumber = aircraft.getRegistrationNumber();
 
-		if (registrationNumber == null) {
-			super.state(context, false, "*", "{acme.validation.registration-number.null.message");
+		if (registrationNumber == null)
+			return false;
+
+		Optional<Aircraft> aircraftWithSameRegistrationNumber = this.repository.findOneAircraftByRegistrationNumber(registrationNumber);
+		if (aircraftWithSameRegistrationNumber.isPresent() && aircraftWithSameRegistrationNumber.get().getId() != aircraft.getId()) {
+			super.state(context, false, "registrationNumber", "{acme.validation.registration-number.repeated.message}: " + registrationNumber);
 			return false;
 		}
-
-		List<Aircraft> aircraftsWithSameRegistrationNumber = this.repository.findAircraftsByRegistrationNumber(registrationNumber);
-		for (Integer i = 0; i < aircraftsWithSameRegistrationNumber.size(); i++)
-			if (aircraftsWithSameRegistrationNumber.get(i).getId() != aircraft.getId()) {
-				super.state(context, false, "registrationNumber", "{acme.validation.registration-number.repeated.message}: " + registrationNumber);
-				return false;
-			}
 
 		return true;
 	}

@@ -1,7 +1,7 @@
 
 package acme.constraints;
 
-import java.util.List;
+import java.util.Optional;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -36,10 +36,8 @@ public class LicenseNumberValidator extends AbstractValidator<ValidLicenseNumber
 
 		String license = technician.getLicenseNumber();
 
-		if (license == null) {
-			super.state(context, false, "*", "{acme.validation.identifier.nullornotpattern.message}");
+		if (license == null)
 			return false;
-		}
 
 		DefaultUserIdentity identity = technician.getUserAccount().getIdentity();
 
@@ -61,12 +59,11 @@ public class LicenseNumberValidator extends AbstractValidator<ValidLicenseNumber
 			return false;
 		}
 
-		List<Technician> techniciansWithSameLicense = this.repository.findTechniciansByLicenseNumber(license);
-		for (Integer i = 0; i < techniciansWithSameLicense.size(); i++)
-			if (techniciansWithSameLicense.get(i).getId() != technician.getId()) {
-				super.state(context, false, "licenseNumber", "{acme.validation.license-number.repeated.message}: " + license);
-				return false;
-			}
+		Optional<Technician> technicianWithSameLicense = this.repository.findOneTechnicianByLicenseNumber(license);
+		if (technicianWithSameLicense.isPresent() && technicianWithSameLicense.get().getId() != technician.getId()) {
+			super.state(context, false, "licenseNumber", "{acme.validation.license-number.repeated.message}: " + license);
+			return false;
+		}
 
 		return true;
 	}
