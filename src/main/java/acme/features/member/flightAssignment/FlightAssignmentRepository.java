@@ -26,4 +26,7 @@ public interface FlightAssignmentRepository extends AbstractRepository {
 	@Query("select l from Leg l where l.id = :legId")
 	Leg findLegById(int legId);
 
+	@Query("select f from FlightAssignment f where f.id = :flightAssignmentId")
+	FlightAssignment findFlightAssignmentById(int flightAssignmentId);
+
 }

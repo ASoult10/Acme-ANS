@@ -21,6 +21,9 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 	@Autowired
 	private MemberFlightAssignmentCreateService	createService;
 
+	@Autowired
+	private MemberFlightAssignmentShowService	showService;
+
 	// Constructors -----------------------------------------------------------
 
 
@@ -28,6 +31,7 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 	protected void initialise() {
 		super.addBasicCommand("list", this.listService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("show", this.showService);
 		//super.addCustomCommand("publish", "update", this.publishService);
 	}
 
