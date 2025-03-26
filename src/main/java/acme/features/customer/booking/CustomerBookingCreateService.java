@@ -4,9 +4,11 @@ package acme.features.customer.booking;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.realms.Customer;
 
 @GuiService
@@ -22,30 +24,19 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Customer object;
-		int userAccountId;
-
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
-
-		super.getBuffer().addData(object);
+		Booking booking = new Booking();
+		super.getBuffer().addData(booking);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		int contratorId; // TODO: Hacerlo
-
-		contratorId = super.getRequest().getData("contractor", int.class);
-		super.bindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
 
 	}
 
@@ -61,11 +52,9 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void unbind(final Booking booking) {
-		assert booking != null;
-
-		Dataset dataset;
-
-		dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
+		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		dataset.put("travelClass", travelClasses);
 		super.getResponse().addData(dataset);
 	}
 

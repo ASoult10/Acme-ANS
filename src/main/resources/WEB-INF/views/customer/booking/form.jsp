@@ -4,21 +4,17 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="administrator.aircraft.form.label.model" path="model"/>
-	<acme:input-textbox code="administrator.aircraft.form.label.registrationNumber" path="registrationNumber"/>	
-	<acme:input-integer code="administrator.aircraft.form.label.capacity" path="capacity"/>
-	<acme:input-integer code="administrator.aircraft.form.label.cargoWeight" path="cargoWeight"/>
-	<acme:input-select code="administrator.aircraft.form.label.status" path="status" choices="${aircraftstatus}"/>	
-	<acme:input-textarea code="administrator.aircraft.form.label.details" path="details"/>
+	<acme:input-textbox code="customer.booking.form.label.flight" path="flight"/>
+	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}"/>	
+	<acme:input-textarea code="customer.booking.form.label.lastNibble" path="lastNibble"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
-			<acme:submit code="administrator.aircraft.form.button.update" action="/administrator/aircraft/update"/>
-			<acme:submit code="administrator.aircraft.form.button.delete" action="/administrator/aircraft/delete"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-checkbox code="administrator.aircraft.form.label.confirmation" path="confirmation"/>
-			<acme:submit code="administrator.aircraft.form.button.create" action="/administrator/aircraft/create"/>
+			<acme:input-checkbox code="customer.booking.form.label.confirmation" path="confirmation"/>
+			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

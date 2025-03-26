@@ -4,15 +4,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="administrator.aircraft.list.label.model" path="model" width="20%"/>
-	<acme:list-column code="administrator.aircraft.list.label.registrationNumber" path="registrationNumber" width="20%"/>
-	<acme:list-column code="administrator.aircraft.list.label.capacity" path="capacity" width="40%"/>
-	<acme:list-column code="administrator.aircraft.list.label.cargoWeight" path="cargoWeight" width="10%"/>
-	<acme:list-column code="administrator.aircraft.list.label.status" path="status" width="10%"/>
-	
+	<acme:list-column code="customer.booking.list.label.locatorCode" path="locatorCode" width="20%"/>
+	<acme:list-column code="customer.booking.list.label.purchaseMoment" path="purchaseMoment" width="40%"/>
+	<acme:list-column code="customer.booking.list.label.travelClass" path="travelClass" width="10%"/>
+	<acme:list-column code="customer.booking.list.label.price" path="price" width="10%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>	
 	
 <jstl:if test="${_command == 'list'}">
-	<acme:button code="administrator.aircraft.list.button.create" action="/administrator/aircraft/create"/>
+	<acme:button code="customer.booking.list.button.create" action="/customer/booking/create"/>
 </jstl:if>	
