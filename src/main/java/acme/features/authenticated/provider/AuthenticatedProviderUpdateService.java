@@ -29,7 +29,7 @@ public class AuthenticatedProviderUpdateService extends AbstractGuiService<Authe
 	@Autowired
 	private AuthenticatedProviderRepository repository;
 
-	// AbstractService interface ----------------------------------------------ç
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override

@@ -34,10 +34,10 @@ public class PromoteCodeValidator extends AbstractValidator<ValidPromoteCode, St
 		Date moment = MomentHelper.getCurrentMoment();
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(moment);
-		String actualCurrentYear = String.valueOf(calendar.get(Calendar.YEAR));
+		String actualCurrentYear = String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
 
 		if (!promoteCodeYear.equals(actualCurrentYear)) {
-			super.state(context, false, "*", "{acme.validation.promoteCode.notCurrentYear.message}");
+			super.state(context, false, "*", "{acme.validation.promoteCode.notCurrentYear.message} CY: " + actualCurrentYear + ", PY: " + promoteCodeYear);
 			return false;
 		}
 
