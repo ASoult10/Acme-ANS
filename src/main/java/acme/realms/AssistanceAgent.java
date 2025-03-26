@@ -3,7 +3,6 @@ package acme.realms;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -38,7 +37,7 @@ public class AssistanceAgent extends AbstractRole {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
-	@Column(unique = true)
+	//@Column(unique = true)
 	private String				employeeCode;
 
 	@Mandatory

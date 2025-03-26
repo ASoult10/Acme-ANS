@@ -1,3 +1,4 @@
 ﻿key,key:userAccount,employeeCode,spokenLanguages,key:airline,startingMoment,bio,salary,photoLink
 agent-01,user-account-assistanceAgent-01,MG123456,"English,Spanish",airline-01,2010/05/20 00:00,null,null,"https://www.workbc.ca/sites/default/files/styles/hero_image/public/NTI5NzE_VuBWSwEe5BnvQWLa-6522-NOC.jpg?itok=pfiyP2OO"
 agent-02,user-account-assistanceAgent-02,JG123456,"French, Chinese",airline-20, 2019/03/23 00:00,"i am very passionate about my work",null,"https://blog.stafftraveler.com/wp-content/uploads/2023/12/smiling-male-flight-attendant-portrait-standing-in-plane-generative-ai-stockpack-adobe-stock-scaled.jpg"
+agent-03,user-account-assistanceAgent-02,JG123456,"French, Chinese",airline-20, 2019/03/23 00:00,"i am very passionate about my work",null,"https://blog.stafftraveler.com/wp-content/uploads/2023/12/smiling-male-flight-attendant-portrait-standing-in-plane-generative-ai-stockpack-adobe-stock-scaled.jpg"
