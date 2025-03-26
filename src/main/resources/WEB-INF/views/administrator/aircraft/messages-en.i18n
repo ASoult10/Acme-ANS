@@ -1,0 +1,26 @@
+# messages-en.i18n
+
+administrator.aircraft.form.title = Aircraft form 
+administrator.aircraft.list.title = Listing of aircrafts
+
+administrator.aircraft.form.label.model = Model:
+administrator.aircraft.form.label.registrationNumber = RegistrationNumber: 
+administrator.aircraft.form.label.capacity = Capacity:
+administrator.aircraft.form.label.cargoWeight = CargoWeight:
+administrator.aircraft.form.label.status = Status:
+administrator.aircraft.form.label.airline= Airline:
+administrator.aircraft.form.label.details = Details: (Optional)
+
+		
+administrator.aircraft.form.button.update = Update
+administrator.aircraft.form.button.delete = Delete
+administrator.aircraft.form.button.create = Create
+administrator.aircraft.form.label.confirmation = Confirm that the aircraft is correct
+
+administrator.aircraft.list.label.model = Model
+administrator.aircraft.list.label.registrationNumber = RegistrationNumber
+administrator.aircraft.list.label.capacity = Capacity
+administrator.aircraft.list.label.cargoWeight = Cargo weight
+administrator.aircraft.list.label.status = Status
+
+administrator.aircraft.list.button.create = Create

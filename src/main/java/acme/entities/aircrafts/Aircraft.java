@@ -66,4 +66,7 @@ public class Aircraft extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Airline				airline;
 
+	//BORRAR //authorizacion o validad, aut cuando es imposible q atraves de la UI
+	//por ej si tengo flight publicado, el unico boton debera aparecer para return o para ver los legs, lo demas boton en gris readonly 
+	//autorizacion por ej acceder a url de un flight ya publicado intentando editarlo (excepcion), error de valid me equivoque en algo y corrige
 }
