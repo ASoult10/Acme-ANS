@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
-import acme.client.components.principals.Administrator;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
@@ -67,9 +66,7 @@ public class Aircraft extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Airline				airline;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = true)
-	private Administrator		administrator;
-
+	//BORRAR //authorizacion o validad, aut cuando es imposible q atraves de la UI
+	//por ej si tengo flight publicado, el unico boton debera aparecer para return o para ver los legs, lo demas boton en gris readonly 
+	//autorizacion por ej acceder a url de un flight ya publicado intentando editarlo (excepcion), error de valid me equivoque en algo y corrige
 }

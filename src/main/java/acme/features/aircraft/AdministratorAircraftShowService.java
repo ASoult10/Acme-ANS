@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
+import acme.entities.aircrafts.AircraftStatus;
 
 @GuiService
 public class AdministratorAircraftShowService extends AbstractGuiService<Administrator, Aircraft> {
@@ -22,17 +24,7 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Aircraft aircraft;
-		Administrator administrator;
-
-		masterId = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(masterId);
-		administrator = aircraft == null ? null : aircraft.getAdministrator();
-		status = super.getRequest().getPrincipal().hasRealm(administrator) || aircraft != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -48,16 +40,13 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 	@Override
 	public void unbind(final Aircraft aircraft) {
-		//int administratorId;
-		//Collection<Airline> airlines;
-		//SelectChoices choices;
+		SelectChoices choices;
 		Dataset dataset;
 
-		//airlines = this.repository.findAllAirlines();
-		//choices = SelectChoices.from(airlines, "name", aircraft.getAirline());
+		choices = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
-		//dataset.put("airline", choices.getSelected().getKey());
-		//dataset.put("airlines", choices);
+		dataset.put("aircraftstatus", choices);
+
 		super.getResponse().addData(dataset);
 	}
 }

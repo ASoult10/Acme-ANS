@@ -26,17 +26,16 @@ public class AdministratorAircraftListService extends AbstractGuiService<Adminis
 	@Override
 	public void load() {
 		Collection<Aircraft> aircrafts;
-		int adminId;
 
-		adminId = super.getRequest().getPrincipal().getActiveRealm().getId();
-
-		aircrafts = this.repository.findAircraftsByAdministratorId(adminId);
+		aircrafts = this.repository.findAllAircrafts();
 		super.getBuffer().addData(aircrafts);
 	}
 
 	@Override
 	public void unbind(final Aircraft aircraft) {
-		Dataset dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		Dataset dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status");
+		super.addPayload(dataset, aircraft, "details");
+
 		super.getResponse().addData(dataset);
 	}
 }

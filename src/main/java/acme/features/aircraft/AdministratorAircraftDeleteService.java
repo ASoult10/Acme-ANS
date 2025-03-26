@@ -18,17 +18,8 @@ public class AdministratorAircraftDeleteService extends AbstractGuiService<Admin
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Aircraft aircraft;
-		Administrator admin;
 
-		masterId = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(masterId);
-		admin = aircraft == null ? null : aircraft.getAdministrator();
-		status = aircraft != null && super.getRequest().getPrincipal().hasRealm(admin);
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -45,7 +36,7 @@ public class AdministratorAircraftDeleteService extends AbstractGuiService<Admin
 
 	@Override
 	public void validate(final Aircraft aircraft) {
-		;
+		super.state(true, "*", "administrator.aircraft.delete.aircraft-linked");
 	}
 
 	@Override

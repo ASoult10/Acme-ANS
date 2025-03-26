@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
+import acme.entities.aircrafts.AircraftStatus;
 
 @GuiService
 public class AdministratorAircraftCreateService extends AbstractGuiService<Administrator, Aircraft> {
@@ -24,11 +26,8 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 	@Override
 	public void load() {
 		Aircraft aircraft;
-		Administrator admin;
 
-		admin = (Administrator) super.getRequest().getPrincipal().getActiveRealm();
 		aircraft = new Aircraft();
-		aircraft.setAdministrator(admin);//mirar lo de draft mode
 
 		super.getBuffer().addData(aircraft);
 	}
@@ -40,7 +39,10 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 
 	@Override
 	public void validate(final Aircraft aircraft) {
-		// Validation logic if needed
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
 	}
 
 	@Override
@@ -50,9 +52,15 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 
 	@Override
 	public void unbind(final Aircraft aircraft) {
+		SelectChoices aircraftstatus;
 		Dataset dataset;
 
+		aircraftstatus = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
+
 		dataset = super.unbindObject(aircraft, "model", "registrationNumber", "capacity", "cargoWeight", "status", "details");
+		dataset.put("confirmation", false);
+		dataset.put("readonly", false);
+		dataset.put("statuses", aircraftstatus);
 
 		super.getResponse().addData(dataset);
 	}
