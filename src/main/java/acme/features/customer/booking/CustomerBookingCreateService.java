@@ -36,6 +36,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
+		booking.setLocatorCode("12345898"); // TODO: Quitar
 		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
 
 	}
