@@ -29,18 +29,19 @@ acme.validation.member.nullornotpattern.message = The identifier must not be nul
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  
 acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
 
-acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg  
-
-# Student 4 and 5 Messages
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg 
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
 
-acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be in the future
-
-acme.validation.license-number.not-matching-initials.message = The license number must match the technician's initials  
-acme.validation.license-number.repeated.message = The technician's license number must be unique
-
-acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
+# Student 4 messages
 
 acme.validation.trackingLog.incorrectIndicator.message = Resolution percentage can only be 100% if status is REJECTED or ACCEPTED
 acme.validation.trackingLog.mustBePending.message = Status can only be PENDING if percentage isnt 100%
-acme.validation.trackingLog.increasingPercentage.message = The percentage must increase since last tracking log
+acme.validation.trackingLog.increasingPercentage.message = The percentage must increase since last tracking log 
+
+# Student 5 Messages
+
+acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be in the future
+acme.validation.license-number.not-matching-initials.message = The license number must match the technician's initials  
+acme.validation.license-number.repeated.message = The technician's license number must be unique
+acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
+
