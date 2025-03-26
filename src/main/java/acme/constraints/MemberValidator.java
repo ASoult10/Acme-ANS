@@ -11,7 +11,7 @@ import acme.client.components.principals.DefaultUserIdentity;
 import acme.client.components.principals.UserAccount;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.flightCrewMembers.MemberRepository;
+import acme.features.authenticated.member.MemberRepository;
 import acme.realms.Member;
 
 @Validator

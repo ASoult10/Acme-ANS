@@ -1,5 +1,5 @@
 
-package acme.entities.flightCrewMembers;
+package acme.features.authenticated.member;
 
 import java.util.List;
 import java.util.Optional;

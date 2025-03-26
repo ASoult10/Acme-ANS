@@ -24,7 +24,14 @@ acme.validation.locatorCode.notPattern.message = Locator Code must follow the co
 acme.validation.lastNibble.notPattern.message = Last nibble must be composed of four numbers
 acme.validation.passportNumber.notPattern.message = Passport number must follow the correct pattern
 
-# Student 3, 4 and 5 Messages
+# Student 3 Messages
+acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
+acme.validation.member.notInitials.message = The employee code must start with the user's initials  
+acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
+
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg  
+
+# Student 4 and 5 Messages
 acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
 
 acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be in the future
@@ -33,8 +40,6 @@ acme.validation.license-number.not-matching-initials.message = The license numbe
 acme.validation.license-number.repeated.message = The technician's license number must be unique
 
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
-
-acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the completion of leg
 
 acme.validation.trackingLog.incorrectIndicator.message = Resolution percentage can only be 100% if status is REJECTED or ACCEPTED
 acme.validation.trackingLog.mustBePending.message = Status can only be PENDING if percentage isnt 100%
