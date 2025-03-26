@@ -25,7 +25,15 @@ acme.validation.lastNibble.notPattern.message = El último nibble debe estar com
 acme.validation.passportNumber.notPattern.message = El número de pasaporte debe seguir el patrón correcto
 
 
-# Mensajes de estudiante 3, 4 y 5
+# Mensajes de estudiante 3
+acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
+acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario
+acme.validation.member.repeated.message = Ya existe una entidad diferente con este employeeCode:
+
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
+
+
+# Mensajes de estudiante 4 y 5
 acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro
 
 acme.validation.license-number.not-matching-initials.message = El número de licencia debe coincidir con las iniciales del técnico
@@ -34,7 +42,6 @@ acme.validation.license-number.repeated.message = El número de licencia del té
 acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
 
 
-acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
 
 acme.validation.trackingLog.incorrectIndicator.message = Si el porcentage es 100%, el estado debe ser ACCEPTED o REJECTED
 acme.validation.trackingLog.mustBePending.message = Si el porcentaje no es 100%, el estado debe ser PENDING

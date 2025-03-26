@@ -20,11 +20,14 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 
 	@Override
 	public boolean isValid(final ActivityLog activityLog, final ConstraintValidatorContext context) {
-
+		if (activityLog == null)
+			return false;
+		if (activityLog.getRegistrationMoment() == null || activityLog.getFlightAssignment() == null || activityLog.getFlightAssignment().getLeg() == null || activityLog.getFlightAssignment().getLeg().getScheduledArrival() == null)
+			return false;
 		Date activityLogMoment = activityLog.getRegistrationMoment();
 		Date scheduledArrival = activityLog.getFlightAssignment().getLeg().getScheduledArrival();
 		Boolean activityLogMomentIsAfterscheduledArrival = MomentHelper.isAfter(activityLogMoment, scheduledArrival);
-		super.state(context, activityLogMomentIsAfterscheduledArrival, "WrongActivityLogDate", "{acme.validation.activityLogMoment.wrong.message}");
+		super.state(context, activityLogMomentIsAfterscheduledArrival, "WrongActivityLogDate", "{acme.validation.activityLog.wrongMoment.message}");
 
 		boolean result = !super.hasErrors(context);
 		return result;

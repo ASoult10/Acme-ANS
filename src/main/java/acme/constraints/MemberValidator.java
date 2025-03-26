@@ -1,7 +1,7 @@
 
 package acme.constraints;
 
-import java.util.List;
+import java.util.Optional;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -31,22 +31,20 @@ public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 
 		String identifier = member.getEmployeeCode();
 
-		if (identifier == null || identifier.length() < 2) {
-			super.state(context, false, "*", "{acme.validation.identifier.nullornotpattern.message}");
+		if (identifier == null)
+			return false;
+		if (identifier.length() < 2) {
+			super.state(context, false, "*", "{acme.validation.member.nullornotpattern.message}");
 			return false;
 		}
-
 		UserAccount userAccount = member.getUserAccount();
-		if (userAccount == null || userAccount.getIdentity() == null) {
-			super.state(context, false, "*", "{javax.validation.constraints.NotNull.message}");
+		if (userAccount == null || userAccount.getIdentity() == null)
 			return false;
-		}
 		DefaultUserIdentity identity = member.getUserAccount().getIdentity();
 
-		if (identity.getName() == null || identity.getName().isBlank() || identity.getSurname() == null || identity.getSurname().isBlank()) {
-			super.state(context, false, "*", "{javax.validation.constraints.NotNull.message}");
+		if (identity.getName() == null || identity.getName().isBlank() || identity.getSurname() == null || identity.getSurname().isBlank())
 			return false;
-		}
+
 		String inicialNombre = String.valueOf(identity.getName().charAt(0)).toUpperCase();
 		String inicialApellido = String.valueOf(identity.getSurname().charAt(0)).toUpperCase();
 
@@ -55,16 +53,15 @@ public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 		String employeeCodeInitials = identifier.substring(0, 2);
 
 		if (!iniciales.equals(employeeCodeInitials)) {
-			super.state(context, false, "*", "{acme.validation.identifier.notInitials.message}");
+			super.state(context, false, "*", "{acme.validation.member.notInitials.message}");
 			return false;
 		}
 
-		List<Member> memberWithSameCode = this.repository.findManyMembersByEmployeeCode(identifier);
-		for (Integer i = 0; i < memberWithSameCode.size(); i++)
-			if (memberWithSameCode.get(i).getId() != member.getId()) {
-				super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + identifier);
-				return false;
-			}
+		Optional<Member> memberWithSameCode = this.repository.findOneMemberByEmployeeCode(identifier);
+		if (memberWithSameCode.isPresent() && memberWithSameCode.get().getId() != member.getId()) {
+			super.state(context, false, "*", "{acme.validation.member.repeated.message}: " + identifier);
+			return false;
+		}
 
 		return true;
 	}
