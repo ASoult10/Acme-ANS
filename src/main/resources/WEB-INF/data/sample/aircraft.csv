@@ -1,20 +1,20 @@
 key,model,registrationNumber,capacity,cargoWeight,status,details,key:airline
 
 #base entity
-aircraft-01,Boeing 737-800,EC-XYZ,189,22000,ACTIVE,The Boeing 737-800 is a popular narrow-body commercial airliner. It is used for short to medium-haul flights and typically carries up to 189 passengers. This aircraft is part of the airline's regular fleet and operates daily flights.,airline-01
+aircraft-01,Boeing 737-800,EC-XYZ,189,26000,ACTIVE,The Boeing 737-800 is a popular narrow-body commercial airliner. It is used for short to medium-haul flights and typically carries up to 189 passengers. This aircraft is part of the airline's regular fleet and operates daily flights.,airline-01
 
 #model - variations
 aircraft-02,L,EC-AAA,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-03,Lo,EC-BBB,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-04,Lorem ipsum dolor sit ame,EC-CCC,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-05,Lorem ipsum dolor sit amete consectetur adipiscin,EC-ATO,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-06,Lorem ipsum dolor sit amete consectetur adipiscing,EC-ALE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-05,Lorem ipsum dolor sit amete consectetur adipiscin,EC-ATO,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-02
+aircraft-06,Lorem ipsum dolor sit amete consectetur adipiscing,EC-ALE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-02
 aircraft-07,โลเร็ม อิปซัม,EC-DDD,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-08,لوريم إيبسوم,EC-EEE,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-09,洛伦·伊普森,EC-GGG,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-10,<marquee>Hacked</marquee>,EC-HHH,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-11,<script>alert(‘Hacked!’);</script>,EC-JJJ,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-12,' or 'A' = 'A ,EC-KKK,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
+aircraft-12,' or 'A' = 'A ,EC-KKK,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-03
 
 #registrationNumber - variations
 aircraft-13,Boeing 737-800,L,189,22000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
@@ -39,7 +39,6 @@ aircraft-28,Boeing 737-800,EC-PPP,255,22000,ACTIVE,The Boeing 737-800 is a narro
 #cargoWeight - variations
 aircraft-29,Boeing 737-800,EC-QQQ,189,2000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-30,Boeing 737-800,EC-RRR,189,2001,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
-aircraft-31,Boeing 737-800,EC-SSS,189,26000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-32,Boeing 737-800,EC-TTT,189,49999,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 aircraft-33,Boeing 737-800,EC-UUU,189,50000,ACTIVE,The Boeing 737-800 is a narrow-body commercial airliner used for short to medium-haul flights,airline-01
 

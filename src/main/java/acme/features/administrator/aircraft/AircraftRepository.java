@@ -1,7 +1,7 @@
 
-package acme.features.aircraft;
+package acme.features.administrator.aircraft;
 
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -13,6 +13,6 @@ import acme.entities.aircrafts.Aircraft;
 public interface AircraftRepository extends AbstractRepository {
 
 	@Query("select a from Aircraft a where a.registrationNumber = :registrationNumber")
-	List<Aircraft> findAircraftsByRegistrationNumber(String registrationNumber);
+	Optional<Aircraft> findOneAircraftByRegistrationNumber(String registrationNumber);
 
 }

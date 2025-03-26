@@ -77,10 +77,11 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		boolean result;
 
 		List<TrackingLog> logs = this.repository.findAllLogsFromClaimSortedByCreationMoment(tl.getClaim().getId());
-		if (logs.size() > 0)
-			if (logs.get(0).getResolutionPercentage() >= tl.getResolutionPercentage())
-				super.state(context, false, "resolutionPercentage", "acme.validation.trackingLog.increasingPercentage.message");
 
+		TrackingLog lastLog = logs.stream().filter(log -> log.getId() != tl.getId() && log.getCreationMoment().compareTo(tl.getCreationMoment()) < 0).findFirst().orElse(null);
+
+		if (lastLog != null && lastLog.getResolutionPercentage() >= tl.getResolutionPercentage())
+			super.state(context, false, "resolutionPercentage", "acme.validation.trackingLog.increasingPercentage.message");
 		result = !super.hasErrors(context);
 
 		return result;

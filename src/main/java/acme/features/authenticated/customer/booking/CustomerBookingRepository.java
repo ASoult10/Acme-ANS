@@ -1,5 +1,5 @@
 
-package acme.features.booking;
+package acme.features.authenticated.customer.booking;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.booking.Booking;
 
 @Repository
-public interface BookingRepository extends AbstractRepository {
+public interface CustomerBookingRepository extends AbstractRepository {
 
 	List<Booking> findManyBookingsByLocatorCode(String locatorCode);
 
