@@ -1,6 +1,8 @@
 
 package acme.features.customer.booking;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
@@ -25,19 +27,19 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 		boolean status;
 
 		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
+		status = true;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Customer object;
-		int userAccountId;
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
+		Collection<Booking> bookings;
 
-		super.getBuffer().addData(object);
+		bookings = this.customerBookingRepository.findBookingsByCustomer(customerId);
+
+		super.getBuffer().addData(bookings);
 	}
 
 	@Override
