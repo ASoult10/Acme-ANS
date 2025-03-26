@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.customer.booking;
+package acme.features.customer.booking;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +10,7 @@ import acme.entities.booking.Booking;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingCreateService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingListService extends AbstractGuiService<Customer, Booking> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -38,25 +38,6 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
-	}
-
-	@Override
-	public void bind(final Booking booking) {
-		int contratorId; // TODO: Hacerlo
-
-		contratorId = super.getRequest().getData("contractor", int.class);
-		super.bindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
-
-	}
-
-	@Override
-	public void validate(final Booking booking) {
-		// TODO: Published solo cuando se guarda el last nibble
-	}
-
-	@Override
-	public void perform(final Booking booking) {
-		this.customerBookingRepository.save(booking);
 	}
 
 	@Override
