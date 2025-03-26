@@ -1,0 +1,21 @@
+# messages-en.i18n
+
+member.flight-assignment.form.title = flightAssignment form 
+member.flight-assignment.list.title = Listing of flightAssignments
+
+member.flight-assignment.form.label.duty = Duty:
+member.flight-assignment.form.label.moment = Moment: 
+member.flight-assignment.form.label.assignmentStatus = AssignmentStatus:
+member.flight-assignment.form.label.remarks = Remarks:
+		
+member.flight-assignment.form.button.update = Update
+member.flight-assignment.form.button.delete = Delete
+member.flight-assignment.form.button.create = Create
+member.flight-assignment.form.label.confirmation = Confirm that the flightAssignment is correct
+
+member.flight-assignment.list.label.duty = Duty
+member.flight-assignment.list.label.moment = Moment
+member.flight-assignment.list.label.assignmentStatus = AssignmentStatus
+member.flight-assignment.list.label.remarks = Remarks
+
+member.flight-assignment.list.button.create = Create

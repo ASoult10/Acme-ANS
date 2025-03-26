@@ -1,0 +1,21 @@
+# messages-es.i18n
+
+member.flight-assignment.form.title = Formulario de FlightAssignment
+member.flight-assignment.list.title = Listado de FlightAssignments
+
+member.flight-assignment.form.label.duty = Deber:
+member.flight-assignment.form.label.moment = Momento:
+member.flight-assignment.form.label.assignmentStatus = Estado de asignación:
+member.flight-assignment.form.label.remarks = Observaciones:
+
+member.flight-assignment.form.button.update = Actualizar
+member.flight-assignment.form.button.delete = Eliminar
+member.flight-assignment.form.button.create = Crear
+member.flight-assignment.form.label.confirmation = Confirma que el FlightAssignment es correcto
+
+member.flight-assignment.list.label.duty = Deber
+member.flight-assignment.list.label.moment = Momento
+member.flight-assignment.list.label.assignmentStatus = Estado de asignación
+member.flight-assignment.list.label.remarks = Observaciones
+
+member.flight-assignment.list.button.create = Crear

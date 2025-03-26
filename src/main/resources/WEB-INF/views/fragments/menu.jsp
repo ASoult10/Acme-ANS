@@ -49,6 +49,11 @@
 			<acme:menu-suboption code="master.menu.customer.dashboard" action="/customer/dashboard/show"/>
 		</acme:menu-option>
 		
+		
+		<acme:menu-option code="master.menu.member" access="hasRealm('Member')">
+			<acme:menu-suboption code="master.menu.member.list-flightAssignment" action="/member/flight-assignment/list"/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>		
