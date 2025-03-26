@@ -1,5 +1,5 @@
 
-package acme.features.aircraft;
+package acme.features.administrator.aircraft;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,14 +10,10 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 
 @GuiService
-public class AdministratorAircraftUpdateService extends AbstractGuiService<Administrator, Aircraft> {
-
-	// Internal state ---------------------------------------------------------
+public class AdministratorAircraftDeleteService extends AbstractGuiService<Administrator, Aircraft> {
 
 	@Autowired
 	private AdministratorAircraftRepository repository;
-
-	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
@@ -28,12 +24,8 @@ public class AdministratorAircraftUpdateService extends AbstractGuiService<Admin
 
 	@Override
 	public void load() {
-		Aircraft aircraft;
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
-		aircraft = this.repository.findAircraftById(id);
-
+		int id = super.getRequest().getData("id", int.class);
+		Aircraft aircraft = this.repository.findAircraftById(id);
 		super.getBuffer().addData(aircraft);
 	}
 
@@ -44,12 +36,12 @@ public class AdministratorAircraftUpdateService extends AbstractGuiService<Admin
 
 	@Override
 	public void validate(final Aircraft aircraft) {
-		;
+		super.state(true, "*", "administrator.aircraft.delete.aircraft-linked");
 	}
 
 	@Override
 	public void perform(final Aircraft aircraft) {
-		this.repository.save(aircraft);
+		this.repository.delete(aircraft);
 	}
 
 	@Override
@@ -60,4 +52,5 @@ public class AdministratorAircraftUpdateService extends AbstractGuiService<Admin
 
 		super.getResponse().addData(dataset);
 	}
+
 }

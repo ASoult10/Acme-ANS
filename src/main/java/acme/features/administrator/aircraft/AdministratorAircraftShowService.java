@@ -1,5 +1,5 @@
 
-package acme.features.aircraft;
+package acme.features.administrator.aircraft;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.aircrafts.Aircraft;
-import acme.features.aircraft.AircraftRepository;
+import acme.features.administrator.aircraft.AircraftRepository;
 
 @Validator
 
