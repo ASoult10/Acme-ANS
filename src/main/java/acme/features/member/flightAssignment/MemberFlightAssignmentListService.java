@@ -15,7 +15,7 @@ import acme.realms.Member;
 public class MemberFlightAssignmentListService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentRepository repository;
+	private MemberFlightAssignmentRepository repository;
 
 
 	@Override
@@ -34,6 +34,7 @@ public class MemberFlightAssignmentListService extends AbstractGuiService<Member
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
 		Dataset dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
+
 		super.getResponse().addData(dataset);
 	}
 }
