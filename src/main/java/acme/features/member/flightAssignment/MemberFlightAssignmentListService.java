@@ -15,7 +15,7 @@ import acme.realms.Member;
 public class MemberFlightAssignmentListService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentRepository repository;
+	private MemberFlightAssignmentRepository repository;
 
 
 	@Override

@@ -19,7 +19,7 @@ import acme.realms.Member;
 public class MemberFlightAssignmentCreateService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
-	private FlightAssignmentRepository repository;
+	private MemberFlightAssignmentRepository repository;
 
 
 	@Override
@@ -30,12 +30,12 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 	@Override
 	public void load() {
 		FlightAssignment flightAssignment;
-		Member member;
+		//Member member;
 
-		member = (Member) super.getRequest().getPrincipal().getActiveRealm();
+		//member = (Member) super.getRequest().getPrincipal().getActiveRealm();
 
 		flightAssignment = new FlightAssignment();
-		flightAssignment.setMember(member);
+		//flightAssignment.setMember(member);
 
 		super.getBuffer().addData(flightAssignment);
 	}
@@ -45,11 +45,18 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		Integer legId;
 		Leg leg;
 
+		Integer memberId;
+		Member member;
+
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
 
+		memberId = super.getRequest().getData("member", int.class);
+		member = this.repository.findMemberById(memberId);
+
 		super.bindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
 		flightAssignment.setLeg(leg);
+		flightAssignment.setMember(member);
 	}
 
 	@Override
@@ -73,12 +80,19 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 
 		int memberId;
 		Collection<Leg> legs;
-		SelectChoices choices;
+		SelectChoices legChoices;
+
+		Collection<Member> members;
+		SelectChoices memberChoices;
 		Dataset dataset;
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		legs = this.repository.findLegsByMemberId(memberId);
-		choices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		//legs = this.repository.findLegsByMemberId(memberId);
+		legs = this.repository.findAllLegs();
+		members = this.repository.findAllMembers();
+
+		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
@@ -88,8 +102,10 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		dataset.put("readonly", false);
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
-		dataset.put("leg", choices.getSelected().getKey());
-		dataset.put("legs", choices);
+		dataset.put("leg", legChoices.getSelected().getKey());
+		dataset.put("legs", legChoices);
+		dataset.put("member", memberChoices.getSelected().getKey());
+		dataset.put("members", memberChoices);
 
 		super.getResponse().addData(dataset);
 	}
