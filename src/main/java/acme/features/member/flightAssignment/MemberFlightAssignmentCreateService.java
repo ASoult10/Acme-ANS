@@ -35,6 +35,8 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		//member = (Member) super.getRequest().getPrincipal().getActiveRealm();
 
 		flightAssignment = new FlightAssignment();
+
+		flightAssignment.setDraftMode(true);
 		//flightAssignment.setMember(member);
 
 		super.getBuffer().addData(flightAssignment);
@@ -97,7 +99,7 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
-		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
+		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
 		dataset.put("assignmentStatus", assignmentStatus);

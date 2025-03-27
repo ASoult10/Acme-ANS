@@ -16,16 +16,19 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private MemberFlightAssignmentListService	listService;
+	private MemberFlightAssignmentListService		listService;
 
 	@Autowired
-	private MemberFlightAssignmentCreateService	createService;
+	private MemberFlightAssignmentCreateService		createService;
 
 	@Autowired
-	private MemberFlightAssignmentUpdateService	updateService;
+	private MemberFlightAssignmentUpdateService		updateService;
 
 	@Autowired
-	private MemberFlightAssignmentShowService	showService;
+	private MemberFlightAssignmentPublishService	publishService;
+
+	@Autowired
+	private MemberFlightAssignmentShowService		showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -36,7 +39,8 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
-		//super.addCustomCommand("publish", "update", this.publishService);
+
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 
 }
