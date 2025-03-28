@@ -13,7 +13,7 @@
 	<acme:input-textarea code="administrator.aircraft.form.label.details" path="details"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
 			<acme:submit code="administrator.aircraft.form.button.update" action="/administrator/aircraft/update"/>
 			<acme:submit code="administrator.aircraft.form.button.delete" action="/administrator/aircraft/delete"/>
 		</jstl:when>
