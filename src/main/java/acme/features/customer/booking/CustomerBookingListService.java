@@ -9,6 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.flights.Flight;
 import acme.realms.Customer;
 
 @GuiService
@@ -30,14 +31,18 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void load() {
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByCustomer(customerId);
+
 		super.getBuffer().addData(bookings);
 	}
 
 	@Override
 	public void unbind(final Booking booking) {
-		Dataset dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		Flight flightAssociated = booking.getFlight();
+		Customer customer = booking.getCustomer();
+		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		//dataset.put("flight", flightAssociated.getOriginCity() + " -> " + flightAssociated.getDestinationCity());
 		super.getResponse().addData(dataset);
 	}
 

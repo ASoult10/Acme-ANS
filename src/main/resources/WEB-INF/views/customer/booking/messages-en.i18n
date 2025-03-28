@@ -7,6 +7,8 @@ customer.booking.form.button.update = Update
 customer.booking.form.button.create = Book
 customer.booking.form.label.confirmation = Confirm
 
+customer.booking.list.label.originCity = Origin City
+customer.booking.list.label.destinationCity = Destination City
 customer.booking.list.label.flight = Flight
 customer.booking.list.label.locatorCode = Locator Code
 customer.booking.list.label.purchaseMoment = Purchase Date

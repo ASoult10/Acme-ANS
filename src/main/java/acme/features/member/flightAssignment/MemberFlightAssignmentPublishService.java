@@ -16,14 +16,10 @@ import acme.entities.legs.Leg;
 import acme.realms.Member;
 
 @GuiService
-public class MemberFlightAssignmentShowService extends AbstractGuiService<Member, FlightAssignment> {
-
-	// Internal state ---------------------------------------------------------
+public class MemberFlightAssignmentPublishService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
 	private MemberFlightAssignmentRepository repository;
-
-	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
@@ -34,39 +30,76 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 	@Override
 	public void load() {
 		FlightAssignment flightAssignment;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(id);
+		flightAssignment = new FlightAssignment();
 
 		super.getBuffer().addData(flightAssignment);
 	}
 
 	@Override
+	public void bind(final FlightAssignment flightAssignment) {
+		Integer legId;
+		Leg leg;
+
+		Integer memberId;
+		Member member;
+
+		legId = super.getRequest().getData("leg", int.class);
+		leg = this.repository.findLegById(legId);
+
+		memberId = super.getRequest().getData("member", int.class);
+		member = this.repository.findMemberById(memberId);
+
+		super.bindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
+		flightAssignment.setLeg(leg);
+		flightAssignment.setMember(member);
+	}
+
+	@Override
+	public void validate(final FlightAssignment flightAssignment) {
+		boolean status;
+		int masterId;
+
+		masterId = super.getRequest().getData("id", int.class);
+
+		status = flightAssignment.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void perform(final FlightAssignment flightAssignment) {
+		flightAssignment.setDraftMode(false);
+		this.repository.save(flightAssignment);
+	}
+
+	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
+
+		SelectChoices assignmentStatus;
+		SelectChoices duty;
+
 		int memberId;
 		Collection<Leg> legs;
 		SelectChoices legChoices;
 
 		Collection<Member> members;
 		SelectChoices memberChoices;
-
 		Dataset dataset;
-
-		SelectChoices assignmentStatus;
-		SelectChoices duty;
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		legs = this.repository.findAllLegs();
 		members = this.repository.findAllMembers();
 
-		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
-		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
-
 		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
 
+		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
+		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
+
 		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
+		dataset.put("confirmation", false);
+		dataset.put("readonly", false);
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
 		dataset.put("leg", legChoices.getSelected().getKey());
@@ -76,5 +109,4 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		super.getResponse().addData(dataset);
 	}
-
 }

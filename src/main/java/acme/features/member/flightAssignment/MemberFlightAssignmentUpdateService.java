@@ -28,7 +28,16 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		FlightAssignment flightAssignment;
+
+		masterId = super.getRequest().getData("id", int.class);
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+
+		status = flightAssignment.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -97,7 +106,7 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
-		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
+		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);

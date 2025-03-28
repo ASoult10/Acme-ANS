@@ -13,9 +13,9 @@
 	
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish') && draftMode == true}">
 			<acme:submit code="member.flight-assignment.form.button.update" action="/member/flight-assignment/update"/>
-			
+			<acme:submit code="member.flight-assignment.form.button.publish" action="/member/flight-assignment/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-checkbox code="member.flight-assignment.form.label.confirmation" path="confirmation"/>
