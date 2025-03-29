@@ -31,13 +31,7 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void load() {
-		Customer object;
-		int userAccountId;
-
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerPassengerRepository.findCustomerByUserAccountId(userAccountId);
-
-		super.getBuffer().addData(object);
+		// TODO: Hacer
 	}
 
 	@Override
