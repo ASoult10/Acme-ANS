@@ -24,6 +24,8 @@ acme.validation.locatorCode.notPattern.message = Locator Code must follow the co
 acme.validation.lastNibble.notPattern.message = Last nibble must be composed of four numbers
 acme.validation.passportNumber.notPattern.message = Passport number must follow the correct pattern
 
+acme.validation.lastNibble.blank.message = Cannot publish a booking if last nibble is not set
+
 # Student 3 Messages
 acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  

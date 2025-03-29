@@ -1,13 +1,18 @@
 
 package acme.features.customer.booking;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.booking.TravelClass;
 import acme.entities.flights.Flight;
+import acme.features.customer.passenger.CustomerPassengerRepository;
 import acme.realms.Customer;
 
 @GuiService
@@ -16,48 +21,41 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository customerBookingRepository;
+	private CustomerBookingRepository	customerBookingRepository;
+
+	@Autowired
+	private CustomerPassengerRepository	customerPassengerRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		Integer bookingId = super.getRequest().getData("id", int.class);
+		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		if (booking.getIsPublished())
+			status = false;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Customer object;
-		int userAccountId;
-
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerBookingRepository.findCustomerByUserAccountId(userAccountId);
-
-		super.getBuffer().addData(object);
+		Integer id = super.getRequest().getData("id", int.class);
+		Booking booking = this.customerBookingRepository.findBookingById(id);
+		super.getBuffer().addData(booking);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		Integer flightId = super.getRequest().getData("flight", int.class);
-		Flight flight = this.customerBookingRepository.findFlightById(flightId);
-
-		Integer customerId = super.getRequest().getData("customer", int.class);
-		Customer customer = this.customerBookingRepository.findCustomerById(customerId);
-
-		booking.setFlight(flight);
-		booking.setCustomer(customer);
-
-		super.bindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
 	}
 
 	@Override
 	public void validate(final Booking booking) {
-		// TODO: Solo se pueden actualizar al ser publicados
+		Booking bookingWithSameLocatorCode = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode());
+		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
+		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
 	}
 
 	@Override
@@ -67,11 +65,14 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void unbind(final Booking booking) {
-		assert booking != null;
+		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
+		Collection<Flight> flights = this.customerBookingRepository.findAllFlight();
+		SelectChoices flightChoices = SelectChoices.from(flights, "id", booking.getFlight());
 
-		Dataset dataset;
+		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
+		dataset.put("travelClass", travelClasses);
+		dataset.put("flights", flightChoices);
 
-		dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
 		super.getResponse().addData(dataset);
 	}
 

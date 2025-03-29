@@ -22,22 +22,16 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Customer object;
-		int userAccountId;
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		//Collection<Passenger> passengers = this.customerPassengergRepository.findBookingsByCustomer(customerId);
 
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.customerPassengergRepository.findCustomerByUserAccountId(userAccountId);
-
-		super.getBuffer().addData(object);
+		//super.getBuffer().addData(passengers);
 	}
 
 	@Override
