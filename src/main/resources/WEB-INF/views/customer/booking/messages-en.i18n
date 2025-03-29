@@ -6,6 +6,8 @@ customer.booking.form.title = Booking Details
 customer.booking.form.button.update = Update
 customer.booking.form.button.create = Book
 customer.booking.form.label.confirmation = Confirm
+customer.booking.form.button.passenger = Passengers of this booking
+customer.booking.form.button.publish = Publish
 
 customer.booking.list.label.originCity = Origin City
 customer.booking.list.label.destinationCity = Destination City
@@ -18,5 +20,8 @@ customer.booking.list.button.create = Book
 customer.booking.list.label.lastNibble = Last Nibble
 
 customer.booking.form.label.flight = Flight
+customer.booking.form.label.locatorCode = Locator Code
+customer.booking.form.label.purchaseMoment = Purchase Moment
 customer.booking.form.label.travelClass = Travel Class
-customer.booking.form.label.lastNibble = Last Nibble (Optional)
+customer.booking.form.label.price = Price
+customer.booking.form.label.lastNibble = Last Nibble Of Credit Card (Optional)

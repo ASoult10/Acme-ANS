@@ -6,6 +6,9 @@ customer.booking.form.title = Detalles de la Reserva
 customer.booking.form.button.update = Actualizar
 customer.booking.form.button.create = Reservar
 customer.booking.form.label.confirmation = Confirmar
+customer.booking.form.button.passenger = Pasajeros de esta reserva
+customer.booking.form.button.publish = Publicar
+
 
 customer.booking.list.label.flight = Vuelo
 customer.booking.list.label.locatorCode = Código Localizador
@@ -16,5 +19,8 @@ customer.booking.list.button.create = Reservar
 customer.booking.list.label.lastNibble = Últimos dígitos
 
 customer.booking.form.label.flight = Vuelo
+customer.booking.form.label.locatorCode = Código Localizador
+customer.booking.form.label.purchaseMoment = Momento de Compra
 customer.booking.form.label.travelClass = Clase de Viaje
-customer.booking.form.label.lastNibble = Último Nibble (Opcional)
+customer.booking.form.label.price = Precio
+customer.booking.form.label.lastNibble = Últimos Dígitos de la Tarjeta de Crédito (Opcional)

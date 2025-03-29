@@ -16,7 +16,7 @@ import acme.features.customer.passenger.CustomerPassengerRepository;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerBookingUpdateService extends AbstractGuiService<Customer, Booking> {
+public class CustomerBookingPublishService extends AbstractGuiService<Customer, Booking> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -56,10 +56,13 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		Booking bookingWithSameLocatorCode = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode());
 		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
+		status = !booking.getLastNibble().isBlank();
+		super.state(status, "locatorCode", "acme.validation.lastNibble.blank.message");
 	}
 
 	@Override
 	public void perform(final Booking booking) {
+		booking.setIsPublished(true);
 		this.customerBookingRepository.save(booking);
 	}
 
