@@ -1,0 +1,24 @@
+# messages-en.i18n
+
+technician.maintenance-record.form.title = Maintenance Record Form
+technician.maintenance-record.list.title = Listing of Maintenance Records
+
+technician.maintenance-record.form.label.maintenanceMoment = Maintenance Moment:
+technician.maintenance-record.form.label.status = Status:
+technician.maintenance-record.form.label.nextInspectionDueDate = Next Inspection Due Date:
+technician.maintenance-record.form.label.estimatedCost = Estimated Cost:
+technician.maintenance-record.form.label.technician = Technician
+technician.maintenance-record.form.label.aircraft = Aircraft
+technician.maintenance-record.form.label.notes = Notes: (Optional)
+
+technician.maintenance-record.form.button.update = Update
+technician.maintenance-record.form.button.delete = Delete
+technician.maintenance-record.form.button.create = Create
+technician.maintenance-record.form.label.confirmation = Confirm that the maintenance record is correct
+
+technician.maintenance-record.list.label.maintenanceMoment = Maintenance Moment
+technician.maintenance-record.list.label.status = Status
+technician.maintenance-record.list.label.nextInspectionDueDate = Next Inspection Due Date
+technician.maintenance-record.list.label.estimatedCost = Estimated Cost
+
+technician.maintenance-record.list.button.create = Create

@@ -55,3 +55,8 @@ master.menu.customer.list-bookings = Bookings
 
 master.menu.member = Member
 master.menu.member.list-flightAssignment= List
+
+# master.menu.technician ##########################################################
+
+master.menu.technician = Technician
+master.menu.technician.list-maintenanceRecord = List maintenance records
