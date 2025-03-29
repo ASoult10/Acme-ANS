@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
 import acme.entities.passenger.Passenger;
-import acme.features.customer.booking.CustomerPassengerPublishService;
 import acme.realms.Customer;
 
 @GuiController
