@@ -1,0 +1,23 @@
+# messages-en.i18n
+
+technician.task.form.title = Formulario de Tareas
+technician.task.list.title = Listado de Tareas
+
+technician.task.form.label.type = Tipo:
+technician.task.form.label.description = Descripción:
+technician.task.form.label.priority = Prioridad:
+technician.task.form.label.estimatedDuration = Duración Estimada:
+technician.task.form.label.technician = Técnico:
+
+technician.task.form.button.update = Actualizar
+technician.task.form.button.delete = Eliminar
+technician.task.form.button.create = Crear
+technician.task.form.button.publish = Publicar
+technician.task.form.label.confirmation = Confirme que los detalles de la tarea son correctos
+
+technician.task.list.label.type = Tipo
+technician.task.list.label.description = Descripción
+technician.task.list.label.priority = Prioridad
+technician.task.list.label.estimatedDuration = Duración Estimada
+
+technician.task.list.button.create = Crear
