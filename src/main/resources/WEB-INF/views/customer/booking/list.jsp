@@ -8,6 +8,7 @@
 	<acme:list-column code="customer.booking.list.label.purchaseMoment" path="purchaseMoment" width="20%"/>
 	<acme:list-column code="customer.booking.list.label.travelClass" path="travelClass" width="10%"/>
 	<acme:list-column code="customer.booking.list.label.price" path="price" width="10%"/>
+	<acme:list-column code="customer.booking.list.label.isPublished" path="isPublished" width="10%"/>
 </acme:list>	
 	
 <jstl:if test="${_command == 'list'}">
