@@ -5,15 +5,14 @@ customer.booking.form.title = Detalles de la Reserva
 
 customer.booking.form.button.update = Actualizar
 customer.booking.form.button.create = Reservar
-customer.booking.form.label.confirmation = Confirmar
 customer.booking.form.button.passenger = Pasajeros de esta reserva
 customer.booking.form.button.publish = Publicar
 
+customer.booking.list.button.create = Reservar
 customer.booking.list.label.locatorCode = Código Localizador
 customer.booking.list.label.purchaseMoment = Fecha de Compra
 customer.booking.list.label.travelClass = Clase de Viaje
 customer.booking.list.label.price = Precio
-customer.booking.list.button.create = Reservar
 customer.booking.list.label.lastNibble = Últimos dígitos
 customer.booking.list.label.isPublished = ¿Está esta reserva publicada?
 

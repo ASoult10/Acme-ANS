@@ -4,15 +4,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="administrator.aircraft.list.label.model" path="model" width="20%"/>
-	<acme:list-column code="administrator.aircraft.list.label.registrationNumber" path="registrationNumber" width="20%"/>
-	<acme:list-column code="administrator.aircraft.list.label.capacity" path="capacity" width="40%"/>
-	<acme:list-column code="administrator.aircraft.list.label.cargoWeight" path="cargoWeight" width="10%"/>
-	<acme:list-column code="administrator.aircraft.list.label.status" path="status" width="10%"/>
-	
-	<acme:list-payload path="payload"/>
+	<acme:list-column code="customer.passenger.list.label.fullName" path="fullName" width="20%"/>
+	<acme:list-column code="customer.passenger.list.label.passportNumber" path="passportNumber" width="20%"/>
+	<acme:list-column code="customer.passenger.list.label.birthDate" path="birthDate" width="20%"/>
+	<acme:list-column code="customer.passenger.list.label.isPublished" path="isPublished" width="20%"/>
+    <acme:list-payload path="payload"/>	
 </acme:list>	
 	
 <jstl:if test="${_command == 'list'}">
-	<acme:button code="administrator.aircraft.list.button.create" action="/administrator/aircraft/create"/>
+	<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
 </jstl:if>	

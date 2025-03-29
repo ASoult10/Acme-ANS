@@ -1,1 +1,16 @@
 # messages-en.i18n
+
+customer.passenger.list.title = Passenger List
+customer.passenger.form.title = Passenger Details
+
+customer.passenger.form.button.update = Update
+customer.passenger.form.button.create = Add Passenger
+customer.passenger.form.button.publish = Publish
+
+customer.passenger.list.button.create = Add Passenger
+customer.passenger.list.label.fullName = Full Name
+customer.passenger.list.label.email = Email
+customer.passenger.list.label.passportNumber = Passport Number
+customer.passenger.list.label.birthDate = Date Of Birth
+customer.passenger.list.label.specialNeeds = Special Needs
+customer.passenger.list.label.isPublished = Is this Passenger Published?

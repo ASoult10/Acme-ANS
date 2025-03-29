@@ -50,7 +50,8 @@ master.menu.user-account.consumer-profile = Consumer profile
 
 master.menu.customer = Customer
 master.menu.customer.dashboard = Dashboard
-master.menu.customer.list-bookings = Bookings 
+master.menu.customer.list-bookings = My Bookings 
+master.menu.customer.list-passengers = My Passengers
 
 # master.menu.member ##########################################################
 

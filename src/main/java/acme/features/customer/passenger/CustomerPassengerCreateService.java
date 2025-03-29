@@ -3,6 +3,7 @@ package acme.features.customer.passenger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.basis.AbstractRealm;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -22,34 +23,38 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
-		boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		// TODO: Hacer
+		Passenger passenger = new Passenger();
+
+		AbstractRealm principal = super.getRequest().getPrincipal().getActiveRealm();
+		int customerId = principal.getId();
+		Customer customer = this.customerPassengerRepository.findCustomerById(customerId);
+
+		passenger.setCustomer(customer);
+		passenger.setIsPublished(false);
+
+		super.getBuffer().addData(passenger);
 	}
 
 	@Override
 	public void bind(final Passenger passenger) {
-		int contratorId; // TODO: Hacerlo
-
-		contratorId = super.getRequest().getData("contractor", int.class);
 		super.bindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds");
 
 	}
 
 	@Override
 	public void validate(final Passenger passenger) {
-		// TODO: Published solo cuando se guarda el last nibble
+
 	}
 
 	@Override
 	public void perform(final Passenger passenger) {
+		passenger.setIsPublished(false);
 		this.customerPassengerRepository.save(passenger);
 	}
 
@@ -57,9 +62,8 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 	public void unbind(final Passenger passenger) {
 		assert passenger != null;
 
-		Dataset dataset;
+		Dataset dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds", "isPublished");
 
-		dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds");
 		super.getResponse().addData(dataset);
 	}
 

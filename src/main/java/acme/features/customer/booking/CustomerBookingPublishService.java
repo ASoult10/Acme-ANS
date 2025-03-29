@@ -12,7 +12,6 @@ import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.TravelClass;
 import acme.entities.flights.Flight;
-import acme.features.customer.passenger.CustomerPassengerRepository;
 import acme.realms.Customer;
 
 @GuiService
@@ -21,10 +20,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerBookingRepository	customerBookingRepository;
-
-	@Autowired
-	private CustomerPassengerRepository	customerPassengerRepository;
+	private CustomerBookingRepository customerBookingRepository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -32,10 +28,14 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 	@Override
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+
 		Integer bookingId = super.getRequest().getData("id", int.class);
 		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
-		if (booking.getIsPublished())
-			status = false;
+
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		status = status && booking.getCustomer().getId() == customerId && booking.getIsPublished();
+
 		super.getResponse().setAuthorised(status);
 	}
 

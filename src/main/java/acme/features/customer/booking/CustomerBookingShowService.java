@@ -38,9 +38,9 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		Integer bookingId = super.getRequest().getData("id", int.class);
 		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getUserAccount().getId();
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && booking.getCustomer().getUserAccount().getId() == customerId;
+		status = status && booking.getCustomer().getId() == customerId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -57,7 +57,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllFlight();
 		SelectChoices flightChoices = SelectChoices.from(flights, "id", booking.getFlight());
-		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
+		List<Passenger> passengers = (List<Passenger>) this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
 		List<String> passengerss = passengers.stream().map(p -> p.getFullName()).toList();
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished");
