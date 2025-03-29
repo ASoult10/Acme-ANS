@@ -1,0 +1,12 @@
+administrator.airline.label.name = Name:
+administrator.airline.label.iata = IATA code:
+administrator.airline.label.website = Website:
+administrator.airline.label.type = Type:
+administrator.airline.label.foundationMoment = Foundation date: 
+administrator.airline.label.email = Email:
+administrator.airline.label.phoneNumber = Phone number:
+
+administrator.airline.button.create = Create
+administrator.airline.button.update = Update
+
+administrator.airline.form.label.confirmation = Confirm the airline
