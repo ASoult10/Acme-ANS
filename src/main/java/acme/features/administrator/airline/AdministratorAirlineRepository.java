@@ -8,7 +8,7 @@ import acme.entities.airlines.Airline;
 
 public interface AdministratorAirlineRepository extends AbstractRepository {
 
-	@Query("select a from  airline a where a.id = :id")
+	@Query("select a from  Airline a where a.id = :id")
 	Airline findAirlineById(int id);
 
 }
