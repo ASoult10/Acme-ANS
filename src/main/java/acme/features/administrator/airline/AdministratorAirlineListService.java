@@ -37,8 +37,8 @@ public class AdministratorAirlineListService extends AbstractGuiService<Administ
 
 	@Override
 	public void unbind(final Airline airline) {
-		Dataset dataset = super.unbindObject(airline, "name", "IATA", "website", "type", "foundationMoment", "email", "phoneNumber");
-		super.addPayload(dataset, airline, "details");
+		Dataset dataset = super.unbindObject(airline, "name", "IATA", "website", "type", "email", "phoneNumber");
+		super.addPayload(dataset, airline, "foundationMoment");
 
 		super.getResponse().addData(dataset);
 	}
