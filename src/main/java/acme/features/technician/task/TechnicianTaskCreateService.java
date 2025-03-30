@@ -30,6 +30,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 		Task task;
 
 		task = new Task();
+		//task.setDraftMode(true); esto da error no salen bien las cosas
 
 		super.getBuffer().addData(task);
 	}
@@ -70,7 +71,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 		taskStatus = SelectChoices.from(TaskStatus.class, task.getType());
 
-		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration");
+		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
 		dataset.put("taskStatus", taskStatus);

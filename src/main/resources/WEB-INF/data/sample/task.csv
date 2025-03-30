@@ -1,37 +1,37 @@
-key,type,description,priority,estimatedDuration,key:technician
+key,type,description,priority,estimatedDuration,key:technician,draftMode
 
 #base entity
-task-01,MAINTENANCE,Annual review task,5,120,technician-01
+task-01,MAINTENANCE,Annual review task,5,120,technician-01,true
 
 #type - variations
-task-02,MAINTENANCE,Annual review task,5,120,technician-01
-task-03,INSPECTION,Annual review task,5,120,technician-01
-task-04,REPAIR,Annual review task,5,120,technician-01
-task-05,SYSTEM_CHECK,Annual review task,5,120,technician-01
+task-02,MAINTENANCE,Annual review task,5,120,technician-01,true
+task-03,INSPECTION,Annual review task,5,120,technician-02,true
+task-04,REPAIR,Annual review task,5,120,technician-02,true
+task-05,SYSTEM_CHECK,Annual review task,5,120,technician-01,true
 
 #description - variations
-task-06,MAINTENANCE,L,5,120,technician-01
-task-07,MAINTENANCE,Lo,5,120,technician-01
-task-08,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,120,technician-01
-task-09,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,5,120,technician-01
-task-10,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,5,120,technician-01
-task-11,MAINTENANCE,โลเร็ม อิปซัม,5,120,technician-01
-task-12,MAINTENANCE,لوريم إيبسوم,5,120,technician-01
-task-13,MAINTENANCE,洛伦·伊普森,5,120,technician-01
-task-14,MAINTENANCE,<marquee>Hacked</marquee>,5,120,technician-01
-task-15,MAINTENANCE,<script>alert(‘Hacked!’);</script>,5,120,technician-01
-task-16,MAINTENANCE,' or 'A' = 'A ,5,120,technician-01
+task-06,MAINTENANCE,L,5,120,technician-01,true
+task-07,MAINTENANCE,Lo,5,120,technician-02,true
+task-08,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,120,technician-01,true
+task-09,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,5,120,technician-02,true
+task-10,MAINTENANCE,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,5,120,technician-01,true
+task-11,MAINTENANCE,โลเร็ม อิปซัม,5,120,technician-01,true
+task-12,MAINTENANCE,لوريم إيبسوم,5,120,technician-01,true
+task-13,MAINTENANCE,洛伦·伊普森,5,120,technician-01,true
+task-14,MAINTENANCE,<marquee>Hacked</marquee>,5,120,technician-01,true
+task-15,MAINTENANCE,<script>alert(‘Hacked!’);</script>,5,120,technician-02,true
+task-16,MAINTENANCE,' or 'A' = 'A ,5,120,technician-01,true
 
 #priority - variations
-task-17,MAINTENANCE,Annual review task,0,120,technician-01
-task-18,MAINTENANCE,Annual review task,1,120,technician-01
-task-19,MAINTENANCE,Annual review task,5,120,technician-01
-task-20,MAINTENANCE,Annual review task,9,120,technician-01
-task-21,MAINTENANCE,Annual review task,10,120,technician-01
+task-17,MAINTENANCE,Annual review task,0,120,technician-01,true
+task-18,MAINTENANCE,Annual review task,1,120,technician-01,true
+task-19,MAINTENANCE,Annual review task,5,120,technician-01,true
+task-20,MAINTENANCE,Annual review task,9,120,technician-02,true
+task-21,MAINTENANCE,Annual review task,10,120,technician-01,true
 
 #estimatedDuration - variations
-task-22,MAINTENANCE,Annual review task,5,0,technician-01
-task-23,MAINTENANCE,Annual review task,5,1,technician-01
-task-24,MAINTENANCE,Annual review task,5,500,technician-01
-task-25,MAINTENANCE,Annual review task,5,999,technician-01
-task-26,MAINTENANCE,Annual review task,5,1000,technician-01
+task-22,MAINTENANCE,Annual review task,5,0,technician-01,true
+task-23,MAINTENANCE,Annual review task,5,1,technician-01,true
+task-24,MAINTENANCE,Annual review task,5,500,technician-01,true
+task-25,MAINTENANCE,Annual review task,5,999,technician-02,true
+task-26,MAINTENANCE,Annual review task,5,1000,technician-01,true

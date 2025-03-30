@@ -71,7 +71,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 		taskStatus = SelectChoices.from(TaskStatus.class, task.getType());
 
-		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration");
+		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
 		dataset.put("taskStatus", taskStatus);
