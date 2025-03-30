@@ -1,0 +1,14 @@
+# messages-en.i18n
+
+technician.involved-in.form.title = Involved In Form
+technician.involved-in.list.title = Listing of Involved In
+
+technician.involved-in.form.label.task = Task:
+
+technician.involved-in.form.button.create = Create
+technician.involved-in.form.button.delete = Delete
+technician.involved-in.form.label.confirmation = Confirm that the involved in is correct
+
+technician.involved-in.list.label.task = Task
+
+technician.involved-in.list.button.create = Create

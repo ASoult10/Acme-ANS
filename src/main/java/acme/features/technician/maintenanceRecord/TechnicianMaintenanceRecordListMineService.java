@@ -12,7 +12,7 @@ import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.realms.Technician;
 
 @GuiService
-public class TechnicianMaintenanceRecordListService extends AbstractGuiService<Technician, MaintenanceRecord> {
+public class TechnicianMaintenanceRecordListMineService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
 	@Autowired
 	private TechnicianMaintenanceRecordRepository repository;
@@ -29,7 +29,7 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 		int technicianId;
 
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		maintenanceRecords = this.repository.findAllMaintenanceRecordsByTechnician(technicianId);//aquí debería serl el all
+		maintenanceRecords = this.repository.findAllMaintenanceRecordsByTechnician(technicianId);
 
 		super.getBuffer().addData(maintenanceRecords);
 	}
@@ -41,4 +41,5 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 
 		super.getResponse().addData(dataset);
 	}
+
 }
