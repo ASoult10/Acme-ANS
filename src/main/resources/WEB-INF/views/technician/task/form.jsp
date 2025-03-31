@@ -11,7 +11,7 @@
 	<acme:input-select code="technician.task.form.label.technician" path="technician" choices="${technicians}"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode = true}">
 			<acme:submit code="technician.task.form.button.update" action="/technician/task/update"/>
 			<acme:submit code="technician.task.form.button.delete" action="/technician/task/delete"/>
 			<acme:submit code="technician.task.form.button.publish" action="/technician/task/publish"/>

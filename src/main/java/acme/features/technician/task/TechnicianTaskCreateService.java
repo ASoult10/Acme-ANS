@@ -30,7 +30,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 		Task task;
 
 		task = new Task();
-		//task.setDraftMode(true); esto da error no salen bien las cosas
+		task.setDraftMode(true);
 
 		super.getBuffer().addData(task);
 	}

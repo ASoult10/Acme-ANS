@@ -12,7 +12,7 @@ import acme.entities.tasks.Task;
 import acme.realms.Technician;
 
 @GuiService
-public class TechnicianTaskListService extends AbstractGuiService<Technician, Task> {
+public class TechnicianTaskListMineService extends AbstractGuiService<Technician, Task> {
 
 	@Autowired
 	private TechnicianTaskRepository repository;
@@ -26,8 +26,10 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	@Override
 	public void load() {
 		Collection<Task> tasks;
+		int technicianId;
 
-		tasks = this.repository.findAllTasks();
+		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		tasks = this.repository.findAllTasksByTechnician(technicianId);
 
 		super.getBuffer().addData(tasks);
 	}

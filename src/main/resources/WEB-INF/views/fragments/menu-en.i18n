@@ -61,5 +61,7 @@ master.menu.member.list-flightAssignment= List
 # master.menu.technician ##########################################################
 
 master.menu.technician = Technician
-master.menu.technician.list-maintenanceRecord = List maintenance records
-master.menu.technician.list-task = List tasks
+master.menu.technician.list-maintenanceRecord = List all maintenance records
+master.menu.technician.list-mine-maintenanceRecord = List my maintenance records
+master.menu.technician.list-task = List all tasks
+master.menu.technician.list-mine-task = List my tasks

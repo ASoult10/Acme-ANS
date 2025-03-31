@@ -16,12 +16,11 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish')&& draftMode == true}">
 			<acme:submit code="technician.maintenance-record.form.button.update" action="/technician/maintenance-record/update"/>
 			<acme:submit code="technician.maintenance-record.form.button.publish" action="/technician/maintenance-record/publish"/>
-			<acme:submit code="technician.maintenance-record.form.button.tasks" action="/technician/involved-in/list?masterId=${id}"/>
+			<acme:submit code="technician.maintenance-record.form.button.tasks" action="/technician/involved-in/list?masterId=${masterId}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-checkbox code="technician.maintenance-record.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="technician.maintenance-record.form.button.create" action="/technician/maintenance-record/create"/>
-  			<acme:submit code="technician.maintenance-record.form.button.tasks" action="/technician/involved-in/list?masterId=${id}"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>
