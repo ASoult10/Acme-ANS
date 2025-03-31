@@ -2,6 +2,7 @@
 
 acme.validation.airport.code.message = El código del aeropuerto debe estar compuesto de tres letras mayúsculas
 acme.validation.airport.phone.message = El teléfono no es válido
+acme.validation.airport.duplicated-code.message = Ya existe un aeropuerto con el mismo código
 
 # Mensajes de estudiante 1
 acme.validation.manager.wrong-initials.message = El número de identificación debe comenzar con las iniciales del gestor
