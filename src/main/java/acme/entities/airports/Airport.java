@@ -12,12 +12,14 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAirport;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidAirport
 public class Airport extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -32,7 +34,7 @@ public class Airport extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(min = 3, max = 3, pattern = "^[A-Z]{3}$", message = "")
+	@ValidString(pattern = "^[A-Z]{3}$", message = "{acme.validation.airport.code.message}")
 	@Column(unique = true)
 	private String				code;
 
@@ -62,7 +64,7 @@ public class Airport extends AbstractEntity {
 	private String				email;
 
 	@Optional
-	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "")
+	@ValidString(pattern = "^\\+?\\d{6,15}$", message = "{acme.validation.airport.phone.message}")
 	@Automapped
 	private String				phone;
 
