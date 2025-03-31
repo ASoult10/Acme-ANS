@@ -22,6 +22,6 @@
 	</jstl:choose>
 	
 	<jstl:if test="${passengers.size() != 0 && _command != 'create'}">
-		<acme:submit code="customer.booking.form.button.passenger" action="/customer/passenger/list?bookingId=${id}"/>
+		<acme:button code="customer.booking.form.button.passenger" action="/customer/passenger/list?bookingId=${id}"/>
 	</jstl:if>
 </acme:form>

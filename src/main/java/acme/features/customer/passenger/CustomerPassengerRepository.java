@@ -2,6 +2,7 @@
 package acme.features.customer.passenger;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -24,7 +25,7 @@ public interface CustomerPassengerRepository extends AbstractRepository {
 	Booking getBookingById(int bookingId);
 
 	@Query("SELECT bp.passenger FROM BookingPassenger bp WHERE bp.booking.id = :bookingId")
-	Collection<Passenger> findPassengerByBookingId(Integer bookingId);
+	List<Passenger> findPassengerByBookingId(Integer bookingId);
 
 	@Query("SELECT p FROM Passenger p WHERE p.customer.id=:customerId")
 	Collection<Passenger> getPassengersByCustomer(int customerId);
