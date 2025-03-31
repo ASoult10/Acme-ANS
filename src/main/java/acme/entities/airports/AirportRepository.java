@@ -8,6 +8,6 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface AirportRepository extends AbstractRepository {
 
-	Airport findByCode(String code);
+	Airport findByIataCode(String iataCode);
 
 }

@@ -39,10 +39,10 @@ public class AirportValidator extends AbstractValidator<ValidAirport, Airport> {
 			boolean uniqueAirport;
 			Airport existingAirport;
 
-			existingAirport = this.repository.findByCode(airport.getCode());
+			existingAirport = this.repository.findByIataCode(airport.getIataCode());
 			uniqueAirport = existingAirport == null || existingAirport.equals(airport);
 
-			super.state(context, uniqueAirport, "code", "acme.validation.airport.duplicated-code.message");
+			super.state(context, uniqueAirport, "iataCode", "acme.validation.airport.duplicated-code.message");
 		}
 
 		result = !super.hasErrors(context);
