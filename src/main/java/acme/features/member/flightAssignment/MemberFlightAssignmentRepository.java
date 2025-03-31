@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.activityLog.ActivityLog;
 import acme.entities.flightAssignment.FlightAssignment;
 import acme.entities.legs.Leg;
 import acme.realms.Member;
@@ -21,6 +22,9 @@ public interface MemberFlightAssignmentRepository extends AbstractRepository {
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival > :currentMoment")
 	Collection<FlightAssignment> findNotCompletedFlightAssignments(Date currentMoment);
+
+	@Query("select a from ActivityLog a where a.flightAssignment.id = :flightAssignmentId")
+	Collection<ActivityLog> getActivityLogByFlightAssignmentId(int flightAssignmentId);
 
 	@Query("SELECT DISTINCT fa.leg FROM FlightAssignment fa WHERE fa.member.id = :memberId")
 	List<Leg> findLegsByMemberId(int memberId);

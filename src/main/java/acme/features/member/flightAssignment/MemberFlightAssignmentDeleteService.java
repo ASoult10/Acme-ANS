@@ -2,7 +2,6 @@
 package acme.features.member.flightAssignment;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,36 +10,44 @@ import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.activityLog.ActivityLog;
 import acme.entities.flightAssignment.AssignmentStatus;
 import acme.entities.flightAssignment.Duty;
 import acme.entities.flightAssignment.FlightAssignment;
 import acme.entities.legs.Leg;
+import acme.features.member.activityLog.MemberActivityLogRepository;
 import acme.realms.Member;
 
 @GuiService
-public class MemberFlightAssignmentCreateService extends AbstractGuiService<Member, FlightAssignment> {
+public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
-	private MemberFlightAssignmentRepository repository;
+	private MemberFlightAssignmentRepository	repository;
+
+	@Autowired
+	private MemberActivityLogRepository			activityLogRepository;
 
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int flightAssignmentId;
+		FlightAssignment flightAssignment;
 
-		super.getResponse().setAuthorised(true);
+		flightAssignmentId = super.getRequest().getData("id", int.class);
+		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+		status = flightAssignment.isDraftMode();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		FlightAssignment flightAssignment;
-		//Member member;
-
-		//member = (Member) super.getRequest().getPrincipal().getActiveRealm();
 
 		flightAssignment = new FlightAssignment();
 
 		flightAssignment.setDraftMode(true);
-		//flightAssignment.setMember(member);
 
 		super.getBuffer().addData(flightAssignment);
 	}
@@ -67,30 +74,6 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
 
-		List<Leg> legsByMember;
-		legsByMember = this.repository.findLegsByMemberId(flightAssignment.getMember().getId());
-
-		for (Leg leg : legsByMember)
-			if (!this.legIsCompatible(flightAssignment.getLeg(), leg)) {
-				System.out.println(flightAssignment.getLeg().getFlightNumber() + "  " + leg.getFlightNumber());
-				super.state(false, "member", "acme.validation.FlightAssignment.memberHasIncompatibleLegs.message");
-				break;
-			}
-
-		List<FlightAssignment> flightAssignmentsByLeg;
-		flightAssignmentsByLeg = this.repository.findFlightAssignmentByLegId(flightAssignment.getLeg().getId());
-		boolean hasPilot = false;
-		boolean hasCopilot = false;
-		for (FlightAssignment fa : flightAssignmentsByLeg) {
-			if (fa.getDuty().equals(Duty.PILOT))
-				hasPilot = true;
-			if (fa.getDuty().equals(Duty.CO_PILOT))
-				hasCopilot = true;
-		}
-
-		super.state(!(flightAssignment.getDuty().equals(Duty.PILOT) && hasPilot), "duty", "acme.validation.FlightAssignment.hasPilot.message");
-		super.state(!(flightAssignment.getDuty().equals(Duty.CO_PILOT) && hasCopilot), "duty", "acme.validation.FlightAssignment.hasCopilot.message");
-
 	}
 	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
 		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
@@ -102,7 +85,10 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 
 	@Override
 	public void perform(final FlightAssignment flightAssignment) {
-		this.repository.save(flightAssignment);
+		Collection<ActivityLog> activityLogs = this.repository.getActivityLogByFlightAssignmentId(flightAssignment.getId());
+
+		this.activityLogRepository.deleteAll(activityLogs);
+		this.repository.delete(flightAssignment);
 	}
 
 	@Override
