@@ -10,5 +10,5 @@
 </acme:list>	
 	
 <jstl:if test="${_command == 'list'}">
-	<acme:button code="technician.involved-in.list.button.create" action="/technician/involved-in/create"/>
+	<acme:button code="technician.involved-in.list.button.create" action="/technician/involved-in/create?masterId=${masterId}"/>
 </jstl:if>	

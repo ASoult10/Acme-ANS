@@ -12,6 +12,7 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.maintenanceRecord.MaintenanceRecordStatus;
+import acme.entities.mappings.InvolvedIn;
 import acme.realms.Technician;
 
 @GuiService
@@ -55,6 +56,10 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
+		Collection<InvolvedIn> involvedInCollection;
+
+		involvedInCollection = this.repository.findInvolvedInByMaintenanceRecordId(maintenanceRecord.getId());
+		this.repository.deleteAll(involvedInCollection);
 		this.repository.delete(maintenanceRecord);
 	}
 
