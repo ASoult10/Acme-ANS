@@ -1,5 +1,5 @@
 /*
- * AdministratorCompanyShowService.java
+ * AdministratorCompanyUpdateService.java
  *
  * Copyright (C) 2012-2025 Rafael Corchuelo.
  *
@@ -23,14 +23,14 @@ import acme.entities.airports.Airport;
 import acme.entities.airports.OperationalScope;
 
 @GuiService
-public class AdministratorAirportShowService extends AbstractGuiService<Administrator, Airport> {
+public class AdministratorAirportUpdateService extends AbstractGuiService<Administrator, Airport> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private AdministratorAirportRepository repository;
 
-	// AbstractGuiService interface -------------------------------------------
+	// AbstractGuiService interfaced ------------------------------------------
 
 
 	@Override
@@ -50,6 +50,24 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 	}
 
 	@Override
+	public void bind(final Airport airport) {
+		super.bindObject(airport, "name", "iataCode", "scope", "city", "country", "website", "email", "phone");
+	}
+
+	@Override
+	public void validate(final Airport airport) {
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+	}
+
+	@Override
+	public void perform(final Airport airport) {
+		this.repository.save(airport);
+	}
+
+	@Override
 	public void unbind(final Airport airport) {
 		SelectChoices choices;
 		Dataset dataset;
@@ -58,6 +76,7 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 
 		dataset = super.unbindObject(airport, "name", "iataCode", "scope", "city", "country", "website", "email", "phone");
 		dataset.put("confirmation", false);
+		dataset.put("readonly", false);
 		dataset.put("scopes", choices);
 
 		super.getResponse().addData(dataset);

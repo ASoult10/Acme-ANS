@@ -11,6 +11,7 @@ administrator.airport.form.label.country = Country:
 administrator.airport.form.label.website = Website:
 administrator.airport.form.label.email = Email:
 administrator.airport.form.label.phone = Phone:
+administrator.airport.form.label.confirmation = Confirm that the airport is correct.
 
 administrator.airport.form.button.create = Create
 administrator.airport.form.button.update = Update
@@ -20,4 +21,3 @@ administrator.airport.list.label.code = Code
 administrator.airport.list.label.country = Country
 
 administrator.airport.list.button.create = Create
-

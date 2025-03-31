@@ -1,5 +1,5 @@
 /*
- * AdministratorCompanyShowService.java
+ * AdministratorAnnouncementCreateService.java
  *
  * Copyright (C) 2012-2025 Rafael Corchuelo.
  *
@@ -23,7 +23,7 @@ import acme.entities.airports.Airport;
 import acme.entities.airports.OperationalScope;
 
 @GuiService
-public class AdministratorAirportShowService extends AbstractGuiService<Administrator, Airport> {
+public class AdministratorAirportCreateService extends AbstractGuiService<Administrator, Airport> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -41,12 +41,28 @@ public class AdministratorAirportShowService extends AbstractGuiService<Administ
 	@Override
 	public void load() {
 		Airport airport;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		airport = this.repository.findAirportById(id);
+		airport = new Airport();
 
 		super.getBuffer().addData(airport);
+	}
+
+	@Override
+	public void bind(final Airport airport) {
+		super.bindObject(airport, "name", "iataCode", "scope", "city", "country", "website", "email", "phone");
+	}
+
+	@Override
+	public void validate(final Airport airport) {
+		boolean confirmation;
+
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+	}
+
+	@Override
+	public void perform(final Airport airport) {
+		this.repository.save(airport);
 	}
 
 	@Override
