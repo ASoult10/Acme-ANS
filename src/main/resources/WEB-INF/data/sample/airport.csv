@@ -1,4 +1,4 @@
-key,name,code,scope,city,country,website,email,phone
+key,name,iata-code,scope,city,country,website,email,phone
 
 # base entity
 airport-00,Aeropuerto de Sevilla,SVQ,INTERNATIONAL,Sevilla,España,https://www.aena.es/es/sevilla.html,acme@lorem-ipsum.org,913211000
