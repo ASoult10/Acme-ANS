@@ -1,5 +1,9 @@
 # validation-en.i18n
 
+acme.validation.airport.code.message = Airport code must be three-uppercase-letter
+acme.validation.airport.phone.message = Phone is not valid
+acme.validation.airport.duplicated-code.message = An airport with the same code already exists
+
 # Student 1 Messages
 acme.validation.manager.wrong-initials.message = Identifier number must start with the manager initials
 
