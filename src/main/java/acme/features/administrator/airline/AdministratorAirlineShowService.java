@@ -7,9 +7,11 @@ import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
 import acme.entities.airlines.Airline;
 import acme.entities.airlines.AirlineType;
 
+@GuiService
 public class AdministratorAirlineShowService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------

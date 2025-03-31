@@ -1,3 +1,6 @@
+administrator.airline.form.title = Airline form 
+administrator.airline.list.title = List of airlines
+
 administrator.airline.label.name = Name:
 administrator.airline.label.iata = IATA code:
 administrator.airline.label.website = Website:

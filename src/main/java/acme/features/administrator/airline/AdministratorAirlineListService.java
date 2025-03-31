@@ -1,16 +1,17 @@
 
 package acme.features.administrator.airline;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.basis.AbstractEntity;
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Administrator;
 import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
 import acme.entities.airlines.Airline;
 
+@GuiService
 public class AdministratorAirlineListService extends AbstractGuiService<Administrator, Airline> {
 
 	// Internal state ---------------------------------------------------------
@@ -28,18 +29,16 @@ public class AdministratorAirlineListService extends AbstractGuiService<Administ
 
 	@Override
 	public void load() {
-		List<AbstractEntity> airlines;
+		Collection<Airline> airlines;
 
-		airlines = this.repository.findAll();
+		airlines = this.repository.findAllAirlines();
 
 		super.getBuffer().addData(airlines);
 	}
 
 	@Override
 	public void unbind(final Airline airline) {
-		Dataset dataset = super.unbindObject(airline, "name", "IATA", "website", "type", "email", "phoneNumber");
-		super.addPayload(dataset, airline, "foundationMoment");
-
+		Dataset dataset = super.unbindObject(airline, "name", "IATA", "website", "foundationMoment", "type", "email", "phoneNumber");
 		super.getResponse().addData(dataset);
 	}
 

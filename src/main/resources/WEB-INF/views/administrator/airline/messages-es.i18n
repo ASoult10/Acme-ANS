@@ -1,3 +1,6 @@
+administrator.airline.form.title = Detalles de aerolíneas
+administrator.airline.list.title = Lista de aerolíneas
+
 administrator.airline.label.name = Nombre:
 administrator.airline.label.iata = Código IATA:
 administrator.airline.label.website = Sitio web:
