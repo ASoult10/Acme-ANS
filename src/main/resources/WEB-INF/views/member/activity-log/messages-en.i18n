@@ -1,0 +1,23 @@
+# messages-en.i18n
+
+member.activity-log.form.title = ActivityLog Form 
+member.activity-log.list.title = Listing of ActivityLogs
+
+member.activity-log.form.label.registrationMoment = Registration Moment
+member.activity-log.form.label.typeOfIncident = Type of Incident
+member.activity-log.form.label.description = Description
+member.activity-log.form.label.severityLevel = Severity Level
+		
+member.activity-log.form.button.update = Update
+member.activity-log.form.button.publish = Publish
+member.activity-log.form.button.delete = Delete
+member.activity-log.form.button.create = Create
+member.activity-log.list.button.create = Create
+member.activity-log.form.label.confirmation = Confirm that the flightAssignment is correct
+
+member.activity-log.list.label.registrationMoment = Registration Moment
+member.activity-log.list.label.typeOfIncident = Type of Incident
+member.activity-log.list.label.description = Description
+member.activity-log.list.label.severityLevel = Severity Level
+
+member.flight-assignment.list.button.create = Create

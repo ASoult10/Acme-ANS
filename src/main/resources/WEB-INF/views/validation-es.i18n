@@ -33,7 +33,10 @@ acme.validation.member.notInitials.message = El employee code debe comenzar con 
 acme.validation.member.repeated.message = Ya existe una entidad diferente con este employeeCode:
 
 acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
-
+acme.validation.FlightAssignment.memberNotAvailable.message = Ese miembro de la tripulacion no está disponible, por lo que la asignación de vuelo no puede ser creada
+acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = Ese miembro tiene tramos de vuelo incompatibles
+acme.validation.FlightAssignment.hasPilot.message = Ese tramo de vuelo ya tiene piloto
+acme.validation.FlightAssignment.hasCopilot.message = Ese tramo de vuelo ya tiene copiloto
 
 # Mensajes de estudiante 4 y 5
 acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flightAssignment.AssignmentStatus;
@@ -24,7 +25,16 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		FlightAssignment flightAssignment;
+
+		masterId = super.getRequest().getData("id", int.class);
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+
+		status = flightAssignment.isDraftMode() && MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -57,14 +67,6 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
-		boolean status;
-		int masterId;
-
-		masterId = super.getRequest().getData("id", int.class);
-
-		status = flightAssignment.isDraftMode();
-
-		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -89,7 +91,7 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		legs = this.repository.findAllLegs();
-		members = this.repository.findAllMembers();
+		members = this.repository.findAllAvailableMembers();
 
 		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
@@ -100,6 +102,7 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
+		dataset.put("moment", MomentHelper.getBaseMoment());
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
 		dataset.put("leg", legChoices.getSelected().getKey());

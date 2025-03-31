@@ -31,8 +31,10 @@ acme.validation.member.nullornotpattern.message = The identifier must not be nul
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  
 acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
 
-acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg 
-acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg acme.validation.FlightAssignment.memberNotAvailable.message = That member is not available, flightAssignment can not be created
+acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = That member has incompatible legs
+acme.validation.FlightAssignment.hasPilot.message = That leg already has a pilot
+acme.validation.FlightAssignment.hasCopilot.message = That leg already has a copilot
 
 # Student 4 messages
 
