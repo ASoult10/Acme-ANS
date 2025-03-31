@@ -56,7 +56,8 @@ master.menu.customer.list-passengers = Mis Pasajeros
 # master.menu.member ##########################################################
 
 master.menu.member = Member
-master.menu.member.list-flightAssignment= List
+master.menu.member.completedlist-flightAssignment= Listar asignaciones de vuelo completadas
+master.menu.member.notCompletedlist-flightAssignment = Listar asignaciones de vuelo no completadas
 
 # master.menu.technician ##########################################################
 

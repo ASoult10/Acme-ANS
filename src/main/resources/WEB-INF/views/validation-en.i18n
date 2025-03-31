@@ -1,5 +1,9 @@
 # validation-en.i18n
 
+acme.validation.airport.code.message = Airport code must be three-uppercase-letter
+acme.validation.airport.phone.message = Phone is not valid
+acme.validation.airport.duplicated-code.message = An airport with the same code already exists
+
 # Student 1 Messages
 acme.validation.manager.wrong-initials.message = Identifier number must start with the manager initials
 
@@ -31,8 +35,10 @@ acme.validation.member.nullornotpattern.message = The identifier must not be nul
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  
 acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
 
-acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg 
-acme.validation.activityLogMoment.wrong.message = ActivityLog registrationMoment must be after the leg
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg acme.validation.FlightAssignment.memberNotAvailable.message = That member is not available, flightAssignment can not be created
+acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = That member has incompatible legs
+acme.validation.FlightAssignment.hasPilot.message = That leg already has a pilot
+acme.validation.FlightAssignment.hasCopilot.message = That leg already has a copilot
 
 # Student 4 messages
 

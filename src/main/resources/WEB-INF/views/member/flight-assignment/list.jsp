@@ -12,6 +12,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>	
 	
-<jstl:if test="${_command == 'list'}">
+<jstl:if test="${_command == 'notCompletedlist'}">
 	<acme:button code="member.flight-assignment.list.button.create" action="/member/flight-assignment/create"/>
 </jstl:if>	

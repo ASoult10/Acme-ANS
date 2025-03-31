@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flightAssignment.AssignmentStatus;
@@ -58,7 +59,7 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		legs = this.repository.findAllLegs();
-		members = this.repository.findAllMembers();
+		members = this.repository.findAllAvailableMembers();
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
@@ -73,6 +74,8 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 		dataset.put("legs", legChoices);
 		dataset.put("member", memberChoices.getSelected().getKey());
 		dataset.put("members", memberChoices);
+
+		dataset.put("legNotCompleted", MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival()));
 
 		super.getResponse().addData(dataset);
 	}

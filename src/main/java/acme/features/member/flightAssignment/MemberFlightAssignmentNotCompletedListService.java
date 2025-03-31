@@ -2,17 +2,19 @@
 package acme.features.member.flightAssignment;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
-public class MemberFlightAssignmentListService extends AbstractGuiService<Member, FlightAssignment> {
+public class MemberFlightAssignmentNotCompletedListService extends AbstractGuiService<Member, FlightAssignment> {
 
 	@Autowired
 	private MemberFlightAssignmentRepository repository;
@@ -27,7 +29,10 @@ public class MemberFlightAssignmentListService extends AbstractGuiService<Member
 	public void load() {
 		Collection<FlightAssignment> flightAssignments;
 
-		flightAssignments = this.repository.findPastFlightAssignments();
+		Date currentMoment;
+		currentMoment = MomentHelper.getCurrentMoment();
+		flightAssignments = this.repository.findNotCompletedFlightAssignments(currentMoment);
+
 		super.getBuffer().addData(flightAssignments);
 	}
 

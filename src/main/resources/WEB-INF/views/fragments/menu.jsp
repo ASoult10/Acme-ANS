@@ -55,7 +55,8 @@
 		
 		
 		<acme:menu-option code="master.menu.member" access="hasRealm('Member')">
-			<acme:menu-suboption code="master.menu.member.list-flightAssignment" action="/member/flight-assignment/list"/>
+			<acme:menu-suboption code="master.menu.member.completedlist-flightAssignment" action="/member/flight-assignment/completedlist"/>
+			<acme:menu-suboption code="master.menu.member.notCompletedlist-flightAssignment" action="/member/flight-assignment/notCompletedlist"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
