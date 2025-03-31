@@ -35,7 +35,7 @@ public class Service extends AbstractEntity {
 	@Mandatory
 	@ValidUrl
 	@Automapped
-	private String				imageLink;
+	private String				picture;
 
 	@Mandatory
 	@ValidNumber(min = 0, max = 100, fraction = 2)
