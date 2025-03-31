@@ -12,6 +12,7 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.maintenanceRecord.MaintenanceRecordStatus;
+import acme.entities.mappings.InvolvedIn;
 import acme.realms.Technician;
 
 @GuiService
@@ -59,6 +60,23 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
+		Collection<InvolvedIn> involvedInCollection;
+		involvedInCollection = this.repository.findInvolvedInByMaintenanceRecordId(maintenanceRecord.getId());
+
+		boolean hasUnpublishedTask = false;
+		boolean hasAtLeastOnePublishedTask = false;
+
+		for (InvolvedIn involvedIn : involvedInCollection)
+			if (involvedIn.getTask().isDraftMode())
+				hasUnpublishedTask = true;
+			else
+				hasAtLeastOnePublishedTask = true;
+
+		// Si hay alguna Task no publicada o si no hay ninguna publicada, no publicar el MaintenanceRecord
+		if (hasUnpublishedTask || !hasAtLeastOnePublishedTask)
+			throw new IllegalArgumentException("Cannot publish this Maintenance Record. It must have at least one published task and no unpublished tasks.");
+
+		// Si pasa las validaciones, se publica
 		maintenanceRecord.setDraftMode(false);
 		this.repository.save(maintenanceRecord);
 	}
