@@ -93,6 +93,8 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		dataset.put("aircrafts", aircraftChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 
+		super.getResponse().addData(dataset);
+
 	}
 
 }

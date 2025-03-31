@@ -15,7 +15,7 @@ import acme.entities.maintenanceRecord.MaintenanceRecordStatus;
 import acme.realms.Technician;
 
 @GuiService
-public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService<Technician, MaintenanceRecord> {
+public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
 	@Autowired
 	private TechnicianMaintenanceRecordRepository repository;
@@ -50,12 +50,12 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		;
+		super.state(true, "*", "technician.maintenanceRecord.delete.maintenance-record-linked");
 	}
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		this.repository.save(maintenanceRecord);
+		this.repository.delete(maintenanceRecord);
 	}
 
 	@Override

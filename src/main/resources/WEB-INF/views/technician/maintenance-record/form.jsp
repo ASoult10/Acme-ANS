@@ -13,10 +13,11 @@
 	<acme:input-textarea code="technician.maintenance-record.form.label.notes" path="notes"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish')&& draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete')&& draftMode == true}">
 			<acme:submit code="technician.maintenance-record.form.button.update" action="/technician/maintenance-record/update"/>
 			<acme:submit code="technician.maintenance-record.form.button.publish" action="/technician/maintenance-record/publish"/>
-			<acme:submit code="technician.maintenance-record.form.button.tasks" action="/technician/involved-in/list?masterId=${masterId}"/>
+			<acme:button code="technician.maintenance-record.form.button.tasks" action="/technician/involved-in/list?masterId=${id}"/>
+			<acme:submit code="technician.maintenance-record.form.button.delete" action="/technician/maintenance-record/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-checkbox code="technician.maintenance-record.form.label.confirmation" path="confirmation"/>
