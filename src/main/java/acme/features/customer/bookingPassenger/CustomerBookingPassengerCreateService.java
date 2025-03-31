@@ -60,10 +60,10 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
-		Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
 
-		Collection<Passenger> passengers = this.customerBookingPassengerRepository.getAllPassengersByCustomer(customerId).stream().filter(p -> !alreadyAddedPassengers.contains(p)).toList();
-		SelectChoices passengerChoices = SelectChoices.from(passengers, "fullName", bookingPassenger.getPassenger());
+		Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
+		Collection<Passenger> noAddedPassengers = this.customerBookingPassengerRepository.getAllPassengersByCustomer(customerId).stream().filter(p -> !alreadyAddedPassengers.contains(p)).toList();
+		SelectChoices passengerChoices = SelectChoices.from(noAddedPassengers, "fullName", bookingPassenger.getPassenger());
 
 		Dataset dataset = super.unbindObject(bookingPassenger, "passenger", "booking");
 		dataset.put("passengers", passengerChoices);
