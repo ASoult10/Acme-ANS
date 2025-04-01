@@ -1,0 +1,12 @@
+# messages-es.i18n
+
+authenticated.customer.form.title = Detalles del Cliente
+authenticated.customer.form.button.create = Crear
+authenticated.customer.form.button.update = Actualizar
+
+authenticated.customer.form.label.customerIdentifier = Identificador
+authenticated.customer.form.label.customerPhoneNumber = Número de teléfono
+authenticated.customer.form.label.physicalAddress = Dirección
+authenticated.customer.form.label.city = Ciudad
+authenticated.customer.form.label.country = País
+authenticated.customer.form.label.points = Puntos actuales

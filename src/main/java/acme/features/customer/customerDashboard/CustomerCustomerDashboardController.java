@@ -1,5 +1,5 @@
 /*
- * CustomerDashboardController.java
+ * CustomerCustomerDashboardController.java
  *
  * Copyright (C) 2012-2025 Rafael Corchuelo.
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.customer.dashboard;
+package acme.features.customer.customerDashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -22,12 +22,12 @@ import acme.forms.customers.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiController
-public class CustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
+public class CustomerCustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerDashboardService customerDashboardService;
+	private CustomerCustomerDashboardShowService customerDashboardService;
 
 	// Constructors -----------------------------------------------------------
 

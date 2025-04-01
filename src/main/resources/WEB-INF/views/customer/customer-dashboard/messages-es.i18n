@@ -1,0 +1,18 @@
+# messages-es.i18n
+
+customer.customer-dashboard.form.title = Customer Dashboard
+
+customer.customer-dashboard.form.label.last-five-destinations-last-year = Últimos Cinco Destinos
+customer.customer-dashboard.form.label.spent-money-last-year = Dinero Gastado en reservas durante el último año
+customer.customer-dashboard.form.label.economy-bookings = Reservas en Clase Económica
+customer.customer-dashboard.form.label.business-bookings = Reservas en Clase Ejecutiva
+customer.customer-dashboard.form.label.booking-count-cost = Costo Total de las Reservas
+customer.customer-dashboard.form.label.booking-average-cost = Costo Promedio de las Reservas
+customer.customer-dashboard.form.label.booking-minimum-cost = Costo Mínimo de las Reservas
+customer.customer-dashboard.form.label.booking-maximum-cost = Costo Máximo de las Reservas
+customer.customer-dashboard.form.label.booking-deviation-cost = Desviación Estándar del Costo de las Reservas
+customer.customer-dashboard.form.label.booking-count-passengers = Número Total de Pasajeros
+customer.customer-dashboard.form.label.booking-average-passengers = Promedio de Pasajeros por Reserva
+customer.customer-dashboard.form.label.booking-minimum-passengers = Mínimo de Pasajeros por Reserva
+customer.customer-dashboard.form.label.booking-maximum-passengers = Máximo de Pasajeros por Reserva
+customer.customer-dashboard.form.label.booking-deviation-passengers = Desviación Estándar de Pasajeros por Reserva

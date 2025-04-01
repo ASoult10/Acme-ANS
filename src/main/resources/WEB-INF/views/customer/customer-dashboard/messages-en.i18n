@@ -1,0 +1,18 @@
+# messages-en.i18n
+
+customer.customer-dashboard.form.title = Customer Dashboard
+
+customer.customer-dashboard.form.label.last-five-destinations-last-year = Last Five Destinations
+customer.customer-dashboard.form.label.spent-money-last-year = Money Spent in bookings during the last year
+customer.customer-dashboard.form.label.economy-bookings = Economy Class Bookings
+customer.customer-dashboard.form.label.business-bookings = Business Class Bookings
+customer.customer-dashboard.form.label.booking-count-cost = Total Cost of Bookings
+customer.customer-dashboard.form.label.booking-average-cost = Average Cost of Bookings
+customer.customer-dashboard.form.label.booking-minimum-cost = Minimum Cost of Bookings
+customer.customer-dashboard.form.label.booking-maximum-cost = Maximum Cost of Bookings
+customer.customer-dashboard.form.label.booking-deviation-cost = Standard Deviation of Booking Costs
+customer.customer-dashboard.form.label.booking-count-passengers = Total Number of Passengers
+customer.customer-dashboard.form.label.booking-average-passengers = Average Number of Passengers per Booking
+customer.customer-dashboard.form.label.booking-minimum-passengers = Minimum Number of Passengers per Booking
+customer.customer-dashboard.form.label.booking-maximum-passengers = Maximum Number of Passengers per Booking
+customer.customer-dashboard.form.label.booking-deviation-passengers = Standard Deviation of Passengers per Booking
