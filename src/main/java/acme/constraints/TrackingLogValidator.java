@@ -1,7 +1,7 @@
 
 package acme.constraints;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -76,7 +76,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 	public boolean isIncreasing(final TrackingLog tl, final ConstraintValidatorContext context) {
 		boolean result;
 
-		List<TrackingLog> logs = this.repository.findAllLogsFromClaimSortedByCreationMoment(tl.getClaim().getId());
+		Collection<TrackingLog> logs = this.repository.findAllLogsFromClaimSortedByCreationMoment(tl.getClaim().getId());
 
 		TrackingLog lastLog = logs.stream().filter(log -> log.getId() != tl.getId() && log.getCreationMoment().compareTo(tl.getCreationMoment()) < 0).findFirst().orElse(null);
 
