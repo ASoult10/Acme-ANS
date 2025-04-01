@@ -12,7 +12,6 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.maintenanceRecord.MaintenanceRecordStatus;
-import acme.entities.mappings.InvolvedIn;
 import acme.realms.Technician;
 
 @GuiService
@@ -51,36 +50,21 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		boolean status;
+		int recordId = super.getRequest().getData("id", int.class);
+		int totalTasks = this.repository.findTasksByMaintenanceRecordId(recordId);
+		int unpublishedTasks = this.repository.findNotPublishedTasksByMaintenanceRecordId(recordId);
 
-		status = maintenanceRecord.isDraftMode();
+		boolean allTasksPublished = totalTasks > 0 && unpublishedTasks == 0;
+		super.state(allTasksPublished, "*", "technician.maintenance-record.publish.published-tasks");
 
-		super.getResponse().setAuthorised(status);
+		if (allTasksPublished) {
+			boolean isCompleted = maintenanceRecord.getStatus() == MaintenanceRecordStatus.COMPLETED;
+			super.state(isCompleted, "*", "technician.maintenance-record.publish.status");
+		}
 	}
 
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		Collection<InvolvedIn> involvedInCollection;
-		involvedInCollection = this.repository.findInvolvedInByMaintenanceRecordId(maintenanceRecord.getId());
-
-		boolean hasUnpublishedTask = false;
-		boolean hasAtLeastOnePublishedTask = false;
-
-		for (InvolvedIn involvedIn : involvedInCollection)
-			if (involvedIn.getTask().isDraftMode())
-				hasUnpublishedTask = true;
-			else
-				hasAtLeastOnePublishedTask = true;
-
-		// Si hay alguna Task no publicada o si no hay ninguna publicada, no publicar el MaintenanceRecord
-		if (hasUnpublishedTask || !hasAtLeastOnePublishedTask)
-			throw new IllegalArgumentException("Cannot publish this Maintenance Record. It must have at least one published task and no unpublished tasks.");
-
-		// ✅ Nueva validación: El MaintenanceRecord debe estar en estado COMPLETED antes de publicarse
-		if (maintenanceRecord.getStatus() != MaintenanceRecordStatus.COMPLETED)
-			throw new IllegalArgumentException("Cannot publish this Maintenance Record. It must have status 'COMPLETED' before publishing.");
-
-		// Si pasa las validaciones, se publica
 		maintenanceRecord.setDraftMode(false);
 		this.repository.save(maintenanceRecord);
 	}
