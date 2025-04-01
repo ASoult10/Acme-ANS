@@ -1,0 +1,17 @@
+# messages-en.i18n
+
+manager.flight.form.title = Detallers del vuelo
+manager.flight.list.title = Listado de vuelos
+
+manager.flight.form.label.tag = Etiqueta:
+manager.flight.form.label.cost = Precio:
+manager.flight.form.label.requiresSelfTransfer = Requiere self-transfer:
+
+manager.flight.form.button.create = Crear
+manager.flight.form.button.update = Actualizar
+ 
+manager.flight.list.label.tag = Etiqueta
+manager.flight.list.label.cost = Precio
+manager.flight.list.label.requiresSelfTransfer = Require self-transfer
+
+manager.flight.list.button.create = Crear
