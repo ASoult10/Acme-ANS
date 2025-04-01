@@ -24,15 +24,17 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 	@Override
 	public void authorise() {
 		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
 		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
+		status = status && booking != null && !booking.getIsPublished();
 
 		Integer passengerId = super.getRequest().getData("passengerId", int.class);
 		Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
+		status = status && passenger != null && passenger.getIsPublished();
 
-		status = booking != null && passenger != null && customerId == booking.getCustomer().getId();
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		status = customerId == booking.getCustomer().getId() && customerId == passenger.getCustomer().getId();
 		super.getResponse().setAuthorised(status);
 	}
 
