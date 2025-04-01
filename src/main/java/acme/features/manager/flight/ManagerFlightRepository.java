@@ -12,6 +12,9 @@ import acme.entities.flights.Flight;
 @Repository
 public interface ManagerFlightRepository extends AbstractRepository {
 
+	@Query("select f from Flight f where f.id = :id")
+	Flight findFlightById(int id);
+
 	@Query("select f from Flight f where f.manager.id = :managerId")
 	Collection<Flight> findFlightByEmployerId(int managerId);
 
