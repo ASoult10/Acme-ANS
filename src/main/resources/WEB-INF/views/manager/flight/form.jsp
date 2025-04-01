@@ -22,7 +22,9 @@
 			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
 			<acme:submit code="manager.flight.form.button.update" action="/manager/flight/update"/>
 			<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>
-			<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>
+			<jstl:if test="${hasLegs}">
+				<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>
+			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.flight.form.button.create" action="/manager/flight/create"/>

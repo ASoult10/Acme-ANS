@@ -10,7 +10,7 @@ import acme.entities.flights.Flight;
 import acme.realms.Manager;
 
 @GuiService
-public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight> {
+public class ManagerFlightPublishService extends AbstractGuiService<Manager, Flight> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -23,14 +23,14 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int flightId;
 		Flight flight;
 		Manager manager;
 
-		masterId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(masterId);
+		flightId = super.getRequest().getData("id", int.class);
+		flight = this.repository.findFlightById(flightId);
 		manager = flight == null ? null : flight.getManager();
-		status = super.getRequest().getPrincipal().hasRealm(manager) && flight != null;
+		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -44,6 +44,27 @@ public class ManagerFlightShowService extends AbstractGuiService<Manager, Flight
 		flight = this.repository.findFlightById(id);
 
 		super.getBuffer().addData(flight);
+	}
+
+	@Override
+	public void bind(final Flight flight) {
+		super.bindObject(flight, "tag", "requiresSelfTransfer", "cost", "description");
+	}
+
+	@Override
+	public void validate(final Flight flight) {
+		boolean correctLegs;
+		Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
+
+		correctLegs = numberOfLegs > 0;
+
+		super.state(correctLegs, "*", "acme.validation.flight.no-legs.message");
+	}
+
+	@Override
+	public void perform(final Flight flight) {
+		flight.setDraftMode(false);
+		this.repository.save(flight);
 	}
 
 	@Override
