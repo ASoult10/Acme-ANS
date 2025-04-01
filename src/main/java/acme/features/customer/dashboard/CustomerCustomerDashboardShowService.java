@@ -10,19 +10,23 @@ import acme.forms.customers.CustomerDashboard;
 import acme.realms.Customer;
 
 @GuiService
-public class CustomerDashboardService extends AbstractGuiService<Customer, CustomerDashboard> {
+public class CustomerCustomerDashboardShowService extends AbstractGuiService<Customer, CustomerDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerDashboardRepository repository;
+	private CustomerCustomerDashboardRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -66,9 +70,7 @@ public class CustomerDashboardService extends AbstractGuiService<Customer, Custo
 
 	@Override
 	public void unbind(final CustomerDashboard object) {
-		Dataset dataset;
-
-		dataset = super.unbindObject(object, //
+		Dataset dataset = super.unbindObject(object, //
 			"lastFiveDestinations", "spentMoney", // 
 			"economyBookings", "businessBookings", //
 			"bookingTotalCost", "bookingAverageCost", //

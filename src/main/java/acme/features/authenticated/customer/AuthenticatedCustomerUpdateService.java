@@ -16,7 +16,7 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedCustomerRepository repository;
+	private AuthenticatedCustomerRepository authenticatedCustomerRepository;
 
 	// AbstractService interface ----------------------------------------------ç
 
@@ -36,7 +36,7 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 		int userAccountId;
 
 		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		object = this.repository.findCustomerByUserAccountId(userAccountId);
+		object = this.authenticatedCustomerRepository.findCustomerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
 	}
@@ -51,7 +51,7 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 	@Override
 	public void validate(final Customer object) {
 		assert object != null;
-		Customer existing = this.repository.findCustomerByCustomerIdentifier(object.getCustomerIdentifier());
+		Customer existing = this.authenticatedCustomerRepository.findCustomerByCustomerIdentifier(object.getCustomerIdentifier());
 		boolean valid = existing == null || existing.getId() == object.getId();
 		super.state(valid, "identifier", "authenticated.customer.form.error.duplicateIdentifier");
 	}
@@ -60,7 +60,7 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 	public void perform(final Customer object) {
 		assert object != null;
 
-		this.repository.save(object);
+		this.authenticatedCustomerRepository.save(object);
 	}
 
 	@Override

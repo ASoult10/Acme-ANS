@@ -11,7 +11,7 @@ import acme.realms.Customer;
 @Repository
 public interface AuthenticatedCustomerRepository extends AbstractRepository {
 
-	@Query("SELECT ua FROM UserAccount ua WHERE ua.id = :id")
+	@Query("SELECT u FROM UserAccount u WHERE u.id = :id")
 	UserAccount findUserAccountById(int id);
 
 	@Query("SELECT c FROM Customer c WHERE c.userAccount.id = :id")
