@@ -1,11 +1,8 @@
 
 package acme.features.customer.customerDashboard;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -38,35 +35,35 @@ public class CustomerCustomerDashboardShowService extends AbstractGuiService<Cus
 
 		CustomerDashboard dashboard = new CustomerDashboard();
 
-		Collection<String> lastFiveDestinations = this.repository.lastFiveDestinations(userAccountId);
-		Money spentMoney = this.repository.spentMoney(userAccountId);
-		Integer economyBookings = this.repository.economyBookings(userAccountId);
-		Integer businessBookings = this.repository.businessBookings(userAccountId);
-		Money bookingTotalCost = this.repository.bookingTotalCost(userAccountId);
-		Money bookingAverageCost = this.repository.bookingAverageCost(userAccountId);
-		Money bookingMinimumCost = this.repository.bookingMinimumCost(userAccountId);
-		Money bookingMaximumCost = this.repository.bookingMaximumCost(userAccountId);
-		Money bookingDeviationCost = this.repository.bookingDeviationCost(userAccountId);
-		Integer bookingTotalPassengers = this.repository.bookingTotalPassengers(userAccountId);
-		Double bookingAveragePassengers = this.repository.bookingAveragePassengers(userAccountId);
-		Integer bookingMinimumPassengers = this.repository.bookingMinimumPassengers(userAccountId);
-		Integer bookingMaximumPassengers = this.repository.bookingMaximumPassengers(userAccountId);
-		Double bookingDeviationPassengers = this.repository.bookingDeviationPassengers(userAccountId);
-
-		dashboard.setLastFiveDestinations(lastFiveDestinations);
-		dashboard.setSpentMoneyLastYear(spentMoney);
-		dashboard.setEconomyBookings(economyBookings);
-		dashboard.setBusinessBookings(businessBookings);
-		dashboard.setBookingCountCost(bookingTotalCost);
-		dashboard.setBookingAverageCost(bookingAverageCost);
-		dashboard.setBookingMinimumCost(bookingMinimumCost);
-		dashboard.setBookingMaximumCost(bookingMaximumCost);
-		dashboard.setBookingDeviationCost(bookingDeviationCost);
-		dashboard.setBookingCountPassengers(bookingTotalPassengers);
-		dashboard.setBookingAveragePassengers(bookingAveragePassengers);
-		dashboard.setBookingMinimumPassengers(bookingMinimumPassengers);
-		dashboard.setBookingMaximumPassengers(bookingMaximumPassengers);
-		dashboard.setBookingDeviationPassengers(bookingDeviationPassengers);
+		//		Collection<String> lastFiveDestinations = this.repository.lastFiveDestinations(userAccountId);
+		//		Money spentMoney = this.repository.spentMoney(userAccountId);
+		//		Integer economyBookings = this.repository.economyBookings(userAccountId);
+		//		Integer businessBookings = this.repository.businessBookings(userAccountId);
+		//		Money bookingTotalCost = this.repository.bookingTotalCost(userAccountId);
+		//		Money bookingAverageCost = this.repository.bookingAverageCost(userAccountId);
+		//		Money bookingMinimumCost = this.repository.bookingMinimumCost(userAccountId);
+		//		Money bookingMaximumCost = this.repository.bookingMaximumCost(userAccountId);
+		//		Money bookingDeviationCost = this.repository.bookingDeviationCost(userAccountId);
+		//		Integer bookingTotalPassengers = this.repository.bookingTotalPassengers(userAccountId);
+		//		Double bookingAveragePassengers = this.repository.bookingAveragePassengers(userAccountId);
+		//		Integer bookingMinimumPassengers = this.repository.bookingMinimumPassengers(userAccountId);
+		//		Integer bookingMaximumPassengers = this.repository.bookingMaximumPassengers(userAccountId);
+		//		Double bookingDeviationPassengers = this.repository.bookingDeviationPassengers(userAccountId);
+		//
+		//		dashboard.setLastFiveDestinations(lastFiveDestinations);
+		//		dashboard.setSpentMoneyLastYear(spentMoney);
+		//		dashboard.setEconomyBookings(economyBookings);
+		//		dashboard.setBusinessBookings(businessBookings);
+		//		dashboard.setBookingCountCost(bookingTotalCost);
+		//		dashboard.setBookingAverageCost(bookingAverageCost);
+		//		dashboard.setBookingMinimumCost(bookingMinimumCost);
+		//		dashboard.setBookingMaximumCost(bookingMaximumCost);
+		//		dashboard.setBookingDeviationCost(bookingDeviationCost);
+		//		dashboard.setBookingCountPassengers(bookingTotalPassengers);
+		//		dashboard.setBookingAveragePassengers(bookingAveragePassengers);
+		//		dashboard.setBookingMinimumPassengers(bookingMinimumPassengers);
+		//		dashboard.setBookingMaximumPassengers(bookingMaximumPassengers);
+		//		dashboard.setBookingDeviationPassengers(bookingDeviationPassengers);
 
 		super.getBuffer().addData(dashboard);
 	}
