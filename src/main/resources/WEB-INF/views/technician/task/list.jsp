@@ -12,6 +12,6 @@
 	<acme:list-payload path="payload"/>
 </acme:list>	
 	
-<jstl:if test="${_command == 'list'}">
+<jstl:if test="${acme:anyOf(_command, 'list|list-mine')}">
 	<acme:button code="technician.task.list.button.create" action="/technician/task/create"/>
 </jstl:if>	
