@@ -52,4 +52,6 @@ acme.validation.maintenance-record.next-inspection.message = The next inspection
 acme.validation.license-number.not-matching-initials.message = The license number must match the technician's initials  
 acme.validation.license-number.repeated.message = The technician's license number must be unique
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
+technician.maintenance-record.publish.published-tasks = To publish a maintenance record, it cannot have any unpublished tasks and should have at least one published task
+technician.maintenance-record.publish.status = To publish a maintenance record, its status must be "COMPLETED"
 
