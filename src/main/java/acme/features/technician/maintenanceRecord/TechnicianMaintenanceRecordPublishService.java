@@ -76,6 +76,10 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		if (hasUnpublishedTask || !hasAtLeastOnePublishedTask)
 			throw new IllegalArgumentException("Cannot publish this Maintenance Record. It must have at least one published task and no unpublished tasks.");
 
+		// ✅ Nueva validación: El MaintenanceRecord debe estar en estado COMPLETED antes de publicarse
+		if (maintenanceRecord.getStatus() != MaintenanceRecordStatus.COMPLETED)
+			throw new IllegalArgumentException("Cannot publish this Maintenance Record. It must have status 'COMPLETED' before publishing.");
+
 		// Si pasa las validaciones, se publica
 		maintenanceRecord.setDraftMode(false);
 		this.repository.save(maintenanceRecord);

@@ -22,6 +22,19 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 
 	@Override
 	public void authorise() {
+
+		//		boolean status;
+		//
+		//		Integer masterId = super.getRequest().getData("masterId", int.class);
+		//		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordByMasterId(masterId);
+		//		Technician technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+		//
+		//		status = maintenanceRecord != null && super.getRequest().getPrincipal().hasRealmOfType(technician.getClass());
+		//
+		//		Integer technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		//
+		//		status = status && technician.getId() == technicianId && maintenanceRecord.isDraftMode();
+
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -75,7 +88,7 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 		dataset.put("readonly", false);
 		dataset.put("tasks", taskChoices);
 		dataset.put("task", taskChoices.getSelected().getKey());
-
+		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 		super.getResponse().addData(dataset);
 
 	}
