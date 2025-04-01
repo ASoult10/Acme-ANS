@@ -1,5 +1,5 @@
 
-package acme.features.customer.dashboard;
+package acme.features.customer.customerDashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -71,11 +71,11 @@ public class CustomerCustomerDashboardShowService extends AbstractGuiService<Cus
 	@Override
 	public void unbind(final CustomerDashboard object) {
 		Dataset dataset = super.unbindObject(object, //
-			"lastFiveDestinations", "spentMoney", // 
+			"lastFiveDestinations", "spentMoneyLastYear", // 
 			"economyBookings", "businessBookings", //
-			"bookingTotalCost", "bookingAverageCost", //
+			"bookingCountCost", "bookingAverageCost", //
 			"bookingMinimumCost", "bookingMaximumCost", //
-			"bookingDeviationCost", "bookingTotalPassengers", //
+			"bookingDeviationCost", "bookingCountPassengers", //
 			"bookingAveragePassengers", "bookingMinimumPassengers", //
 			"bookingMaximumPassengers", "bookingDeviationPassengers");
 

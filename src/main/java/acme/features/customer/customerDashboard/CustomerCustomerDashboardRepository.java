@@ -1,5 +1,5 @@
 
-package acme.features.customer.dashboard;
+package acme.features.customer.customerDashboard;
 
 import org.springframework.stereotype.Repository;
 
