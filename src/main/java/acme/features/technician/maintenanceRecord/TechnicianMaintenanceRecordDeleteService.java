@@ -24,7 +24,19 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Technician.class);
+
+		Integer maintenanceRecordId = super.getRequest().getData("id", int.class);
+		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+		status = status && maintenanceRecord != null;
+
+		Integer technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		status = status && maintenanceRecord.getTechnician().getId() == technicianId && maintenanceRecord.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
