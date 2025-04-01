@@ -27,7 +27,7 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	public void load() {
 		Collection<Task> tasks;
 
-		tasks = this.repository.findAllTasks();
+		tasks = this.repository.findAllPublishedTasks();
 
 		super.getBuffer().addData(tasks);
 	}
