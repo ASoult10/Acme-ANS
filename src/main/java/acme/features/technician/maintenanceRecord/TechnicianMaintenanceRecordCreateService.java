@@ -91,7 +91,10 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 		aircraftChoices = SelectChoices.from(aircrafts, "model", maintenanceRecord.getAircraft());
 
-		maintenanceRecordstatus = SelectChoices.from(MaintenanceRecordStatus.class, maintenanceRecord.getStatus());
+		maintenanceRecordstatus = new SelectChoices();
+		maintenanceRecordstatus.add("0", "----", maintenanceRecord.getStatus() == null);
+		maintenanceRecordstatus.add("PENDING", "PENDING", maintenanceRecord.getStatus() == MaintenanceRecordStatus.PENDING);
+		maintenanceRecordstatus.add("IN_PROGRESS", "IN_PROGRESS", maintenanceRecord.getStatus() == MaintenanceRecordStatus.IN_PROGRESS);
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDueDate", "estimatedCost", "notes", "draftMode");
 		dataset.put("confirmation", false);

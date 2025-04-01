@@ -1,0 +1,25 @@
+# messages-en.i18n
+
+manager.flight.form.title = Flight form
+manager.flight.list.title = Listing of flights
+
+manager.flight.form.label.tag = Tag:
+manager.flight.form.label.requires-self-transfer = Requires self-transfer
+manager.flight.form.label.cost = Cost:
+manager.flight.form.label.description = Description:
+manager.flight.form.label.scheduled-departure = Scheduled departure:
+manager.flight.form.label.scheduled-arrival = Scheduled arrival:
+manager.flight.form.label.origin-city = Origin city:
+manager.flight.form.label.destination-city = Destination city:
+
+manager.flight.form.button.legs = Legs
+manager.flight.form.button.create = Create
+manager.flight.form.button.update = Update
+manager.flight.form.button.delete = Delete
+manager.flight.form.button.publish = Publish
+ 
+manager.flight.list.label.tag = Tag
+manager.flight.list.label.cost = Cost
+manager.flight.list.label.requires-self-transfer = Requires self-transfer
+
+manager.flight.list.button.create = Create

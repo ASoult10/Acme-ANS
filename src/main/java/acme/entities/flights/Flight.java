@@ -63,7 +63,7 @@ public class Flight extends AbstractEntity {
 
 
 	@Transient
-	public Date getSheduledDeparture() {
+	public Date getScheduledDeparture() {
 		Date result;
 		LegRepository repository;
 
@@ -74,7 +74,7 @@ public class Flight extends AbstractEntity {
 	}
 
 	@Transient
-	public Date getSheduledArrival() {
+	public Date getScheduledArrival() {
 		Date result;
 		LegRepository repository;
 
