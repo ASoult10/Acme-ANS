@@ -1,0 +1,24 @@
+# messages-es.i18n
+
+administrator.airport.form.title = Detalles del aeropuerto
+administrator.airport.list.title = Lista de aeropuertos
+
+administrator.airport.form.label.name = Nombre:
+administrator.airport.form.label.code = Código:
+administrator.airport.form.label.scope = Ámbito:
+administrator.airport.form.label.city = Ciudad:
+administrator.airport.form.label.country = País:
+administrator.airport.form.label.website = Sitio web:
+administrator.airport.form.label.email = Correo electrónico:
+administrator.airport.form.label.phone = Teléfono:
+administrator.airport.form.label.confirmation = Confirme que el aeropuerto es correcto.
+
+administrator.airport.form.button.create = Crear
+administrator.airport.form.button.update = Actualizar
+ 
+administrator.airport.list.label.name = Nombre
+administrator.airport.list.label.code = Código
+administrator.airport.list.label.country = País
+
+administrator.airport.list.button.create = Crear
+

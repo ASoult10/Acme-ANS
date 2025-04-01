@@ -1,34 +1,34 @@
-﻿key,registrationMoment,email,description,type,indicator,key:assistanceAgent
-# base entity
-claim-00,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-# registrationMoment - standard variations
-claim-01,2000/01/01  00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-02,2024/12/31  23:59,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-03,2025/01/01  00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-04,2000/01/01  00:01,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-# email - standard variations
-claim-05,2012/07/02 00:00,acme-password@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-06,2012/07/02 00:00,a@b.e,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-07,2012/07/02 00:00,a@b.es,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-08,2012/07/02 00:00,a@b.esx,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-09,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-10,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-# description - standard variations
-claim-11,2012/07/02 00:00,acme@lorem-ipsum.org,L,FLIGHT_ISSUE,false,agent-01
-claim-12,2012/07/02 00:00,acme@lorem-ipsum.org,Lo,FLIGHT_ISSUE,false,agent-01
-claim-13,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",FLIGHT_ISSUE,false,agent-01
-claim-14,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",FLIGHT_ISSUE,false,agent-01
-claim-15,2012/07/02 00:00,acme@lorem-ipsum.org,โลเร็ม อิปซัม,FLIGHT_ISSUE,false,agent-01
-claim-16,2012/07/02 00:00,acme@lorem-ipsum.org,洛伦·伊普森,FLIGHT_ISSUE,false,agent-01
-claim-17,2012/07/02 00:00,acme@lorem-ipsum.org,لوريم إيبسوم,FLIGHT_ISSUE,false,agent-01
-claim-18,2012/07/02 00:00,acme@lorem-ipsum.org,<marquee>Hacked</marquee>,FLIGHT_ISSUE,false,agent-01
-claim-19,2012/07/02 00:00,acme@lorem-ipsum.org,<script>alert(‘Hacked!’);</script>,FLIGHT_ISSUE,false,agent-01
-claim-20,2012/07/02 00:00,acme@lorem-ipsum.org,' or 'A' = 'A,FLIGHT_ISSUE,false,agent-01
-# type - standard variations
-claim-21,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,agent-01
-claim-22,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,LUGGAGE_ISSUE,false,agent-01
-claim-23,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,SECURITY_INCIDENT,false,agent-01
-claim-24,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,false,agent-01
-#indicator - standard variations
-claim-25,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,true,agent-01
-claim-26,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,false,agent-01
+key,registrationMoment,email,description,type,status,key:assistanceAgent
+ # base entity
+ claim-00,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ # registrationMoment - standard variations
+ claim-01,2000/01/01  00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-02,2024/12/31  23:59,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-03,2025/01/01  00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-04,2000/01/01  00:01,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ # email - standard variations
+ claim-05,2012/07/02 00:00,acme-password@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-06,2012/07/02 00:00,a@b.e,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-07,2012/07/02 00:00,a@b.es,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-08,2012/07/02 00:00,a@b.esx,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-09,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-10,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ # description - standard variations
+ claim-11,2012/07/02 00:00,acme@lorem-ipsum.org,L,FLIGHT_ISSUE,PENDING,agent-01
+ claim-12,2012/07/02 00:00,acme@lorem-ipsum.org,Lo,FLIGHT_ISSUE,PENDING,agent-01
+ claim-13,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor ",FLIGHT_ISSUE,PENDING,agent-01
+ claim-14,2012/07/02 00:00,acme@lorem-ipsum.org,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",FLIGHT_ISSUE,PENDING,agent-01
+ claim-15,2012/07/02 00:00,acme@lorem-ipsum.org,โลเร็ม อิปซัม,FLIGHT_ISSUE,PENDING,agent-01
+ claim-16,2012/07/02 00:00,acme@lorem-ipsum.org,洛伦·伊普森,FLIGHT_ISSUE,PENDING,agent-01
+ claim-17,2012/07/02 00:00,acme@lorem-ipsum.org,لوريم إيبسوم,FLIGHT_ISSUE,PENDING,agent-01
+ claim-18,2012/07/02 00:00,acme@lorem-ipsum.org,<marquee>Hacked</marquee>,FLIGHT_ISSUE,PENDING,agent-01
+ claim-19,2012/07/02 00:00,acme@lorem-ipsum.org,<script>alert(‘Hacked!’);</script>,FLIGHT_ISSUE,PENDING,agent-01
+ claim-20,2012/07/02 00:00,acme@lorem-ipsum.org,' or 'A' = 'A,FLIGHT_ISSUE,PENDING,agent-01
+ # type - standard variations
+ claim-21,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,PENDING,agent-01
+ claim-22,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,LUGGAGE_ISSUE,PENDING,agent-01
+ claim-23,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,SECURITY_INCIDENT,PENDING,agent-01
+ claim-24,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,PENDING,agent-01
+ #indicator - standard variations
+ claim-25,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,ACCEPTED,agent-01
+ claim-26,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,REJECTED,agent-01

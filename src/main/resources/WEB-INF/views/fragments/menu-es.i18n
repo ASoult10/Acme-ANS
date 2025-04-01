@@ -21,8 +21,10 @@ master.menu.anonymous.marta-link = 3*2*9*2**: de la Calle González, Marta
 
 master.menu.administrator = Administrador
 master.menu.administrator.list-user-accounts = Ver cuentas de usuario
+master.menu.administrator.list-airports = Ver aeropuertos
 master.menu.administrator.list-aircrafts = Ver aeronaves
 master.menu.administrator.list-airlines = Ver aerolíneas
+master.menu.administrator.list-bookings = Ver reservas
 master.menu.administrator.populate-db-initial = Poblar BD (inicial)
 master.menu.administrator.populate-db-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-system-down = Parar el sistema

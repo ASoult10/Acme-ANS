@@ -13,7 +13,7 @@
 	<acme:input-textbox code="administrator.airline.label.phoneNumber" path="phoneNumber"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${_command == 'update'}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update')}">			
 			<acme:input-checkbox code="administrator.airline.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="administrator.airline.button.update" action="/administrator/airline/update"/>
 		</jstl:when>
