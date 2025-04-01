@@ -6,7 +6,7 @@
 <acme:list>
 	<acme:list-column code="manager.flight.list.label.tag" path="tag" width="60%"/>
 	<acme:list-column code="manager.flight.list.label.cost" path="cost" width="20%"/>
-	<acme:list-column code="manager.flight.list.label.requiresSelfTransfer" path="requiresSelfTransfer" width="20%"/>
+	<acme:list-column code="manager.flight.list.label.requires-self-transfer" path="requiresSelfTransfer" width="20%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 

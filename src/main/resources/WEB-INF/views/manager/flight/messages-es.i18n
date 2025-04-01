@@ -5,13 +5,21 @@ manager.flight.list.title = Listado de vuelos
 
 manager.flight.form.label.tag = Etiqueta:
 manager.flight.form.label.cost = Precio:
-manager.flight.form.label.requiresSelfTransfer = Requiere self-transfer:
+manager.flight.form.label.requires-self-transfer = Requiere self-transfer
+manager.flight.form.label.description = Descripción:
+manager.flight.form.label.scheduled-departure = Salida programada:
+manager.flight.form.label.scheduled-arrival = Llegada programada:
+manager.flight.form.label.origin-city = Ciudad de origen:
+manager.flight.form.label.destination-city = Ciudad de destino:
 
+manager.flight.form.button.legs = Tramos
 manager.flight.form.button.create = Crear
 manager.flight.form.button.update = Actualizar
+manager.flight.form.button.delete = Borrar
+manager.flight.form.button.publish = Publicar
  
 manager.flight.list.label.tag = Etiqueta
 manager.flight.list.label.cost = Precio
-manager.flight.list.label.requiresSelfTransfer = Require self-transfer
+manager.flight.list.label.requires-self-transfer = Require self-transfer
 
 manager.flight.list.button.create = Crear
