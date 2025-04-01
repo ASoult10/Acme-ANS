@@ -1,0 +1,33 @@
+key,lastUpdateMoment,step,resolutionPercentage,indicator,resolution,key:claim,creationMoment
+ # base entity
+trackingLog-00,2012/07/02 00:00,this is a test step,1,PENDING,this is a test resolution,claim-01, 2012/07/02 00:00
+ # lastUpdateMoment - standard variations
+trackingLog-01,2000/01/01  00:00,this is a test step,15,PENDING,this is a test resolution,claim-01, 2012/07/13 00:00
+trackingLog-02,2024/12/31  23:59,this is a test step,2,PENDING,this is a test resolution,claim-01, 2012/07/04 00:00
+trackingLog-03,2025/01/01  00:00,this is a test step,03,PENDING,this is a test resolution,claim-01, 2012/07/05 00:00
+trackingLog-04,2000/01/01  00:00,this is a test step,04,PENDING,this is a test resolution,claim-01, 2012/07/06 00:00
+trackingLog-05,2000/01/01  00:01,this is a test step,05,PENDING,this is a test resolution,claim-01, 2012/07/07 00:00
+ # step - standard variations
+trackingLog-06,2012/07/02 00:00,L,06,PENDING,this is a test resolution,claim-01, 2012/07/08 10:00
+trackingLog-07,2012/07/02 00:00,Lo,07,PENDING,this is a test resolution,claim-01, 2012/07/09 20:00
+trackingLog-08,2012/07/02 00:00,"The attribute name must be exactly fifty charac",08,PENDING,this is a test resolution,claim-01, 2012/07/10 00:00
+trackingLog-09,2012/07/02 00:00,"The attribute name must be exactly fifty chara",09,PENDING,this is a test resolution,claim-01, 2012/07/11 00:00
+trackingLog-10,2012/07/02 00:00,โลเร็ม อิปซัม,10,PENDING,this is a test resolution,claim-01, 2012/07/12 00:00
+trackingLog-11,2012/07/02 00:00,洛伦·伊普森,15.5,PENDING,this is a test resolution,claim-01, 2012/09/12 00:00
+trackingLog-12,2012/07/02 00:00,<marquee>Hacked</marquee>,16,PENDING,this is a test resolution,claim-01, 2012/09/12 00:00
+trackingLog-13,2012/07/02 00:00,<script>alert(‘Hacked!’);</script>,17,PENDING,this is a test resolution,claim-01, 2014/07/12 00:00
+trackingLog-14,2012/07/02 00:00,' or 'A' = 'A,18,PENDING,this is a test resolution,claim-01, 2014/07/22 00:00
+ # indicator - standard variations
+trackingLog-15,2012/07/02 00:00,this is a test step,90,PENDING,this is a test resolution,claim-01, 2018/09/23 00:00
+trackingLog-16,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-01, 2019/07/24 00:00
+trackingLog-17,2012/07/02 00:00,this is a test step,100,REJECTED,this is a test resolution,claim-02, 2012/07/28 10:00
+# creationMoment - standard variations
+trackingLog-18,2012/07/02 00:00,this is a test step,0,PENDING,this is a test resolution,claim-04, 2000/01/01  00:00
+trackingLog-19,2012/07/02 00:00,this is a test step,1,PENDING,this is a test resolution,claim-04, 2000/01/01  00:01
+trackingLog-20,2012/07/02 00:00,this is a test step,98,PENDING,this is a test resolution,claim-04, 2024/12/31  23:59
+trackingLog-21,2012/07/02 00:00,this is a test step,99,PENDING,this is a test resolution,claim-04, 2025/01/01  00:00
+ # resolution - standard variations
+trackingLog-22,2012/07/02 00:00,this is a test step,0,PENDING,this is a test resolution,claim-03, 2012/07/02 00:00
+trackingLog-23,2012/07/02 00:00,this is a test step,0.01,PENDING,this is a test resolution,claim-03, 2012/07/02 00:00
+trackingLog-24,2012/07/02 00:00,this is a test step,99.99,PENDING,this is a test resolution,claim-03, 2012/07/02 00:00
+trackingLog-25,2012/07/02 00:00,this is a test step,100,ACCEPTED,this is a test resolution,claim-03, 2012/07/02 00:00
