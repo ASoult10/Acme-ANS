@@ -9,6 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.mappings.InvolvedIn;
 import acme.entities.tasks.Task;
 import acme.realms.Technician;
@@ -22,20 +23,17 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int masterId;
+		MaintenanceRecord maintenanceRecord;
+		Technician technician;
 
-		//		boolean status;
-		//
-		//		Integer masterId = super.getRequest().getData("masterId", int.class);
-		//		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordByMasterId(masterId);
-		//		Technician technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
-		//
-		//		status = maintenanceRecord != null && super.getRequest().getPrincipal().hasRealmOfType(technician.getClass());
-		//
-		//		Integer technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		//
-		//		status = status && technician.getId() == technicianId && maintenanceRecord.isDraftMode();
+		masterId = super.getRequest().getData("masterId", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
-		super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -89,6 +87,7 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 		dataset.put("tasks", taskChoices);
 		dataset.put("task", taskChoices.getSelected().getKey());
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("draftMode", involvedIn.getMaintenanceRecord().isDraftMode());
 		super.getResponse().addData(dataset);
 
 	}

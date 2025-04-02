@@ -20,8 +20,8 @@ public interface TechnicianInvolvedInRepository extends AbstractRepository {
 	@Query("select ii from InvolvedIn ii where ii.id = :id")
 	InvolvedIn findInvolvedInById(int id);
 
-	@Query("select mr from MaintenanceRecord mr where mr.id = :masterId")
-	MaintenanceRecord findMaintenanceRecordByMasterId(int masterId);
+	@Query("select mr from MaintenanceRecord mr where mr.id = :maintenanceRecordId")
+	MaintenanceRecord findMaintenanceRecordById(int maintenanceRecordId);
 
 	@Query("select tk from Task tk where tk.id = :id")
 	Task findTaskById(int id);
