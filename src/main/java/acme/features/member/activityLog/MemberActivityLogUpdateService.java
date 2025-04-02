@@ -4,10 +4,10 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
@@ -23,16 +23,16 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int activityLogId;
-		FlightAssignment flightAssignment;
 		ActivityLog activityLog;
+		int id;
 
-		activityLogId = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(activityLogId);
+		id = super.getRequest().getData("id", int.class);
+		activityLog = this.repository.findActivityLogById(id);
+		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
+		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
 
-		status = activityLog.isDraftMode();//flightAssignment != null && flightAssignment.isDraftMode();
-
+		boolean status = correctMember && flightAssignmentPublished && inPast && activityLog.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 

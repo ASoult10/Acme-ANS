@@ -31,14 +31,19 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int id;
+		int memberId;
 		FlightAssignment flightAssignment;
+		Member member;
 
-		masterId = super.getRequest().getData("id", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+		id = super.getRequest().getData("id", int.class);
+		memberId = super.getRequest().getData("member", int.class);
+		flightAssignment = this.repository.findFlightAssignmentById(id);
+		member = this.repository.findMemberById(memberId);
 
-		status = flightAssignment.isDraftMode();
-
+		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+		boolean futureLeg = !MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
+		status = flightAssignment.isDraftMode() && correctMember && futureLeg;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -69,8 +74,9 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
+
 		if (flightAssignment.getLeg() != null)
-			super.state(MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival()), "leg", "acme.validation.FlightAssignment.notValidLeg.message");
+			super.state(MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival()), "leg", "acme.validation.FlightAssignment.notValidLeg.message");
 
 		//Restricción legs incompatibles
 		List<Leg> legsByMember;
@@ -78,23 +84,23 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 
 		if (flightAssignment.getLeg() != null)
 			for (Leg leg : legsByMember)
-				if (!this.legIsCompatible(flightAssignment.getLeg(), leg)) {
+				if (!this.legIsCompatible(flightAssignment.getLeg(), leg) && flightAssignment.getLeg().getId() != leg.getId()) {
 					super.state(false, "member", "acme.validation.FlightAssignment.memberHasIncompatibleLegs.message");
 					break;
 				}
 		//===========================
 		//Restricción piloto copiloto
 
-		if (flightAssignment.getLeg() != null) {
+		if (flightAssignment.getLeg() != null && flightAssignment.getDuty() != null) {
 
 			List<FlightAssignment> flightAssignmentsByLeg;
 			flightAssignmentsByLeg = this.repository.findFlightAssignmentByLegId(flightAssignment.getLeg().getId());
 			boolean hasPilot = false;
 			boolean hasCopilot = false;
 			for (FlightAssignment fa : flightAssignmentsByLeg) {
-				if (fa.getDuty().equals(Duty.PILOT))
+				if (fa.getDuty().equals(Duty.PILOT) && fa.getId() != flightAssignment.getId())
 					hasPilot = true;
-				if (fa.getDuty().equals(Duty.CO_PILOT))
+				if (fa.getDuty().equals(Duty.CO_PILOT) && fa.getId() != flightAssignment.getId())
 					hasCopilot = true;
 			}
 

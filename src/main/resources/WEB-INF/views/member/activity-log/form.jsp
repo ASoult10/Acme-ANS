@@ -11,13 +11,9 @@
 	
 
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true && not masterDraftMode}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && buttonsAvaiable}">
 			<acme:submit code="member.activity-log.form.button.update" action="/member/activity-log/update"/>
 			<acme:submit code="member.activity-log.form.button.publish" action="/member/activity-log/publish"/>
-			<acme:submit code="member.activity-log.form.button.delete" action="/member/activity-log/delete"/>
-		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
-			<acme:submit code="member.activity-log.form.button.update" action="/member/activity-log/update"/>
 			<acme:submit code="member.activity-log.form.button.delete" action="/member/activity-log/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">

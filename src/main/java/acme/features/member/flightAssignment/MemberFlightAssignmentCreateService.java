@@ -59,13 +59,8 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
 
-		if (flightAssignment.getLeg() != null) {
-
-			System.out.println("time  " + flightAssignment.getLeg().getScheduledArrival() + "getId = " + flightAssignment.getLeg().getId());
+		if (flightAssignment.getLeg() != null)
 			super.state(MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival()), "leg", "acme.validation.FlightAssignment.notValidLeg.message");
-
-			System.out.println("time  " + flightAssignment.getLeg().getScheduledArrival() + "getId = " + flightAssignment.getLeg().getId());
-		}
 
 		//Restricción legs incompatibles
 		List<Leg> legsByMember;
@@ -125,7 +120,6 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 			legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		} catch (Exception e) {
 			legChoices = SelectChoices.from(legs, "flightNumber", legs.get(0));
-			System.out.println("leg  " + legs.get(0).getScheduledArrival() + "getId = " + legs.get(0).getId());
 		}
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
