@@ -1,12 +1,16 @@
 
 package acme.features.manager.flight;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flights.Flight;
+import acme.entities.legs.Leg;
 import acme.realms.Manager;
 
 @GuiService
@@ -53,12 +57,28 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 
 	@Override
 	public void validate(final Flight flight) {
-		boolean correctLegs;
-		Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
+		{
+			boolean tramosSeparados = true;
+			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
 
-		correctLegs = numberOfLegs > 0;
+			for (Integer i = 0; i < legs.size() - 1; i++) {
+				Leg primerTramo = legs.get(i);
+				Leg segundoTramo = legs.get(i + 1);
 
-		super.state(correctLegs, "*", "acme.validation.flight.no-legs.message");
+				tramosSeparados &= MomentHelper.isBefore(primerTramo.getScheduledArrival(), segundoTramo.getScheduledDeparture());
+			}
+
+			super.state(tramosSeparados, "*", "acme.validation.flight.overlapping-legs.message");
+		}
+		{
+			boolean correctLegs;
+			Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
+			Integer numberOfPublishedLegs = this.repository.countNumberOfPublishedLegsOfFlight(flight.getId());
+
+			correctLegs = numberOfLegs > 0 && numberOfLegs.equals(numberOfPublishedLegs);
+
+			super.state(correctLegs, "*", "acme.validation.flight.no-legs.message");
+		}
 	}
 
 	@Override
@@ -71,7 +91,7 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasLegs");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasPublishedLegs", "hasAllLegsPublished");
 
 		super.getResponse().addData(dataset);
 	}
