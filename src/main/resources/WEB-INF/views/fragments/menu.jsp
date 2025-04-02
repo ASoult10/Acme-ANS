@@ -63,8 +63,11 @@
 		<acme:menu-option code="master.menu.member" access="hasRealm('Member')">
 			<acme:menu-suboption code="master.menu.member.completedlist-flightAssignment" action="/member/flight-assignment/completedlist"/>
 			<acme:menu-suboption code="master.menu.member.notCompletedlist-flightAssignment" action="/member/flight-assignment/notCompletedlist"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.member.myCompletedList-flightAssignment" action="/member/flight-assignment/myCompletedList"/>
+			<acme:menu-suboption code="master.menu.member.myNotCompletedList-flightAssignment" action="/member/flight-assignment/myNotCompletedList"/>		
 		</acme:menu-option>
-		
+			
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
 			<acme:menu-suboption code="master.menu.technician.list-maintenanceRecord" action="/technician/maintenance-record/list"/>
 			<acme:menu-suboption code="master.menu.technician.list-mine-maintenanceRecord" action="/technician/maintenance-record/list-mine"/>

@@ -4,14 +4,15 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="member.flight-assignment.list.label.duty" path="duty" width="25%"/>
-	<acme:list-column code="member.flight-assignment.list.label.moment" path="moment" width="25%"/>
-	<acme:list-column code="member.flight-assignment.list.label.assignmentStatus" path="assignmentStatus" width="25%"/>
-	<acme:list-column code="member.flight-assignment.list.label.remarks" path="remarks" width="25%"/>
+	<acme:list-column code="member.flight-assignment.list.label.duty" path="duty" width="20%"/>
+	<acme:list-column code="member.flight-assignment.list.label.moment" path="moment" width="20%"/>
+	<acme:list-column code="member.flight-assignment.list.label.assignmentStatus" path="assignmentStatus" width="20%"/>
+	<acme:list-column code="member.flight-assignment.list.label.remarks" path="remarks" width="20%"/>
+	<acme:list-column code="member.flight-assignment.list.label.draftMode" path="draftMode" width="20%"/>
 	
 	<acme:list-payload path="payload"/>
 </acme:list>	
 	
-<jstl:if test="${_command == 'notCompletedlist'}">
+<jstl:if test="${_command == 'notCompletedlist' || _command == 'myNotCompletedList'}">
 	<acme:button code="member.flight-assignment.list.button.create" action="/member/flight-assignment/create"/>
 </jstl:if>	

@@ -45,35 +45,26 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
-		int memberId;
 		Collection<Leg> legs;
 		SelectChoices legChoices;
-
-		Collection<Member> members;
-		SelectChoices memberChoices;
 
 		Dataset dataset;
 
 		SelectChoices assignmentStatus;
 		SelectChoices duty;
 
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		legs = this.repository.findAllLegs();
-		members = this.repository.findAllAvailableMembers();
-
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
 		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
-		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
 
 		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
-		dataset.put("member", memberChoices.getSelected().getKey());
-		dataset.put("members", memberChoices);
+		dataset.put("member", flightAssignment.getMember());
 
 		dataset.put("legNotCompleted", MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival()));
 

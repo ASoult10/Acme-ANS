@@ -29,7 +29,6 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 		ActivityLog activityLog;
 
 		activityLogId = super.getRequest().getData("id", int.class);
-		//flightAssignment = this.repository.findFlightAssignmentByActivityLogId(activityLogId);
 		activityLog = this.repository.findActivityLogById(activityLogId);
 
 		status = activityLog.isDraftMode();//flightAssignment != null && flightAssignment.isDraftMode();
@@ -50,7 +49,7 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		super.bindObject(activityLog, "typeOfIncident", "description", "severityLevel");
 	}
 
 	@Override
@@ -68,6 +67,7 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 		Dataset dataset;
 
 		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+		dataset.put("registrationMoment", activityLog.getRegistrationMoment());
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
 

@@ -64,8 +64,10 @@ master.menu.customer.list-passengers = My Passengers
 # master.menu.member ##########################################################
 
 master.menu.member = Member
-master.menu.member.completedlist-flightAssignment= List completed flighrAssignment
-master.menu.member.notCompletedlist-flightAssignment = List not completed flighrAssignment
+master.menu.member.completedlist-flightAssignment= List completed flightAssignment
+master.menu.member.notCompletedlist-flightAssignment = List not completed flightAssignment
+master.menu.member.myCompletedList-flightAssignment = List my completed flightAssignment
+master.menu.member.myNotCompletedList-flightAssignment = List my not completed flightAssignment
 
 
 # master.menu.technician ##########################################################

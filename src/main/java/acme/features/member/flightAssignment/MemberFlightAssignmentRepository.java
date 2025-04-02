@@ -17,11 +17,17 @@ import acme.realms.Member;
 @Repository
 public interface MemberFlightAssignmentRepository extends AbstractRepository {
 
-	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival < :currentMoment")
-	Collection<FlightAssignment> findCompletedFlightAssignments(Date currentMoment);
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival < :currentMoment AND fa.draftMode = false")
+	Collection<FlightAssignment> findCompletedPublishedFlightAssignments(Date currentMoment);
 
-	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival > :currentMoment")
-	Collection<FlightAssignment> findNotCompletedFlightAssignments(Date currentMoment);
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival > :currentMoment AND fa.draftMode = false")
+	Collection<FlightAssignment> findNotCompletedPublishedFlightAssignments(Date currentMoment);
+
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival < :currentMoment AND fa.member.id = :memberId")
+	Collection<FlightAssignment> findMyCompletedFlightAssignments(Date currentMoment, int memberId);
+
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg.scheduledArrival > :currentMoment AND fa.member.id = :memberId")
+	Collection<FlightAssignment> findMyNotCompletedFlightAssignments(Date currentMoment, int memberId);
 
 	@Query("select a from ActivityLog a where a.flightAssignment.id = :flightAssignmentId")
 	Collection<ActivityLog> getActivityLogByFlightAssignmentId(int flightAssignmentId);
@@ -43,6 +49,9 @@ public interface MemberFlightAssignmentRepository extends AbstractRepository {
 
 	@Query("select l from Leg l")
 	List<Leg> findAllLegs();
+
+	@Query("select l from Leg l WHERE l.scheduledArrival > :currentMoment")
+	List<Leg> findAllNotCompletedLegs(Date currentMoment);
 
 	@Query("select m from Member m where m.id = :memberId")
 	Member findMemberById(int memberId);
