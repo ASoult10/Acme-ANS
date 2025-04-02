@@ -23,6 +23,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 
@@ -34,7 +35,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		MaintenanceRecord maintenanceRecord;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		maintenanceRecord = this.repository.findMaintenanceRecordByMasterId(masterId);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 
 		involvedIn = new InvolvedIn();
 		involvedIn.setMaintenanceRecord(maintenanceRecord);

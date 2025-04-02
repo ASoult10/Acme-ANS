@@ -9,6 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.mappings.InvolvedIn;
 import acme.entities.tasks.Task;
 import acme.realms.Technician;
@@ -23,19 +24,18 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 	@Override
 	public void authorise() {
 
-		//		boolean status;
-		//
-		//		Integer masterId = super.getRequest().getData("masterId", int.class);
-		//		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordByMasterId(masterId);
-		//		Technician technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
-		//
-		//		status = maintenanceRecord != null && super.getRequest().getPrincipal().hasRealmOfType(technician.getClass());
-		//
-		//		Integer technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		//
-		//		status = status && technician.getId() == technicianId && maintenanceRecord.isDraftMode();
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Technician.class);
 
-		super.getResponse().setAuthorised(true);
+		Integer maintenanceRecordId = super.getRequest().getData("id", int.class);
+		MaintenanceRecord maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+		status = status && maintenanceRecord != null;
+
+		Integer technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		status = status && maintenanceRecord.getTechnician().getId() == technicianId && maintenanceRecord.isDraftMode();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

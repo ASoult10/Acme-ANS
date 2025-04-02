@@ -29,13 +29,13 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 	@Override
 	public void load() {
 		MaintenanceRecord maintenanceRecord;
-		//Technician technician;
+		Technician technician;
 
-		//technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		maintenanceRecord = new MaintenanceRecord();
 
-		//maintenanceRecord.setTechnician(technician);
+		maintenanceRecord.setTechnician(technician);
 		maintenanceRecord.setDraftMode(true);
 
 		super.getBuffer().addData(maintenanceRecord);
@@ -49,22 +49,15 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
 
-		Integer technicianId;
-		Technician technician;
-
-		technicianId = super.getRequest().getData("technician", int.class);
-		technician = this.repository.findTechnicianById(technicianId);
-
 		super.bindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDueDate", "estimatedCost", "notes");
 		maintenanceRecord.setAircraft(aircraft);
-		maintenanceRecord.setTechnician(technician);
 	}
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		if (maintenanceRecord.getStatus() == MaintenanceRecordStatus.COMPLETED)
+			super.state(false, "status", "technician.maintenance-record.create.status");
+
 	}
 
 	@Override

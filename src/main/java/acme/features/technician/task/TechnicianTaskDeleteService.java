@@ -9,6 +9,7 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.mappings.InvolvedIn;
 import acme.entities.tasks.Task;
 import acme.entities.tasks.TaskStatus;
 import acme.realms.Technician;
@@ -67,6 +68,10 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void perform(final Task task) {
+		Collection<InvolvedIn> involvedInCollection;
+
+		involvedInCollection = this.repository.findInvolvedInFromTaskId(task.getId());
+		this.repository.deleteAll(involvedInCollection);
 		this.repository.delete(task);
 	}
 
