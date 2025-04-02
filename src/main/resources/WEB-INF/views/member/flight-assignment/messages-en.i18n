@@ -21,5 +21,6 @@ member.flight-assignment.list.label.duty = Duty
 member.flight-assignment.list.label.moment = Moment
 member.flight-assignment.list.label.assignmentStatus = AssignmentStatus
 member.flight-assignment.list.label.remarks = Remarks
+member.flight-assignment.list.label.draftMode = DraftMode
 
 member.flight-assignment.list.button.create = Create

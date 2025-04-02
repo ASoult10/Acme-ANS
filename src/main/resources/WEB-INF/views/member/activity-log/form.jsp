@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-moment code="member.activity-log.form.label.registrationMoment" path="registrationMoment"/>
+	<acme:input-moment code="member.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
 	<acme:input-textbox code="member.activity-log.form.label.typeOfIncident" path="typeOfIncident"/>	
 	<acme:input-textbox code="member.activity-log.form.label.description" path="description"/>	
 	<acme:input-integer code="member.activity-log.form.label.severityLevel" path="severityLevel"/>

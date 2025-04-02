@@ -31,14 +31,14 @@ public class MemberFlightAssignmentNotCompletedListService extends AbstractGuiSe
 
 		Date currentMoment;
 		currentMoment = MomentHelper.getCurrentMoment();
-		flightAssignments = this.repository.findNotCompletedFlightAssignments(currentMoment);
+		flightAssignments = this.repository.findNotCompletedPublishedFlightAssignments(currentMoment);
 
 		super.getBuffer().addData(flightAssignments);
 	}
 
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
-		Dataset dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
+		Dataset dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}
