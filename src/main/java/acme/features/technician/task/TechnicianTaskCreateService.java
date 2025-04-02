@@ -28,8 +28,12 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	@Override
 	public void load() {
 		Task task;
+		Technician technician;
+
+		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		task = new Task();
+		task.setTechnician(technician);
 		task.setDraftMode(true);
 
 		super.getBuffer().addData(task);
