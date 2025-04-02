@@ -51,7 +51,7 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 		airlines = this.repository.findAllAirlines();
 
-		airlineChoices = SelectChoices.from(airlines, "IATA", aircraft.getAirline());
+		airlineChoices = SelectChoices.from(airlines, "name", aircraft.getAirline());
 
 		aircraftstatus = SelectChoices.from(AircraftStatus.class, aircraft.getStatus());
 
