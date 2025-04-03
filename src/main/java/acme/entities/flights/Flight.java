@@ -66,6 +66,11 @@ public class Flight extends AbstractEntity {
 
 
 	@Transient
+	public String getFlightSummary() {
+		return this.getOriginCity() + " -> " + this.getDestinationCity() + " --- " + this.getScheduledDeparture() + " // " + this.getScheduledArrival();
+	}
+
+	@Transient
 	public Date getScheduledDeparture() {
 		List<Date> result;
 		LegRepository repository;
