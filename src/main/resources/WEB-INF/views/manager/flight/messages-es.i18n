@@ -1,6 +1,6 @@
 # messages-en.i18n
 
-manager.flight.form.title = Detallers del vuelo
+manager.flight.form.title = Detalles del vuelo
 manager.flight.list.title = Listado de vuelos
 
 manager.flight.form.label.tag = Etiqueta:

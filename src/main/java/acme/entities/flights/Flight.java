@@ -126,12 +126,29 @@ public class Flight extends AbstractEntity {
 	}
 
 	@Transient
-	public boolean getHasLegs() {
-		Integer layovers;
+	public boolean getHasPublishedLegs() {
+		boolean result;
+		LegRepository repository;
 
-		layovers = this.getNumberOfLayovers();
+		repository = SpringHelper.getBean(LegRepository.class);
+		result = repository.countNumberOfPublishedLegsOfFlight(this.getId()) > 0;
 
-		return layovers > 0;
+		return result;
+	}
+
+	@Transient
+	public boolean getHasAllLegsPublished() {
+		boolean result;
+		Integer publishedLegs;
+		Integer legs;
+		LegRepository repository;
+
+		repository = SpringHelper.getBean(LegRepository.class);
+		publishedLegs = repository.countNumberOfPublishedLegsOfFlight(this.getId());
+		legs = repository.countNumberOfLegsOfFlight(this.getId());
+		result = publishedLegs.equals(legs);
+
+		return result;
 	}
 
 	// Relationships ----------------------------------------------------------

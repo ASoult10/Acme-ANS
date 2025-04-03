@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.booking.Booking;
+import acme.entities.booking.BookingPassenger;
 import acme.entities.flights.Flight;
 import acme.entities.legs.Leg;
 import acme.realms.Manager;
@@ -56,14 +58,25 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void validate(final Flight flight) {
-		;
+		boolean hasPublishedLegs;
+
+		hasPublishedLegs = flight.getHasAllLegsPublished();
+
+		super.state(!hasPublishedLegs, "*", "acme.validation.flight.cant-delete.message");
 	}
 
 	@Override
 	public void perform(final Flight flight) {
 		Collection<Leg> legs;
+		Collection<Booking> bookings;
+		Collection<BookingPassenger> bookingPassengers;
 
 		legs = this.repository.findLegsByFlightId(flight.getId());
+		bookings = this.repository.findBookingsByFlightId(flight.getId());
+		bookingPassengers = this.repository.findBookingPassengersByBookingIds(bookings.stream().map(Booking::getId).toList());
+
+		this.repository.deleteAll(bookingPassengers);
+		this.repository.deleteAll(bookings);
 		this.repository.deleteAll(legs);
 		this.repository.delete(flight);
 	}
@@ -72,7 +85,7 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasPublishedLegs", "hasAllLegsPublished");
 
 		super.getResponse().addData(dataset);
 	}

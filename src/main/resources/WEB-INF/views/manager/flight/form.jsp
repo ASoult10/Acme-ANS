@@ -21,8 +21,10 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="manager.flight.form.button.legs" action="/manager/leg/list?masterId=${id}"/>
 			<acme:submit code="manager.flight.form.button.update" action="/manager/flight/update"/>
-			<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>
-			<jstl:if test="${hasLegs}">
+			<jstl:if test="${!hasPublishedLegs}">
+				<acme:submit code="manager.flight.form.button.delete" action="/manager/flight/delete"/>
+			</jstl:if>
+			<jstl:if test="${hasAllLegsPublished && hasPublishedLegs}">
 				<acme:submit code="manager.flight.form.button.publish" action="/manager/flight/publish"/>
 			</jstl:if>
 		</jstl:when>
