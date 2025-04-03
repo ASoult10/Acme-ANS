@@ -54,15 +54,15 @@ Flight</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>536</x>
+      <x>528</x>
       <y>392</y>
-      <w>272</w>
+      <w>320</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidCustomer
 --
-+ identifier must match pattern "^[A-Z]{2,3}\\d{6}$"</panel_attributes>
++ identifier must not be null and it must be unique in database</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
