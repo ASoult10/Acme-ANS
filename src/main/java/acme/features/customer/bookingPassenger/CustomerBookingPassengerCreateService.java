@@ -29,12 +29,8 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
 		status = status && booking != null && !booking.getIsPublished();
 
-		Integer passengerId = super.getRequest().getData("passengerId", int.class);
-		Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
-		status = status && passenger != null && passenger.getIsPublished();
-
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = customerId == booking.getCustomer().getId() && customerId == passenger.getCustomer().getId();
+		status = customerId == booking.getCustomer().getId();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -54,7 +50,17 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 	@Override
 	public void validate(final BookingPassenger bookingPassenger) {
+		boolean status;
 
+		Integer bookingId = bookingPassenger.getBooking().getId();
+		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
+		status = booking != null && !booking.getIsPublished();
+		super.state(status, "bookingId", "acem.validation.bookingId.notPublic");
+
+		Integer passengerId = bookingPassenger.getPassenger().getId();
+		Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
+		status = status && passenger != null && passenger.getIsPublished();
+		super.state(status, "passengerId", "acem.validation.passengerId.notPublic");
 	}
 
 	@Override

@@ -30,8 +30,8 @@ acme.validation.passportNumber.notPattern.message = El número de pasaporte debe
 
 acme.validation.lastNibble.blank.message = No se puede publicar una reserva si no se ha introducido los 4 últimos dígitos de la tarjeta de pago
 
-
-
+acem.validation.bookingId.notPublic = La reserva debe existir y no estar publicada
+acem.validation.passengerId.notPublic = El pasajero debe existir y estar publicado
 
 # Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto

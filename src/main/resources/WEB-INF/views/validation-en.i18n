@@ -30,6 +30,9 @@ acme.validation.passportNumber.notPattern.message = Passport number must follow 
 
 acme.validation.lastNibble.blank.message = Cannot publish a booking if last nibble is not set
 
+acem.validation.bookingId.notPublic = Booking must exist and not be published
+acem.validation.passengerId.notPublic = Passenger must exist and be published
+
 # Student 3 Messages
 acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  

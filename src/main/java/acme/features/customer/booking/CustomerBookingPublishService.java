@@ -34,7 +34,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && booking.getCustomer().getId() == customerId && booking.getIsPublished();
+		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
