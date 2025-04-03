@@ -59,7 +59,7 @@ bg=RED</panel_attributes>
     <panel_attributes>&lt;&lt;Constraint&gt;&gt;
 ValidLicenseNumber
 --
-+ licenseNumber must follow the pattern "^[A-Z]{2,3}\d{6}$" and match the technician's initials  
++ licenseNumber must match the technician's initials and it must be unique in database
 bg=RED</panel_attributes>
     <additional_attributes/>
   </element>

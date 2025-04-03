@@ -41,6 +41,10 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
 
+		<acme:menu-option code="master.menu.manager" access="hasRealm('Manager')">
+			<acme:menu-suboption code="master.menu.manager.list-flights" action="/manager/flight/list"/>
+		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
@@ -50,7 +54,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
-			<acme:menu-suboption code="master.menu.customer.dashboard" action="/customer/dashboard/show"/>
+			<acme:menu-suboption code="master.menu.customer.dashboard" action="/customer/customer-dashboard/show"/>
 			<acme:menu-suboption code="master.menu.customer.list-bookings" action="/customer/booking/list"/>
 			<acme:menu-suboption code="master.menu.customer.list-passengers" action="/customer/passenger/list"/>
 		</acme:menu-option>
@@ -59,11 +63,15 @@
 		<acme:menu-option code="master.menu.member" access="hasRealm('Member')">
 			<acme:menu-suboption code="master.menu.member.completedlist-flightAssignment" action="/member/flight-assignment/completedlist"/>
 			<acme:menu-suboption code="master.menu.member.notCompletedlist-flightAssignment" action="/member/flight-assignment/notCompletedlist"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.member.myCompletedList-flightAssignment" action="/member/flight-assignment/myCompletedList"/>
+			<acme:menu-suboption code="master.menu.member.myNotCompletedList-flightAssignment" action="/member/flight-assignment/myNotCompletedList"/>		
 		</acme:menu-option>
-		
+			
 		<acme:menu-option code="master.menu.technician" access="hasRealm('Technician')">
 			<acme:menu-suboption code="master.menu.technician.list-maintenanceRecord" action="/technician/maintenance-record/list"/>
 			<acme:menu-suboption code="master.menu.technician.list-mine-maintenanceRecord" action="/technician/maintenance-record/list-mine"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.technician.list-task" action="/technician/task/list"/>
 			<acme:menu-suboption code="master.menu.technician.list-mine-task" action="/technician/task/list-mine"/>
 		</acme:menu-option>

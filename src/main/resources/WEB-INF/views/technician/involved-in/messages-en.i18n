@@ -1,13 +1,13 @@
 # messages-en.i18n
 
-technician.involved-in.form.title = Involved In Form
-technician.involved-in.list.title = Listing of Involved In
+technician.involved-in.form.title = Maintenance record's tasks Form
+technician.involved-in.list.title = Listing of maintenance record's tasks
 
 technician.involved-in.form.label.task = Task:
 
 technician.involved-in.form.button.create = Create
 technician.involved-in.form.button.delete = Delete
-technician.involved-in.form.label.confirmation = Confirm that the involved in is correct
+technician.involved-in.form.label.confirmation = Confirm that the task is correct
 
 technician.involved-in.list.label.task = Task
 

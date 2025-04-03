@@ -35,10 +35,13 @@ acme.validation.member.nullornotpattern.message = The identifier must not be nul
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  
 acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
 
-acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg acme.validation.FlightAssignment.memberNotAvailable.message = That member is not available, flightAssignment can not be created
+acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg 
+acme.validation.FlightAssignment.memberNotAvailable.message = That member is not available, flightAssignment can not be created
 acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = That member has incompatible legs
 acme.validation.FlightAssignment.hasPilot.message = That leg already has a pilot
 acme.validation.FlightAssignment.hasCopilot.message = That leg already has a copilot
+acme.validation.FlightAssignment.notValidLeg.message = That leg is not valid
+
 
 # Student 4 messages
 
@@ -52,4 +55,6 @@ acme.validation.maintenance-record.next-inspection.message = The next inspection
 acme.validation.license-number.not-matching-initials.message = The license number must match the technician's initials  
 acme.validation.license-number.repeated.message = The technician's license number must be unique
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
+technician.maintenance-record.publish.published-tasks = To publish a maintenance record, it cannot have any unpublished tasks and should have at least one published task
+technician.maintenance-record.publish.status = To publish a maintenance record, its status must be "COMPLETED"
 

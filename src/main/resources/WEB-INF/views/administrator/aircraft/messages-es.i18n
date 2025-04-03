@@ -4,7 +4,7 @@ administrator.aircraft.form.title = Detalles de aeronaves
 administrator.aircraft.list.title = Lista de aeronaves
 
 administrator.aircraft.form.label.model = Modelo:
-administrator.aircraft.form.label.registrationNumber = NumerodeRegistro: 
+administrator.aircraft.form.label.registrationNumber = Numero de Registro: 
 administrator.aircraft.form.label.capacity = Capacidad:
 administrator.aircraft.form.label.cargoWeight = Peso de carga:
 administrator.aircraft.form.label.status = Estado:
@@ -13,7 +13,6 @@ administrator.aircraft.form.label.details = Detalles: (Opcional)
 administrator.aircraft.form.label.confirmation = Confirme que la aeronave es correcta
 		
 administrator.aircraft.form.button.update = Actualizar
-administrator.aircraft.form.button.delete = Eliminar
 administrator.aircraft.form.button.create = Crear
 
 administrator.aircraft.list.label.model = Modelo

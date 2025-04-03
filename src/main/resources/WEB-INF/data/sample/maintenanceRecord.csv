@@ -7,24 +7,24 @@ maintenance-01,2014/12/05 00:00,PENDING,2025/02/02 00:01,EUR 500000.00,General m
 maintenance-02,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-02,true
 maintenance-03,2000/01/01 00:01,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-02,technician-01,true
 maintenance-04,2012/07/02 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-02,true
-maintenance-05,2024/12/31 23:59,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01,true
+maintenance-05,2024/12/31 23:59,COMPLETED,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01,false
 maintenance-06,2025/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-02,technician-01,true
 
 #status - variations
-maintenance-07,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-02,technician-01,false
-maintenance-08,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-02,false
-maintenance-09,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01,true
+maintenance-07,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-02,technician-01,true
+maintenance-08,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-02,true
+maintenance-09,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-01,technician-01,false
 
 #nextInspectionDueDate - variations
 maintenance-10,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1200.00,Annual review,aircraft-02,technician-01,true
-maintenance-11,2000/01/01 00:00,PENDING,2025/01/01 00:02,EUR 1200.00,Annual review,aircraft-01,technician-01,false
+maintenance-11,2000/01/01 00:00,COMPLETED,2025/01/01 00:02,EUR 1200.00,Annual review,aircraft-01,technician-01,false
 maintenance-12,2000/01/01 00:00,PENDING,2200/12/31 23:58,EUR 1200.00,Annual review,aircraft-01,technician-02,true
 maintenance-13,2000/01/01 00:00,PENDING,2200/12/31 23:59,EUR 1200.00,Annual review,aircraft-01,technician-01,true
 
 #estimatedCost - variations
 maintenance-14,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 0.00,Annual review,aircraft-01,technician-01,true
-maintenance-15,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 0.01,Annual review,aircraft-01,technician-01,false
-maintenance-16,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 500000.00,Annual review,aircraft-02,technician-02,true
+maintenance-15,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 0.01,Annual review,aircraft-01,technician-01,false
+maintenance-16,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 500000.00,Annual review,aircraft-02,technician-02,false
 maintenance-17,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 999999.99,Annual review,aircraft-01,technician-01,true
 maintenance-18,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 1000000.00,Annual review,aircraft-01,technician-01,true
 
