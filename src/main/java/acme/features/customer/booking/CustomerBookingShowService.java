@@ -63,7 +63,6 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 		if (!flights.isEmpty()) {
 			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-			dataset.put("flight", flightChoices.getSelected().getKey());
 			dataset.put("flights", flightChoices);
 		}
 
