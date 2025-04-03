@@ -4,9 +4,11 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
+import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
@@ -22,7 +24,17 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		ActivityLog activityLog;
+		int id;
+
+		id = super.getRequest().getData("id", int.class);
+		activityLog = this.repository.findActivityLogById(id);
+		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
+		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
+
+		boolean status = correctMember && flightAssignmentPublished && inPast;
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -40,11 +52,21 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
-		dataset.put("masterId", activityLog.getFlightAssignment().getId());
-		dataset.put("masterDraftMode", activityLog.getFlightAssignment().isDraftMode());
+		FlightAssignment flightAssignment;
+		final boolean showCreate;
 
+		flightAssignment = activityLog.getFlightAssignment();
+
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+
+		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
+		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
+		showCreate = !flightAssignment.isDraftMode() && activityLog.isDraftMode() && inPast && correctMember;
+
+		dataset.put("masterId", activityLog.getFlightAssignment().getId());
+		dataset.put("buttonsAvaiable", showCreate);
 		super.getResponse().addData(dataset);
+
 	}
 
 }

@@ -8,7 +8,7 @@
 	<acme:input-textbox code="technician.task.form.label.description" path="description"/>	
 	<acme:input-integer code="technician.task.form.label.priority" path="priority"/>
 	<acme:input-integer code="technician.task.form.label.estimatedDuration" path="estimatedDuration"/>
-	<acme:input-select code="technician.task.form.label.technician" path="technician" choices="${technicians}"/>
+	<acme:input-select code="technician.task.form.label.technician" path="technician" choices="${technicians}" readonly="true"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')&& draftMode == true}">

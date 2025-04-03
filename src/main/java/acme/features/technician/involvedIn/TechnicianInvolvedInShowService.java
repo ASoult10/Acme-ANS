@@ -53,6 +53,7 @@ public class TechnicianInvolvedInShowService extends AbstractGuiService<Technici
 		dataset.put("readonly", false);
 		dataset.put("tasks", taskChoices);
 		dataset.put("task", taskChoices.getSelected().getKey());
+		dataset.put("draftMode", involvedIn.getMaintenanceRecord().isDraftMode());
 
 		super.getResponse().addData(dataset);
 

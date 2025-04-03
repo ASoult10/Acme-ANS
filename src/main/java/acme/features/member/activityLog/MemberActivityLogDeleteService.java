@@ -7,7 +7,6 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
@@ -25,14 +24,12 @@ public class MemberActivityLogDeleteService extends AbstractGuiService<Member, A
 	public void authorise() {
 		boolean status;
 		int activityLogId;
-		FlightAssignment flightAssignment;
 		ActivityLog activityLog;
 
 		activityLogId = super.getRequest().getData("id", int.class);
-		//flightAssignment = this.repository.findFlightAssignmentByActivityLogId(activityLogId);
 		activityLog = this.repository.findActivityLogById(activityLogId);
 
-		status = activityLog.isDraftMode();//flightAssignment != null && flightAssignment.isDraftMode();
+		status = activityLog.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}

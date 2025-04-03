@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
@@ -31,7 +32,9 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-		status = flightAssignment != null;
+		boolean correctMember = flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		status = flightAssignment != null && correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -66,7 +69,10 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-		showCreate = flightAssignment.isDraftMode();
+		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
+		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
+		showCreate = !flightAssignment.isDraftMode() && inPast && correctMember;
+
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);
 

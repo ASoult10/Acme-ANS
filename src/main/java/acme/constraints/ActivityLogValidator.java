@@ -27,7 +27,7 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 		Date activityLogMoment = activityLog.getRegistrationMoment();
 		Date scheduledArrival = activityLog.getFlightAssignment().getLeg().getScheduledArrival();
 		Boolean activityLogMomentIsAfterscheduledArrival = MomentHelper.isAfter(activityLogMoment, scheduledArrival);
-		super.state(context, activityLogMomentIsAfterscheduledArrival, "WrongActivityLogDate", "{acme.validation.activityLog.wrongMoment.message}");
+		super.state(context, activityLogMomentIsAfterscheduledArrival, "registrationMoment", "{acme.validation.activityLog.wrongMoment.message}");
 
 		boolean result = !super.hasErrors(context);
 		return result;

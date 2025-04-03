@@ -78,8 +78,6 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
 		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
 		boolean arrivalIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledArrival(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		System.out.println("departureIncompatible " + departureIncompatible);
-		System.out.println("arrivalIncompatible " + arrivalIncompatible);
 		return !departureIncompatible && !arrivalIncompatible;
 	}
 

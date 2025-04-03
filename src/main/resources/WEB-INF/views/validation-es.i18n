@@ -31,7 +31,9 @@ acme.validation.passportNumber.notPattern.message = El número de pasaporte debe
 acme.validation.lastNibble.blank.message = No se puede publicar una reserva si no se ha introducido los 4 últimos dígitos de la tarjeta de pago
 
 
-# Mensajes del estudiante 3
+
+
+# Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario
 acme.validation.member.repeated.message = Ya existe una entidad diferente con este employeeCode:
@@ -41,6 +43,7 @@ acme.validation.FlightAssignment.memberNotAvailable.message = Ese miembro de la 
 acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = Ese miembro tiene tramos de vuelo incompatibles
 acme.validation.FlightAssignment.hasPilot.message = Ese tramo de vuelo ya tiene piloto
 acme.validation.FlightAssignment.hasCopilot.message = Ese tramo de vuelo ya tiene copiloto
+acme.validation.FlightAssignment.notValidLeg.message = Ese tramo de vuelo no es válido
 
 # Mensajes del estudiante 4
 
