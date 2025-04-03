@@ -49,6 +49,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		claim.setRegistrationMoment(registrationMoment);
 		claim.setAssistanceAgent(agent);
 		claim.setStatus(TrackingLogStatus.PENDING);
+		claim.setDraftMode(true);
 
 		super.getBuffer().addData(claim);
 	}
@@ -62,7 +63,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		leg = this.repository.findLegById(legId);
 
 		claim.setLeg(leg);
-		super.bindObject(claim, "email", "description", "type", "draftMode");
+		super.bindObject(claim, "email", "description", "type");
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		choices_status = SelectChoices.from(TrackingLogStatus.class, claim.getStatus());
 		choices_leg = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "email", "description", "assistanceAgent");
+		dataset = super.unbindObject(claim, "registrationMoment", "email", "description", "assistanceAgent", "draftMode");
 		dataset.put("type", choices_type);
 		dataset.put("status", choices_status);
 		dataset.put("legs", choices_leg);

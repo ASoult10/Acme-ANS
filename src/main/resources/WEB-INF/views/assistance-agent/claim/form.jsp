@@ -18,10 +18,7 @@
             <acme:submit code="assistance-agent.claim.button.update" action="/assistance-agent/claim/update"/>  
             <acme:submit code="assistance-agent.claim.button.delete" action="/assistance-agent/claim/delete"/>  
             <acme:submit code="assistance-agent.claim.button.publish" action="/assistance-agent/claim/publish"/>  
-        </jstl:when>  
-        <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == false}">  
-            <acme:submit code="assistance-agent.claim.button.publish" action="/assistance-agent/claim/publish"/>  
-        </jstl:when> 
+        </jstl:when>   
         <jstl:when test="${_command == 'create'}">  
         	<acme:input-checkbox code="assistance-agent.claim.form.label.confirmation" path="confirmation"/>
             <acme:submit code="assistance-agent.claim.button.create" action="/assistance-agent/claim/create"/>  
