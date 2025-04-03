@@ -57,7 +57,7 @@ master.menu.user-account.customer-profile = Perfil de cliente
 # master.menu.customer ##########################################################
 
 master.menu.customer = Customer
-master.menu.customer.dashboard= Dashboard
+master.menu.customer.dashboard= Mi Tablero
 master.menu.customer.list-bookings = Mis Reservas 
 master.menu.customer.list-passengers = Mis Pasajeros
 
