@@ -5,7 +5,8 @@ customer.booking.form.title = Booking Details
 
 customer.booking.form.button.update = Update
 customer.booking.form.button.create = Book
-customer.booking.form.button.passenger = Passengers of this booking
+customer.booking.form.button.listPassenger = Passengers of this booking
+customer.booking.form.button.addPassenger = Add Passenger
 customer.booking.form.button.publish = Publish
 
 customer.booking.list.button.create = Book

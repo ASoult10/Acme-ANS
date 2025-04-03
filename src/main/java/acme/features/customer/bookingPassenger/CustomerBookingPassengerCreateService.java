@@ -23,10 +23,19 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 	@Override
 	public void authorise() {
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
 		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
-		super.getResponse().setAuthorised(customerId == booking.getCustomer().getId());
+		status = status && booking != null && !booking.getIsPublished();
+
+		Integer passengerId = super.getRequest().getData("passengerId", int.class);
+		Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
+		status = status && passenger != null && passenger.getIsPublished();
+
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		status = customerId == booking.getCustomer().getId() && customerId == passenger.getCustomer().getId();
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -60,10 +69,10 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
-		Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
 
-		Collection<Passenger> passengers = this.customerBookingPassengerRepository.getAllPassengersByCustomer(customerId).stream().filter(p -> !alreadyAddedPassengers.contains(p)).toList();
-		SelectChoices passengerChoices = SelectChoices.from(passengers, "fullName", bookingPassenger.getPassenger());
+		Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
+		Collection<Passenger> noAddedPassengers = this.customerBookingPassengerRepository.getAllPassengersByCustomerId(customerId).stream().filter(p -> !alreadyAddedPassengers.contains(p)).toList();
+		SelectChoices passengerChoices = SelectChoices.from(noAddedPassengers, "fullName", bookingPassenger.getPassenger());
 
 		Dataset dataset = super.unbindObject(bookingPassenger, "passenger", "booking");
 		dataset.put("passengers", passengerChoices);

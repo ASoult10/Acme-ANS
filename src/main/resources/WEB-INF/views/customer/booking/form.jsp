@@ -15,13 +15,14 @@
 		<jstl:when test="${acme:anyOf(_command, 'show|update') && isPublished == false}">
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
+			<acme:button code="customer.booking.form.button.addPassenger" action="/customer/booking-passenger/create?bookingId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>
 		</jstl:when>		
 	</jstl:choose>
 	
-	<jstl:if test="${passengers.size() != 0 && _command != 'create'}">
-		<acme:submit code="customer.booking.form.button.passenger" action="/customer/passenger/list?bookingId=${id}"/>
+	<jstl:if test="${_command != 'create'}">
+		<acme:button code="customer.booking.form.button.listPassenger" action="/customer/passenger/list?bookingId=${id}"/>
 	</jstl:if>
 </acme:form>

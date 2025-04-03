@@ -27,7 +27,7 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 	public void load() {
 		Collection<MaintenanceRecord> maintenanceRecords;
 
-		maintenanceRecords = this.repository.findAllMaintenanceRecords();
+		maintenanceRecords = this.repository.findAllPublishedMaintenanceRecord();
 
 		super.getBuffer().addData(maintenanceRecords);
 	}
