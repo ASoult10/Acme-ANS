@@ -29,7 +29,7 @@ Task
 + description: String {Mandatory, ValidString(min=1,max=255), Automapped}
 + priority: Integer {Mandatory, ValidNumber(min=0,max=10), Autommaped}
 + estimatedDuration: Integer {Mandatory, ValidNumber(min=0,max=1000), Automapped}
-+ draftMode: Boolean {Mandatory, Valid, Automapped}
++ draftMode: boolean {Mandatory, Automapped}
 bg=green
 </panel_attributes>
     <additional_attributes/>
@@ -51,7 +51,7 @@ Maintenance Record {ValidInspectionDate}
 + estimatedCost: Money {Mandatory, ValidMoney, Automapped}
 + notes: String {Optional, ValidString(min=0,max=255), Automapped}
 bg=green
-+ draftMode: Boolean {Mandatory, Valid, Automapped}</panel_attributes>
++ draftMode: boolean {Mandatory, Automapped}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
