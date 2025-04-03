@@ -1,0 +1,18 @@
+agent.claim.form.title = Claim form 
+agent.claim.list.title = List of claims
+
+agent.claim.form.label.registrationMoment = Registration moment:
+agent.claim.form.label.email = Email:
+agent.claim.form.label.description = Description:
+agent.claim.form.label.type = Type:
+agent.claim.form.label.status = Status:
+agent.claim.form.label.draftMode = Draft mode:
+agent.claim.form.label.leg = Leg:
+agent.claim.form.label.agent = Assistance agent:
+
+agent.claim.button.create = Create
+agent.claim.button.update = Update
+agent.claim.button.delete = Delete
+agent.claim.button.publish = Publish
+
+agent.claim.form.label.confirmation = Confirm the claim
