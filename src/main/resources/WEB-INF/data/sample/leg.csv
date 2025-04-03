@@ -55,3 +55,11 @@ leg-22,AAX1015,2000/02/01 22:01,2000/02/01 23:00,ON_TIME,TRUE,airline-00,flight-
 # aircraft - standard variations
 leg-23,AAX1016,2000/02/01 10:00,2000/02/01 11:00,ON_TIME,TRUE,airline-00,flight-30,airport-00,airport-01,aircraft-11
 # aircraft - no singular values
+# extra data
+leg-24,AAX1017,2030/01/01 10:00,2030/01/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-25,AAX1018,2030/02/01 10:00,2030/02/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-26,AAX1019,2030/03/01 10:00,2030/03/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-27,AAX1020,2030/04/01 10:00,2030/04/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-28,AAX1021,2030/05/01 10:00,2030/05/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-29,AAX1022,2030/06/01 10:00,2030/06/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
+leg-30,AAX1023,2030/06/01 10:00,2030/06/01 11:00,ON_TIME,FALSE,airline-00,flight-29,airport-00,airport-01,aircraft-01
