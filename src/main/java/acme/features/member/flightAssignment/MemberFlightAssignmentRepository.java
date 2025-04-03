@@ -47,11 +47,14 @@ public interface MemberFlightAssignmentRepository extends AbstractRepository {
 	@Query("select fa from FlightAssignment fa WHERE fa.leg.id = :legId")
 	List<FlightAssignment> findFlightAssignmentByLegId(int legId);
 
+	@Query("select fa from FlightAssignment fa WHERE fa.member.id = :memberId")
+	List<FlightAssignment> findFlightAssignmentByMemberId(int memberId);
+
 	@Query("select l from Leg l")
 	List<Leg> findAllLegs();
 
-	@Query("select l from Leg l WHERE l.scheduledArrival > :currentMoment")
-	List<Leg> findAllNotCompletedLegs(Date currentMoment);
+	@Query("select l from Leg l WHERE l.scheduledArrival > :currentMoment AND l.draftMode = false")
+	List<Leg> findAllNotCompletedPublishedLegs(Date currentMoment);
 
 	@Query("select m from Member m where m.id = :memberId")
 	Member findMemberById(int memberId);

@@ -41,6 +41,9 @@ acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = That member
 acme.validation.FlightAssignment.hasPilot.message = That leg already has a pilot
 acme.validation.FlightAssignment.hasCopilot.message = That leg already has a copilot
 acme.validation.FlightAssignment.notValidLeg.message = That leg is not valid
+acme.validation.FlightAssignment.pastLeg.message = Leg must be in the future
+acme.validation.FlightAssignment.notPublishedLeg.message = Leg must be published
+acme.validation.FlightAssignment.notValidMember.message = Invalid member
 
 
 # Student 4 messages

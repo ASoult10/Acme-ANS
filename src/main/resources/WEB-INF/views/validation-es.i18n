@@ -44,6 +44,9 @@ acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = Ese miembro
 acme.validation.FlightAssignment.hasPilot.message = Ese tramo de vuelo ya tiene piloto
 acme.validation.FlightAssignment.hasCopilot.message = Ese tramo de vuelo ya tiene copiloto
 acme.validation.FlightAssignment.notValidLeg.message = Ese tramo de vuelo no es válido
+acme.validation.FlightAssignment.pastLeg.message = El tramo de vuelo debe estar en el futuro
+acme.validation.FlightAssignment.notPublishedLeg.message = El tramo de vuelo debe estar publicado
+acme.validation.FlightAssignment.notValidMember.message = Miembro no válido
 
 # Mensajes del estudiante 4
 

@@ -52,8 +52,8 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		SelectChoices assignmentStatus;
 		SelectChoices duty;
+		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
 
-		legs = this.repository.findAllLegs();
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
