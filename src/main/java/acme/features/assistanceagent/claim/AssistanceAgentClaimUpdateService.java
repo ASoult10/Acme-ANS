@@ -1,5 +1,5 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
 
@@ -16,12 +16,12 @@ import acme.entities.trackinglogs.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AgentClaimPublishService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimUpdateService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AgentClaimRepository repository;
+	private AssitanceAgentClaimRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -29,16 +29,8 @@ public class AgentClaimPublishService extends AbstractGuiService<AssistanceAgent
 	@Override
 	public void authorise() {
 		boolean status;
-		int claimId;
-		Claim selectedClaim;
-		AssistanceAgent agent;
 
-		claimId = super.getRequest().getData("id", int.class);
-		selectedClaim = this.repository.findClaimById(claimId);
-
-		agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class) && selectedClaim.getAssistanceAgent().equals(agent);
+		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -72,11 +64,12 @@ public class AgentClaimPublishService extends AbstractGuiService<AssistanceAgent
 		if (claim.getStatus() != TrackingLogStatus.PENDING && this.repository.findLastLog(claim.getId()).getResolutionPercentage() < 100)
 			super.state(claim.getStatus() != TrackingLogStatus.PENDING, "status", "assistanceAgent.claim.form.error.status");
 
+		if (claim.isDraftMode())
+			super.state(claim.isDraftMode(), "draftMode", "assistanceAgent.claim.form.error.draftMode");
 	}
 
 	@Override
 	public void perform(final Claim claim) {
-		claim.setDraftMode(false);
 		this.repository.save(claim);
 	}
 
@@ -102,5 +95,4 @@ public class AgentClaimPublishService extends AbstractGuiService<AssistanceAgent
 
 		super.getResponse().addData(dataset);
 	}
-
 }

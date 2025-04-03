@@ -1,5 +1,5 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
 import java.util.Date;
@@ -14,7 +14,7 @@ import acme.entities.trackinglogs.TrackingLog;
 import acme.entities.trackinglogs.TrackingLogStatus;
 
 @Repository
-public interface AgentClaimRepository extends AbstractRepository {
+public interface AssitanceAgentClaimRepository extends AbstractRepository {
 
 	@Query("select c from Claim c where c.status != :status")
 	Collection<Claim> findCompletedClaims(TrackingLogStatus status);

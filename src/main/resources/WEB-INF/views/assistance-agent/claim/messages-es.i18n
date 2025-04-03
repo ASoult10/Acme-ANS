@@ -1,0 +1,18 @@
+assistance-agent.claim.form.title = Formulario de reclamaciones
+assistance-agent.claim.list.title = Lista de reclamaciones
+
+assistance-agent.claim.label.registrationMoment = Fecha de registro:
+assistance-agent.claim.label.email = Correo:
+assistance-agent.claim.label.description = Descripción:
+assistance-agent.claim.label.type = Tipo:
+assistance-agent.claim.label.status = Estado:
+assistance-agent.claim.label.draftMode = Borrador
+assistance-agent.claim.label.leg = Escala:
+assistance-agent.claim.label.agent = Agente:
+
+assistance-agent.claim.button.create = Crear
+assistance-agent.claim.button.update = Actualizar
+assistance-agent.claim.button.delete = Eliminar
+assistance-agent.claim.button.publish = Publicar
+
+assistance-agent.claim.form.label.confirmation = Confirme la reclamación

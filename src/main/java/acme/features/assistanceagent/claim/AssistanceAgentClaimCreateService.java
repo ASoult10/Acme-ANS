@@ -1,12 +1,14 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -16,12 +18,12 @@ import acme.entities.trackinglogs.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimCreateService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AgentClaimRepository repository;
+	private AssitanceAgentClaimRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -37,11 +39,16 @@ public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent,
 
 	@Override
 	public void load() {
-		int id;
 		Claim claim;
+		AssistanceAgent agent;
+		Date registrationMoment;
 
-		id = super.getRequest().getData("id", int.class);
-		claim = this.repository.findClaimById(id);
+		agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
+		registrationMoment = MomentHelper.getCurrentMoment();
+		claim = new Claim();
+		claim.setRegistrationMoment(registrationMoment);
+		claim.setAssistanceAgent(agent);
+		claim.setStatus(TrackingLogStatus.PENDING);
 
 		super.getBuffer().addData(claim);
 	}
@@ -55,17 +62,12 @@ public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent,
 		leg = this.repository.findLegById(legId);
 
 		claim.setLeg(leg);
-		super.bindObject(claim, "email", "description", "type", "status");
+		super.bindObject(claim, "email", "description", "type", "draftMode");
 	}
 
 	@Override
 	public void validate(final Claim claim) {
-		//validar que si status no es pending, es pq tiene un log asociado de 100%
-		if (claim.getStatus() != TrackingLogStatus.PENDING && this.repository.findLastLog(claim.getId()).getResolutionPercentage() < 100)
-			super.state(claim.getStatus() != TrackingLogStatus.PENDING, "status", "assistanceAgent.claim.form.error.status");
 
-		if (claim.isDraftMode())
-			super.state(claim.isDraftMode(), "draftMode", "assistanceAgent.claim.form.error.draftMode");
 	}
 
 	@Override
@@ -91,8 +93,9 @@ public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent,
 		dataset.put("type", choices_type);
 		dataset.put("status", choices_status);
 		dataset.put("legs", choices_leg);
-		dataset.put("legFlightNumber", claim.getLeg().getFlightNumber());
+		dataset.put("legFlightNumber", choices_leg.getSelected().getKey());
 
 		super.getResponse().addData(dataset);
 	}
+
 }

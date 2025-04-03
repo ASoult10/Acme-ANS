@@ -1,5 +1,5 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
 
@@ -13,18 +13,19 @@ import acme.entities.trackinglogs.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AgentClaimPendingListService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimListService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AgentClaimRepository repository;
+	private AssitanceAgentClaimRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
 
 	@Override
 	public void authorise() {
+
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
 
@@ -37,7 +38,7 @@ public class AgentClaimPendingListService extends AbstractGuiService<AssistanceA
 		int id;
 
 		id = super.getRequest().getPrincipal().getActiveRealm().getId();
-		claims = this.repository.findUndergoingClaimsByAgent(id, TrackingLogStatus.PENDING);
+		claims = this.repository.findCompletedClaimsByAgent(id, TrackingLogStatus.PENDING);
 
 		super.getBuffer().addData(claims);
 	}
@@ -46,7 +47,7 @@ public class AgentClaimPendingListService extends AbstractGuiService<AssistanceA
 	public void unbind(final Claim claim) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(claim, "email", "type", "leg");
+		dataset = super.unbindObject(claim, "email", "type", "leg", "status");
 		super.addPayload(dataset, claim, "registrationMoment", "description");
 		super.getResponse().addData(dataset);
 	}

@@ -1,5 +1,5 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import java.util.Collection;
 
@@ -16,12 +16,12 @@ import acme.entities.trackinglogs.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AgentClaimDeleteService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimShowService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AgentClaimRepository repository;
+	private AssitanceAgentClaimRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -29,8 +29,15 @@ public class AgentClaimDeleteService extends AbstractGuiService<AssistanceAgent,
 	@Override
 	public void authorise() {
 		boolean status;
+		AssistanceAgent agent;
+		int claimId;
+		Claim selectedClaim;
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
+		agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
+		claimId = super.getRequest().getData("id", int.class);
+		selectedClaim = this.repository.findClaimById(claimId);
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class) && selectedClaim.getAssistanceAgent().equals(agent);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -44,30 +51,6 @@ public class AgentClaimDeleteService extends AbstractGuiService<AssistanceAgent,
 		claim = this.repository.findClaimById(id);
 
 		super.getBuffer().addData(claim);
-	}
-
-	@Override
-	public void bind(final Claim claim) {
-		int legId;
-		Leg leg;
-
-		legId = super.getRequest().getData("leg", int.class);
-		leg = this.repository.findLegById(legId);
-
-		claim.setLeg(leg);
-		super.bindObject(claim, "email", "description", "type", "status");
-	}
-
-	@Override
-	public void validate(final Claim claim) {
-		if (claim.isDraftMode())
-			super.state(claim.isDraftMode(), "draftMode", "assistanceAgent.claim.form.error.draftMode");
-	}
-
-	@Override
-	public void perform(final Claim claim) {
-		//TODO: borrar tracking logs asociados
-		this.repository.delete(claim);
 	}
 
 	@Override

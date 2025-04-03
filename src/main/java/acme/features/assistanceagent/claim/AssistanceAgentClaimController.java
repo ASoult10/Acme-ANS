@@ -1,5 +1,5 @@
 
-package acme.features.agent.claim;
+package acme.features.assistanceagent.claim;
 
 import javax.annotation.PostConstruct;
 
@@ -11,30 +11,30 @@ import acme.entities.claims.Claim;
 import acme.realms.AssistanceAgent;
 
 @GuiController
-public class AgentClaimController extends AbstractGuiController<AssistanceAgent, Claim> {
+public class AssistanceAgentClaimController extends AbstractGuiController<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AgentClaimListService			listService;
+	private AssistanceAgentClaimListService			listService;
 
 	@Autowired
-	private AgentClaimPendingListService	pendingListService;
+	private AssistanceAgentClaimPendingListService	pendingListService;
 
 	@Autowired
-	private AgentClaimShowService			showService;
+	private AssistanceAgentClaimShowService			showService;
 
 	@Autowired
-	private AgentClaimCreateService			createService;
+	private AssistanceAgentClaimCreateService			createService;
 
 	@Autowired
-	private AgentClaimUpdateService			updateService;
+	private AssistanceAgentClaimUpdateService			updateService;
 
 	@Autowired
-	private AgentClaimDeleteService			deleteService;
+	private AssistanceAgentClaimDeleteService			deleteService;
 
 	@Autowired
-	private AgentClaimPublishService		publishService;
+	private AssistanceAgentClaimPublishService		publishService;
 
 
 	// Constructors -----------------------------------------------------------
