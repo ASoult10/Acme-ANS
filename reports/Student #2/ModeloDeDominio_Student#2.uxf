@@ -16,7 +16,8 @@ Booking
 + purchaseMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
 + travelClass: TravelClass {Mandatory, Valid, Automapped}
 + price: Money {Mandatory, ValidMoney(min = 0), Automapped}
-+ lastNibble: String {Optional, ValidString(min = 4, max = 4, pattern = "[0-9]{4}"), Automapped}</panel_attributes>
++ lastNibble: String {Optional, ValidString(min = 4, max = 4, pattern = "[0-9]{4}"), Automapped}
++ isPubished: Boolean {Mandatory, Valid, Automapped}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -34,7 +35,8 @@ Passenger
 + email: String {Mandatory, ValidEmail, Automapped}
 + passportNumber: String {Mandatory, validString(pattern = "^[A-Z0-9]{6,9}$"), Automapped}
 + birthDate: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.TIMESTAMP)}
-+ specialNeeds: String {Optional, ValidString(min = 0, max = 51, Automapped)}</panel_attributes>
++ specialNeeds: String {Optional, ValidString(min = 0, max = 51, Automapped)}
++ isPubished: Boolean {Mandatory, Valid, Automapped}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -241,5 +243,19 @@ RESTAURANT
 ACOMMODATION
 OTHER</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>224</y>
+      <w>480</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=x-&gt;
+m1=*
+m2=1
+belongs to</panel_attributes>
+    <additional_attributes>580.0;10.0;490.0;10.0;490.0;40.0;10.0;40.0;10.0;180.0</additional_attributes>
   </element>
 </diagram>

@@ -2,7 +2,6 @@
 package acme.features.customer.customerDashboard;
 
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +44,7 @@ public class CustomerCustomerDashboardShowService extends AbstractGuiService<Cus
 		List<Booking> lastFiveYearsBookings = bookings.stream().filter(booking -> booking.getPurchaseMoment().getYear() > thisYear - 5).toList();
 		Integer total5YearsBookings = lastFiveYearsBookings.size() > 1 ? lastFiveYearsBookings.size() : 1;
 		CustomerDashboard dashboard = new CustomerDashboard();
-
-		Collection<String> last5destinations = bookings.stream().sorted(Comparator.comparing(Booking::getPurchaseMoment).reversed()).map(b -> b.getFlight().getDestinationCity()).distinct().limit(5).toList();
+		Collection<String> last5destinations = bookings.stream().map(b -> b.getFlight().getDestinationCity()).distinct().limit(5).toList();
 
 		dashboard.setLastFiveDestinations((List<String>) last5destinations);
 		Double totalMoney = bookings.stream().filter(booking -> booking.getPurchaseMoment().getYear() > thisYear - 1).map(Booking::getPrice).map(Money::getAmount).reduce(0.0, Double::sum);
@@ -80,7 +78,7 @@ public class CustomerCustomerDashboardShowService extends AbstractGuiService<Cus
 		Money bookingMaximumCost = new Money();
 		bookingMaximumCost.setAmount(lastFiveYearsBookings.stream().map(Booking::getPrice).map(Money::getAmount).max(Double::compare).orElse(0.0));
 		bookingMaximumCost.setCurrency(currency);
-		dashboard.setBookingMinimumCost(bookingMaximumCost);
+		dashboard.setBookingMaximumCost(bookingMaximumCost);
 
 		Money bookingDeviationCost = new Money();
 		double varianza = lastFiveYearsBookings.stream().map(Booking::getPrice).map(Money::getAmount).map(price -> Math.pow(price - bookingAverageCost.getAmount(), 2)).reduce(0.0, Double::sum) / total5YearsBookings;
