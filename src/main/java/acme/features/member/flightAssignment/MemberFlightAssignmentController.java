@@ -20,6 +20,11 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 
 	@Autowired
 	private MemberFlightAssignmentNotCompletedListService	notCompletedListService;
+	@Autowired
+	private MemberFlightAssignmentMyCompletedListService	myCompletedListService;
+
+	@Autowired
+	private MemberFlightAssignmentMyNotCompletedListService	myNotCompletedListService;
 
 	@Autowired
 	private MemberFlightAssignmentCreateService				createService;
@@ -48,6 +53,8 @@ public class MemberFlightAssignmentController extends AbstractGuiController<Memb
 
 		super.addCustomCommand("completedlist", "list", this.completedListService);
 		super.addCustomCommand("notCompletedlist", "list", this.notCompletedListService);
+		super.addCustomCommand("myCompletedList", "list", this.myCompletedListService);
+		super.addCustomCommand("myNotCompletedList", "list", this.myNotCompletedListService);
 		super.addCustomCommand("publish", "update", this.publishService);
 	}
 

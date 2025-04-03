@@ -21,5 +21,6 @@ member.flight-assignment.list.label.duty = Deber
 member.flight-assignment.list.label.moment = Momento
 member.flight-assignment.list.label.assignmentStatus = Estado de asignación
 member.flight-assignment.list.label.remarks = Observaciones
+member.flight-assignment.list.label.draftMode = Modo borrador
 
 member.flight-assignment.list.button.create = Crear

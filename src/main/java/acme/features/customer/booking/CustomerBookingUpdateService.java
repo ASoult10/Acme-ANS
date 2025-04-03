@@ -62,7 +62,12 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void perform(final Booking booking) {
-		this.customerBookingRepository.save(booking);
+		Booking newBooking = this.customerBookingRepository.findBookingById(booking.getId());
+		newBooking.setFlight(booking.getFlight());
+		newBooking.setLocatorCode(booking.getLocatorCode());
+		newBooking.setTravelClass(booking.getTravelClass());
+		newBooking.setLastNibble(booking.getLastNibble());
+		this.customerBookingRepository.save(newBooking);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
@@ -27,7 +28,7 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 		int masterId;
 		FlightAssignment flightAssignment;
 		masterId = super.getRequest().getData("masterId", int.class);
-		//flightAssignment = this.repository.findFlightAssignmentById(masterId);
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		status = true;//flightAssignment != null && flightAssignment.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
@@ -47,7 +48,7 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 		activityLog = new ActivityLog();
 		activityLog.setFlightAssignment(flightAssignment);
 		activityLog.setDraftMode(true);
-
+		activityLog.setRegistrationMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().addData(activityLog);
 
 	}
@@ -55,12 +56,13 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 	@Override
 	public void bind(final ActivityLog activityLog) {
 
-		super.bindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		super.bindObject(activityLog, "typeOfIncident", "description", "severityLevel");
 
 	}
 
 	@Override
 	public void validate(final ActivityLog activityLog) {
+
 		;
 	}
 
@@ -73,8 +75,10 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+		dataset = super.unbindObject(activityLog, "typeOfIncident", "description", "severityLevel", "draftMode");
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("registrationMoment", activityLog.getRegistrationMoment());
+
 		//dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
 
 		super.getResponse().addData(dataset);

@@ -4,7 +4,7 @@ acme.validation.airport.code.message = El código del aeropuerto debe estar comp
 acme.validation.airport.phone.message = El teléfono no es válido
 acme.validation.airport.duplicated-code.message = Ya existe un aeropuerto con el mismo código
 
-# Mensajes de estudiante 1
+# Mensajes del estudiante 1
 acme.validation.manager.wrong-initials.message = El número de identificación debe comenzar con las iniciales del gestor
 
 acme.validation.flight.overlapping-legs.message = Hay tramos de vuelos que se solapan
@@ -13,7 +13,7 @@ acme.validation.flight.no-legs.message = El vuelo no tiene tramos asociados
 acme.validation.leg.wrong-scheduled-arrival.message = La fecha prevista de llegada debe ser posterior a la de salida
 acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienza con el código IATA de la aerolínea
 
-# Mensajes de estudiante 2
+# Mensajes del estudiante 2
 acme.validation.identifier.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.identifier.notInitials.message = El identificador debe comenzar con las iniciales del usuario
 acme.validation.identifier.repeated.message = Ya existe una entidad con este código
@@ -31,6 +31,8 @@ acme.validation.passportNumber.notPattern.message = El número de pasaporte debe
 acme.validation.lastNibble.blank.message = No se puede publicar una reserva si no se ha introducido los 4 últimos dígitos de la tarjeta de pago
 
 
+
+
 # Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario
@@ -41,17 +43,21 @@ acme.validation.FlightAssignment.memberNotAvailable.message = Ese miembro de la 
 acme.validation.FlightAssignment.memberHasIncompatibleLegs.message = Ese miembro tiene tramos de vuelo incompatibles
 acme.validation.FlightAssignment.hasPilot.message = Ese tramo de vuelo ya tiene piloto
 acme.validation.FlightAssignment.hasCopilot.message = Ese tramo de vuelo ya tiene copiloto
+acme.validation.FlightAssignment.notValidLeg.message = Ese tramo de vuelo no es válido
 
-# Mensajes de estudiante 4 y 5
-acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro
-
-acme.validation.license-number.not-matching-initials.message = El número de licencia debe coincidir con las iniciales del técnico
-acme.validation.license-number.repeated.message = El número de licencia del técnico debe ser único
-
-acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
-
-
+# Mensajes del estudiante 4
 
 acme.validation.trackingLog.incorrectIndicator.message = Si el porcentage es 100%, el estado debe ser ACCEPTED o REJECTED
 acme.validation.trackingLog.mustBePending.message = Si el porcentaje no es 100%, el estado debe ser PENDING
 acme.validation.trackingLog.increasingPercentage.message = El porcentaje debe ser mayor que el del ultimo log
+
+# Mensajes del estudiante 5
+
+acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro
+acme.validation.license-number.not-matching-initials.message = El número de licencia debe coincidir con las iniciales del técnico
+acme.validation.license-number.repeated.message = El número de licencia del técnico debe ser único
+acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
+technician.maintenance-record.publish.published-tasks = Para publicar un registro de mantenimiento, este no puede tener tareas no publicadas y debe tener al menos una tarea publicada
+technician.maintenance-record.publish.status = Para publicar un registro de mantenimiento, su estado debe ser "COMPLETED"
+
+

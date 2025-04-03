@@ -8,7 +8,7 @@
 
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|delete')}">
+		<jstl:when test="${acme:anyOf(_command, 'show|delete')&& draftMode == true}">
 			<acme:submit code="technician.involved-in.form.button.delete" action="/technician/involved-in/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">

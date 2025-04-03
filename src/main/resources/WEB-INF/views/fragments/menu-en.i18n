@@ -29,6 +29,10 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.manager ########################################################
+master.menu.manager = Manager
+master.menu.manager.list-flights = My Flights
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
@@ -47,6 +51,8 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+master.menu.user-account.become-customer = Become a customer
+master.menu.user-account.customer-profile = Customer profile
 
 # master.menu.customer ##########################################################
 
@@ -58,8 +64,10 @@ master.menu.customer.list-passengers = My Passengers
 # master.menu.member ##########################################################
 
 master.menu.member = Member
-master.menu.member.completedlist-flightAssignment= List completed flighrAssignment
-master.menu.member.notCompletedlist-flightAssignment = List not completed flighrAssignment
+master.menu.member.completedlist-flightAssignment= List completed flightAssignment
+master.menu.member.notCompletedlist-flightAssignment = List not completed flightAssignment
+master.menu.member.myCompletedList-flightAssignment = List my completed flightAssignment
+master.menu.member.myNotCompletedList-flightAssignment = List my not completed flightAssignment
 
 
 # master.menu.technician ##########################################################
