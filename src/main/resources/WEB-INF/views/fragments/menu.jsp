@@ -76,6 +76,11 @@
 			<acme:menu-suboption code="master.menu.technician.list-mine-task" action="/technician/task/list-mine"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.agent" access="hasRealm('AssistanceAgent')">
+			<acme:menu-suboption code="master.menu.agent.list-claim" action="/assistance-agent/claim/list"/>
+			<acme:menu-suboption code="master.menu.agent.pending-claim" action="/assistance-agent/claim/pending"/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
 
 	<acme:menu-right>		

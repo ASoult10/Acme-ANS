@@ -1,0 +1,78 @@
+
+package acme.features.assistanceagent.claim;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
+import acme.client.services.AbstractGuiService;
+import acme.client.services.GuiService;
+import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimType;
+import acme.entities.legs.Leg;
+import acme.entities.trackinglogs.TrackingLogStatus;
+import acme.realms.AssistanceAgent;
+
+@GuiService
+public class AssistanceAgentClaimShowService extends AbstractGuiService<AssistanceAgent, Claim> {
+
+	// Internal state ---------------------------------------------------------
+
+	@Autowired
+	private AssitanceAgentClaimRepository repository;
+
+	// AbstractGuiService interface -------------------------------------------
+
+
+	@Override
+	public void authorise() {
+		boolean status;
+		AssistanceAgent agent;
+		int claimId;
+		Claim selectedClaim;
+
+		agent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
+		claimId = super.getRequest().getData("id", int.class);
+		selectedClaim = this.repository.findClaimById(claimId);
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class) && selectedClaim.getAssistanceAgent().equals(agent);
+
+		super.getResponse().setAuthorised(status);
+	}
+
+	@Override
+	public void load() {
+		int id;
+		Claim claim;
+
+		id = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(id);
+
+		super.getBuffer().addData(claim);
+	}
+
+	@Override
+	public void unbind(final Claim claim) {
+		SelectChoices choices_type;
+		SelectChoices choices_leg;
+		SelectChoices choices_status;
+		Dataset dataset;
+		Collection<Leg> legs;
+
+		legs = this.repository.findAllPublishedCompletedLegs(claim.getRegistrationMoment());
+
+		choices_type = SelectChoices.from(ClaimType.class, claim.getType());
+		choices_status = SelectChoices.from(TrackingLogStatus.class, claim.getStatus());
+		choices_leg = SelectChoices.from(legs, "flightNumber", claim.getLeg());
+
+		dataset = super.unbindObject(claim, "registrationMoment", "email", "description", "assistanceAgent", "draftMode");
+		dataset.put("type", choices_type);
+		dataset.put("status", choices_status);
+		dataset.put("legs", choices_leg);
+		dataset.put("legFlightNumber", claim.getLeg().getFlightNumber());
+
+		super.getResponse().addData(dataset);
+	}
+}
