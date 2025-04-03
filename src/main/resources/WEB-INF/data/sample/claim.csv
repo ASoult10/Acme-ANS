@@ -1,4 +1,4 @@
-key,registrationMoment,email,description,type,status,draftMode,key:assistanceAgent,key:leg
+key,registrationMoment,email,description,type,draftMode,status,key:assistanceAgent,key:leg
  # base entity
 claim-00,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
  # registrationMoment - standard variations
@@ -7,12 +7,12 @@ claim-02,2024/12/31  23:59,acme@lorem-ipsum.org,test description for claim,FLIGH
 claim-03,2025/01/01  00:00,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
 claim-04,2000/01/01  00:01,acme@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
  # email - standard variations
-claim-05,2012/07/02 00:00,acme-password@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
-claim-06,2012/07/02 00:00,a@b.e,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
-claim-07,2012/07/02 00:00,a@b.es,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
-claim-08,2012/07/02 00:00,a@b.esx,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
-claim-09,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
-claim-10,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,test description for claim,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
+claim-05,2012/07/02 00:00,acme-password@lorem-ipsum.org,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
+claim-06,2012/07/02 00:00,a@b.e,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
+claim-07,2012/07/02 00:00,a@b.es,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
+claim-08,2012/07/02 00:00,a@b.esx,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
+claim-09,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
+claim-10,2012/07/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,test description for claim,FLIGHT_ISSUE,true,PENDING,agent-01,leg-01
  # description - standard variations
 claim-11,2012/07/02 00:00,acme@lorem-ipsum.org,L,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
 claim-12,2012/07/02 00:00,acme@lorem-ipsum.org,Lo,FLIGHT_ISSUE,false,PENDING,agent-01,leg-01
@@ -35,8 +35,3 @@ claim-26,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_
  #draftMode - standard variations
 claim-27,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,false,ACCEPTED,agent-01,leg-01
 claim-28,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,true,REJECTED,agent-01,leg-01
- #leg - standard variations
- claim-28,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,true,REJECTED,agent-01,leg-24
- claim-28,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,true,REJECTED,agent-01,leg-01
-  claim-28,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,false,REJECTED,agent-01,leg-24
-   claim-28,2012/07/02 00:00,acme@lorem-ipsum.org,test description for claim,OTHER_ISSUES,false,REJECTED,agent-01,leg-01
