@@ -57,6 +57,11 @@ public class Claim extends AbstractEntity {
 	@Automapped
 	private TrackingLogStatus	status;
 
+	@Mandatory
+	//@Valid
+	@Automapped
+	private boolean				draftMode;
+
 	// Relationships ----------------------------------------------------------
 	@Mandatory
 	@Valid

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -61,9 +60,12 @@ public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent,
 
 	@Override
 	public void validate(final Claim claim) {
-		//TODO: validar que si status no es pending, es pq tiene un log asociado de 100%
+		//validar que si status no es pending, es pq tiene un log asociado de 100%
+		if (claim.getStatus() != TrackingLogStatus.PENDING && this.repository.findLastLog(claim.getId()).getResolutionPercentage() < 100)
+			super.state(claim.getStatus() != TrackingLogStatus.PENDING, "status", "assistanceAgent.claim.form.error.status");
 
-		//TODO: validar que no este publicada la claim
+		if (claim.isDraftMode())
+			super.state(claim.isDraftMode(), "draftMode", "assistanceAgent.claim.form.error.draftMode");
 	}
 
 	@Override
@@ -79,7 +81,7 @@ public class AgentClaimUpdateService extends AbstractGuiService<AssistanceAgent,
 		Dataset dataset;
 		Collection<Leg> legs;
 
-		legs = this.repository.findAllPublishedCompletedLegs(MomentHelper.getCurrentMoment());
+		legs = this.repository.findAllPublishedCompletedLegs(claim.getRegistrationMoment());
 
 		choices_type = SelectChoices.from(ClaimType.class, claim.getType());
 		choices_status = SelectChoices.from(TrackingLogStatus.class, claim.getStatus());

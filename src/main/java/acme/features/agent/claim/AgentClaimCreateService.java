@@ -83,7 +83,7 @@ public class AgentClaimCreateService extends AbstractGuiService<AssistanceAgent,
 		Dataset dataset;
 		Collection<Leg> legs;
 
-		legs = this.repository.findAllPublishedCompletedLegs(MomentHelper.getCurrentMoment());
+		legs = this.repository.findAllPublishedCompletedLegs(claim.getRegistrationMoment());
 
 		choices_type = SelectChoices.from(ClaimType.class, claim.getType());
 		choices_status = SelectChoices.from(TrackingLogStatus.class, claim.getStatus());
