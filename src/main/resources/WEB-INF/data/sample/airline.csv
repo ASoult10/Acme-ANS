@@ -18,7 +18,7 @@ airline-12,American Airlines,AAA,https://www.americanairlines.es/intl/es/index.j
 airline-13,American Airlines,ZZZ,https://www.americanairlines.es/intl/es/index.jsp,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 # website - standard variations
 airline-14,Tukish Airlines,TKX,http://lorem.com/ipsum,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
-airline-15,Tukish Airlines,TAX,ftp://a.b,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
+airline-15,Tukish Airlines,TAX,http://a.b,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-16,Tukish Airlines,TBX,https://www.lorem-ipsum.org,STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-17,Tukish Airlines,TCX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
 airline-18,Tukish Airlines,TDX,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",STANDARD,2012/07/02 00:00,acme@lorem-ipsum.org,913211000
