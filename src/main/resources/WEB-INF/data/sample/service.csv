@@ -14,8 +14,8 @@ service-09,<marquee>Hacked</marquee>,https://i.imgur.com/8YcXhS0.png,50,ABCM-25,
 service-10,<script>alert(‘Hacked!’);</script>,https://i.imgur.com/8YcXhS0.png,50,ABCN-25,50.0
 service-11,' or 'A' = 'A,https://i.imgur.com/8YcXhS0.png,50,ABCO-25,50.0
 # imageLink - variations
-service-12,Lorem ipsum dolor sit ame,ftp://a.b,50,ABCP-25,50.0
-service-13,Lorem ipsum dolor sit ame,ftp://www.lorem-ipsum.org,50,ABCQ-25,50.0
+service-12,Lorem ipsum dolor sit ame,http://a.b,50,ABCP-25,50.0
+service-13,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org,50,ABCQ-25,50.0
 service-14,Lorem ipsum dolor sit ame,http://example.org/a/b?,50,ABCR-25,50.0
 service-15,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,50,ABCS-25,50.0
 service-16,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50,ABCT-25,50.0
