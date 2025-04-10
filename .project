@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Acme-ANS-D03</name>
+	<name>Acme-ANS-D04</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -46,7 +46,7 @@
 		<link>
 			<name>target/classes</name>
 			<type>2</type>
-			<locationURI>WORKSPACE_LOC/Projects/Acme-ANS-D03/target/classes</locationURI>
+			<locationURI>WORKSPACE_LOC/Projects/Acme-ANS-D04/target/classes</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
