@@ -57,10 +57,17 @@ public class AuthenticatedCustomerUpdateService extends AbstractGuiService<Authe
 	}
 
 	@Override
-	public void perform(final Customer object) {
-		assert object != null;
+	public void perform(final Customer modifiedCustomer) {
+		assert modifiedCustomer != null;
 
-		this.authenticatedCustomerRepository.save(object);
+		Customer newCustomer = (Customer) this.authenticatedCustomerRepository.findById(modifiedCustomer.getId()).get();
+		newCustomer.setCustomerIdentifier(modifiedCustomer.getCustomerIdentifier());
+		newCustomer.setCustomerPhoneNumber(modifiedCustomer.getCustomerPhoneNumber());
+		newCustomer.setPhysicalAddress(modifiedCustomer.getPhysicalAddress());
+		newCustomer.setCity(modifiedCustomer.getCity());
+		newCustomer.setCountry(modifiedCustomer.getCountry());
+
+		this.authenticatedCustomerRepository.save(newCustomer);
 	}
 
 	@Override

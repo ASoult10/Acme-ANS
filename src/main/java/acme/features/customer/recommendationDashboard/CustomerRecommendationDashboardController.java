@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.customer.customerDashboard;
+package acme.features.customer.recommendationDashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -18,23 +18,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
-import acme.forms.customers.CustomerDashboard;
+import acme.forms.recommendations.RecommendationDashboard;
 import acme.realms.Customer;
 
 @GuiController
-public class CustomerCustomerDashboardController extends AbstractGuiController<Customer, CustomerDashboard> {
+public class CustomerRecommendationDashboardController extends AbstractGuiController<Customer, RecommendationDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private CustomerCustomerDashboardShowService customerCustomerDashboardService;
+	private CustomerRecommendationDashboardListService customerRecommendationDashboardListService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("show", this.customerCustomerDashboardService);
+		super.addBasicCommand("list", this.customerRecommendationDashboardListService);
 	}
 
 }
