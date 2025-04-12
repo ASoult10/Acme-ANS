@@ -23,5 +23,23 @@ public class RecommendationDashboard extends AbstractForm {
 
 	private String				description;
 
-	private RecommendationType	recommendationType;
+	private String				recommendationType;
+
+
+	public static RecommendationDashboard of(final String city, final String country, final String name, final String description, final String recommendationType) {
+		return new RecommendationDashboard(city, country, name, description, recommendationType);
+	}
+
+	public RecommendationDashboard() {
+
+	}
+
+	public RecommendationDashboard(final String city, final String country, final String name, final String description, final String recommendationType) {
+		super();
+		this.city = city;
+		this.country = country;
+		this.name = name;
+		this.description = description;
+		this.recommendationType = recommendationType;
+	}
 }

@@ -1,15 +1,20 @@
 
 package acme.features.customer.recommendationDashboard;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.forms.recommendations.RecommendationDashboard;
-import acme.forms.recommendations.RecommendationType;
 import acme.realms.Customer;
 
 @GuiService
@@ -29,15 +34,57 @@ public class CustomerRecommendationDashboardListService extends AbstractGuiServi
 		super.getResponse().setAuthorised(status);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void load() {
-		RecommendationDashboard recommendationDashboard = new RecommendationDashboard();
-		recommendationDashboard.setCity("Sevilla");
-		recommendationDashboard.setCountry("España");
-		recommendationDashboard.setName("Hola");
-		recommendationDashboard.setDescription("Adios");
-		recommendationDashboard.setRecommendationType(RecommendationType.ACTIVITY);
-		super.getBuffer().addData(List.of(recommendationDashboard));
+
+		List<RecommendationDashboard> recommendationDashboards = new ArrayList<>();
+
+		String city = "Madrid";
+		String country = "Spain";
+		String apiKey = "";
+		String term = "tourist";
+		Integer count = 5;
+
+		try {
+			String urlString = String.format("https://api.yelp.com/v3/businesses/search?location=%s&term=%s&limit=%d", city, term, count);
+			URL url = new URL(urlString);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Authorization", "Bearer " + apiKey);
+
+			int responseCode = conn.getResponseCode();
+
+			if (responseCode == 200) {
+				InputStream contStream = conn.getInputStream();
+				byte[] contBytes = contStream.readAllBytes();
+				String contString = "";
+
+				for (byte bytte : contBytes)
+					contString += (char) bytte;
+
+				JSONObject contJSON = new JSONObject(contString);
+				JSONArray businesses = (JSONArray) contJSON.get("businesses");
+
+				for (int i = 0; i < count; i++) {
+					JSONObject iObj = (JSONObject) businesses.get(i);
+					RecommendationDashboard recommendationDashboard = new RecommendationDashboard();
+					recommendationDashboard.setCity(city);
+					recommendationDashboard.setCountry(country);
+					recommendationDashboard.setName(iObj.get("name").toString());
+					JSONArray categoryArray = (JSONArray) iObj.get("categories");
+					recommendationDashboard.setRecommendationType(((JSONObject) categoryArray.get(0)).get("title").toString());
+					recommendationDashboards.add(recommendationDashboard);
+				}
+
+			} else
+				System.out.println("Request Error: Code " + responseCode);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
+
+		super.getBuffer().addData(recommendationDashboards);
 	}
 
 	@Override

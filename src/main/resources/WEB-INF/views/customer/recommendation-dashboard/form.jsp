@@ -7,6 +7,5 @@
     <acme:input-textbox code="customer.recommendation-dashboard.form.label.city" path="city"/>
     <acme:input-textbox code="customer.recommendation-dashboard.form.label.country" path="country"/>
     <acme:input-textbox code="customer.recommendation-dashboard.form.label.name" path="name"/>
-    <acme:input-textbox code="customer.recommendation-dashboard.form.label.description" path="description"/>
     <acme:input-textbox code="customer.recommendation-dashboard.form.label.recommendationType" path="recommendationType"/>
 </acme:form>

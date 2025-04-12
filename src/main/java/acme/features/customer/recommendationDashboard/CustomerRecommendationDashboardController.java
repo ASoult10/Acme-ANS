@@ -29,16 +29,12 @@ public class CustomerRecommendationDashboardController extends AbstractGuiContro
 	@Autowired
 	private CustomerRecommendationDashboardListService customerRecommendationDashboardListService;
 
-	//	@Autowired
-	//	private CustomerRecommendationDashboardShowService	customerRecommendationDashboardShowService;
-
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("list", this.customerRecommendationDashboardListService);
-		//		super.addBasicCommand("show", this.customerRecommendationDashboardShowService);
 	}
 
 }
