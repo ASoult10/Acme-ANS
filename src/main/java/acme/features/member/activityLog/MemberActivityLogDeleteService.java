@@ -29,7 +29,8 @@ public class MemberActivityLogDeleteService extends AbstractGuiService<Member, A
 		activityLogId = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(activityLogId);
 
-		status = activityLog.isDraftMode();
+		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == activityLog.getFlightAssignment().getMember().getId();
+		status = activityLog.isDraftMode() && correctMember;
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -33,7 +33,11 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		Integer id = super.getRequest().getData("id", int.class);
 		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-		super.getResponse().setAuthorised(flightAssignment != null && activeMemberId == flightAssignment.getMember().getId());
+		boolean correctMember = flightAssignment != null &&//
+			(activeMemberId == flightAssignment.getMember().getId() || //
+				!flightAssignment.isDraftMode());
+
+		super.getResponse().setAuthorised(correctMember);
 	}
 
 	@Override
