@@ -32,9 +32,11 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-		boolean correctMember = flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+		boolean correctMember = flightAssignment != null && //
+			(flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() ||//
+				!flightAssignment.isDraftMode());
 
-		status = flightAssignment != null && correctMember;
+		status = correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 

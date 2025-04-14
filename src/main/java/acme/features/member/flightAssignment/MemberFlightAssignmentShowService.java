@@ -29,7 +29,11 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Integer activeMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		Integer id = super.getRequest().getData("id", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+		super.getResponse().setAuthorised(flightAssignment != null && activeMemberId == flightAssignment.getMember().getId());
 	}
 
 	@Override
@@ -52,7 +56,10 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		SelectChoices assignmentStatus;
 		SelectChoices duty;
+
 		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
+		if (!flightAssignment.isDraftMode())
+			legs = this.repository.findAllLegs();
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());

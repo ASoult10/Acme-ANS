@@ -44,6 +44,5 @@ public class MemberFlightAssignmentMyCompletedListService extends AbstractGuiSer
 		Dataset dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 
 		super.getResponse().addData(dataset);
-		System.out.println("DataListMyCompleted =" + super.getResponse());
 	}
 }

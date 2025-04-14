@@ -37,6 +37,12 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		flightAssignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
 
+		boolean correctMember = true;
+		Integer memberId = super.getRequest().getData("member", int.class);
+
+		Member member = this.repository.findMemberById(memberId);
+		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+
 		status = flightAssignment.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}

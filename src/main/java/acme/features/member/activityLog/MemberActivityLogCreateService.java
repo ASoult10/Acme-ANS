@@ -25,11 +25,19 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
-		FlightAssignment flightAssignment;
-		masterId = super.getRequest().getData("masterId", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-		status = true;//flightAssignment != null && flightAssignment.isDraftMode();
+
+		int masterId = super.getRequest().getData("masterId", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(masterId);
+
+		boolean correctMember = false;
+		boolean flightAssignmentPublished = false;
+		boolean legNotFuture = false;
+		if (flightAssignment != null) {
+			correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
+			flightAssignmentPublished = !flightAssignment.isDraftMode();
+			legNotFuture = !MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+		}
+		status = flightAssignmentPublished && correctMember && legNotFuture;
 
 		super.getResponse().setAuthorised(status);
 

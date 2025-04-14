@@ -29,11 +29,11 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 
 		id = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(id);
-		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
-		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
+		boolean correctMember = activityLog != null && //
+			(activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() //
+				|| !activityLog.isDraftMode());
 
-		boolean status = correctMember && flightAssignmentPublished && inPast;
+		boolean status = correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 

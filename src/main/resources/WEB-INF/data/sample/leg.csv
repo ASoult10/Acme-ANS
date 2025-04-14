@@ -68,4 +68,4 @@ leg-31,AAX1024,2030/06/01 10:00,2030/06/01 11:00,ON_TIME,FALSE,airline-00,flight
 # leg not published
 leg-32,AAX1025,2030/07/01 10:00,2030/07/01 11:00,ON_TIME,TRUE,airline-00,flight-18,airport-00,airport-01,aircraft-01
 # leg in past
-leg-33,AAX1026,2004/01/01 10:00,2004/01/01 11:00,ON_TIME,FALSE,airline-00,flight-18,airport-00,airport-01,aircraft-01
+leg-33,AAX1026,2004/01/01 10:00,2004/01/01 11:00,ON_TIME,FALSE,airline-00,flight-19,airport-00,airport-01,aircraft-01

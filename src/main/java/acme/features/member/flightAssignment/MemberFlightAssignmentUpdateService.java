@@ -30,20 +30,26 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		int memberId;
-		FlightAssignment flightAssignment;
-		Member member;
 
-		id = super.getRequest().getData("id", int.class);
-		memberId = super.getRequest().getData("member", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(id);
-		member = this.repository.findMemberById(memberId);
+		int id = super.getRequest().getData("id", int.class);
+		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+		boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
 
-		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
-		boolean futureLeg = !MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
-		boolean legPublished = !flightAssignment.getLeg().isDraftMode();
-		status = flightAssignment.isDraftMode() && correctMember && futureLeg && legPublished;
+		boolean futureLeg = true;
+		boolean legPublished = true;
+		Integer legId = super.getRequest().getData("leg", int.class);
+		if (legId != 0) {
+			Leg leg = this.repository.findLegById(legId);
+			futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+			legPublished = leg != null && !leg.isDraftMode();
+		}
+
+		boolean correctMember = true;
+		Integer memberId = super.getRequest().getData("member", int.class);
+		Member member = this.repository.findMemberById(memberId);
+		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+
+		status = flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -62,9 +68,6 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 		Integer legId;
 		Leg leg;
 
-		Integer memberId;
-		Member member;
-
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
 
@@ -74,14 +77,8 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
-		if (flightAssignment.getLeg() != null) {
-			boolean futureLeg = !MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
-			super.state(futureLeg, "leg", "acme.validation.FlightAssignment.pastLeg.message");
-
-			boolean legPublished = !flightAssignment.getLeg().isDraftMode();
-			super.state(legPublished, "leg", "acme.validation.FlightAssignment.notPublishedLeg.message");
-		}
 	}
+
 	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
 		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
 		boolean arrivalIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledArrival(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());

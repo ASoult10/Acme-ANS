@@ -25,8 +25,29 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 
 	@Override
 	public void authorise() {
+		boolean status = true;
 
-		super.getResponse().setAuthorised(true);
+		if (super.getRequest().hasData("id")) {
+
+			boolean futureLeg = true;
+			boolean legPublished = true;
+			Integer legId = super.getRequest().getData("leg", int.class);
+			if (legId != 0) {
+				Leg leg = this.repository.findLegById(legId);
+				futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+				legPublished = leg != null && !leg.isDraftMode();
+			}
+
+			boolean correctMember = true;
+			Integer memberId = super.getRequest().getData("member", int.class);
+
+			Member member = this.repository.findMemberById(memberId);
+			correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+
+			status = correctMember && futureLeg && legPublished;
+		}
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -59,21 +80,10 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
+		boolean confirmation;
 
-		int memberId;
-
-		memberId = super.getRequest().getData("member", int.class);
-
-		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == memberId;
-		super.state(correctMember, "member", "acme.validation.FlightAssignment.notValidMember.message");
-
-		if (flightAssignment.getLeg() != null) {
-			boolean futureLeg = !MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
-			super.state(futureLeg, "leg", "acme.validation.FlightAssignment.pastLeg.message");
-
-			boolean legPublished = !flightAssignment.getLeg().isDraftMode();
-			super.state(legPublished, "leg", "acme.validation.FlightAssignment.notPublishedLeg.message");
-		}
+		confirmation = super.getRequest().getData("confirmation", boolean.class);
+		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
 	}
 
 	@Override
@@ -102,7 +112,7 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
-		dataset = super.unbindObject(flightAssignment, "assignmentStatus", "remarks", "draftMode");
+		dataset = super.unbindObject(flightAssignment, "assignmentStatus", "remarks");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
 		dataset.put("moment", flightAssignment.getMoment());
@@ -111,6 +121,7 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
 		dataset.put("member", flightAssignment.getMember());
+		dataset.put("draftMode", true);
 
 		super.getResponse().addData(dataset);
 	}
