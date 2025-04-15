@@ -42,7 +42,7 @@ public class CustomerRecommendationDashboardListService extends AbstractGuiServi
 
 		String city = super.getRequest().getData("city", String.class);
 		String country = super.getRequest().getData("country", String.class);
-		String apiKey = "kv47Ard-jTcCTDgXI6mCtoZUIR3X_TTg2-DtAv5paENfz_WZvFiwn8zH2LNZZ-lTcZJtVyGAU5btj4KA5oWEbcAplnoeQ1qzRQtzMbm_eSaJlR6mThHF9x9HbCD5Z3Yx";
+		String apiKey = "";
 		String term = "tourist";
 		Integer count = 5;
 
