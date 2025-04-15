@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.airports.Airport;
 import acme.entities.booking.Booking;
 import acme.entities.flights.Flight;
 import acme.realms.Customer;
@@ -38,5 +39,8 @@ public interface CustomerBookingRepository extends AbstractRepository {
 
 	@Query("SELECT f FROM Flight f WHERE f.draftMode = false")
 	Collection<Flight> findAllFlight();
+
+	@Query("SELECT l.arrivalAirport FROM Leg l WHERE l.flight.id = :flightId ORDER BY l.scheduledDeparture ASC")
+	public Airport findDestinationAirport(Integer flightId);
 
 }
