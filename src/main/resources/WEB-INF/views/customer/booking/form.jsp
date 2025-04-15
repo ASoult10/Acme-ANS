@@ -24,5 +24,6 @@
 	
 	<jstl:if test="${_command != 'create'}">
 		<acme:button code="customer.booking.form.button.listPassenger" action="/customer/passenger/list?bookingId=${id}"/>
+		<acme:button code="customer.booking.form.show.recommendations" action="/customer/recommendation-dashboard/list?city=${city}&country=${country}"/>
 	</jstl:if>
 </acme:form>
