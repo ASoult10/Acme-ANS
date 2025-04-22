@@ -1,25 +1,23 @@
 # messages-es.i18n
 
-member.flight-assignment.form.title = Formulario de FlightAssignment
-member.flight-assignment.list.title = Listado de FlightAssignments
+member.activity-log.form.title = Formulario de Registro de Actividad
+member.activity-log.list.title = Lista de Registros de Actividad
 
-member.flight-assignment.form.label.duty = Deber:
-member.flight-assignment.form.label.moment = Momento:
-member.flight-assignment.form.label.assignmentStatus = Estado de asignación:
-member.flight-assignment.form.label.remarks = Observaciones:
-member.flight-assignment.form.label.leg = Tramo de vuelo:
-member.flight-assignment.form.label.member = Miembro de tripulación:
+member.activity-log.form.label.registrationMoment = Momento de Registro
+member.activity-log.form.label.typeOfIncident = Tipo de Incidente
+member.activity-log.form.label.description = Descripción
+member.activity-log.form.label.severityLevel = Nivel de Severidad
 
-member.flight-assignment.form.button.update = Actualizar
-member.flight-assignment.form.button.publish = Publicar
-member.flight-assignment.form.button.delete = Eliminar
+member.activity-log.form.button.update = Actualizar
+member.activity-log.form.button.publish = Publicar
+member.activity-log.form.button.delete = Eliminar
 member.activity-log.form.button.create = Crear
-member.flight-assignment.form.button.create = Crear
-member.flight-assignment.form.label.confirmation = Confirma que el FlightAssignment es correcto
+member.activity-log.list.button.create = Crear
+member.activity-log.form.label.confirmation = Confirme que la asignación de vuelo es correcta
 
-member.activity-log.list.label.registrationMoment = Momento de registro
-member.activity-log.list.label.typeOfIncident = Tipo de incidente
+member.activity-log.list.label.registrationMoment = Momento de Registro
+member.activity-log.list.label.typeOfIncident = Tipo de Incidente
 member.activity-log.list.label.description = Descripción
-member.activity-log.list.label.severityLevel = Nivel de importancia
+member.activity-log.list.label.severityLevel = Nivel de Severidad
 
 member.flight-assignment.list.button.create = Crear

@@ -59,6 +59,9 @@ public interface MemberFlightAssignmentRepository extends AbstractRepository {
 	@Query("select m from Member m where m.id = :memberId")
 	Member findMemberById(int memberId);
 
+	@Query("select m from Member m where m.employeeCode = :employeeCode")
+	Member findMemberByEmployeeCode(String employeeCode);
+
 	@Query("select f from FlightAssignment f where f.id = :flightAssignmentId")
 	FlightAssignment findFlightAssignmentById(int flightAssignmentId);
 

@@ -75,7 +75,7 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 		dataset.put("duty", duty);
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
-		dataset.put("member", flightAssignment.getMember());
+		dataset.put("member", flightAssignment.getMember().getEmployeeCode());
 
 		dataset.put("legNotCompleted", MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival()));
 

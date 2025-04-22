@@ -39,9 +39,9 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 			}
 
 			boolean correctMember = true;
-			Integer memberId = super.getRequest().getData("member", int.class);
+			String employeeCode = super.getRequest().getData("member", String.class);
 
-			Member member = this.repository.findMemberById(memberId);
+			Member member = this.repository.findMemberByEmployeeCode(employeeCode);
 			correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
 
 			status = correctMember && futureLeg && legPublished;
@@ -106,7 +106,8 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		try {
 			legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		} catch (Exception e) {
-			legChoices = SelectChoices.from(legs, "flightNumber", legs.get(0));
+			Leg leg = new Leg();
+			legChoices = SelectChoices.from(legs, "flightNumber", leg);
 		}
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
@@ -120,7 +121,7 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		dataset.put("duty", duty);
 		dataset.put("leg", legChoices.getSelected().getKey());
 		dataset.put("legs", legChoices);
-		dataset.put("member", flightAssignment.getMember());
+		dataset.put("member", flightAssignment.getMember().getEmployeeCode());
 		dataset.put("draftMode", true);
 
 		super.getResponse().addData(dataset);
