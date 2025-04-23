@@ -27,9 +27,11 @@ public class CustomerPassengerPublishService extends AbstractGuiService<Customer
 		Integer passengerId = super.getRequest().getData("id", int.class);
 		Passenger passenger = this.customerPassengerRepository.getPassengerById(passengerId);
 
+		status = status && passenger != null;
+
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && passenger.getCustomer().getId() == customerId;
+		status = status && passenger.getCustomer().getId() == customerId && !passenger.getIsPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -43,7 +45,7 @@ public class CustomerPassengerPublishService extends AbstractGuiService<Customer
 
 	@Override
 	public void bind(final Passenger passenger) {
-
+		super.bindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds");
 	}
 
 	@Override

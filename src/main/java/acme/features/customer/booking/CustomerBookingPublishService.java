@@ -32,9 +32,17 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Integer bookingId = super.getRequest().getData("id", int.class);
 		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
+		status = status && booking != null;
+
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+
+		Integer flightId = super.getRequest().getData("flight", int.class);
+		if (flightId != 0) {
+			Flight flight = this.customerBookingRepository.findFlightById(flightId);
+			status = status && flight != null && !flight.isDraftMode();
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -48,7 +56,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
@@ -56,8 +64,6 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Booking bookingWithSameLocatorCode = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode());
 		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
-		status = !booking.getLastNibble().isBlank();
-		super.state(status, "locatorCode", "acme.validation.lastNibble.blank.message");
 	}
 
 	@Override
