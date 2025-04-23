@@ -25,12 +25,22 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 	public void authorise() {
 		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 
-		Integer bookingId = super.getRequest().getData("bookingId", int.class);
-		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
-		status = status && booking != null && !booking.getIsPublished();
+		if (super.getRequest().hasData("id")) {
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = customerId == booking.getCustomer().getId();
+			Integer bookingId = super.getRequest().getData("booking", int.class);
+			Integer bookingIdURL = super.getRequest().getData("bookingId", int.class);
+			status = status && bookingId.equals(bookingIdURL);
+			Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
+			status = status && booking != null && !booking.getIsPublished() && customerId == booking.getCustomer().getId();
+
+			Integer passengerId = super.getRequest().getData("passenger", int.class);
+			Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
+			status = status && passenger != null && passenger.getIsPublished() && customerId == passenger.getCustomer().getId();
+
+			Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
+			status = status && !alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId);
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -81,6 +91,8 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 		SelectChoices passengerChoices = SelectChoices.from(noAddedPassengers, "fullName", bookingPassenger.getPassenger());
 
 		Dataset dataset = super.unbindObject(bookingPassenger, "passenger", "booking");
+		//		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
+		//		dataset.put("booking", booking.getFlight().getFlightSummary());
 		dataset.put("passengers", passengerChoices);
 
 		super.getResponse().addData(dataset);

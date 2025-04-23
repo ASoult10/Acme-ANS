@@ -7,7 +7,7 @@
     <acme:input-select code="customer.bookingPassenger.list.label.passenger" path="passenger" choices="${passengers}"/>
     <acme:input-textbox code="customer.bookingPassenger.list.label.booking" path="booking" readonly="true"/>
     
-	<acme:link code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
+	<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">
