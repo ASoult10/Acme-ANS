@@ -5,11 +5,11 @@
 
 <acme:form> 
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}" readonly="${isPublished}"/>
-	<acme:input-textarea code="customer.booking.form.label.locatorCode" path="locatorCode" readonly="true"/>
+	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
 	<acme:input-textbox code="customer.booking.form.label.purchaseMoment" path="purchaseMoment" readonly="true"/>
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}" readonly="${isPublished}"/>	
-	<acme:input-textarea code="customer.booking.form.label.price" path="price" readonly="true"/>
-	<acme:input-textarea code="customer.booking.form.label.lastNibble" path="lastNibble" readonly="${isPublished}"/>
+	<acme:input-money code="customer.booking.form.label.price" path="price" readonly="true"/>
+	<acme:input-integer code="customer.booking.form.label.lastNibble" path="lastNibble" readonly="${isPublished}"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update') && isPublished == false}">

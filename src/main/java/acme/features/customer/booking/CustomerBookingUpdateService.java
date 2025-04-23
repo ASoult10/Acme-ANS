@@ -38,6 +38,12 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
 
+		Integer flightId = super.getRequest().getData("flight", int.class);
+		if (flightId != 0) {
+			Flight flight = this.customerBookingRepository.findFlightById(flightId);
+			status = status && flight != null && !flight.isDraftMode();
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -50,7 +56,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
@@ -62,12 +68,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void perform(final Booking booking) {
-		Booking newBooking = this.customerBookingRepository.findBookingById(booking.getId());
-		newBooking.setFlight(booking.getFlight());
-		newBooking.setLocatorCode(booking.getLocatorCode());
-		newBooking.setTravelClass(booking.getTravelClass());
-		newBooking.setLastNibble(booking.getLastNibble());
-		this.customerBookingRepository.save(newBooking);
+		this.customerBookingRepository.save(booking);
 	}
 
 	@Override

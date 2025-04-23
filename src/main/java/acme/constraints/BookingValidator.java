@@ -29,7 +29,7 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 
 		Booking bookingWithSameLocatorCode = this.repository.findBookingByLocatorCode(locatorCode);
 		if (bookingWithSameLocatorCode != null && bookingWithSameLocatorCode.getId() != booking.getId()) {
-			super.state(context, false, "*", "{acme.validation.identifier.repeated.message}: " + locatorCode);
+			super.state(context, false, "locatorCode", "{acme.validation.identifier.repeated.message}: " + locatorCode);
 			return false;
 		}
 

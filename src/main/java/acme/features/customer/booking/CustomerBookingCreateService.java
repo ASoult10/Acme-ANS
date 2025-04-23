@@ -3,7 +3,6 @@ package acme.features.customer.booking;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -32,6 +31,14 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	@Override
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+
+		if (super.getRequest().hasData("id")) {
+			Integer flightId = super.getRequest().getData("flight", int.class);
+			if (flightId != 0) {
+				Flight flight = this.customerBookingRepository.findFlightById(flightId);
+				status = status && flight != null && !flight.isDraftMode();
+			}
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -44,26 +51,16 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Customer customer = this.customerBookingRepository.findCustomerById(customerId);
 		Date date = MomentHelper.getCurrentMoment();
 
-		String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		Random random = new Random();
-		int longitud = 6 + random.nextInt(3);
-		StringBuilder sb = new StringBuilder(longitud);
-		for (int i = 0; i < longitud; i++) {
-			char c = chars.charAt(random.nextInt(chars.length()));
-			sb.append(c);
-		}
-
 		booking.setCustomer(customer);
 		booking.setPurchaseMoment(date);
 		booking.setIsPublished(false);
-		booking.setLocatorCode(sb.toString());
 
 		super.getBuffer().addData(booking);
 	}
 
 	@Override
 	public void bind(final Booking booking) {
-		super.bindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble");
+		super.bindObject(booking, "flight", "locatorCode", "travelClass", "lastNibble");
 	}
 
 	@Override
@@ -74,8 +71,6 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void perform(final Booking booking) {
-		Date today = MomentHelper.getCurrentMoment();
-		booking.setPurchaseMoment(today);
 		this.customerBookingRepository.save(booking);
 	}
 
