@@ -91,8 +91,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 		SelectChoices passengerChoices = SelectChoices.from(noAddedPassengers, "fullName", bookingPassenger.getPassenger());
 
 		Dataset dataset = super.unbindObject(bookingPassenger, "passenger", "booking");
-		//		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
-		//		dataset.put("booking", booking.getFlight().getFlightSummary());
+		dataset.put("locatorCode", bookingPassenger.getBooking().getLocatorCode());
 		dataset.put("passengers", passengerChoices);
 
 		super.getResponse().addData(dataset);

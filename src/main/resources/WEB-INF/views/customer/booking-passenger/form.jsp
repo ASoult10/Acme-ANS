@@ -5,7 +5,7 @@
 
 <acme:form>
     <acme:input-select code="customer.bookingPassenger.list.label.passenger" path="passenger" choices="${passengers}"/>
-    <acme:input-textbox code="customer.bookingPassenger.list.label.booking" path="booking" readonly="true"/>
+    <acme:input-textbox code="customer.bookingPassenger.list.label.booking" path="locatorCode" readonly="true"/>
     
 	<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 	
