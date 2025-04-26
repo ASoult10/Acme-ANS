@@ -68,10 +68,10 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		Collection<BookingPassenger> bookingPassengers = this.customerBookingRepository.findAllBookingRecordsOf(booking.getId());
 		status = !bookingPassengers.isEmpty();
-		super.state(status, "locatorCode", "customer.validation.booking.form.error.noPassengers");
+		super.state(status, "*", "customer.validation.booking.form.error.noPassengers");
 
 		status = bookingPassengers.stream().filter(br -> !br.getPassenger().getIsPublished()).findFirst().isEmpty();
-		super.state(status, "locatorCode", "customer.booking.form.error.publishPassengers");
+		super.state(status, "*", "customer.booking.form.error.publishPassengers");
 	}
 
 	@Override

@@ -37,6 +37,7 @@ acem.validation.bookingId.notPublic = Booking must exist and not be published
 acem.validation.passengerId.notPublic = Passenger must exist and be published
 
 acme.validation.noChoice = Must not be empty
+customer.passenger.form.error.associatedBookings = Cannot delete a passenger associated with existing bookings
 
 customer.validation.booking.form.error.noPassengers = There must be at least one passenger for publish a booking
 customer.booking.form.error.publishPassengers = All passengers must be published before publishing a booking

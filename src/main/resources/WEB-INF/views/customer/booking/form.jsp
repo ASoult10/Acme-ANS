@@ -12,7 +12,7 @@
 	<acme:input-integer code="customer.booking.form.label.lastNibble" path="lastNibble"/>
 
 	<jstl:choose>	 
-		<jstl:when test="${acme:anyOf(_command, 'show|update') && !isPublished}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|publish') && !isPublished}">
 		<jstl:if test="${!isPublished}">
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
