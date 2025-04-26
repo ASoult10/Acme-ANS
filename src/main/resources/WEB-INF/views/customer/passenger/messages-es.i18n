@@ -7,7 +7,7 @@ customer.passenger.form.button.update = Actualizar
 customer.passenger.form.button.create = Agregar Pasajero
 customer.passenger.form.button.publish = Publicar
 
-customer.passenger.list.button.create = Añadir Pasajero
+customer.passenger.list.button.create = Crear Pasajero
 customer.passenger.list.label.fullName = Nombre Completo
 customer.passenger.list.label.email = Correo Electrónico
 customer.passenger.list.label.passportNumber = Número de Pasaporte

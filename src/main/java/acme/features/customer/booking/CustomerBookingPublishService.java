@@ -10,6 +10,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.booking.BookingPassenger;
 import acme.entities.booking.TravelClass;
 import acme.entities.flights.Flight;
 import acme.realms.Customer;
@@ -64,6 +65,13 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Booking bookingWithSameLocatorCode = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode());
 		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
+
+		Collection<BookingPassenger> bookingPassengers = this.customerBookingRepository.findAllBookingRecordsOf(booking.getId());
+		status = !bookingPassengers.isEmpty();
+		super.state(status, "locatorCode", "customer.validation.booking.form.error.noPassengers");
+
+		status = bookingPassengers.stream().filter(br -> !br.getPassenger().getIsPublished()).findFirst().isEmpty();
+		super.state(status, "locatorCode", "customer.booking.form.error.publishPassengers");
 	}
 
 	@Override

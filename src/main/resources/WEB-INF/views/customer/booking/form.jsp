@@ -3,13 +3,13 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
-<acme:form> 
+<acme:form readonly="${isPublished}"> 
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}" readonly="${isPublished}"/>
 	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
 	<acme:input-textbox code="customer.booking.form.label.purchaseMoment" path="purchaseMoment" readonly="true"/>
-	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}" readonly="${isPublished}"/>	
+	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}"/>	
 	<acme:input-money code="customer.booking.form.label.price" path="price" readonly="true"/>
-	<acme:input-integer code="customer.booking.form.label.lastNibble" path="lastNibble" readonly="${isPublished}"/>
+	<acme:input-integer code="customer.booking.form.label.lastNibble" path="lastNibble"/>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|update') && isPublished == false}">

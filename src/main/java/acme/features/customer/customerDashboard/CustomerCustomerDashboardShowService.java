@@ -39,7 +39,6 @@ public class CustomerCustomerDashboardShowService extends AbstractGuiService<Cus
 		super.getResponse().setAuthorised(status);
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void load() {
 		Integer customerId = this.getRequest().getPrincipal().getActiveRealm().getId();

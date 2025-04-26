@@ -24,19 +24,18 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 	@Override
 	public void authorise() {
 		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Integer bookingId = super.getRequest().getData("bookingId", int.class);
+		Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
+		status = status && booking != null && customerId == booking.getCustomer().getId();
 
 		if (super.getRequest().hasData("id")) {
-			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-
-			Integer bookingId = super.getRequest().getData("booking", int.class);
-			Integer bookingIdURL = super.getRequest().getData("bookingId", int.class);
-			status = status && bookingId.equals(bookingIdURL);
-			Booking booking = this.customerBookingPassengerRepository.getBookingById(bookingId);
-			status = status && booking != null && !booking.getIsPublished() && customerId == booking.getCustomer().getId();
+			String locatorCode = super.getRequest().getData("locatorCode", String.class);
+			status = status && booking.getLocatorCode().equals(locatorCode);
 
 			Integer passengerId = super.getRequest().getData("passenger", int.class);
 			Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
-			status = status && passenger != null && passenger.getIsPublished() && customerId == passenger.getCustomer().getId();
+			status = status && passenger != null && customerId == passenger.getCustomer().getId();
 
 			Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.getPassengersInBooking(bookingId);
 			status = status && !alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId);
@@ -55,7 +54,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 	@Override
 	public void bind(final BookingPassenger bookingPassenger) {
-		super.bindObject(bookingPassenger, "passenger", "booking");
+		super.bindObject(bookingPassenger, "passenger", "locatorCode");
 	}
 
 	@Override
@@ -69,7 +68,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 		Integer passengerId = bookingPassenger.getPassenger().getId();
 		Passenger passenger = this.customerBookingPassengerRepository.getPassengerById(passengerId);
-		status = status && passenger != null && passenger.getIsPublished();
+		status = status && passenger != null;
 		super.state(status, "passengerId", "acem.validation.passengerId.notPublic");
 	}
 

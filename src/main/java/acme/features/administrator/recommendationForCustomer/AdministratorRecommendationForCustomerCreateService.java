@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import acme.client.components.principals.Administrator;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.airports.Airport;
@@ -54,6 +55,7 @@ public class AdministratorRecommendationForCustomerCreateService extends Abstrac
 
 				RestTemplate restTemplate = new RestTemplate();
 				ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class, city, term, count);
+				MomentHelper.sleep(1000);
 
 				if (response != null && response.getBody() != null) {
 

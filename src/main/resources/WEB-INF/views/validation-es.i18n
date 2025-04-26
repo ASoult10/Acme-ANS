@@ -36,6 +36,9 @@ acme.validation.lastNibble.blank.message = No se puede publicar una reserva si n
 acem.validation.bookingId.notPublic = La reserva debe existir y no estar publicada
 acem.validation.passengerId.notPublic = El pasajero debe existir y estar publicado
 
+customer.validation.booking.form.error.noPassengers = Para publicar la reserva debe haber al menos un pasajero
+customer.booking.form.error.publishPassengers = Para publicar la reserva, todos los pasajeros asociados deben estar publicados
+
 # Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario
