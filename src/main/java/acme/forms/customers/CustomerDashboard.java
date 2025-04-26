@@ -19,14 +19,14 @@ public class CustomerDashboard extends AbstractForm {
 	// Attributes -------------------------------------------------------------
 
 	private List<String>		lastFiveDestinations;
-	private Money				spentMoneyLastYear;
+	private List<Money>			spentMoneyLastYear;
 	private Integer				economyBookings;
 	private Integer				businessBookings;
-	private Money				bookingCountCost;
-	private Money				bookingAverageCost;
-	private Money				bookingMinimumCost;
-	private Money				bookingMaximumCost;
-	private Money				bookingDeviationCost;
+	private List<Money>			bookingCountCost;
+	private List<Money>			bookingAverageCost;
+	private List<Money>			bookingMinimumCost;
+	private List<Money>			bookingMaximumCost;
+	private List<Money>			bookingDeviationCost;
 	private Integer				bookingCountPassengers;
 	private Double				bookingAveragePassengers;
 	private Integer				bookingMinimumPassengers;

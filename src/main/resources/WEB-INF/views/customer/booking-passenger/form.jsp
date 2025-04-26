@@ -6,12 +6,14 @@
 <acme:form>
     <acme:input-select code="customer.bookingPassenger.list.label.passenger" path="passenger" choices="${passengers}"/>
     <acme:input-textbox code="customer.bookingPassenger.list.label.booking" path="locatorCode" readonly="true"/>
-    
-	<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">
+			<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 			<acme:submit code="customer.bookingPassenger.form.button.create" action="/customer/booking-passenger/create?bookingId=${booking.id}"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'delete'}">
+			<acme:submit code="customer.bookingPassenger.form.button.delete" action="/customer/booking-passenger/delete?bookingId=${booking.id}"/>	
 		</jstl:when>		
 	</jstl:choose>	
 </acme:form>

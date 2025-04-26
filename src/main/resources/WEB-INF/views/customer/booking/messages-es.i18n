@@ -7,6 +7,7 @@ customer.booking.form.button.update = Actualizar
 customer.booking.form.button.create = Reservar
 customer.booking.form.button.listPassenger = Pasajeros de esta reserva
 customer.booking.form.button.addPassenger = Añadir Pasajero
+customer.booking.form.button.deletePassenger = Eliminar Pasajero
 customer.booking.form.button.publish = Publicar
 customer.booking.form.show.recommendations = ¿Qué hacer en la ciudad de destino?
 
