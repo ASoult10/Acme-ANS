@@ -64,7 +64,7 @@ airport-45,Aeropuerto de Sevilla,ERT,INTERNATIONAL,Sevilla,' or 'A' = 'A ,https:
 # country - no singular values
 
 # website - standard variations
-airport-46,Aeropuerto de Sevilla,QWE,INTERNATIONAL,Sevilla,España,http://a,acme@lorem-ipsum.org,913211000
+airport-46,Aeropuerto de Sevilla,QWE,INTERNATIONAL,Sevilla,España,http://a.b.c,acme@lorem-ipsum.org,913211000
 airport-47,Aeropuerto de Sevilla,RTY,INTERNATIONAL,Sevilla,España,http://a.b,acme@lorem-ipsum.org,913211000
 airport-48,Aeropuerto de Sevilla,POI,INTERNATIONAL,Sevilla,España,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",acme@lorem-ipsum.org,913211000
 airport-49,Aeropuerto de Sevilla,LKJ,INTERNATIONAL,Sevilla,España,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",acme@lorem-ipsum.org,913211000
