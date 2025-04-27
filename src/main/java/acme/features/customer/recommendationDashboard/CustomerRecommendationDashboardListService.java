@@ -45,7 +45,7 @@ public class CustomerRecommendationDashboardListService extends AbstractGuiServi
 			recDash.setCity(rec.getCity());
 			recDash.setCountry(rec.getCountry());
 			recDash.setName(rec.getName());
-			recDash.setDescription(rec.getCountry());
+			recDash.setRecommendationType(rec.getRecommendationType());
 			recommendationDashboards.add(recDash);
 		}
 
@@ -54,7 +54,7 @@ public class CustomerRecommendationDashboardListService extends AbstractGuiServi
 
 	@Override
 	public void unbind(final RecommendationDashboard recommendationsDashboard) {
-		Dataset dataset = super.unbindObject(recommendationsDashboard, "city", "country", "name", "description", "recommendationType");
+		Dataset dataset = super.unbindObject(recommendationsDashboard, "city", "country", "name", "recommendationType");
 		dataset.put("cityName", recommendationsDashboard.getCity());
 		dataset.put("countryName", recommendationsDashboard.getCountry());
 		super.getResponse().addData(dataset);

@@ -75,7 +75,7 @@ public class AdministratorRecommendationForCustomerCreateService extends Abstrac
 				}
 
 			} catch (final Exception e) {
-				System.out.println("Recomendaciones en ciudad " + city + " y país " + country + " no encontradas.");
+				System.out.println("Recommendations in city  " + city + " and country " + country + " not found.");
 			}
 		}
 
