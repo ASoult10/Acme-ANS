@@ -29,4 +29,7 @@ public interface TechnicianInvolvedInRepository extends AbstractRepository {
 	@Query("select tk from Task tk")
 	Collection<Task> findAllDisponibleTasks();
 
+	@Query("select tk from Task tk where tk.description not in (select ii.task.description from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId)")
+	Collection<Task> findTasksNotInMaintenanceRecord(int maintenanceRecordId);
+
 }

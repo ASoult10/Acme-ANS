@@ -84,7 +84,11 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		Collection<Task> tasks;
 		Dataset dataset;
 
-		tasks = this.repository.findAllDisponibleTasks();
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+
+		tasks = this.repository.findTasksNotInMaintenanceRecord(masterId);
 
 		taskChoices = SelectChoices.from(tasks, "description", involvedIn.getTask());
 

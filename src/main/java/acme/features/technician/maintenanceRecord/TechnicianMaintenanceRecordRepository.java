@@ -47,4 +47,10 @@ public interface TechnicianMaintenanceRecordRepository extends AbstractRepositor
 
 	@Query("select count(ii.task) from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId and ii.task.draftMode = true")
 	int findNotPublishedTasksByMaintenanceRecordId(int maintenanceRecordId);
+
+	//	@Query("select mrs from MaintenanceRecordStatus mrs where mrs.id = :statusId")
+	//	MaintenanceRecordStatus findMRStatusById(Sta statusId);
+
+	@Query("select t from Technician t where t.licenseNumber = :licenseNumber")
+	Technician findTechnicianByLicenseNumber(String licenseNumber);
 }
