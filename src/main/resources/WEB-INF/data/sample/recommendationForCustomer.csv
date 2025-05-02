@@ -1,2 +1,6 @@
 key,city,country,name,recommendation_type
-recommendationForCustomer-01, sevilla, sevilla, Giralda, a
+recommendationForCustomer-01,Sevilla,España,Giralda,Historical Building
+recommendationForCustomer-02,Sevilla,España,Torre del Oro,Historical Building
+recommendationForCustomer-03,Sevilla,España,Alcázar,Historical Building
+recommendationForCustomer-04,Sevilla,España,Catedral de Sevilla,Historical Building
+recommendationForCustomer-05,Sevilla,España,Plaza de España,Historical Building
