@@ -44,11 +44,14 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 
 		Collection<Flight> flights = this.administratorBookingRepository.findAllFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "id", booking.getFlight());
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClasses", travelClasses);
-		dataset.put("flights", flightChoices);
+
+		if (!flights.isEmpty()) {
+			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+			dataset.put("flights", flightChoices);
+		}
 
 		super.getResponse().addData(dataset);
 	}
