@@ -27,7 +27,7 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 
 		int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		int passengerId = super.getRequest().getData("id", int.class);
-		Passenger passenger = this.repository.getPassengerById(passengerId);
+		Passenger passenger = this.repository.findPassengerById(passengerId);
 
 		super.getResponse().setAuthorised(customerId == passenger.getCustomer().getId() && !passenger.getIsPublished());
 	}
@@ -45,7 +45,7 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 
 	@Override
 	public void validate(final Passenger passenger) {
-		List<BookingPassenger> bookingPassengersOfPassenger = this.repository.getAllBookingsRecordsByPassenger(passenger.getId());
+		List<BookingPassenger> bookingPassengersOfPassenger = this.repository.findAllBookingPassengersByPassengerId(passenger.getId());
 		super.state(bookingPassengersOfPassenger.isEmpty(), "*", "customer.passenger.form.error.associatedBookings");
 
 	}

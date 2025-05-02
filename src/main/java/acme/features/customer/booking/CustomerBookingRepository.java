@@ -33,7 +33,7 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	Booking findBookingByLocatorCode(String locatorCode);
 
 	@Query("SELECT b FROM Booking b WHERE b.customer.id = :customerId")
-	Collection<Booking> findBookingsByCustomer(Integer customerId);
+	Collection<Booking> findAllBookingsByCustomerId(Integer customerId);
 
 	@Query("SELECT f FROM Flight f WHERE f.id = :flightId")
 	Flight findFlightById(Integer flightId);
@@ -42,9 +42,9 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	Collection<Flight> findAllFlight();
 
 	@Query("SELECT l.arrivalAirport FROM Leg l WHERE l.flight.id = :flightId ORDER BY l.scheduledDeparture ASC")
-	public Airport findDestinationAirport(Integer flightId);
+	Airport findDestinationAirportByFlightId(Integer flightId);
 
-	@Query("select br from BookingPassenger br where br.booking.id = :bookingId")
-	Collection<BookingPassenger> findAllBookingRecordsOf(int bookingId);
+	@Query("SELECT bp FROM BookingPassenger bp WHERE bp.booking.id = :bookingId")
+	Collection<BookingPassenger> findAllBookingPassengersByBookingId(int bookingId);
 
 }

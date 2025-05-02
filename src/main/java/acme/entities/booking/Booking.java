@@ -30,6 +30,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidBooking
+//@Table(indexes = {
+//	@Index(columnList = "customer_id"), @Index(columnList = "locator_code")
+//})
 public class Booking extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -85,7 +88,7 @@ public class Booking extends AbstractEntity {
 			price.setCurrency("EUR");
 		} else {
 			Flight flight = this.getFlight();
-			Integer numberOfPassenger = customerPassengerRepository.findPassengerByBookingId(this.getId()).size();
+			Integer numberOfPassenger = customerPassengerRepository.findAllPassengerByBookingId(this.getId()).size();
 			price.setAmount(flight.getCost().getAmount() * numberOfPassenger);
 			price.setCurrency(flight.getCost().getCurrency());
 		}

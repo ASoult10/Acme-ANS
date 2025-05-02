@@ -66,7 +66,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
 
-		Collection<BookingPassenger> bookingPassengers = this.customerBookingRepository.findAllBookingRecordsOf(booking.getId());
+		Collection<BookingPassenger> bookingPassengers = this.customerBookingRepository.findAllBookingPassengersByBookingId(booking.getId());
 		status = !bookingPassengers.isEmpty();
 		super.state(status, "*", "customer.validation.booking.form.error.noPassengers");
 
