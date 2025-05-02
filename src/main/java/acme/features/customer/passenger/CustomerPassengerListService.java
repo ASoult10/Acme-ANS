@@ -29,7 +29,7 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 
 		if (!super.getRequest().getData().isEmpty()) {
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
-			Booking booking = this.customerPassengerRepository.getBookingById(bookingId);
+			Booking booking = this.customerPassengerRepository.findBookingById(bookingId);
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			status = status && booking.getCustomer().getId() == customerId;
 		}
@@ -43,10 +43,10 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (!super.getRequest().getData().containsKey("bookingId"))
-			passengers = this.customerPassengerRepository.getPassengersByCustomer(customerId);
+			passengers = this.customerPassengerRepository.findPassengersByCustomer(customerId);
 		else {
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
-			passengers = this.customerPassengerRepository.findPassengerByBookingId(bookingId);
+			passengers = this.customerPassengerRepository.findAllPassengerByBookingId(bookingId);
 		}
 		super.getBuffer().addData(passengers);
 	}

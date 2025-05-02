@@ -18,6 +18,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidCustomer
+//@Table(indexes = {
+//	@Index(columnList = "user_account_id")
+//})
 public class Customer extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------

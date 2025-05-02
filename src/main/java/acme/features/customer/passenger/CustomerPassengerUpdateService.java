@@ -25,7 +25,7 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 
 		Integer passengerId = super.getRequest().getData("id", int.class);
-		Passenger passenger = this.customerPassengerRepository.getPassengerById(passengerId);
+		Passenger passenger = this.customerPassengerRepository.findPassengerById(passengerId);
 
 		status = status && passenger != null;
 
@@ -39,7 +39,7 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 	@Override
 	public void load() {
 		Integer id = super.getRequest().getData("id", int.class);
-		Passenger passenger = this.customerPassengerRepository.getPassengerById(id);
+		Passenger passenger = this.customerPassengerRepository.findPassengerById(id);
 		super.getBuffer().addData(passenger);
 	}
 
