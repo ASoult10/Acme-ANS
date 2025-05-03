@@ -9,6 +9,7 @@ customer.booking.form.button.listPassenger = Passengers of this booking
 customer.booking.form.button.addPassenger = Add Passenger
 customer.booking.form.button.deletePassenger = Delete Passenger
 customer.booking.form.button.publish = Publish
+customer.booking.form.button.delete = Delete
 customer.booking.form.show.recommendations = What to do at your destination city?
 
 customer.booking.list.button.create = Book

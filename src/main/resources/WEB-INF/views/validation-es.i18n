@@ -41,6 +41,7 @@ customer.passenger.form.error.associatedBookings = No se puede eliminar un pasaj
 
 customer.validation.booking.form.error.noPassengers = Para publicar la reserva debe haber al menos un pasajero
 customer.booking.form.error.publishPassengers = Para publicar la reserva, todos los pasajeros asociados deben estar publicados
+customer.booking.form.error.existingPassengers = No se puede eliminar una reserva con pasajeros asociados
 
 # Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
