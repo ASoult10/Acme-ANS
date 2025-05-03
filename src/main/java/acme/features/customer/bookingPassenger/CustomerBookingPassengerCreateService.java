@@ -25,7 +25,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 	public void authorise() {
 		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Integer bookingId = super.getRequest().getData("bookingId", int.class);
+		Integer bookingId = super.getRequest().getData("bookingId", Integer.class);
 		Booking booking = this.customerBookingPassengerRepository.findBookingById(bookingId);
 		status = status && booking != null && customerId == booking.getCustomer().getId();
 
@@ -33,9 +33,11 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 			String locatorCode = super.getRequest().getData("locatorCode", String.class);
 			status = status && booking.getLocatorCode().equals(locatorCode);
 
-			Integer passengerId = super.getRequest().getData("passenger", int.class);
-			Passenger passenger = this.customerBookingPassengerRepository.findPassengerById(passengerId);
-			status = status && (passenger != null && customerId == passenger.getCustomer().getId() || passengerId == 0);
+			Integer passengerId = super.getRequest().getData("passenger", Integer.class);
+			Passenger passenger = null;
+			if (passengerId != null)
+				passenger = this.customerBookingPassengerRepository.findPassengerById(passengerId);
+			status = status && passengerId != null && (passenger != null && customerId == passenger.getCustomer().getId() || passengerId == 0);
 
 			Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.findAllPassengersByBookingId(bookingId);
 			status = status && !alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId);

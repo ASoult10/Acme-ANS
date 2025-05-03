@@ -16,7 +16,7 @@
 		<jstl:if test="${!isPublished}">
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
-			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete"/>
+			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete?bookingId=${id}"/>
 			<jstl:if test="${_command != 'create'}">
 				<acme:button code="customer.booking.form.button.addPassenger" action="/customer/booking-passenger/create?bookingId=${id}"/>
 				<acme:button code="customer.booking.form.button.deletePassenger" action="/customer/booking-passenger/delete?bookingId=${id}"/>

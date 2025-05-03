@@ -33,8 +33,8 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 
 		if (super.getRequest().hasData("id")) {
-			Integer flightId = super.getRequest().getData("flight", int.class);
-			if (flightId != 0) {
+			Integer flightId = super.getRequest().getData("flight", Integer.class);
+			if (flightId == null || flightId != 0) {
 				Flight flight = this.customerBookingRepository.findFlightById(flightId);
 				status = status && flight != null && !flight.isDraftMode();
 			}
@@ -67,6 +67,9 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 	public void validate(final Booking booking) {
 		boolean status = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode()) == null;
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
+
+		status = booking.getFlight() != null;
+		super.state(status, "flight", "acme.validation.noChoice");
 	}
 
 	@Override
@@ -79,13 +82,17 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllFlight();
 
-		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
+		Dataset dataset = super.unbindObject(booking, "flight", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClass", travelClasses);
 
-		if (!flights.isEmpty()) {
-			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-			dataset.put("flights", flightChoices);
+		SelectChoices flightChoices = null;
+		try {
+			flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+		} catch (NullPointerException e) {
+
 		}
+
+		dataset.put("flights", flightChoices);
 
 		super.getResponse().addData(dataset);
 	}

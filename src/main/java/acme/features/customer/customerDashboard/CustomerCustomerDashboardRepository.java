@@ -13,10 +13,10 @@ import acme.entities.booking.BookingPassenger;
 @Repository
 public interface CustomerCustomerDashboardRepository extends AbstractRepository {
 
-	@Query("SELECT b FROM Booking b WHERE b.customer.id =:customerId")
+	@Query("SELECT b FROM Booking b WHERE b.customer.id =:customerId AND b.isPublished=true")
 	Collection<Booking> findAllBookingsOf(int customerId);
 
-	@Query("SELECT br FROM BookingPassenger br WHERE br.booking.customer.id =:customerId")
+	@Query("SELECT bp FROM BookingPassenger bp WHERE bp.booking.customer.id =:customerId AND bp.booking.isPublished=true")
 	Collection<BookingPassenger> findAllBookingPassengerOf(int customerId);
 
 }

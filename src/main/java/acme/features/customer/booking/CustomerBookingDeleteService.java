@@ -36,7 +36,9 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void load() {
-		Booking booking = new Booking();
+		int bookingId = super.getRequest().getData("bookingId", int.class);
+		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+
 		super.getBuffer().addData(booking);
 	}
 

@@ -1,6 +1,6 @@
 key,key:flight,key:customer,locatorCode,purchaseMoment,travelClass,lastNibble,isPublished
 # base entity
-booking-00,flight-29,customer-01,ABC123,2023/07/19 19:30,ECONOMY,1234,true
+booking-00,flight-29,customer-01,ABC123,2023/07/19 19:30,ECONOMY,1234,false
 # locatorCode - variations
 booking-01,flight-29,customer-01,A1B2C3,2024/12/31 23:59,ECONOMY,1234,true
 booking-02,flight-29,customer-01,XYZ789,2024/12/31 23:59,ECONOMY,1234,true

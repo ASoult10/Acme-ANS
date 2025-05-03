@@ -9,8 +9,8 @@
 	
 	<jstl:choose>
 		<jstl:when test="${_command == 'create'}">
-			<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 			<acme:submit code="customer.bookingPassenger.form.button.create" action="/customer/booking-passenger/create?bookingId=${booking.id}"/>
+			<acme:button code="customer.passenger.form.link.create" action="/customer/passenger/create"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'delete'}">
 			<acme:submit code="customer.bookingPassenger.form.button.delete" action="/customer/booking-passenger/delete?bookingId=${booking.id}"/>	

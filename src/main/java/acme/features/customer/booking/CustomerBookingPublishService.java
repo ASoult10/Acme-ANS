@@ -39,8 +39,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
 
-		Integer flightId = super.getRequest().getData("flight", int.class);
-		if (flightId != 0) {
+		Integer flightId = super.getRequest().getData("flight", Integer.class);
+		if (flightId == null || flightId != 0) {
 			Flight flight = this.customerBookingRepository.findFlightById(flightId);
 			status = status && flight != null && !flight.isDraftMode();
 		}
@@ -72,6 +72,9 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 		status = bookingPassengers.stream().filter(br -> !br.getPassenger().getIsPublished()).findFirst().isEmpty();
 		super.state(status, "*", "customer.booking.form.error.publishPassengers");
+
+		status = booking.getLastNibble() != null && !booking.getLastNibble().isBlank();
+		super.state(status, "lastNibble", "acme.validation.lastNibble.blank.message");
 	}
 
 	@Override

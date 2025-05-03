@@ -33,9 +33,11 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 			String locatorCode = super.getRequest().getData("locatorCode", String.class);
 			status = status && booking.getLocatorCode().equals(locatorCode);
 
-			Integer passengerId = super.getRequest().getData("passenger", int.class);
-			Passenger passenger = this.customerBookingPassengerRepository.findPassengerById(passengerId);
-			status = status && (passenger != null && customerId == passenger.getCustomer().getId() || passengerId == 0);
+			Integer passengerId = super.getRequest().getData("passenger", Integer.class);
+			Passenger passenger = null;
+			if (passengerId != null)
+				passenger = this.customerBookingPassengerRepository.findPassengerById(passengerId);
+			status = status && passengerId != null && (passenger != null && customerId == passenger.getCustomer().getId() || passengerId == 0);
 
 			Collection<Passenger> alreadyAddedPassengers = this.customerBookingPassengerRepository.findAllPassengersByBookingId(bookingId);
 			status = status && (alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId) || passengerId == 0);
