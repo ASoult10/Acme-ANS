@@ -1,41 +1,35 @@
 key,duty,moment,assignmentStatus,remarks,key:member,key:leg,draftMode
 # base entity
 flightAssignment-01,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-00,false
-
 # duty
 flightAssignment-02,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-00,false
 flightAssignment-03,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-00,false
 flightAssignment-04,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-00,false
-
 # moment
 flightAssignment-05,PILOT,2000/01/01 00:00,CONFIRMED,Lorem,member-00,leg-00,false
 flightAssignment-06,PILOT,2000/01/01 00:01,CONFIRMED,Lorem,member-00,leg-00,false
 flightAssignment-07,PILOT,2024/12/31 23:59,CONFIRMED,Lorem,member-00,leg-00,false
 flightAssignment-08,PILOT,2025/01/01 00:00,CONFIRMED,Lorem,member-00,leg-00,false
-
 # assignment status
 flightAssignment-09,PILOT,2000/09/01 10:00,PENDING,Lorem,member-00,leg-00,false
 flightAssignment-10,PILOT,2000/09/01 10:00,CANCELLED,Lorem,member-00,leg-00,false
-
 # remarks
 flightAssignment-11,PILOT,2000/09/01 10:00,CONFIRMED,"",member-00,leg-00,false
-flightAssignment-12,PILOT,2000/09/01 10:00,CONFIRMED,"L",member-00,leg-00,false
-flightAssignment-13,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",member-00,leg-00,false
-flightAssignment-14,PILOT,2000/09/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",member-00,leg-00,false
-flightAssignment-15,PILOT,2000/09/01 10:00,CONFIRMED,"โลเร็ม อิปซัม",member-00,leg-00,false
-flightAssignment-16,PILOT,2000/09/01 10:00,CONFIRMED,"لوريم إيبسوم",member-00,leg-00,false
-flightAssignment-17,PILOT,2000/09/01 10:00,CONFIRMED,"洛伦·伊普森",member-00,leg-00,false
-flightAssignment-18,PILOT,2000/09/01 10:00,CONFIRMED,"<marquee>Hacked</marquee>",member-00,leg-00,false
-flightAssignment-19,PILOT,2000/09/01 10:00,CONFIRMED,"<script>alert(‘Hacked!’);</script>",member-00,leg-00,false
-flightAssignment-20,PILOT,2000/09/01 10:00,CONFIRMED,"' or 'A' = 'A ",member-00,leg-00,false
-
+flightAssignment-12,PILOT,2000/09/01 10:00,CONFIRMED,L,member-00,leg-00,false
+flightAssignment-13,PILOT,2000/09/01 10:00,CONFIRMED,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,member-00,leg-00,false
+flightAssignment-14,PILOT,2000/09/01 10:00,CONFIRMED,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,member-00,leg-00,false
+flightAssignment-15,PILOT,2000/09/01 10:00,CONFIRMED,โลเร็ม อิปซัม,member-00,leg-00,false
+flightAssignment-16,PILOT,2000/09/01 10:00,CONFIRMED,لوريم إيبسوم,member-00,leg-00,false
+flightAssignment-17,PILOT,2000/09/01 10:00,CONFIRMED,洛伦·伊普森,member-00,leg-00,false
+flightAssignment-18,PILOT,2000/09/01 10:00,CONFIRMED,<marquee>Hacked</marquee>,member-00,leg-00,false
+flightAssignment-19,PILOT,2000/09/01 10:00,CONFIRMED,<script>alert(‘Hacked!’);</script>,member-00,leg-00,false
+flightAssignment-20,PILOT,2000/09/01 10:00,CONFIRMED,' or 'A' = 'A,member-00,leg-00,false
 # member
 #flightAssignment-21,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00,false
 flightAssignment-22,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-02,leg-00,false
 flightAssignment-23,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-03,leg-00,false
-flightAssignment-24,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-04,leg-00,false
-
+flightAssignment-24,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-04,leg-00,true
 # leg
-flightAssignment-25,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-25,true
+flightAssignment-25,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-25,false
 flightAssignment-26,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-26,true
 flightAssignment-27,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-27,true

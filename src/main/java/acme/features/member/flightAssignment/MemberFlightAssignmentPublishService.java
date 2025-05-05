@@ -29,7 +29,7 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean status = true;
 
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
@@ -37,8 +37,10 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 
 		boolean futureLeg = true;
 		boolean legPublished = true;
-		Integer legId = super.getRequest().getData("leg", int.class);
-		if (legId != 0) {
+		Integer legId = super.getRequest().getData("leg", Integer.class);
+		if (legId == null)
+			status = false;
+		else if (legId != 0) {
 			Leg leg = this.repository.findLegById(legId);
 			futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
 			legPublished = leg != null && !leg.isDraftMode();
@@ -49,7 +51,7 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		Member member = this.repository.findMemberByEmployeeCode(employeeCode);
 		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
 
-		status = flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished;
+		status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished;
 		super.getResponse().setAuthorised(status);
 	}
 

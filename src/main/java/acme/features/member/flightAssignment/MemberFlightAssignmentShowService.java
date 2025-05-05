@@ -29,15 +29,22 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 	@Override
 	public void authorise() {
+		Boolean status = true;
+		boolean correctMember = true;
 		Integer activeMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer id = super.getRequest().getData("id", int.class);
-		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-		boolean correctMember = flightAssignment != null &&//
-			(activeMemberId == flightAssignment.getMember().getId() || //
-				!flightAssignment.isDraftMode());
+		Integer id = super.getRequest().getData("id", Integer.class);
+		if (id == null)
+			status = false;
+		else {
 
-		super.getResponse().setAuthorised(correctMember);
+			FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+			correctMember = flightAssignment != null &&//
+				(activeMemberId == flightAssignment.getMember().getId() || //
+					!flightAssignment.isDraftMode());
+		}
+		status = status && correctMember;
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -54,7 +61,7 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
 		Collection<Leg> legs;
-		SelectChoices legChoices;
+		SelectChoices legChoices = null;
 
 		Dataset dataset;
 
@@ -70,10 +77,21 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 
 		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 
+		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
+		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		legs.removeAll(this.repository.findLegsByMemberId(memberId));
+		legs.add(flightAssignment.getLeg());
+		try {
+			legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		} catch (NullPointerException e) {
+		}
+
+		String identificador = legChoices == null ? "" : legChoices.getSelected().getKey();
+
 		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
-		dataset.put("leg", legChoices.getSelected().getKey());
+		dataset.put("leg", identificador);
 		dataset.put("legs", legChoices);
 		dataset.put("member", flightAssignment.getMember().getEmployeeCode());
 
