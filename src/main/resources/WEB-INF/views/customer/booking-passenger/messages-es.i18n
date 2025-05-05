@@ -1,6 +1,6 @@
 # messages-es.i18n
 
-customer.booking-passenger.form.title = Añadir nuevo pasajero a la reserva
+customer.booking-passenger.form.title = Añadir / Eliminar pasajero a la reserva
 
 customer.bookingPassenger.form.button.create = Añadir a la reserva
 customer.bookingPassenger.form.button.delete = Eliminar de la reserva
