@@ -28,17 +28,26 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
 		boolean correctTask = true;
+		Collection<Task> tasks;
+		boolean taskNotMR = false;
 
 		if (super.getRequest().hasData("id")) {
 			masterId = super.getRequest().getData("masterId", int.class);
 			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 			Integer taskId = super.getRequest().getData("task", int.class);
+			tasks = this.repository.findTasksNotInMaintenanceRecord(masterId);
 			if (taskId != 0) {
 				Task task = this.repository.findTaskById(taskId);
 				correctTask = task != null;
+				if (correctTask)
+					for (Task t : tasks)
+						if (t.getId() == taskId) {
+							taskNotMR = true;
+							break;
+						}
 			}
-			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician) && correctTask;
+			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician) && correctTask && taskNotMR;
 		}
 		super.getResponse().setAuthorised(status);
 	}
