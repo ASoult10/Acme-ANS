@@ -48,6 +48,12 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				super.state(context, uniqueNumber, "flightNumber", "acme.validation.leg.duplicated-number.message");
 			}
 			{
+				// Comprobar que el destino es diferente al origen
+				Boolean correctDestination = leg.getDepartureAirport() == null || leg.getArrivalAirport() == null || !leg.getArrivalAirport().equals(leg.getDepartureAirport());
+
+				super.state(context, correctDestination, "arrivalAirport", "acme.validation.leg.same-airport.message");
+			}
+			{
 				// Comprobar que el momento de llegada es posterior al de salida
 				Boolean horarioCorrecto = leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null && MomentHelper.isAfter(leg.getScheduledArrival(), leg.getScheduledDeparture());
 

@@ -17,7 +17,7 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 	@Autowired
 	private ManagerFlightRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService<Manager, Flight> ---------------------------------------
 
 
 	@Override

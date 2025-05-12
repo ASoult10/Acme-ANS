@@ -43,6 +43,9 @@ public interface ManagerLegRepository extends AbstractRepository {
 	@Query("select a from Aircraft a")
 	Collection<Aircraft> findAllAircrafts();
 
+	@Query("select a from Aircraft a where a.status = acme.entities.aircrafts.AircraftStatus.ACTIVE")
+	Collection<Aircraft> findAllActiveAircrafts();
+
 	@Query("select a from Aircraft a where a.id = :id")
 	Aircraft findAircraftById(int id);
 
