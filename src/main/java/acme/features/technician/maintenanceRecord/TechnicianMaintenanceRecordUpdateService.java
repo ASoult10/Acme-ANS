@@ -34,13 +34,13 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 
-		Integer aircraftId = super.getRequest().getData("aircraft", int.class);
+		Integer aircraftId = super.getRequest().hasData("aircraft") ? super.getRequest().getData("aircraft", int.class) : 0;
 		if (aircraftId != 0) {
 			Aircraft aircraft = this.repository.findAircraftById(aircraftId);
 			correctAircraft = aircraft != null;
 		}
 
-		Integer technicianId = super.getRequest().getData("technician", int.class);
+		Integer technicianId = super.getRequest().hasData("technician") ? super.getRequest().getData("technician", int.class) : 0;
 		Integer techId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		if (technicianId != 0) {
 			Technician technicianf = this.repository.findTechnicianById(technicianId);
