@@ -68,7 +68,7 @@ master.menu.member = Member
 master.menu.member.completedlist-flightAssignment= Listar asignaciones de vuelo completadas
 master.menu.member.notCompletedlist-flightAssignment = Listar asignaciones de vuelo no completadas
 master.menu.member.myCompletedList-flightAssignment = Listar mis asignaciones de vuelo completadas
-master.menu.member.myNotCompletedList-flightAssignment = Listar mis asignaciones de vuelo no completadast
+master.menu.member.myNotCompletedList-flightAssignment = Listar mis asignaciones de vuelo no completadas
 
 
 # master.menu.technician ##########################################################
