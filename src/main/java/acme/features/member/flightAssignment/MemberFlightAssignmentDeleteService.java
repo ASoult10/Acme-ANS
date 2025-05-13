@@ -5,14 +5,9 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.AssignmentStatus;
-import acme.entities.flightAssignment.Duty;
 import acme.entities.flightAssignment.FlightAssignment;
 import acme.entities.legs.Leg;
 import acme.features.member.activityLog.MemberActivityLogRepository;
@@ -34,14 +29,15 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		int flightAssignmentId;
 		FlightAssignment flightAssignment;
 
+		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
 		flightAssignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
 
 		boolean correctMember = true;
-		Integer memberId = super.getRequest().getData("member", int.class);
-
-		Member member = this.repository.findMemberById(memberId);
-		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+		String employeeCode = super.getRequest().getData("member", String.class);
+		Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+		correctMember = member != null && memberId == member.getId();
 
 		status = flightAssignment.isDraftMode() && correctMember;
 		super.getResponse().setAuthorised(status);
@@ -69,8 +65,8 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
 
-		memberId = super.getRequest().getData("member", int.class);
-		member = this.repository.findMemberById(memberId);
+		String employeeCode = super.getRequest().getData("member", String.class);
+		member = this.repository.findMemberByEmployeeCode(employeeCode);
 
 		super.bindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
 		flightAssignment.setLeg(leg);
@@ -81,11 +77,6 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 	public void validate(final FlightAssignment flightAssignment) {
 
 	}
-	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
-		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		boolean arrivalIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledArrival(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		return !departureIncompatible && !arrivalIncompatible;
-	}
 
 	@Override
 	public void perform(final FlightAssignment flightAssignment) {
@@ -95,42 +86,4 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		this.repository.delete(flightAssignment);
 	}
 
-	@Override
-	public void unbind(final FlightAssignment flightAssignment) {
-
-		SelectChoices assignmentStatus;
-		SelectChoices duty;
-
-		int memberId;
-		Collection<Leg> legs;
-		SelectChoices legChoices;
-
-		Collection<Member> members;
-		SelectChoices memberChoices;
-		Dataset dataset;
-
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		//legs = this.repository.findLegsByMemberId(memberId);
-		legs = this.repository.findAllLegs();
-		members = this.repository.findAllAvailableMembers();
-
-		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
-		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
-
-		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
-		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
-
-		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
-		dataset.put("confirmation", false);
-		dataset.put("readonly", false);
-		dataset.put("moment", MomentHelper.getBaseMoment());
-		dataset.put("assignmentStatus", assignmentStatus);
-		dataset.put("duty", duty);
-		dataset.put("leg", legChoices.getSelected().getKey());
-		dataset.put("legs", legChoices);
-		dataset.put("member", memberChoices.getSelected().getKey());
-		dataset.put("members", memberChoices);
-
-		super.getResponse().addData(dataset);
-	}
 }

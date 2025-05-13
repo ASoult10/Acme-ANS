@@ -22,7 +22,8 @@ public class MemberFlightAssignmentMyNotCompletedListService extends AbstractGui
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		Boolean correctRealm = super.getRequest().getPrincipal().hasRealmOfType(Member.class);
+		super.getResponse().setAuthorised(correctRealm);
 	}
 
 	@Override

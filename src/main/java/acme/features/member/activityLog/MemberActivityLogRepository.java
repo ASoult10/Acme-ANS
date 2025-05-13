@@ -28,4 +28,7 @@ public interface MemberActivityLogRepository extends AbstractRepository {
 	@Query("select al from ActivityLog al where al.flightAssignment.id = :masterId")
 	Collection<ActivityLog> findActivityLogsByMasterId(int masterId);
 
+	@Query("select al from ActivityLog al where al.flightAssignment.id = :masterId AND al.draftMode = false")
+	Collection<ActivityLog> findPublishedActivityLogsByMasterId(int masterId);
+
 }
