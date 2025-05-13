@@ -40,7 +40,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && booking.getCustomer().getId() == customerId;
+		status = booking.getCustomer().getId() == customerId;
 
 		super.getResponse().setAuthorised(status);
 	}

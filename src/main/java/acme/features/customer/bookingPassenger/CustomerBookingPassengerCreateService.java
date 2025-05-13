@@ -30,7 +30,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			Integer bookingId = super.getRequest().getData("bookingId", Integer.class);
 			Booking booking = this.customerBookingPassengerRepository.findBookingById(bookingId);
-			status = status && booking != null && customerId == booking.getCustomer().getId();
+			status = booking != null && customerId == booking.getCustomer().getId();
 
 			if (super.getRequest().hasData("id")) {
 				String locatorCode = super.getRequest().getData("locatorCode", String.class);

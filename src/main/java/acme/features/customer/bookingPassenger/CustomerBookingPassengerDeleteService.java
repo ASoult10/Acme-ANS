@@ -29,7 +29,7 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
 			Booking booking = this.customerBookingPassengerRepository.findBookingById(bookingId);
-			status = status && booking != null && customerId == booking.getCustomer().getId();
+			status = booking != null && customerId == booking.getCustomer().getId();
 
 			if (super.getRequest().hasData("id")) {
 				String locatorCode = super.getRequest().getData("locatorCode", String.class);
@@ -85,15 +85,14 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 		Dataset dataset;
 
 		dataset = super.unbindObject(bookingPassenger, "passenger", "booking", "id");
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
 		Collection<Passenger> addedPassengers = this.customerBookingPassengerRepository.findAllPassengersByBookingId(bookingId);
-		SelectChoices passengerChoices;
+		SelectChoices passengerChoices = null;
 		try {
 			passengerChoices = SelectChoices.from(addedPassengers, "fullName", bookingPassenger.getPassenger());
 		} catch (NullPointerException e) {
-			throw new IllegalArgumentException("The selected passenger is not available");
+
 		}
 		dataset.put("passengers", passengerChoices);
 		dataset.put("locatorCode", bookingPassenger.getBooking().getLocatorCode());

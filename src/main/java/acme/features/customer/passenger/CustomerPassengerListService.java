@@ -31,7 +31,7 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
 			Booking booking = this.customerPassengerRepository.findBookingById(bookingId);
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			status = status && booking.getCustomer().getId() == customerId;
+			status = booking.getCustomer().getId() == customerId;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -49,11 +49,6 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 			passengers = this.customerPassengerRepository.findAllPassengerByBookingId(bookingId);
 		}
 		super.getBuffer().addData(passengers);
-	}
-
-	@Override
-	public void validate(final Passenger passenger) {
-		;
 	}
 
 	@Override

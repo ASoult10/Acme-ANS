@@ -35,7 +35,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 			Integer bookingId = super.getRequest().getData("id", int.class);
 			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-			status = status && booking != null;
+			status = booking != null;
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 

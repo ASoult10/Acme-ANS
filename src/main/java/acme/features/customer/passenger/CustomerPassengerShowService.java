@@ -29,7 +29,7 @@ public class CustomerPassengerShowService extends AbstractGuiService<Customer, P
 
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && passenger.getCustomer().getId() == customerId;
+		status = passenger.getCustomer().getId() == customerId;
 
 		super.getResponse().setAuthorised(status);
 	}
