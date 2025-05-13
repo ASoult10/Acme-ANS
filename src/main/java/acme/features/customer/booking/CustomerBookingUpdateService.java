@@ -46,7 +46,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 				status = status && flight != null && !flight.isDraftMode();
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 
