@@ -39,8 +39,13 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 		boolean futureLeg = true;
 		boolean legPublished = true;
 		boolean legNotOwned = true;
-		Integer legId = super.getRequest().getData("leg", Integer.class);
-		if (legId != 0) {
+		Integer legId = null;
+		if (super.getRequest().hasData("leg"))
+			legId = super.getRequest().getData("leg", Integer.class);
+
+		if (legId == null)
+			status = false;
+		else if (legId != 0) {
 			Leg leg = this.repository.findLegById(legId);
 			futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
 			legPublished = leg != null && !leg.isDraftMode();

@@ -3,9 +3,12 @@ package acme.features.member.activityLog;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
+import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
@@ -60,4 +63,23 @@ public class MemberActivityLogDeleteService extends AbstractGuiService<Member, A
 		this.repository.delete(activityLog);
 	}
 
+	@Override
+	public void unbind(final ActivityLog activityLog) {
+		Dataset dataset;
+
+		final boolean showCreate;
+		FlightAssignment flightAssignment = activityLog.getFlightAssignment();
+
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+		dataset.put("registrationMoment", activityLog.getRegistrationMoment());
+		dataset.put("masterId", activityLog.getFlightAssignment().getId());
+		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
+		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
+		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
+
+		showCreate = !flightAssignment.isDraftMode() && activityLog.isDraftMode() && inPast && correctMember;
+
+		dataset.put("buttonsAvaiable", showCreate);
+		super.getResponse().addData(dataset);
+	}
 }

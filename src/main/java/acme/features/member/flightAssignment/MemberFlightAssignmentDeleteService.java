@@ -5,9 +5,14 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.models.Dataset;
+import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
+import acme.entities.flightAssignment.AssignmentStatus;
+import acme.entities.flightAssignment.Duty;
 import acme.entities.flightAssignment.FlightAssignment;
 import acme.entities.legs.Leg;
 import acme.features.member.activityLog.MemberActivityLogRepository;
@@ -26,20 +31,29 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 	@Override
 	public void authorise() {
 		boolean status;
-		int flightAssignmentId;
+		Integer flightAssignmentId = null;
 		FlightAssignment flightAssignment;
 
 		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		flightAssignmentId = super.getRequest().getData("id", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+		if (super.getRequest().hasData("id")) {
 
-		boolean correctMember = true;
-		String employeeCode = super.getRequest().getData("member", String.class);
-		Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-		correctMember = member != null && memberId == member.getId();
+			flightAssignmentId = super.getRequest().getData("id", Integer.class);
+			if (flightAssignmentId == null)
+				status = false;
+			else {
 
-		status = flightAssignment.isDraftMode() && correctMember;
+				flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+				boolean correctMember = true;
+				String employeeCode = super.getRequest().getData("member", String.class);
+				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+				correctMember = member != null && memberId == member.getId();
+
+				status = flightAssignment.isDraftMode() && correctMember;
+			}
+		} else
+			status = false;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -75,7 +89,7 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
-
+		;
 	}
 
 	@Override
@@ -86,4 +100,39 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		this.repository.delete(flightAssignment);
 	}
 
+	@Override
+	public void unbind(final FlightAssignment flightAssignment) {
+		SelectChoices assignmentStatus;
+		SelectChoices duty;
+		int memberId;
+		Collection<Leg> legs;
+		SelectChoices legChoices;
+		Collection<Member> members;
+		SelectChoices memberChoices;
+		Dataset dataset;
+		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		//legs = this.repository.findLegsByMemberId(memberId);
+		legs = this.repository.findAllLegs();
+
+		members = this.repository.findAllAvailableMembers();
+		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
+		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
+		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
+
+		dataset = super.unbindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks", "draftMode");
+		dataset.put("confirmation", false);
+		dataset.put("readonly", false);
+		dataset.put("moment", MomentHelper.getBaseMoment());
+		dataset.put("assignmentStatus", assignmentStatus);
+		dataset.put("duty", duty);
+		dataset.put("leg", legChoices.getSelected().getKey());
+		dataset.put("legs", legChoices);
+		dataset.put("member", memberChoices.getSelected().getKey());
+		dataset.put("members", memberChoices);
+
+		Boolean legNotCompleted = flightAssignment.getLeg() == null || MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+		dataset.put("legNotCompleted", legNotCompleted);
+		super.getResponse().addData(dataset);
+	}
 }
