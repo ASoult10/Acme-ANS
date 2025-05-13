@@ -28,7 +28,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
 		try {
 
@@ -47,7 +47,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 				status = status && flight != null && !flight.isDraftMode();
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 

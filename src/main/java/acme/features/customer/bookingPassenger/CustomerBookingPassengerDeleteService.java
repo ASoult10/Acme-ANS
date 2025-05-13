@@ -23,7 +23,7 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 
 	@Override
 	public void authorise() {
-		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		Boolean status = true;
 
 		try {
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
@@ -45,7 +45,7 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 				status = status && (alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId) || passengerId == 0);
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 		super.getResponse().setAuthorised(status);
@@ -82,7 +82,6 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 
 	@Override
 	public void unbind(final BookingPassenger bookingPassenger) {
-		assert bookingPassenger != null;
 		Dataset dataset;
 
 		dataset = super.unbindObject(bookingPassenger, "passenger", "booking", "id");

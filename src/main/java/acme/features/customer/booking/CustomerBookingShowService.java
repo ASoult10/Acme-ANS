@@ -33,7 +33,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
 		Integer bookingId = super.getRequest().getData("id", int.class);
 		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
