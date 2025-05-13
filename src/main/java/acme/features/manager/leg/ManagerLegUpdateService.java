@@ -1,14 +1,3 @@
-/*
- * EmployerDutyUpdateService.java
- *
- * Copyright (C) 2012-2025 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.features.manager.leg;
 
@@ -18,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
+import acme.entities.aircrafts.AircraftStatus;
 import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
 import acme.entities.flights.Flight;
@@ -48,6 +39,36 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 		legId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightByLegId(legId);
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+
+		if (status) {
+			String method;
+			int airlineId, departureAirportId, arrivalAirportId, aircraftId;
+			Airline airline;
+			Airport departureAirport, arrivalAirport;
+			Aircraft aircraft;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				airlineId = super.getRequest().getData("airline", int.class);
+				airline = this.repository.findAirlineById(airlineId);
+				status = airlineId == 0 || airline != null;
+
+				departureAirportId = super.getRequest().getData("departureAirport", int.class);
+				departureAirport = this.repository.findAirportById(departureAirportId);
+				status = status && (departureAirportId == 0 || departureAirport != null);
+
+				arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
+				arrivalAirport = this.repository.findAirportById(arrivalAirportId);
+				status = status && (arrivalAirportId == 0 || arrivalAirport != null);
+
+				aircraftId = super.getRequest().getData("aircraft", int.class);
+				aircraft = this.repository.findAircraftById(aircraftId);
+				status = status && (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE));
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -95,7 +116,10 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		boolean correctScheduledDeparture;
+
+		correctScheduledDeparture = MomentHelper.isFuture(leg.getScheduledDeparture());
+		super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
 	}
 
 	@Override
@@ -117,7 +141,7 @@ public class ManagerLegUpdateService extends AbstractGuiService<Manager, Leg> {
 
 		airlines = this.repository.findAllAirlines();
 		airports = this.repository.findAllAirports();
-		aircrafts = this.repository.findAllAircrafts();
+		aircrafts = this.repository.findAllActiveAircrafts();
 
 		statusChoices = SelectChoices.from(LegStatus.class, leg.getStatus());
 		airlineChoices = SelectChoices.from(airlines, "IATA", leg.getAirline());

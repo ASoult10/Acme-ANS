@@ -1,6 +1,6 @@
 # messages-en.i18n
 
-customer.booking-passenger.form.title = Add new passenger to booking
+customer.booking-passenger.form.title = Add / Delete passenger to booking
 
 customer.bookingPassenger.form.button.create = Add to booking
 customer.bookingPassenger.form.button.delete = Delete from booking

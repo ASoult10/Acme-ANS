@@ -29,19 +29,25 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 
-		Integer bookingId = super.getRequest().getData("id", Integer.class);
-		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		try {
 
-		status = status && booking != null;
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = status && booking != null;
 
-		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer flightId = super.getRequest().getData("flight", Integer.class);
-		if (flightId == null || flightId != 0) {
-			Flight flight = this.customerBookingRepository.findFlightById(flightId);
-			status = status && flight != null && !flight.isDraftMode();
+			status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+
+			Integer flightId = super.getRequest().getData("flight", Integer.class);
+			if (flightId == null || flightId != 0) {
+				Flight flight = this.customerBookingRepository.findFlightById(flightId);
+				status = status && flight != null && !flight.isDraftMode();
+			}
+
+		} catch (Exception E) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);

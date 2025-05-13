@@ -39,7 +39,7 @@ public class Leg extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(min = 7, max = 7, pattern = "^[A-Z]{3}\\d{4}$")
+	@ValidString(min = 7, max = 7, pattern = "^[A-Z]{3}\\d{4}$", message = "{acme.validation.leg.flight-number-format.message}")
 	@Column(unique = true)
 	private String				flightNumber;
 

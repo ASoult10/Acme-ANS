@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
+import acme.entities.aircrafts.AircraftStatus;
 import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
 import acme.entities.flights.Flight;
@@ -37,6 +39,36 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 		masterId = super.getRequest().getData("masterId", int.class);
 		flight = this.repository.findFlightById(masterId);
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+
+		if (status) {
+			String method;
+			int airlineId, departureAirportId, arrivalAirportId, aircraftId;
+			Airline airline;
+			Airport departureAirport, arrivalAirport;
+			Aircraft aircraft;
+
+			method = super.getRequest().getMethod();
+
+			if (method.equals("GET"))
+				status = true;
+			else {
+				airlineId = super.getRequest().getData("airline", int.class);
+				airline = this.repository.findAirlineById(airlineId);
+				status = airlineId == 0 || airline != null;
+
+				departureAirportId = super.getRequest().getData("departureAirport", int.class);
+				departureAirport = this.repository.findAirportById(departureAirportId);
+				status = status && (departureAirportId == 0 || departureAirport != null);
+
+				arrivalAirportId = super.getRequest().getData("arrivalAirport", int.class);
+				arrivalAirport = this.repository.findAirportById(arrivalAirportId);
+				status = status && (arrivalAirportId == 0 || arrivalAirport != null);
+
+				aircraftId = super.getRequest().getData("aircraft", int.class);
+				aircraft = this.repository.findAircraftById(aircraftId);
+				status = status && (aircraftId == 0 || aircraft != null && aircraft.getStatus().equals(AircraftStatus.ACTIVE));
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -89,7 +121,10 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		boolean correctScheduledDeparture;
+
+		correctScheduledDeparture = MomentHelper.isFuture(leg.getScheduledDeparture());
+		super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
 	}
 
 	@Override
@@ -111,7 +146,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 
 		airlines = this.repository.findAllAirlines();
 		airports = this.repository.findAllAirports();
-		aircrafts = this.repository.findAllAircrafts();
+		aircrafts = this.repository.findAllActiveAircrafts();
 
 		statusChoices = SelectChoices.from(LegStatus.class, leg.getStatus());
 		airlineChoices = SelectChoices.from(airlines, "IATA", leg.getAirline());

@@ -58,6 +58,18 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	@Override
 	public void validate(final Flight flight) {
 		{
+			boolean tramosFuturos = true;
+			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
+
+			for (Leg leg : legs)
+				if (MomentHelper.isPast(leg.getScheduledArrival())) {
+					tramosFuturos = false;
+					break;
+				}
+
+			super.state(tramosFuturos, "*", "acme.validation.flight.future-legs.message");
+		}
+		{
 			boolean tramosSeparados = true;
 			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
 

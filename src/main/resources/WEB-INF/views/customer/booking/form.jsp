@@ -8,7 +8,9 @@
 	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
 	<acme:input-textbox code="customer.booking.form.label.purchaseMoment" path="purchaseMoment" readonly="true"/>
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClass}"/>	
+	<jstl:if test="${_command != 'create'}">
 	<acme:input-money code="customer.booking.form.label.price" path="price" readonly="true"/>
+	</jstl:if>
 	<acme:input-integer code="customer.booking.form.label.lastNibble" path="lastNibble"/>
 
 	<jstl:choose>	 
