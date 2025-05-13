@@ -23,13 +23,13 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 
 	@Override
 	public void authorise() {
-		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		Boolean status = true;
 
 		try {
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
 			Booking booking = this.customerBookingPassengerRepository.findBookingById(bookingId);
-			status = status && booking != null && customerId == booking.getCustomer().getId();
+			status = booking != null && customerId == booking.getCustomer().getId();
 
 			if (super.getRequest().hasData("id")) {
 				String locatorCode = super.getRequest().getData("locatorCode", String.class);
@@ -45,7 +45,7 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 				status = status && (alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId) || passengerId == 0);
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 		super.getResponse().setAuthorised(status);
@@ -82,19 +82,17 @@ public class CustomerBookingPassengerDeleteService extends AbstractGuiService<Cu
 
 	@Override
 	public void unbind(final BookingPassenger bookingPassenger) {
-		assert bookingPassenger != null;
 		Dataset dataset;
 
 		dataset = super.unbindObject(bookingPassenger, "passenger", "booking", "id");
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);
 		Collection<Passenger> addedPassengers = this.customerBookingPassengerRepository.findAllPassengersByBookingId(bookingId);
-		SelectChoices passengerChoices;
+		SelectChoices passengerChoices = null;
 		try {
 			passengerChoices = SelectChoices.from(addedPassengers, "fullName", bookingPassenger.getPassenger());
 		} catch (NullPointerException e) {
-			throw new IllegalArgumentException("The selected passenger is not available");
+
 		}
 		dataset.put("passengers", passengerChoices);
 		dataset.put("locatorCode", bookingPassenger.getBooking().getLocatorCode());
