@@ -23,14 +23,14 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 	@Override
 	public void authorise() {
-		Boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		Boolean status = true;
 
 		try {
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			Integer bookingId = super.getRequest().getData("bookingId", Integer.class);
 			Booking booking = this.customerBookingPassengerRepository.findBookingById(bookingId);
-			status = status && booking != null && customerId == booking.getCustomer().getId();
+			status = booking != null && customerId == booking.getCustomer().getId();
 
 			if (super.getRequest().hasData("id")) {
 				String locatorCode = super.getRequest().getData("locatorCode", String.class);
@@ -46,7 +46,7 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 				status = status && !alreadyAddedPassengers.stream().anyMatch(p -> p.getId() == passengerId);
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 
@@ -80,8 +80,6 @@ public class CustomerBookingPassengerCreateService extends AbstractGuiService<Cu
 
 	@Override
 	public void unbind(final BookingPassenger bookingPassenger) {
-		assert bookingPassenger != null;
-
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		Integer bookingId = super.getRequest().getData("bookingId", int.class);

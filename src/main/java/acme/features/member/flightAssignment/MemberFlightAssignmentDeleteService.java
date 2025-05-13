@@ -31,19 +31,29 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 	@Override
 	public void authorise() {
 		boolean status;
-		int flightAssignmentId;
+		Integer flightAssignmentId = null;
 		FlightAssignment flightAssignment;
 
-		flightAssignmentId = super.getRequest().getData("id", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		boolean correctMember = true;
-		Integer memberId = super.getRequest().getData("member", int.class);
+		if (super.getRequest().hasData("id")) {
 
-		Member member = this.repository.findMemberById(memberId);
-		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
+			flightAssignmentId = super.getRequest().getData("id", Integer.class);
+			if (flightAssignmentId == null)
+				status = false;
+			else {
 
-		status = flightAssignment.isDraftMode() && correctMember;
+				flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+				boolean correctMember = true;
+				String employeeCode = super.getRequest().getData("member", String.class);
+				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+				correctMember = member != null && memberId == member.getId();
+
+				status = flightAssignment.isDraftMode() && correctMember;
+			}
+		} else
+			status = false;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -69,8 +79,8 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
 
-		memberId = super.getRequest().getData("member", int.class);
-		member = this.repository.findMemberById(memberId);
+		String employeeCode = super.getRequest().getData("member", String.class);
+		member = this.repository.findMemberByEmployeeCode(employeeCode);
 
 		super.bindObject(flightAssignment, "duty", "moment", "assignmentStatus", "remarks");
 		flightAssignment.setLeg(leg);
@@ -79,12 +89,7 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
-
-	}
-	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
-		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		boolean arrivalIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledArrival(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		return !departureIncompatible && !arrivalIncompatible;
+		;
 	}
 
 	@Override
@@ -97,26 +102,21 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 
 	@Override
 	public void unbind(final FlightAssignment flightAssignment) {
-
 		SelectChoices assignmentStatus;
 		SelectChoices duty;
-
 		int memberId;
 		Collection<Leg> legs;
 		SelectChoices legChoices;
-
 		Collection<Member> members;
 		SelectChoices memberChoices;
 		Dataset dataset;
-
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		//legs = this.repository.findLegsByMemberId(memberId);
 		legs = this.repository.findAllLegs();
-		members = this.repository.findAllAvailableMembers();
 
+		members = this.repository.findAllAvailableMembers();
 		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
 		memberChoices = SelectChoices.from(members, "employeeCode", flightAssignment.getMember());
-
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
@@ -131,6 +131,8 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		dataset.put("member", memberChoices.getSelected().getKey());
 		dataset.put("members", memberChoices);
 
+		Boolean legNotCompleted = flightAssignment.getLeg() == null || MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+		dataset.put("legNotCompleted", legNotCompleted);
 		super.getResponse().addData(dataset);
 	}
 }

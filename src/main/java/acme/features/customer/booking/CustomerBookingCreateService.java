@@ -30,17 +30,17 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
 		try {
 			if (super.getRequest().hasData("id")) {
 				Integer flightId = super.getRequest().getData("flight", Integer.class);
 				if (flightId == null || flightId != 0) {
 					Flight flight = this.customerBookingRepository.findFlightById(flightId);
-					status = status && flight != null && !flight.isDraftMode();
+					status = flight != null && !flight.isDraftMode();
 				}
 			}
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 
@@ -93,7 +93,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		SelectChoices flightChoices = null;
 		try {
 			flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-		} catch (NullPointerException e) {
+		} catch (Throwable e) {
 
 		}
 

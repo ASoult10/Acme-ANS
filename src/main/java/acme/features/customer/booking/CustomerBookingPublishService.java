@@ -28,14 +28,14 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
 		try {
 
 			Integer bookingId = super.getRequest().getData("id", int.class);
 			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-			status = status && booking != null;
+			status = booking != null;
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
@@ -47,7 +47,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 				status = status && flight != null && !flight.isDraftMode();
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 

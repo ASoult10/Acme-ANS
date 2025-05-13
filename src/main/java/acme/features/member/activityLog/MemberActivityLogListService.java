@@ -53,7 +53,11 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		activityLog = this.repository.findActivityLogsByMasterId(masterId);
+
+		if (this.repository.findFlightAssignmentById(masterId).getMember().getId() != super.getRequest().getPrincipal().getActiveRealm().getId())
+			activityLog = this.repository.findPublishedActivityLogsByMasterId(masterId);
+		else
+			activityLog = this.repository.findActivityLogsByMasterId(masterId);
 
 		super.getBuffer().addData(activityLog);
 	}
