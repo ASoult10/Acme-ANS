@@ -23,7 +23,6 @@
 			<acme:submit code="technician.maintenance-record.form.button.delete" action="/technician/maintenance-record/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-checkbox code="technician.maintenance-record.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="technician.maintenance-record.form.button.create" action="/technician/maintenance-record/create"/>
 		</jstl:when>		
 	</jstl:choose>

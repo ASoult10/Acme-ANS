@@ -9,6 +9,8 @@
 	<acme:list-payload path="payload"/>
 </acme:list>	
 	
-<jstl:if test="${_command == 'list'}">
-	<acme:button code="technician.involved-in.list.button.create" action="/technician/involved-in/create?masterId=${masterId}"/>
-</jstl:if>	
+<jstl:choose>
+    <jstl:when test="${draftMode == true}">
+        <acme:button code="technician.involved-in.list.button.create" action="/technician/involved-in/create?masterId=${masterId}"/>
+    </jstl:when>
+</jstl:choose>	

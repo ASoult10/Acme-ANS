@@ -10,6 +10,7 @@ import acme.client.repositories.AbstractRepository;
 import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.mappings.InvolvedIn;
 import acme.entities.tasks.Task;
+import acme.realms.Technician;
 
 @Repository
 public interface TechnicianInvolvedInRepository extends AbstractRepository {
@@ -31,5 +32,8 @@ public interface TechnicianInvolvedInRepository extends AbstractRepository {
 
 	@Query("select tk from Task tk where tk.description not in (select ii.task.description from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId)")
 	Collection<Task> findTasksNotInMaintenanceRecord(int maintenanceRecordId);
+
+	@Query("select t from Technician t")
+	Collection<Technician> findAllTechnicians();
 
 }

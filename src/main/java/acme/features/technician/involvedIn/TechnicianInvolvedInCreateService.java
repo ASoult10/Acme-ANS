@@ -31,10 +31,12 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		Collection<Task> tasks;
 		boolean taskNotMR = false;
 
+		masterId = super.getRequest().getData("masterId", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+
+		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 		if (super.getRequest().hasData("id")) {
-			masterId = super.getRequest().getData("masterId", int.class);
-			maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
-			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 			Integer taskId = super.getRequest().getData("task", int.class);
 			tasks = this.repository.findTasksNotInMaintenanceRecord(masterId);
 			if (taskId != 0) {
@@ -47,7 +49,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 							break;
 						}
 			}
-			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician) && correctTask && taskNotMR;
+			status = status && correctTask && taskNotMR;
 		}
 		super.getResponse().setAuthorised(status);
 	}
@@ -82,9 +84,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 	@Override
 	public void validate(final InvolvedIn involvedIn) {
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		;
 	}
 
 	@Override

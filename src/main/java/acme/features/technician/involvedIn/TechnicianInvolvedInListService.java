@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenanceRecord.MaintenanceRecord;
 import acme.entities.mappings.InvolvedIn;
 import acme.realms.Technician;
 
@@ -20,7 +21,17 @@ public class TechnicianInvolvedInListService extends AbstractGuiService<Technici
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		MaintenanceRecord maintenanceRecord;
+		Technician technician;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
+		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+		status = maintenanceRecord != null && (!maintenanceRecord.isDraftMode() || super.getRequest().getPrincipal().hasRealm(technician));
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -37,10 +48,13 @@ public class TechnicianInvolvedInListService extends AbstractGuiService<Technici
 	@Override
 	public void unbind(final Collection<InvolvedIn> involvedInCollection) {
 		int masterId;
-
+		MaintenanceRecord MR;
 		masterId = super.getRequest().getData("masterId", int.class);
 
+		MR = this.repository.findMaintenanceRecordById(masterId);
+
 		super.getResponse().addGlobal("masterId", masterId);
+		super.getResponse().addGlobal("draftMode", MR.isDraftMode());
 
 	}
 

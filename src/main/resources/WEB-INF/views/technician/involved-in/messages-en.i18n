@@ -9,6 +9,11 @@ technician.involved-in.form.button.create = Create
 technician.involved-in.form.button.delete = Delete
 technician.involved-in.form.label.confirmation = Confirm that the task is correct
 
-technician.involved-in.list.label.task = Task
+technician.involved-in.list.label.task = Task:
+technician.involved-in.form.label.type = Type:
+technician.involved-in.form.label.description = Description:
+technician.involved-in.form.label.priority = Priority:
+technician.involved-in.form.label.estimatedDuration = Estimated Duration:
+technician.involved-in.form.label.technician = Technician:
 
 technician.involved-in.list.button.create = Create

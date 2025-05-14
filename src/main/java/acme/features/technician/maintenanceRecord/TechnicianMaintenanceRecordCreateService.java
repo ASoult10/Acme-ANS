@@ -27,7 +27,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 		if (super.getRequest().hasData("id")) {
 
-			boolean statusMrIncorrect = true;
+			boolean correctStatus = true;
 			boolean correctAircraft = true;
 			boolean correctTechnician = true;
 			MaintenanceRecordStatus mrStatus = super.getRequest().getData("status", MaintenanceRecordStatus.class);
@@ -41,12 +41,12 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 			if (mrStatus != null)
 				if (!mrStatus.equals(0))
-					statusMrIncorrect = mrStatus.equals(MaintenanceRecordStatus.COMPLETED);
+					correctStatus = !mrStatus.equals(MaintenanceRecordStatus.COMPLETED);
 			if (aircraftId != 0) {
 				Aircraft aircraft = this.repository.findAircraftById(aircraftId);
 				correctAircraft = aircraft != null;
 			}
-			status = correctAircraft && !statusMrIncorrect && correctTechnician;
+			status = correctAircraft && correctStatus && correctTechnician;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -81,8 +81,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		if (maintenanceRecord.getStatus() == MaintenanceRecordStatus.COMPLETED)
-			super.state(false, "status", "technician.maintenance-record.create.status");
+		;
 
 	}
 

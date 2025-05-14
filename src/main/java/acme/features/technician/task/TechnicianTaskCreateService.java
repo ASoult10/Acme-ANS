@@ -64,9 +64,7 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void validate(final Task task) {
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		;
 	}
 
 	@Override
