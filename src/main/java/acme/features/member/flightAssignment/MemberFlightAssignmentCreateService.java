@@ -115,14 +115,15 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
 		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		legs.removeAll(this.repository.findLegsByMemberId(memberId));
-		try {
-			legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
-		} catch (NullPointerException e) {
-		}
+		//try {
+		legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
+		//} catch (Throwable e) {
+
+		//}
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
-		String identificador = legChoices == null ? "" : legChoices.getSelected().getKey();
+		String identificador = legChoices.getSelected().getKey();// == null ? "" : legChoices.getSelected().getKey();
 		dataset = super.unbindObject(flightAssignment, "assignmentStatus", "remarks");
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);

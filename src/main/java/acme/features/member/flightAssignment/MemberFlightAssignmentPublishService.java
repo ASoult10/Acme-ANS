@@ -32,32 +32,36 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		boolean status = true;
 
 		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		int id = super.getRequest().getData("id", int.class);
-		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-		boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
+		Integer id = super.getRequest().getData("id", Integer.class);
 
 		boolean futureLeg = true;
 		boolean legPublished = true;
 		boolean legNotOwned = true;
 		Integer legId = null;
-		if (super.getRequest().hasData("leg"))
+		if (id == null)
+			status = false;
+		else {
+
+			FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+			boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
 			legId = super.getRequest().getData("leg", Integer.class);
 
-		if (legId == null)
-			status = false;
-		else if (legId != 0) {
-			Leg leg = this.repository.findLegById(legId);
-			futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
-			legPublished = leg != null && !leg.isDraftMode();
-			legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
+			if (legId == null)
+				status = false;
+			else if (legId != 0) {
+				Leg leg = this.repository.findLegById(legId);
+				futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+				legPublished = leg != null && !leg.isDraftMode();
+				legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
+			}
+
+			boolean correctMember = true;
+			String employeeCode = super.getRequest().getData("member", String.class);
+			Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+			correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
+
+			status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished && legNotOwned;
 		}
-
-		boolean correctMember = true;
-		String employeeCode = super.getRequest().getData("member", String.class);
-		Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-		correctMember = member != null && memberId == member.getId();
-
-		status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished && legNotOwned;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -112,18 +116,18 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		FlightAssignment oldFlightAssignment = this.repository.findFlightAssignmentById(flightAssignment.getId());
 		legs.add(oldFlightAssignment.getLeg());
 
-		try {
-			Leg leg = flightAssignment.getLeg();
-			legChoices = SelectChoices.from(legs, "flightNumber", leg);
-		} catch (NullPointerException e) {
-		}
+		//try {
+		Leg leg = flightAssignment.getLeg();
+		legChoices = SelectChoices.from(legs, "flightNumber", leg);
+		//} catch (NullPointerException e) {
+		//}
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
 		dataset = super.unbindObject(flightAssignment, "duty", "assignmentStatus", "remarks", "draftMode");
 
-		String identificador = legChoices == null ? "" : legChoices.getSelected().getKey();
+		String identificador = legChoices.getSelected().getKey(); //== null ? "" : legChoices.getSelected().getKey();
 
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
@@ -134,7 +138,7 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		dataset.put("legs", legChoices);
 		dataset.put("member", flightAssignment.getMember().getEmployeeCode());
 
-		Boolean legNotCompleted = flightAssignment.getLeg() == null || MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+		Boolean legNotCompleted = MomentHelper.isFuture(oldFlightAssignment.getLeg().getScheduledArrival());
 		dataset.put("legNotCompleted", legNotCompleted);
 
 		super.getResponse().addData(dataset);

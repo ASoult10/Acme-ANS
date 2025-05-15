@@ -22,8 +22,7 @@ public class MemberFlightAssignmentMyCompletedListService extends AbstractGuiSer
 
 	@Override
 	public void authorise() {
-		Boolean correctRealm = super.getRequest().getPrincipal().hasRealmOfType(Member.class);
-		super.getResponse().setAuthorised(correctRealm);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
