@@ -4,11 +4,9 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
-import acme.entities.flightAssignment.FlightAssignment;
 import acme.realms.Member;
 
 @GuiService
@@ -30,10 +28,10 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 		id = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(id);
 		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
-		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
+		//boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
+		//boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
 
-		boolean status = correctMember && flightAssignmentPublished && inPast && activityLog.isDraftMode();
+		boolean status = correctMember && activityLog.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -67,19 +65,12 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		final boolean showCreate;
-		FlightAssignment flightAssignment = activityLog.getFlightAssignment();
-
 		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 		dataset.put("registrationMoment", activityLog.getRegistrationMoment());
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
-		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
-		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
 
-		showCreate = !flightAssignment.isDraftMode() && activityLog.isDraftMode() && inPast && correctMember;
-
-		dataset.put("buttonsAvaiable", showCreate);
+		dataset.put("buttonsAvaiable", true);
 		super.getResponse().addData(dataset);
 	}
 

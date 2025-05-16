@@ -24,6 +24,7 @@
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|publish|delete') && draftMode == true}">
 			<acme:button code="member.flight-assignment.form.button.activity-log" action="/member/activity-log/list?masterId=${id}"/>
+			<acme:submit code="member.flight-assignment.form.button.delete" action="/member/flight-assignment/delete"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:input-checkbox code="member.flight-assignment.form.label.confirmation" path="confirmation"/>

@@ -33,17 +33,21 @@ public class MemberFlightAssignmentShowService extends AbstractGuiService<Member
 		boolean correctMember = true;
 		Integer activeMemberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer id = super.getRequest().getData("id", Integer.class);
-		if (id == null)
-			status = false;
-		else {
+		try {
+			Integer id = super.getRequest().getData("id", Integer.class);
+			if (id == null)
+				status = false;
+			else {
 
-			FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-			correctMember = flightAssignment != null &&//
-				(activeMemberId == flightAssignment.getMember().getId() || //
-					!flightAssignment.isDraftMode());
+				FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+				correctMember = flightAssignment != null &&//
+					(activeMemberId == flightAssignment.getMember().getId() || //
+						!flightAssignment.isDraftMode());
+			}
+			status = status && correctMember;
+		} catch (Throwable e) {
+			status = false;
 		}
-		status = status && correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 

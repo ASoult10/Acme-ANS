@@ -32,35 +32,39 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		boolean status = true;
 
 		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Integer id = super.getRequest().getData("id", Integer.class);
+		try {
+			Integer id = super.getRequest().getData("id", Integer.class);
 
-		boolean futureLeg = true;
-		boolean legPublished = true;
-		boolean legNotOwned = true;
-		Integer legId = null;
-		if (id == null)
-			status = false;
-		else {
-
-			FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-			boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
-			legId = super.getRequest().getData("leg", Integer.class);
-
-			if (legId == null)
+			boolean futureLeg = true;
+			boolean legPublished = true;
+			boolean legNotOwned = true;
+			Integer legId = null;
+			if (id == null)
 				status = false;
-			else if (legId != 0) {
-				Leg leg = this.repository.findLegById(legId);
-				futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
-				legPublished = leg != null && !leg.isDraftMode();
-				legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
+			else {
+
+				FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+				boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
+				legId = super.getRequest().getData("leg", Integer.class);
+
+				if (legId == null)
+					status = false;
+				else if (legId != 0) {
+					Leg leg = this.repository.findLegById(legId);
+					futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+					legPublished = leg != null && !leg.isDraftMode();
+					legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
+				}
+
+				boolean correctMember = true;
+				String employeeCode = super.getRequest().getData("member", String.class);
+				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+				correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
+
+				status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished && legNotOwned;
 			}
-
-			boolean correctMember = true;
-			String employeeCode = super.getRequest().getData("member", String.class);
-			Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-			correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
-
-			status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished && legNotOwned;
+		} catch (Throwable e) {
+			status = false;
 		}
 		super.getResponse().setAuthorised(status);
 	}

@@ -19,5 +19,6 @@ member.activity-log.list.label.registrationMoment = Momento de Registro
 member.activity-log.list.label.typeOfIncident = Tipo de Incidente
 member.activity-log.list.label.description = Descripción
 member.activity-log.list.label.severityLevel = Nivel de Severidad
+member.activity-log.list.label.draftMode = Modo borrador
 
 member.flight-assignment.list.button.create = Crear

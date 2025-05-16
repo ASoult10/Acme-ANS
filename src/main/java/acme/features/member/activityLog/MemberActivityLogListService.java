@@ -66,7 +66,7 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 		super.addPayload(dataset, activityLog, "registrationMoment", "typeOfIncident");
 
 		super.getResponse().addData(dataset);

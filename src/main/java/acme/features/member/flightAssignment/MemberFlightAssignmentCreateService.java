@@ -27,34 +27,38 @@ public class MemberFlightAssignmentCreateService extends AbstractGuiService<Memb
 	public void authorise() {
 		boolean status = true;
 
-		if (super.getRequest().hasData("id")) {
+		try {
+			if (super.getRequest().hasData("id")) {
 
-			boolean futureLeg = true;
-			boolean legPublished = true;
-			boolean legNotOwned = true;
-			Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			Integer legId = super.getRequest().getData("leg", Integer.class);
-			if (legId == null)
-				status = false;
-			else {
+				boolean futureLeg = true;
+				boolean legPublished = true;
+				boolean legNotOwned = true;
+				Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				Integer legId = super.getRequest().getData("leg", Integer.class);
+				if (legId == null)
+					status = false;
+				else {
 
+				}
+				if (legId != null && legId != 0) {
+					Leg leg = null;
+					leg = this.repository.findLegById(legId);
+
+					futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+					legPublished = leg != null && !leg.isDraftMode();
+					legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg);
+				}
+
+				boolean correctMember = true;
+				String employeeCode = super.getRequest().getData("member", String.class);
+
+				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+				correctMember = member != null && memberId == member.getId();
+
+				status = status && correctMember && futureLeg && legPublished && legNotOwned;
 			}
-			if (legId != null && legId != 0) {
-				Leg leg = null;
-				leg = this.repository.findLegById(legId);
-
-				futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
-				legPublished = leg != null && !leg.isDraftMode();
-				legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg);
-			}
-
-			boolean correctMember = true;
-			String employeeCode = super.getRequest().getData("member", String.class);
-
-			Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-			correctMember = member != null && memberId == member.getId();
-
-			status = status && correctMember && futureLeg && legPublished && legNotOwned;
+		} catch (Throwable e) {
+			status = false;
 		}
 		super.getResponse().setAuthorised(status);
 

@@ -35,25 +35,28 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		FlightAssignment flightAssignment;
 
 		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		try {
+			if (super.getRequest().hasData("id")) {
 
-		if (super.getRequest().hasData("id")) {
+				flightAssignmentId = super.getRequest().getData("id", Integer.class);
+				if (flightAssignmentId == null)
+					status = false;
+				else {
 
-			flightAssignmentId = super.getRequest().getData("id", Integer.class);
-			if (flightAssignmentId == null)
+					flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
+
+					boolean correctMember = true;
+					String employeeCode = super.getRequest().getData("member", String.class);
+					Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+					correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
+
+					status = flightAssignment.isDraftMode() && correctMember;
+				}
+			} else
 				status = false;
-			else {
-
-				flightAssignment = this.repository.findFlightAssignmentById(flightAssignmentId);
-
-				boolean correctMember = true;
-				String employeeCode = super.getRequest().getData("member", String.class);
-				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-				correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
-
-				status = flightAssignment.isDraftMode() && correctMember;
-			}
-		} else
+		} catch (Throwable e) {
 			status = false;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
