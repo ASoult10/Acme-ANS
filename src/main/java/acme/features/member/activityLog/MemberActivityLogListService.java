@@ -83,7 +83,7 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
 		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
-		showCreate = !flightAssignment.isDraftMode() && inPast && correctMember;
+		showCreate = inPast && correctMember && !flightAssignment.isDraftMode();
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);

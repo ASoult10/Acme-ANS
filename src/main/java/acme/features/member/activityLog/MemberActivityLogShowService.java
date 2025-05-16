@@ -68,8 +68,8 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 
 		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
 		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
-		showCreate = activityLog.isDraftMode() && correctMember;
-
+		boolean draftMode = activityLog.isDraftMode();
+		showCreate = correctMember && draftMode;
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("buttonsAvaiable", showCreate);
 		super.getResponse().addData(dataset);
