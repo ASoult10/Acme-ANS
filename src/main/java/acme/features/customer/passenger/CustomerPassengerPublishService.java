@@ -24,7 +24,7 @@ public class CustomerPassengerPublishService extends AbstractGuiService<Customer
 	public void authorise() {
 		boolean status = true;
 
-		Integer passengerId = super.getRequest().getData("id", int.class);
+		Integer passengerId = super.getRequest().getData("id", Integer.class);
 		Passenger passenger = this.customerPassengerRepository.findPassengerById(passengerId);
 
 		status = passenger != null;
