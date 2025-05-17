@@ -22,13 +22,13 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = super.getRequest().getMethod().equals("POST");
 
 		try {
 			Integer passengerId = super.getRequest().getData("id", Integer.class);
 			Passenger passenger = this.customerPassengerRepository.findPassengerById(passengerId);
 
-			status = passenger != null;
+			status = status && passenger != null;
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
