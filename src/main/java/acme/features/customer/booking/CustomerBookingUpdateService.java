@@ -27,14 +27,14 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = super.getRequest().getMethod().equals("POST");
 
 		try {
 
 			Integer bookingId = super.getRequest().getData("id", Integer.class);
 			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-			status = booking != null;
+			status = status && booking != null;
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
@@ -46,7 +46,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 				status = status && flight != null && !flight.isDraftMode();
 			}
 
-		} catch (Exception E) {
+		} catch (Throwable E) {
 			status = false;
 		}
 

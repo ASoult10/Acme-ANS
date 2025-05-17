@@ -25,14 +25,14 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = super.getRequest().getMethod().equals("POST");
 
 		try {
 
-			int customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			int bookingId = super.getRequest().getData("id", int.class);
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
 			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
-			status = !(booking == null) && customerId == booking.getCustomer().getId() && !booking.getIsPublished();
+			status = status && booking != null && customerId == booking.getCustomer().getId() && !booking.getIsPublished();
 
 		} catch (Throwable E) {
 			status = false;
@@ -74,8 +74,10 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClass", travelClasses);
 
+		Flight flight = this.customerBookingRepository.findBookingById(booking.getId()).getFlight();
+
 		if (!flights.isEmpty()) {
-			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", flight);
 			dataset.put("flights", flightChoices);
 		}
 

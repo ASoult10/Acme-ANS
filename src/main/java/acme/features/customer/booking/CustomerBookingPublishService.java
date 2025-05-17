@@ -28,14 +28,14 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = super.getRequest().getMethod().equals("POST");
 
 		try {
 
-			Integer bookingId = super.getRequest().getData("id", int.class);
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
 			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-			status = booking != null;
+			status = status && booking != null;
 
 			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
