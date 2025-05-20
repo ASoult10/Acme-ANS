@@ -91,11 +91,8 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		dataset.put("travelClass", travelClasses);
 
 		SelectChoices flightChoices = null;
-		try {
-			flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-		} catch (Throwable e) {
 
-		}
+		flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
 
 		dataset.put("flights", flightChoices);
 
