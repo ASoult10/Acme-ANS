@@ -79,7 +79,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		status = bookingPassengers.stream().filter(br -> !br.getPassenger().getIsPublished()).findFirst().isEmpty();
 		super.state(status, "*", "customer.booking.form.error.publishPassengers");
 
-		status = booking.getLastNibble() != null && !booking.getLastNibble().isBlank();
+		status = !booking.getLastNibble().isBlank();
 		super.state(status, "lastNibble", "acme.validation.lastNibble.blank.message");
 	}
 
