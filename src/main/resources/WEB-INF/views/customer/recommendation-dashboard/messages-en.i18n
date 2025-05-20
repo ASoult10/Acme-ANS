@@ -6,5 +6,4 @@ customer.recommendation-dashboard.form.title = Recommendation Dashboard
 customer.recommendation-dashboard.list.label.city = City
 customer.recommendation-dashboard.list.label.country = Country
 customer.recommendation-dashboard.list.label.name = Activity Name
-customer.recommendation-dashboard.list.label.description = Activity Description
 customer.recommendation-dashboard.list.label.recommendationType = Recommendation Type

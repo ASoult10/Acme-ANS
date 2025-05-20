@@ -6,5 +6,4 @@ customer.recommendation-dashboard.form.title = Panel de recomendaciones
 customer.recommendation-dashboard.list.label.city = Ciudad
 customer.recommendation-dashboard.list.label.country = País
 customer.recommendation-dashboard.list.label.name = Nombre de Actividad
-customer.recommendation-dashboard.list.label.description = Descripción
 customer.recommendation-dashboard.list.label.recommendationType = Tipo de Recomendación

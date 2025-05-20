@@ -17,7 +17,6 @@ customer.booking.list.label.locatorCode = Código Localizador
 customer.booking.list.label.purchaseMoment = Fecha de Compra
 customer.booking.list.label.travelClass = Clase de Viaje
 customer.booking.list.label.price = Precio
-customer.booking.list.label.lastNibble = Últimos dígitos de tarjeta bancaria
 customer.booking.list.label.isPublished = ¿Está esta reserva publicada?
 
 customer.booking.form.label.flight = Vuelo

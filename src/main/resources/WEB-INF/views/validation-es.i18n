@@ -34,10 +34,7 @@ acme.validation.locatorCode.notPattern.message = El código localizador debe seg
 acme.validation.lastNibble.notPattern.message = El último nibble debe estar compuesto por cuatro números
 acme.validation.passportNumber.notPattern.message = El número de pasaporte debe seguir el patrón correcto
 
-acme.validation.lastNibble.blank.message = No se puede publicar una reserva si no se ha introducido los 4 últimos dígitos de la tarjeta de pago
-
-acem.validation.bookingId.notPublic = La reserva debe existir y no estar publicada
-acem.validation.passengerId.notPublic = El pasajero debe existir y estar publicado
+acme.validation.lastNibble.blank.message = No se puede publicar una reserva si no se ha introducido los 4 últimos dígitos de la tarjeta de pago	
 
 acme.validation.noChoice = No debe estar vacío
 customer.passenger.form.error.associatedBookings = No se puede eliminar un pasajero asociado a reservas existentes

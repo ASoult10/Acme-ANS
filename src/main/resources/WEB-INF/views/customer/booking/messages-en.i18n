@@ -17,7 +17,6 @@ customer.booking.list.label.locatorCode = Locator Code
 customer.booking.list.label.purchaseMoment = Purchase Date
 customer.booking.list.label.travelClass = Travel Class
 customer.booking.list.label.price = Price
-customer.booking.list.label.lastNibble = Last Nibble
 customer.booking.list.label.isPublished = Is this Booking Published?
 
 customer.booking.form.label.flight = Flight

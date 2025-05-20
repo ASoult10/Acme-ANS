@@ -36,9 +36,6 @@ acme.validation.passportNumber.notPattern.message = Passport number must follow 
 
 acme.validation.lastNibble.blank.message = Cannot publish a booking if last nibble is not set
 
-acem.validation.bookingId.notPublic = Booking must exist and not be published
-acem.validation.passengerId.notPublic = Passenger must exist and be published
-
 acme.validation.noChoice = Must not be empty
 customer.passenger.form.error.associatedBookings = Cannot delete a passenger associated with existing bookings
 
