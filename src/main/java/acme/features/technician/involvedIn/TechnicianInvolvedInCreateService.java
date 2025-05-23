@@ -28,8 +28,6 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
 		boolean correctTask = true;
-		Collection<Task> tasks;
-		boolean taskNotMR = false;
 		boolean taskDisp = true;
 
 		masterId = super.getRequest().getData("masterId", int.class);
@@ -40,7 +38,6 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 		if (super.getRequest().hasData("id")) {
 			Integer taskId = super.getRequest().getData("task", int.class);
-			tasks = this.repository.findTasksNotInMaintenanceRecord(masterId, super.getRequest().getPrincipal().getActiveRealm().getId());
 
 			if (taskId != 0) {
 				Task task = this.repository.findTaskById(taskId);
