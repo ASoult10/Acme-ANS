@@ -74,5 +74,6 @@ acme.validation.license-number.repeated.message = El número de licencia del té
 acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
 technician.maintenance-record.publish.published-tasks = Para publicar un registro de mantenimiento, este no puede tener tareas no publicadas y debe tener al menos una tarea publicada
 technician.maintenance-record.publish.status = Para publicar un registro de mantenimiento, su estado debe ser "COMPLETED"
+acme.validation.technician.null.message = El técnico no puede ser nulo
 
 
