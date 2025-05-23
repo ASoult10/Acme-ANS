@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @ValidCustomer
 @Table(indexes = {
-	@Index(columnList = "user_account_id")
+	@Index(columnList = "user_account_id"), @Index(columnList = "customerIdentifier")
 })
 public class Customer extends AbstractRole {
 
