@@ -37,8 +37,8 @@ public class AuthenticatedProviderController extends AbstractGuiController<Authe
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand("create", this.createService);
-		super.addBasicCommand("update", this.updateService);
+		//		super.addBasicCommand("create", this.createService);
+		//		super.addBasicCommand("update", this.updateService);
 	}
 
 }
