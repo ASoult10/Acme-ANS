@@ -25,6 +25,14 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Administrator.class);
 
+		try {
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.administratorBookingRepository.findBookingById(bookingId);
+			status = status && booking != null && booking.getIsPublished();
+		} catch (Throwable E) {
+			status = false;
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
