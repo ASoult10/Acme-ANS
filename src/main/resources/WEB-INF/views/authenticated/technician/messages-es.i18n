@@ -1,0 +1,12 @@
+# messages-es.i18n
+
+authenticated.technician.form.title = Detalles del técnico
+authenticated.technician.form.button.create = Crear
+authenticated.technician.form.button.update = Actualizar
+
+authenticated.technician.form.label.licenseNumber = Número de licencia
+authenticated.technician.form.label.phoneNumber = Número de teléfono
+authenticated.technician.form.label.specialisation = Especialización
+authenticated.technician.form.label.annualHealthTest = Examen anual de salud
+authenticated.technician.form.label.yearsOfExperience = Años de experiencia
+authenticated.technician.form.label.certifications = Certificaciones

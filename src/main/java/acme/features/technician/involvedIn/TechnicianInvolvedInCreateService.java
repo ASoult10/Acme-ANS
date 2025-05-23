@@ -30,27 +30,33 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		boolean correctTask = true;
 		Collection<Task> tasks;
 		boolean taskNotMR = false;
+		boolean taskDisp = true;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
 		if (super.getRequest().hasData("id")) {
 			Integer taskId = super.getRequest().getData("task", int.class);
-			tasks = this.repository.findTasksNotInMaintenanceRecord(masterId);
+			tasks = this.repository.findTasksNotInMaintenanceRecord(masterId, super.getRequest().getPrincipal().getActiveRealm().getId());
+
 			if (taskId != 0) {
 				Task task = this.repository.findTaskById(taskId);
 				correctTask = task != null;
-				if (correctTask)
-					for (Task t : tasks)
-						if (t.getId() == taskId) {
-							taskNotMR = true;
-							break;
-						}
+				if (correctTask) {
+					Task taskDisponible = this.repository.findDisponibleTaskForAddition(masterId, super.getRequest().getPrincipal().getActiveRealm().getId(), taskId);
+					taskDisp = taskDisponible != null;
+				} else
+					taskDisp = false;
 			}
-			status = status && correctTask && taskNotMR;
+			if (taskId == 0)
+				taskDisp = true;
+
+			status = status && taskDisp;
 		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -104,7 +110,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 		masterId = super.getRequest().getData("masterId", int.class);
 
-		tasks = this.repository.findTasksNotInMaintenanceRecord(masterId);
+		tasks = this.repository.findTasksNotInMaintenanceRecord(masterId, super.getRequest().getPrincipal().getActiveRealm().getId());
 
 		taskChoices = SelectChoices.from(tasks, "description", involvedIn.getTask());
 

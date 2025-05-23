@@ -5,12 +5,15 @@
 
 <acme:form> 
 	<acme:input-select code="technician.involved-in.form.label.task" path="task" choices="${tasks}"/>	
-	<acme:input-select code="technician.involved-in.form.label.type" path="task.type"  choices="${taskStatus}"/>
-	<acme:input-textbox code="technician.involved-in.form.label.description" path="task.description"/>	
-	<acme:input-integer code="technician.involved-in.form.label.priority" path="task.priority"/>
-	<acme:input-integer code="technician.involved-in.form.label.estimatedDuration" path="task.estimatedDuration"/>
-	<acme:input-select code="technician.involved-in.form.label.technician" path="task.technician" choices="${technicians}" readonly="true"/>
-
+	<jstl:choose>
+			<jstl:when test="${_command != 'create'}">
+				<acme:input-select code="technician.involved-in.form.label.type" path="task.type"  choices="${taskStatus}"/>
+				<acme:input-textbox code="technician.involved-in.form.label.description" path="task.description"/>	
+				<acme:input-integer code="technician.involved-in.form.label.priority" path="task.priority"/>
+				<acme:input-integer code="technician.involved-in.form.label.estimatedDuration" path="task.estimatedDuration"/>
+				<acme:input-select code="technician.involved-in.form.label.technician" path="task.technician" choices="${technicians}" readonly="true"/>
+			</jstl:when>		
+	</jstl:choose>
 
 	<jstl:choose>	 
 		<jstl:when test="${acme:anyOf(_command, 'show|delete')&& draftMode == true}">

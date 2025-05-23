@@ -54,6 +54,8 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
 master.menu.user-account.become-customer = Become a customer
 master.menu.user-account.customer-profile = Customer profile
+master.menu.user-account.become-technician = Become a technician
+master.menu.user-account.technician-profile = Technician profile
 
 # master.menu.customer ##########################################################
 
