@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "draftMode"), @Index(columnList = "drafMode,technician_id,id")
+	@Index(columnList = "draftMode"), @Index(columnList = "drafMode,technician_id,id"), @Index(columnList = "technician_id"), @Index(columnList = "description")
 })
 public class Task extends AbstractEntity {
 
