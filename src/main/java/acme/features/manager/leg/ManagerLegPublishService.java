@@ -14,7 +14,6 @@ import acme.entities.aircrafts.Aircraft;
 import acme.entities.aircrafts.AircraftStatus;
 import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
-import acme.entities.flights.Flight;
 import acme.entities.legs.Leg;
 import acme.entities.legs.LegStatus;
 import acme.realms.Manager;
@@ -34,11 +33,11 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 	public void authorise() {
 		boolean status;
 		int legId;
-		Flight flight;
+		Leg leg;
 
 		legId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightByLegId(legId);
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(flight.getManager());
+		leg = this.repository.findLegById(legId);
+		status = leg != null && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager());
 
 		if (status) {
 			String method;
@@ -118,7 +117,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 	public void validate(final Leg leg) {
 		boolean correctScheduledDeparture;
 
-		correctScheduledDeparture = MomentHelper.isFuture(leg.getScheduledDeparture());
+		correctScheduledDeparture = leg.getScheduledDeparture() != null && MomentHelper.isFuture(leg.getScheduledDeparture());
 		super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
 	}
 
