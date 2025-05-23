@@ -123,7 +123,7 @@ public class ManagerLegCreateService extends AbstractGuiService<Manager, Leg> {
 	public void validate(final Leg leg) {
 		boolean correctScheduledDeparture;
 
-		correctScheduledDeparture = MomentHelper.isFuture(leg.getScheduledDeparture());
+		correctScheduledDeparture = leg.getScheduledDeparture() != null && MomentHelper.isFuture(leg.getScheduledDeparture());
 		super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
 	}
 
