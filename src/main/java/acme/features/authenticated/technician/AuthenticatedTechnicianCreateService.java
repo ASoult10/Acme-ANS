@@ -52,9 +52,9 @@ public class AuthenticatedTechnicianCreateService extends AbstractGuiService<Aut
 
 	@Override
 	public void validate(final Technician technician) {
-		//		Technician existing = this.repository.findTechnicianByTechnicianLicenseNumber(technician.getLicenseNumber());
-		//		boolean valid = existing == null || existing.getId() == technician.getId();
-		//		super.state(valid, "licenseNumber", "authenticated.technician.form.error.duplicateLicenseNumber");
+		Technician existing = this.repository.findTechnicianByTechnicianLicenseNumber(technician.getLicenseNumber());
+		boolean valid = existing == null || existing.getId() == technician.getId();
+		super.state(valid, "licenseNumber", "authenticated.technician.form.error.duplicateLicenseNumber");
 
 	}
 

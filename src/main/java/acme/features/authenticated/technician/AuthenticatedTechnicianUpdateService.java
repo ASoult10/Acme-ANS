@@ -50,10 +50,11 @@ public class AuthenticatedTechnicianUpdateService extends AbstractGuiService<Aut
 
 	@Override
 	public void validate(final Technician object) {
-		//		assert object != null;
-		//		Customer existing = this.authenticatedCustomerRepository.findCustomerByCustomerIdentifier(object.getCustomerIdentifier());
-		//		boolean valid = existing == null || existing.getId() == object.getId();
-		//		super.state(valid, "identifier", "authenticated.customer.form.error.duplicateIdentifier");
+		assert object != null;
+		Technician existing = this.authenticatedTechnicianRepository.findTechnicianByTechnicianLicenseNumber(object.getLicenseNumber());
+		boolean valid = existing == null || existing.getId() == object.getId();
+		super.state(valid, "licenseNumber", "authenticated.technician.form.error.duplicateLicenseNumber");
+
 	}
 
 	@Override
