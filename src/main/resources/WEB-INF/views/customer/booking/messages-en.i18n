@@ -4,7 +4,7 @@ customer.booking.list.title = Booking List
 customer.booking.form.title = Booking Details
 
 customer.booking.form.button.update = Update
-customer.booking.form.button.create = Book
+customer.booking.form.button.create = Create Booking
 customer.booking.form.button.listPassenger = Passengers of this booking
 customer.booking.form.button.addPassenger = Add Passenger
 customer.booking.form.button.deletePassenger = Delete Passenger
@@ -12,7 +12,7 @@ customer.booking.form.button.publish = Publish
 customer.booking.form.button.delete = Delete
 customer.booking.form.show.recommendations = What to do at your destination city?
 
-customer.booking.list.button.create = Book
+customer.booking.list.button.create = Create Booking
 customer.booking.list.label.locatorCode = Locator Code
 customer.booking.list.label.purchaseMoment = Purchase Date
 customer.booking.list.label.travelClass = Travel Class
