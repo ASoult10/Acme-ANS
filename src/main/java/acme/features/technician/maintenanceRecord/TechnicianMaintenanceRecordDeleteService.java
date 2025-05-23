@@ -34,6 +34,10 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
+		String method = super.getRequest().getMethod();
+		if (method.equals("GET"))
+			status = false;
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -61,7 +65,7 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		super.state(true, "*", "technician.maintenanceRecord.delete.maintenance-record-linked");
+		;
 	}
 
 	@Override

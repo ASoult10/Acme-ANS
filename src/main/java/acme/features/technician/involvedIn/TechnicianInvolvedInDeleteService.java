@@ -32,6 +32,10 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 		technician = involvedIn == null ? null : involvedIn.getMaintenanceRecord().getTechnician();
 		status = involvedIn != null && involvedIn.getMaintenanceRecord().isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
+		String method = super.getRequest().getMethod();
+		if (method.equals("GET"))
+			status = false;
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -60,7 +64,7 @@ public class TechnicianInvolvedInDeleteService extends AbstractGuiService<Techni
 
 	@Override
 	public void validate(final InvolvedIn involvedIn) {
-		super.state(true, "*", "technician.involvedIn.delete.involved-in-linked");
+		;
 	}
 
 	@Override
