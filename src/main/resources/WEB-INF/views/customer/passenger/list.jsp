@@ -11,6 +11,9 @@
     <acme:list-payload path="payload"/>	
 </acme:list>	
 	
+
 <jstl:if test="${_command == 'list'}">
-	<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
-</jstl:if>	
+    <jstl:if test="${empty param.bookingId}">
+        <acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create"/>
+    </jstl:if>
+</jstl:if>
