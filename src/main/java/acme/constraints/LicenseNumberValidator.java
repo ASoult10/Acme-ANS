@@ -30,14 +30,14 @@ public class LicenseNumberValidator extends AbstractValidator<ValidLicenseNumber
 		assert context != null;
 
 		if (technician == null) {
-			super.state(context, false, "*", "{acme.validation.license-number.null.message}");
+			super.state(context, false, "licenseNumber", "{acme.validation.technician.null.message}");
 			return false;
 		}
 
 		String license = technician.getLicenseNumber();
 
-		if (license == null)
-			return false;
+		if (license == null || license.isBlank())
+			return true;
 
 		DefaultUserIdentity identity = technician.getUserAccount().getIdentity();
 

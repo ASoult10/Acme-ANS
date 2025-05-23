@@ -75,4 +75,4 @@ acme.validation.license-number.repeated.message = The technician's license numbe
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
 technician.maintenance-record.publish.published-tasks = To publish a maintenance record, it cannot have any unpublished tasks and should have at least one published task
 technician.maintenance-record.publish.status = To publish a maintenance record, its status must be "COMPLETED"
-
+acme.validation.technician.null.message = Technician cannot be null
