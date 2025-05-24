@@ -25,16 +25,22 @@ public class AdministratorAircraftCreateService extends AbstractGuiService<Admin
 	public void authorise() {
 		boolean status = true;
 
-		if (super.getRequest().hasData("id")) {
+		try {
 
-			boolean correctAirline = true;
-			Integer airlineId = super.getRequest().getData("airline", int.class);
+			if (super.getRequest().hasData("id")) {
 
-			if (airlineId != 0) {
-				Airline airline = this.repository.findAirlineById(airlineId);
-				correctAirline = airline != null;
+				boolean correctAirline = true;
+				Integer airlineId = super.getRequest().getData("airline", int.class);
+
+				if (airlineId != 0) {
+					Airline airline = this.repository.findAirlineById(airlineId);
+					correctAirline = airline != null;
+				}
+				status = correctAirline;
 			}
-			status = correctAirline;
+
+		} catch (Throwable E) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
