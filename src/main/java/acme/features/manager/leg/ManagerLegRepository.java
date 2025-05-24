@@ -2,6 +2,7 @@
 package acme.features.manager.leg;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -40,8 +41,8 @@ public interface ManagerLegRepository extends AbstractRepository {
 	@Query("select a from Airport a where a.id = :id")
 	Airport findAirportById(int id);
 
-	@Query("select a from Aircraft a")
-	Collection<Aircraft> findAllAircrafts();
+	@Query("select count(l) from Leg l where l.draftMode = false and l.aircraft.id = :aircraftId and ((l.scheduledDeparture >= :departure and l.scheduledDeparture <= :arrival) or (l.scheduledArrival >= :departure and l.scheduledArrival <= :arrival) or (l.scheduledDeparture <= :departure and l.scheduledArrival >= :arrival))")
+	Integer countNumberOfPublishedLegsInIntervalWithAircraft(int aircraftId, Date departure, Date arrival);
 
 	@Query("select a from Aircraft a where a.status = acme.entities.aircrafts.AircraftStatus.ACTIVE")
 	Collection<Aircraft> findAllActiveAircrafts();

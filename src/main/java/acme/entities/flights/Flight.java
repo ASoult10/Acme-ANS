@@ -120,7 +120,7 @@ public class Flight extends AbstractEntity {
 		LegRepository repository;
 
 		repository = SpringHelper.getBean(LegRepository.class);
-		result = repository.countNumberOfLegsOfFlight(this.getId());
+		result = Math.max(0, repository.countNumberOfLegsOfFlight(this.getId()) - 1);
 
 		return result;
 	}
