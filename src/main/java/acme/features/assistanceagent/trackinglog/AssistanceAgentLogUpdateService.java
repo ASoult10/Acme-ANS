@@ -55,31 +55,25 @@ public class AssistanceAgentLogUpdateService extends AbstractGuiService<Assistan
 
 	@Override
 	public void validate(final TrackingLog log) {
-		//TODO: validar que el % tiene que incrementar
-
-		if (log.isDraftMode())
+		if (!log.isDraftMode())
 			super.state(log.isDraftMode(), "draftMode", "assistanceAgent.claim.form.error.draftMode");
 
-		/*
-		 * int claimId = trackingLog.getClaim().getId();
-		 * Double maxExisting = this.repository.findMaxResolutionPercentageByClaimId(claimId);
-		 * TrackingLog existing = this.repository.findLogById(trackingLog.getId());
-		 * Double previousPercentage = existing.getResolutionPercentage();
-		 * boolean valueChanged = previousPercentage == null || !previousPercentage.equals(trackingLog.getResolutionPercentage());
-		 * 
-		 * if (!trackingLog.isDraftMode())
-		 * super.state(trackingLog.isDraftMode(), "*", "assistance-agent.tracking-log.form.error.draftMode");
-		 * 
-		 * if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() == 100.00) {
-		 * int existingCount = this.repository.countFullyResolvedLogs(claimId);
-		 * super.state(existingCount < 2, "resolutionPercentage", "acme.validation.trackingLog.limit-100.message");
-		 * }
-		 * 
-		 * if (valueChanged && trackingLog.getResolutionPercentage() != null && maxExisting != null) {
-		 * boolean validPercentage = trackingLog.getResolutionPercentage() >= maxExisting;
-		 * super.state(validPercentage, "resolutionPercentage", "acme.validation.trackingLog.strict-increase.message");
-		 * }
-		 */
+		//validar que el % tiene que incrementar
+		int claimId = log.getClaim().getId();
+		Double lastPercentage = this.repository.findLastLog(claimId).getResolutionPercentage();
+		Double prevPercentage = this.repository.findLogById(log.getId()).getResolutionPercentage();
+		boolean valueChanged = prevPercentage == null || !prevPercentage.equals(log.getResolutionPercentage());
+
+		if (log.getResolutionPercentage() != null && log.getResolutionPercentage() == 100.00) {
+			int count = this.repository.countResolvedLogs(claimId);
+			super.state(count < 2, "resolutionPercentage", "");
+		}
+
+		if (valueChanged && log.getResolutionPercentage() != null && lastPercentage != null) {
+			boolean validPercentage = log.getResolutionPercentage() >= lastPercentage;
+			super.state(validPercentage, "resolutionPercentage", "");
+		}
+
 	}
 
 	@Override

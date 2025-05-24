@@ -70,25 +70,19 @@ public class AssistanceAgentLogCreateService extends AbstractGuiService<Assistan
 
 	@Override
 	public void validate(final TrackingLog log) {
-		/*
-		 * boolean confirmation;
-		 * int claimId = trackingLog.getClaim().getId();
-		 * Double maxExisting = this.repository.findMaxResolutionPercentageByClaimId(claimId);
-		 * 
-		 * confirmation = super.getRequest().getData("confirmation", boolean.class);
-		 * super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
-		 * super.state(trackingLog.getResolutionPercentage() != null, "resolutionPercentage", "javax.validation.constraints.NotNull.message");
-		 * 
-		 * if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() == 100.00) {
-		 * int existingCount = this.repository.countFullyResolvedLogs(claimId);
-		 * super.state(existingCount < 2, "resolutionPercentage", "acme.validation.trackingLog.limit-100.message");
-		 * }
-		 * 
-		 * if (trackingLog.getResolutionPercentage() != null && maxExisting != null) {
-		 * boolean validPercentage = trackingLog.getResolutionPercentage() >= maxExisting;
-		 * super.state(validPercentage, "resolutionPercentage", "acme.validation.trackingLog.strict-increase.message");
-		 * }
-		 */
+		//validar que incrementa el %
+		int claimId = log.getClaim().getId();
+		Double lastPercentage = this.repository.findLastLog(claimId).getResolutionPercentage();
+
+		if (log.getResolutionPercentage() != null && log.getResolutionPercentage() == 100.00) {
+			int count = this.repository.countResolvedLogs(claimId);
+			super.state(count < 2, "resolutionPercentage", "");
+		}
+
+		if (log.getResolutionPercentage() != null && lastPercentage != null) {
+			boolean validPercentage = log.getResolutionPercentage() >= lastPercentage;
+			super.state(validPercentage, "resolutionPercentage", "");
+		}
 	}
 
 	@Override
