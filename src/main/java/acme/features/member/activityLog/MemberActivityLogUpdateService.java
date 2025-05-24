@@ -24,14 +24,17 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 	public void authorise() {
 		ActivityLog activityLog;
 		int id;
+		boolean correctMember = false;
+		boolean status = super.getRequest().getMethod().equals("POST");
+		try {
 
-		id = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(id);
-		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-		//boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
-		//boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
-
-		boolean status = correctMember && activityLog.isDraftMode();
+			id = super.getRequest().getData("id", int.class);
+			activityLog = this.repository.findActivityLogById(id);
+			correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = status && correctMember && activityLog.isDraftMode();
+		} catch (Throwable e) {
+			status = false;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
