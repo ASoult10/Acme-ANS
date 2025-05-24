@@ -22,7 +22,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "licenseNumber"), @Index(columnList = "user_account_id")
+	@Index(columnList = "licenseNumber")
 })
 public class Technician extends AbstractRole {
 
