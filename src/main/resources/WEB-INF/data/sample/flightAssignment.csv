@@ -27,8 +27,8 @@ flightAssignment-20,PILOT,2000/09/01 10:00,CONFIRMED,' or 'A' = 'A,member-00,leg
 # member
 #flightAssignment-21,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00,false
 flightAssignment-22,CO_PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-02,leg-00,false
-flightAssignment-23,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-03,leg-00,false
-flightAssignment-24,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-04,leg-00,true
+flightAssignment-23,LEAD_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00,true
+flightAssignment-24,CABIN_ATTENDANT,2000/09/01 10:00,CONFIRMED,Lorem,member-01,leg-00,false
 # leg
 flightAssignment-25,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-25,false
 flightAssignment-26,PILOT,2000/09/01 10:00,CONFIRMED,Lorem,member-00,leg-26,true

@@ -42,7 +42,6 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 			if (id == null)
 				status = false;
 			else {
-
 				FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
 				boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
 				legId = super.getRequest().getData("leg", Integer.class);
@@ -50,8 +49,9 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 				if (legId == null)
 					status = false;
 				else if (legId != 0) {
+					Leg oldLeg = flightAssignment.getLeg();
 					Leg leg = this.repository.findLegById(legId);
-					futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
+					futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival()) && !MomentHelper.isPast(oldLeg.getScheduledArrival());
 					legPublished = leg != null && !leg.isDraftMode();
 					legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
 				}
@@ -115,23 +115,20 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		Dataset dataset;
 
 		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
-		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Integer memberId = flightAssignment.getMember().getId();
 		legs.removeAll(this.repository.findLegsByMemberId(memberId));
 		FlightAssignment oldFlightAssignment = this.repository.findFlightAssignmentById(flightAssignment.getId());
 		legs.add(oldFlightAssignment.getLeg());
 
-		//try {
 		Leg leg = flightAssignment.getLeg();
 		legChoices = SelectChoices.from(legs, "flightNumber", leg);
-		//} catch (NullPointerException e) {
-		//}
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
 		dataset = super.unbindObject(flightAssignment, "duty", "assignmentStatus", "remarks", "draftMode");
 
-		String identificador = legChoices.getSelected().getKey(); //== null ? "" : legChoices.getSelected().getKey();
+		String identificador = legChoices.getSelected().getKey();
 
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
