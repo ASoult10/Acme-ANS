@@ -12,12 +12,13 @@ acme.validation.flight.no-legs.message = El vuelo no tiene tramos asociados
 acme.validation.flight.no-manager.message = El vuelo no tiene gestor
 acme.validation.flight.future-legs.message = Uno o varios de los tramos de vuelos asociados está en el pasado
 
-acme.validation.leg.flight-number-format.message = Debe estar compuesto del código IATA de la aerolínea seguido de cuatro dígitos.
+acme.validation.leg.flight-number-format.message = Debe estar compuesto del código IATA de la aerolínea seguido de cuatro dígitos
 acme.validation.leg.duplicated-number.message = Ya existe un tramo de vuelo con el mismo número de vuelo
 acme.validation.leg.wrong-scheduled-arrival.message = La fecha prevista de llegada debe ser posterior a la de salida
 acme.validation.leg.wrong-flight-number.message = El número de vuelo no comienza con el código IATA de la aerolínea
 acme.validation.leg.same-airport.message = El aeropuerto de llegada no puede ser el mismo que el de salida
 acme.validation.leg.scheduled-departure-future.message = La fecha de salida programada debe estar en el futuro
+acme.validation.leg.aircraft-used.message = La aeronave ya está asignada a otro tramo de vuelo simultáneamente
 
 # Mensajes del estudiante 2
 acme.validation.identifier.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto

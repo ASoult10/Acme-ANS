@@ -18,6 +18,7 @@ acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be 
 acme.validation.leg.wrong-flight-number.message = Flight number does not start with the airline IATA code
 acme.validation.leg.same-airport.message = Arrival airport can't be the same as the departure airport
 acme.validation.leg.scheduled-departure-future.message = Scheduled departure must be in the future
+acme.validation.leg.aircraft-used.message = Aircraft is already assigned to other leg simultaneously
 
 # Student 2 Messages
 acme.validation.identifier.nullornotpattern.message = The identifier must not be null and must follow the correct pattern

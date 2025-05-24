@@ -115,10 +115,20 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void validate(final Leg leg) {
-		boolean correctScheduledDeparture;
+		{
+			boolean correctScheduledDeparture;
 
-		correctScheduledDeparture = leg.getScheduledDeparture() != null && MomentHelper.isFuture(leg.getScheduledDeparture());
-		super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
+			correctScheduledDeparture = leg.getScheduledDeparture() != null && MomentHelper.isFuture(leg.getScheduledDeparture());
+			super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
+		}
+		{
+			boolean correctAircraft;
+
+			correctAircraft = leg.getAircraft() == null || leg.getScheduledDeparture() == null || leg.getScheduledArrival() == null || //
+				this.repository.countNumberOfPublishedLegsInIntervalWithAircraft(leg.getAircraft().getId(), leg.getScheduledDeparture(), leg.getScheduledArrival()).equals(0);
+
+			super.state(correctAircraft, "aircraft", "acme.validation.leg.aircraft-used.message");
+		}
 	}
 
 	@Override
@@ -149,7 +159,7 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 		arrivalAirportChoices = SelectChoices.from(airports, "iataCode", leg.getArrivalAirport());
 		aircraftChoices = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "duration", "status");
 		dataset.put("masterId", leg.getFlight().getId());
 		dataset.put("draftMode", leg.isDraftMode());
 		dataset.put("statuses", statusChoices);
