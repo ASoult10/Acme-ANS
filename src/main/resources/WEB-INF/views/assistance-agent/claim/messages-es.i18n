@@ -14,5 +14,6 @@ assistance-agent.claim.button.create = Crear
 assistance-agent.claim.button.update = Actualizar
 assistance-agent.claim.button.delete = Eliminar
 assistance-agent.claim.button.publish = Publicar
+assistance-agent.claim.button.logs = Logs asociados
 
 assistance-agent.claim.form.label.confirmation = Confirme la reclamación

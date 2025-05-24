@@ -64,6 +64,11 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private Date				creationMoment;
 
+	@Mandatory
+	//@Valid
+	@Automapped
+	private boolean				draftMode;
+
 	// Relationships ----------------------------------------------------------
 
 	@Mandatory
