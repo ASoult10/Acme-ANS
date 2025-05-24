@@ -11,6 +11,7 @@ manager.flight.form.label.scheduled-departure = Salida programada:
 manager.flight.form.label.scheduled-arrival = Llegada programada:
 manager.flight.form.label.origin-city = Ciudad de origen:
 manager.flight.form.label.destination-city = Ciudad de destino:
+manager.flight.form.label.layovers = Número de escalas:
 
 manager.flight.form.button.legs = Tramos
 manager.flight.form.button.create = Crear

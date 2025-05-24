@@ -13,6 +13,7 @@
 	<acme:input-moment code="manager.flight.form.label.scheduled-arrival" path="scheduledArrival" readonly="true"/>
 	<acme:input-textbox code="manager.flight.form.label.origin-city" path="originCity" readonly="true"/>
 	<acme:input-textbox code="manager.flight.form.label.destination-city" path="destinationCity" readonly="true"/>
+	<acme:input-integer code="manager.flight.form.label.layovers" path="numberOfLayovers" readonly="true"/>
 
 	<jstl:choose>
 		<jstl:when test="${_command == 'show' && draftMode == false}">
