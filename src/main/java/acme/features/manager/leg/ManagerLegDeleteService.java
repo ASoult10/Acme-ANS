@@ -3,12 +3,9 @@ package acme.features.manager.leg;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.legs.Leg;
-import acme.entities.legs.LegStatus;
 import acme.realms.Manager;
 
 @GuiService
@@ -27,11 +24,13 @@ public class ManagerLegDeleteService extends AbstractGuiService<Manager, Leg> {
 		boolean status;
 		int legId;
 		Leg leg;
+		String method;
 
 		legId = super.getRequest().getData("id", int.class);
 		leg = this.repository.findLegById(legId);
+		method = super.getRequest().getMethod();
 
-		status = leg != null && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager());
+		status = method.equals("POST") && leg != null && leg.isDraftMode() && super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager());
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,17 +63,7 @@ public class ManagerLegDeleteService extends AbstractGuiService<Manager, Leg> {
 
 	@Override
 	public void unbind(final Leg leg) {
-		SelectChoices choices;
-		Dataset dataset;
-
-		choices = SelectChoices.from(LegStatus.class, leg.getStatus());
-
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "duration", "status");
-		dataset.put("masterId", leg.getFlight().getId());
-		dataset.put("draftMode", leg.isDraftMode());
-		dataset.put("statuses", choices);
-
-		super.getResponse().addData(dataset);
+		;
 	}
 
 }
