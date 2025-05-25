@@ -28,7 +28,7 @@ maintenance-16,2000/01/01 00:00,IN_PROGRESS,2025/01/01 00:01,EUR 1000000.00,Annu
 
 #notes - variations
 maintenance-17,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1300.00,,aircraft-01,technician-01,true
-maintenance-18,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1300.00,L,aircraft-02,technician-02,false
+maintenance-18,2000/01/01 00:00,PENDING,2025/01/01 00:01,EUR 1300.00,L,aircraft-02,technician-01,true
 maintenance-19,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1300.00,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,aircraft-01,technician-01,true
 maintenance-20,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1300.00,Lorem ipsum dolor sit amete consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,aircraft-01,technician-01,true
 maintenance-21,2000/01/01 00:00,COMPLETED,2025/01/01 00:01,EUR 1300.00,โลเร็ม อิปสัม,aircraft-01,technician-01,true
