@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -31,12 +30,14 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 		int masterId;
 		Flight flight;
 		Manager manager;
+		String method;
 
 		masterId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(masterId);
 		manager = flight == null ? null : flight.getManager();
+		method = super.getRequest().getMethod();
 
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager) && !flight.getHasPublishedLegs();
+		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager) && !flight.getHasPublishedLegs() && method.equals("POST");
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -76,15 +77,6 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 		this.repository.deleteAll(bookings);
 		this.repository.deleteAll(legs);
 		this.repository.delete(flight);
-	}
-
-	@Override
-	public void unbind(final Flight flight) {
-		Dataset dataset;
-
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "numberOfLayovers", "hasPublishedLegs", "hasAllLegsPublished");
-
-		super.getResponse().addData(dataset);
 	}
 
 }
