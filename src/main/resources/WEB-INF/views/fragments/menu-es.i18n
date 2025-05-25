@@ -72,7 +72,8 @@ master.menu.member.completedlist-flightAssignment= Listar asignaciones de vuelo 
 master.menu.member.notCompletedlist-flightAssignment = Listar asignaciones de vuelo no completadas
 master.menu.member.myCompletedList-flightAssignment = Listar mis asignaciones de vuelo completadas
 master.menu.member.myNotCompletedList-flightAssignment = Listar mis asignaciones de vuelo no completadas
-
+master.menu.user-account.become-member = Hacerse tripulante
+master.menu.user-account.member-profile = Perfil de tripulante
 
 # master.menu.technician ##########################################################
 

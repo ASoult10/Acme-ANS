@@ -71,7 +71,8 @@ master.menu.member.completedlist-flightAssignment= List completed flightAssignme
 master.menu.member.notCompletedlist-flightAssignment = List not completed flightAssignment
 master.menu.member.myCompletedList-flightAssignment = List my completed flightAssignment
 master.menu.member.myNotCompletedList-flightAssignment = List my not completed flightAssignment
-
+master.menu.user-account.become-member = Become a member
+master.menu.user-account.member-profile = Member profile
 
 # master.menu.technician ##########################################################
 

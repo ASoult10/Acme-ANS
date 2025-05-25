@@ -92,7 +92,9 @@
 			<acme:menu-suboption code="master.menu.user-account.customer-profile" action="/authenticated/customer/update" access="hasRealm('Customer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-technician" action="/authenticated/technician/create" access="!hasRealm('Technician')"/>
 			<acme:menu-suboption code="master.menu.user-account.technician-profile" action="/authenticated/technician/update" access="hasRealm('Technician')"/>
-		
+			<acme:menu-suboption code="master.menu.user-account.become-member" action="/authenticated/member/create" access="!hasRealm('Member')"/>
+			<acme:menu-suboption code="master.menu.user-account.member-profile" action="/authenticated/member/update" access="hasRealm('Member')"/>
+			
 		</acme:menu-option>
 	
 	</acme:menu-right>
