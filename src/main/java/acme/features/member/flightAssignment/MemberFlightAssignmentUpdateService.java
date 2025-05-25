@@ -29,27 +29,43 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean status = true;
 
-		int id = super.getRequest().getData("id", int.class);
-		FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
-		boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
+		Integer memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		try {
+			Integer id = super.getRequest().getData("id", Integer.class);
 
-		boolean futureLeg = true;
-		boolean legPublished = true;
-		Integer legId = super.getRequest().getData("leg", int.class);
-		if (legId != 0) {
-			Leg leg = this.repository.findLegById(legId);
-			futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival());
-			legPublished = leg != null && !leg.isDraftMode();
+			boolean futureLeg = true;
+			boolean legPublished = true;
+			boolean legNotOwned = true;
+			Integer legId = null;
+			if (id == null)
+				status = false;
+			else {
+				FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(id);
+				boolean flightAssignmentIsDraftMode = flightAssignment.isDraftMode();
+				legId = super.getRequest().getData("leg", Integer.class);
+
+				if (legId == null)
+					status = false;
+				else if (legId != 0) {
+					Leg oldLeg = flightAssignment.getLeg();
+					Leg leg = this.repository.findLegById(legId);
+					futureLeg = leg != null && !MomentHelper.isPast(leg.getScheduledArrival()) && !MomentHelper.isPast(oldLeg.getScheduledArrival());
+					legPublished = leg != null && !leg.isDraftMode();
+					legNotOwned = !this.repository.findLegsByMemberId(memberId).contains(leg) || leg == flightAssignment.getLeg();
+				}
+
+				boolean correctMember = true;
+				String employeeCode = super.getRequest().getData("member", String.class);
+				Member member = this.repository.findMemberByEmployeeCode(employeeCode);
+				correctMember = member != null && memberId == member.getId() && member.getId() == flightAssignment.getMember().getId();
+
+				status = status && flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished && legNotOwned;
+			}
+		} catch (Throwable e) {
+			status = false;
 		}
-
-		boolean correctMember = true;
-		String employeeCode = super.getRequest().getData("member", String.class);
-		Member member = this.repository.findMemberByEmployeeCode(employeeCode);
-		correctMember = member != null && super.getRequest().getPrincipal().getActiveRealm().getId() == member.getId();
-
-		status = flightAssignmentIsDraftMode && correctMember && futureLeg && legPublished;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -79,12 +95,6 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 	public void validate(final FlightAssignment flightAssignment) {
 	}
 
-	private boolean legIsCompatible(final Leg legToIntroduce, final Leg legInTheDB) {
-		boolean departureIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledDeparture(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		boolean arrivalIncompatible = MomentHelper.isInRange(legToIntroduce.getScheduledArrival(), legInTheDB.getScheduledDeparture(), legInTheDB.getScheduledArrival());
-		return !departureIncompatible && !arrivalIncompatible;
-	}
-
 	@Override
 	public void perform(final FlightAssignment flightAssignment) {
 		this.repository.save(flightAssignment);
@@ -96,31 +106,38 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 		SelectChoices duty;
 
 		List<Leg> legs;
-		SelectChoices legChoices;
+		SelectChoices legChoices = null;
 
 		Dataset dataset;
 
 		legs = this.repository.findAllNotCompletedPublishedLegs(MomentHelper.getCurrentMoment());
-		try {
-			legChoices = SelectChoices.from(legs, "flightNumber", flightAssignment.getLeg());
-		} catch (Exception e) {
-			Leg leg = new Leg();
-			legChoices = SelectChoices.from(legs, "flightNumber", leg);
-		}
+		Integer memberId = flightAssignment.getMember().getId();
+		legs.removeAll(this.repository.findLegsByMemberId(memberId));
+		FlightAssignment oldFlightAssignment = this.repository.findFlightAssignmentById(flightAssignment.getId());
+		legs.add(oldFlightAssignment.getLeg());
+
+		Leg leg = flightAssignment.getLeg();
+		legChoices = SelectChoices.from(legs, "flightNumber", leg);
 
 		assignmentStatus = SelectChoices.from(AssignmentStatus.class, flightAssignment.getAssignmentStatus());
 		duty = SelectChoices.from(Duty.class, flightAssignment.getDuty());
 
 		dataset = super.unbindObject(flightAssignment, "duty", "assignmentStatus", "remarks", "draftMode");
 
+		String identificador = legChoices.getSelected().getKey();
+
 		dataset.put("confirmation", false);
 		dataset.put("readonly", false);
 		dataset.put("moment", flightAssignment.getMoment());
 		dataset.put("assignmentStatus", assignmentStatus);
 		dataset.put("duty", duty);
-		dataset.put("leg", legChoices.getSelected().getKey());
+		dataset.put("leg", identificador);
 		dataset.put("legs", legChoices);
 		dataset.put("member", flightAssignment.getMember().getEmployeeCode());
+
+		Boolean legNotCompleted = MomentHelper.isFuture(oldFlightAssignment.getLeg().getScheduledArrival());
+
+		dataset.put("legNotCompleted", legNotCompleted);
 
 		super.getResponse().addData(dataset);
 

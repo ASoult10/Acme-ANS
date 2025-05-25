@@ -60,11 +60,7 @@ public class TechnicianTaskPublishService extends AbstractGuiService<Technician,
 
 	@Override
 	public void validate(final Task task) {
-		boolean status;
-
-		status = task.isDraftMode();
-
-		super.getResponse().setAuthorised(status);
+		;
 	}
 
 	@Override

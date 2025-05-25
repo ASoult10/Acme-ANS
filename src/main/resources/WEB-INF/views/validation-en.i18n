@@ -10,11 +10,15 @@ acme.validation.manager.wrong-initials.message = Identifier number must start wi
 acme.validation.flight.overlapping-legs.message = There are overlapping legs
 acme.validation.flight.no-legs.message = Flight has no legs
 acme.validation.flight.no-manager.message = Flight has no manager
-acme.validation.flight.cant-delete.message = Can't delete a flight with published legs
+acme.validation.flight.future-legs.message = Some legs are in the past
 
+acme.validation.leg.flight-number-format.message = Must be composed of the airline's IATA code followed by four digits
 acme.validation.leg.duplicated-number.message = A leg with the same flight number already exists
 acme.validation.leg.wrong-scheduled-arrival.message = Scheduled arrival must be after scheduled departure
 acme.validation.leg.wrong-flight-number.message = Flight number does not start with the airline IATA code
+acme.validation.leg.same-airport.message = Arrival airport can't be the same as the departure airport
+acme.validation.leg.scheduled-departure-future.message = Scheduled departure must be in the future
+acme.validation.leg.aircraft-used.message = Aircraft is already assigned to other leg simultaneously
 
 # Student 2 Messages
 acme.validation.identifier.nullornotpattern.message = The identifier must not be null and must follow the correct pattern
@@ -33,8 +37,14 @@ acme.validation.passportNumber.notPattern.message = Passport number must follow 
 
 acme.validation.lastNibble.blank.message = Cannot publish a booking if last nibble is not set
 
-acem.validation.bookingId.notPublic = Booking must exist and not be published
-acem.validation.passengerId.notPublic = Passenger must exist and be published
+acme.validation.noChoice = Must not be empty
+customer.passenger.form.error.associatedBookings = Cannot delete a passenger associated with existing bookings
+
+customer.validation.booking.form.error.noPassengers = There must be at least one passenger for publish a booking
+customer.booking.form.error.publishPassengers = All passengers must be published before publishing a booking
+customer.booking.form.error.existingPassengers = Cannot delete a booking with passengers associated
+
+authenticated.customer.form.error.duplicateIdentifier = Duplicated Identifier
 
 # Student 3 Messages
 acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
@@ -66,4 +76,4 @@ acme.validation.license-number.repeated.message = The technician's license numbe
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
 technician.maintenance-record.publish.published-tasks = To publish a maintenance record, it cannot have any unpublished tasks and should have at least one published task
 technician.maintenance-record.publish.status = To publish a maintenance record, its status must be "COMPLETED"
-
+acme.validation.technician.null.message = Technician cannot be null

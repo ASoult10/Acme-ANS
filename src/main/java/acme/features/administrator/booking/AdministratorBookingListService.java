@@ -39,7 +39,7 @@ public class AdministratorBookingListService extends AbstractGuiService<Administ
 
 		Dataset dataset;
 
-		dataset = super.unbindObject(booking, "flight", "purchaseMoment", "price", "isPublished", "locatorCode");
+		dataset = super.unbindObject(booking, "flight", "purchaseMoment", "price", "isPublished", "locatorCode", "travelClass");
 
 		super.getResponse().addData(dataset);
 	}

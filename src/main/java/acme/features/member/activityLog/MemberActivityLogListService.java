@@ -26,17 +26,23 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
+		boolean status = true;
+		boolean correctMember = true;
+		Integer masterId;
 		FlightAssignment flightAssignment;
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-		boolean correctMember = flightAssignment != null && //
-			(flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() ||//
-				!flightAssignment.isDraftMode());
+		masterId = super.getRequest().getData("masterId", Integer.class);
+		if (masterId == null)
+			status = false;
+		else {
 
-		status = correctMember;
+			flightAssignment = this.repository.findFlightAssignmentById(masterId);
+			correctMember = flightAssignment != null && //
+				(flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() ||//
+					!flightAssignment.isDraftMode());
+
+		}
+		status = status && correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -47,7 +53,11 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 		int masterId;
 
 		masterId = super.getRequest().getData("masterId", int.class);
-		activityLog = this.repository.findActivityLogsByMasterId(masterId);
+
+		if (this.repository.findFlightAssignmentById(masterId).getMember().getId() != super.getRequest().getPrincipal().getActiveRealm().getId())
+			activityLog = this.repository.findPublishedActivityLogsByMasterId(masterId);
+		else
+			activityLog = this.repository.findActivityLogsByMasterId(masterId);
 
 		super.getBuffer().addData(activityLog);
 	}
@@ -56,7 +66,7 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 	public void unbind(final ActivityLog activityLog) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel");
+		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 		super.addPayload(dataset, activityLog, "registrationMoment", "typeOfIncident");
 
 		super.getResponse().addData(dataset);
@@ -73,7 +83,7 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
 		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
-		showCreate = !flightAssignment.isDraftMode() && inPast && correctMember;
+		showCreate = inPast && correctMember && !flightAssignment.isDraftMode();
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);

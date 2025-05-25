@@ -34,7 +34,8 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 		flightId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(flightId);
 		manager = flight == null ? null : flight.getManager();
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+
+		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager) && flight.getHasAllLegsPublished() && flight.getHasPublishedLegs();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -57,6 +58,18 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 
 	@Override
 	public void validate(final Flight flight) {
+		{
+			boolean tramosFuturos = true;
+			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
+
+			for (Leg leg : legs)
+				if (MomentHelper.isPast(leg.getScheduledArrival())) {
+					tramosFuturos = false;
+					break;
+				}
+
+			super.state(tramosFuturos, "*", "acme.validation.flight.future-legs.message");
+		}
 		{
 			boolean tramosSeparados = true;
 			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
@@ -91,7 +104,7 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasPublishedLegs", "hasAllLegsPublished");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "numberOfLayovers", "hasPublishedLegs", "hasAllLegsPublished");
 
 		super.getResponse().addData(dataset);
 	}

@@ -3,13 +3,7 @@
 administrator.booking.form.title = Details of booking
 administrator.booking.list.title = List of bookings
 
-administrator.booking.form.button.create = Create 
-administrator.booking.form.button.update = Update
-administrator.booking.form.button.publish= Publish
-administrator.booking.form.button.return = Return
 administrator.booking.form.show.passengers = Show passengers
-administrator.booking.form.add.passenger = Add Passenger
-administrator.booking.list.button.create = Create
 
 administrator.booking.list.label.flight = Flight
 administrator.booking.list.label.locatorCode = Locator Code
@@ -20,4 +14,3 @@ administrator.booking.list.label.travelClass = Travel Class
 administrator.booking.list.label.isPublished = Is Published?
 
 acme.validation.lastNibble.message = You must complete the last digits of your card to publish
-administrator.booking.form.error.duplicateLocatorCode = That locator Code is already in use

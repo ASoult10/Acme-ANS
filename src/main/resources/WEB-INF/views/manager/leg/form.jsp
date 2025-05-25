@@ -8,6 +8,7 @@
 	<acme:input-moment code="manager.leg.form.label.scheduledDeparture" path="scheduledDeparture"/>
 	<acme:input-moment code="manager.leg.form.label.scheduledArrival" path="scheduledArrival"/>
 	<acme:input-select code="manager.leg.form.label.status" path="status" choices="${statuses}"/>
+	<acme:input-double code="manager.leg.form.label.duration" path="duration" readonly="true"/>
 
 	<acme:input-select code="manager.leg.form.label.airline" path="airline" choices="${airlines}"/>
 	<acme:input-select code="manager.leg.form.label.departureAirport" path="departureAirport" choices="${departureAirports}"/>

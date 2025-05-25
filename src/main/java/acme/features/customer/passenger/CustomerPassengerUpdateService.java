@@ -22,16 +22,20 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = super.getRequest().getMethod().equals("POST");
 
-		Integer passengerId = super.getRequest().getData("id", int.class);
-		Passenger passenger = this.customerPassengerRepository.getPassengerById(passengerId);
+		try {
+			Integer passengerId = super.getRequest().getData("id", Integer.class);
+			Passenger passenger = this.customerPassengerRepository.findPassengerById(passengerId);
 
-		status = status && passenger != null;
+			status = status && passenger != null;
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = status && passenger.getCustomer().getId() == customerId && !passenger.getIsPublished();
+			status = status && passenger.getCustomer().getId() == customerId && !passenger.getIsPublished();
+		} catch (Throwable E) {
+			status = false;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -39,7 +43,7 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 	@Override
 	public void load() {
 		Integer id = super.getRequest().getData("id", int.class);
-		Passenger passenger = this.customerPassengerRepository.getPassengerById(id);
+		Passenger passenger = this.customerPassengerRepository.findPassengerById(id);
 		super.getBuffer().addData(passenger);
 	}
 
@@ -60,8 +64,6 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void unbind(final Passenger passenger) {
-		assert passenger != null;
-
 		Dataset dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds", "isPublished");
 
 		super.getResponse().addData(dataset);

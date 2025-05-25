@@ -17,7 +17,6 @@
 			<acme:submit code="technician.task.form.button.publish" action="/technician/task/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:input-checkbox code="technician.task.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="technician.task.form.button.create" action="/technician/task/create"/>
 		</jstl:when>		
 	</jstl:choose>

@@ -6,10 +6,11 @@ manager.leg.list.title = Listado de tramos
 manager.leg.form.label.flightNumber = Número de vuelo:
 manager.leg.form.label.scheduledDeparture = Salida programada:
 manager.leg.form.label.scheduledArrival = Llegada programada:
+manager.leg.form.label.duration = Duración (h):
 manager.leg.form.label.status = Estado:
 manager.leg.form.label.airline = Aerolínea:
 manager.leg.form.label.departureAirport = Aeropuerto de salida:
-manager.leg.form.label.arrivalAirport = Aueropuerto de llegada:
+manager.leg.form.label.arrivalAirport = Aeropuerto de llegada:
 manager.leg.form.label.aircraft = Aeronave:
 
 manager.leg.form.button.create = Crear		

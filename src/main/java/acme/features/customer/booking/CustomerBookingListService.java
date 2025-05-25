@@ -24,14 +24,14 @@ public class CustomerBookingListService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Collection<Booking> bookings = this.customerBookingRepository.findBookingsByCustomer(customerId);
+		Collection<Booking> bookings = this.customerBookingRepository.findAllBookingsByCustomerId(customerId);
 		super.getBuffer().addData(bookings);
 	}
 

@@ -25,13 +25,17 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
-		if (!super.getRequest().getData().isEmpty()) {
-			Integer bookingId = super.getRequest().getData("bookingId", int.class);
-			Booking booking = this.customerPassengerRepository.getBookingById(bookingId);
-			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			status = status && booking.getCustomer().getId() == customerId;
+		try {
+			if (!super.getRequest().getData().isEmpty()) {
+				Integer bookingId = super.getRequest().getData("bookingId", Integer.class);
+				Booking booking = this.customerPassengerRepository.findBookingById(bookingId);
+				Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				status = booking.getCustomer().getId() == customerId;
+			}
+		} catch (Throwable E) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -43,23 +47,16 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 		if (!super.getRequest().getData().containsKey("bookingId"))
-			passengers = this.customerPassengerRepository.getPassengersByCustomer(customerId);
+			passengers = this.customerPassengerRepository.findPassengersByCustomer(customerId);
 		else {
 			Integer bookingId = super.getRequest().getData("bookingId", int.class);
-			passengers = this.customerPassengerRepository.findPassengerByBookingId(bookingId);
+			passengers = this.customerPassengerRepository.findAllPassengerByBookingId(bookingId);
 		}
 		super.getBuffer().addData(passengers);
 	}
 
 	@Override
-	public void validate(final Passenger passenger) {
-		;
-	}
-
-	@Override
 	public void unbind(final Passenger passenger) {
-		assert passenger != null;
-
 		Dataset dataset = super.unbindObject(passenger, "fullName", "email", "passportNumber", "birthDate", "specialNeeds", "isPublished");
 
 		super.getResponse().addData(dataset);

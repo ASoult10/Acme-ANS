@@ -33,14 +33,20 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = true;
 
-		Integer bookingId = super.getRequest().getData("id", int.class);
-		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		try {
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-		status = status && booking.getCustomer().getId() == customerId;
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+			status = booking.getCustomer().getId() == customerId;
+
+		} catch (Throwable E) {
+			status = false;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,7 +62,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	public void unbind(final Booking booking) {
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		Collection<Flight> flights = this.customerBookingRepository.findAllFlight();
-		List<Passenger> passengers = this.customerPassengerRepository.findPassengerByBookingId(booking.getId());
+		List<Passenger> passengers = this.customerPassengerRepository.findAllPassengerByBookingId(booking.getId());
 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished");
 		dataset.put("travelClass", travelClasses);
@@ -69,7 +75,7 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		dataset.put("passengers", passengers);
 
 		dataset.put("city", booking.getFlight().getDestinationCity());
-		dataset.put("country", this.customerBookingRepository.findDestinationAirport(booking.getFlight().getId()).getCity());
+		dataset.put("country", this.customerBookingRepository.findDestinationAirportByFlightId(booking.getFlight().getId()).getCountry());
 
 		super.getResponse().addData(dataset);
 	}

@@ -23,7 +23,32 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = true;
+
+		if (super.getRequest().hasData("id")) {
+
+			boolean correctStatus = true;
+			boolean correctAircraft = true;
+			boolean correctTechnician = true;
+			MaintenanceRecordStatus mrStatus = super.getRequest().getData("status", MaintenanceRecordStatus.class);
+			Integer aircraftId = super.getRequest().getData("aircraft", int.class);
+			Integer technicianId = super.getRequest().getData("technician", int.class);
+			Integer techId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			if (technicianId != 0) {
+				Technician technicianCorrect = this.repository.findTechnicianById(technicianId);
+				correctTechnician = technicianCorrect != null && technicianId.equals(techId);
+			}
+
+			if (mrStatus != null)
+				correctStatus = !mrStatus.equals(MaintenanceRecordStatus.COMPLETED);
+			if (aircraftId != 0) {
+				Aircraft aircraft = this.repository.findAircraftById(aircraftId);
+				correctAircraft = aircraft != null;
+			}
+			status = correctAircraft && correctStatus && correctTechnician;
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -55,8 +80,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-		if (maintenanceRecord.getStatus() == MaintenanceRecordStatus.COMPLETED)
-			super.state(false, "status", "technician.maintenance-record.create.status");
+		;
 
 	}
 

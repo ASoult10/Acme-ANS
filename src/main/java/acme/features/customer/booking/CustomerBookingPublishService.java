@@ -10,6 +10,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
+import acme.entities.booking.BookingPassenger;
 import acme.entities.booking.TravelClass;
 import acme.entities.flights.Flight;
 import acme.realms.Customer;
@@ -27,21 +28,27 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = super.getRequest().getMethod().equals("POST");
 
-		Integer bookingId = super.getRequest().getData("id", int.class);
-		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		try {
 
-		status = status && booking != null;
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = status && booking != null;
 
-		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer flightId = super.getRequest().getData("flight", int.class);
-		if (flightId != 0) {
-			Flight flight = this.customerBookingRepository.findFlightById(flightId);
-			status = status && flight != null && !flight.isDraftMode();
+			status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+
+			Integer flightId = super.getRequest().getData("flight", Integer.class);
+			if (flightId == null || flightId != 0) {
+				Flight flight = this.customerBookingRepository.findFlightById(flightId);
+				status = status && flight != null && !flight.isDraftMode();
+			}
+
+		} catch (Throwable E) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -64,6 +71,16 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Booking bookingWithSameLocatorCode = this.customerBookingRepository.findBookingByLocatorCode(booking.getLocatorCode());
 		boolean status = bookingWithSameLocatorCode == null || bookingWithSameLocatorCode.getId() == booking.getId();
 		super.state(status, "locatorCode", "acme.validation.identifier.repeated.message");
+
+		Collection<BookingPassenger> bookingPassengers = this.customerBookingRepository.findAllBookingPassengersByBookingId(booking.getId());
+		status = !bookingPassengers.isEmpty();
+		super.state(status, "*", "customer.validation.booking.form.error.noPassengers");
+
+		status = bookingPassengers.stream().filter(br -> !br.getPassenger().getIsPublished()).findFirst().isEmpty();
+		super.state(status, "*", "customer.booking.form.error.publishPassengers");
+
+		status = !booking.getLastNibble().isBlank();
+		super.state(status, "lastNibble", "acme.validation.lastNibble.blank.message");
 	}
 
 	@Override
@@ -80,10 +97,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClass", travelClasses);
 
-		if (!flights.isEmpty()) {
-			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-			dataset.put("flights", flightChoices);
-		}
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+		dataset.put("flights", flightChoices);
 
 		super.getResponse().addData(dataset);
 	}

@@ -4,18 +4,19 @@ customer.booking.list.title = Lista de Reservas
 customer.booking.form.title = Detalles de la Reserva
 
 customer.booking.form.button.update = Actualizar
-customer.booking.form.button.create = Reservar
+customer.booking.form.button.create = Crear Reserva
 customer.booking.form.button.listPassenger = Pasajeros de esta reserva
 customer.booking.form.button.addPassenger = Añadir Pasajero
+customer.booking.form.button.deletePassenger = Eliminar Pasajero
 customer.booking.form.button.publish = Publicar
+customer.booking.form.button.delete = Eliminar
 customer.booking.form.show.recommendations = ¿Qué hacer en la ciudad de destino?
 
-customer.booking.list.button.create = Reservar
+customer.booking.list.button.create = Crear Reserva
 customer.booking.list.label.locatorCode = Código Localizador
 customer.booking.list.label.purchaseMoment = Fecha de Compra
 customer.booking.list.label.travelClass = Clase de Viaje
 customer.booking.list.label.price = Precio
-customer.booking.list.label.lastNibble = Últimos dígitos de tarjeta bancaria
 customer.booking.list.label.isPublished = ¿Está esta reserva publicada?
 
 customer.booking.form.label.flight = Vuelo

@@ -3,13 +3,7 @@
 administrator.booking.form.title = Detalles de la reserva
 administrator.booking.list.title = Listado de reservas
 
-administrator.booking.form.button.create = Crear
-administrator.booking.form.button.update = Actualizar
-administrator.booking.form.button.publish= Publicar
-administrator.booking.form.button.return = Volver
 administrator.booking.form.show.passengers = Mostrar pasajeros
-administrator.booking.form.add.passenger = Añadir Pasajero
-administrator.booking.list.button.create = Crear
 
 administrator.booking.list.label.flight = Vuelo
 administrator.booking.list.label.locatorCode= Localizador de vuelo
@@ -20,4 +14,3 @@ administrator.booking.list.label.travelClass= Clase de viaje
 administrator.booking.list.label.isPublished = ¿Está publicado?
 
 acme.validation.lastNibble.message = Debe completar los dígitos de su tarjeta para confirmar
-administrator.booking.form.error.duplicateLocatorCode = El localizador de vuelo ya está en uso

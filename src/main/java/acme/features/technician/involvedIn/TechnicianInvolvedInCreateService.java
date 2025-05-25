@@ -23,15 +23,36 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean status = true;
 		int masterId;
 		MaintenanceRecord maintenanceRecord;
 		Technician technician;
+		boolean correctTask = true;
+		boolean taskDisp = true;
 
 		masterId = super.getRequest().getData("masterId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(masterId);
 		technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
+		if (super.getRequest().hasData("id")) {
+			Integer taskId = super.getRequest().getData("task", int.class);
+
+			if (taskId != 0) {
+				Task task = this.repository.findTaskById(taskId);
+				correctTask = task != null;
+				if (correctTask) {
+					Task taskDisponible = this.repository.findDisponibleTaskForAddition(masterId, super.getRequest().getPrincipal().getActiveRealm().getId(), taskId);
+					taskDisp = taskDisponible != null;
+				} else
+					taskDisp = false;
+			}
+			if (taskId == 0)
+				taskDisp = true;
+
+			status = status && taskDisp;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,9 +87,7 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 
 	@Override
 	public void validate(final InvolvedIn involvedIn) {
-		boolean confirmation;
-		confirmation = super.getRequest().getData("confirmation", boolean.class);
-		super.state(confirmation, "confirmation", "acme.validation.confirmation.message");
+		;
 	}
 
 	@Override
@@ -84,7 +103,11 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 		Collection<Task> tasks;
 		Dataset dataset;
 
-		tasks = this.repository.findAllDisponibleTasks();
+		int masterId;
+
+		masterId = super.getRequest().getData("masterId", int.class);
+
+		tasks = this.repository.findTasksNotInMaintenanceRecord(masterId, super.getRequest().getPrincipal().getActiveRealm().getId());
 
 		taskChoices = SelectChoices.from(tasks, "description", involvedIn.getTask());
 

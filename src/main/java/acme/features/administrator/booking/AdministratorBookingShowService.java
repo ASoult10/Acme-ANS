@@ -25,6 +25,14 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 	public void authorise() {
 		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Administrator.class);
 
+		try {
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.administratorBookingRepository.findBookingById(bookingId);
+			status = status && booking != null && booking.getIsPublished();
+		} catch (Throwable E) {
+			status = false;
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -44,11 +52,14 @@ public class AdministratorBookingShowService extends AbstractGuiService<Administ
 		SelectChoices travelClasses = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 
 		Collection<Flight> flights = this.administratorBookingRepository.findAllFlights();
-		SelectChoices flightChoices = SelectChoices.from(flights, "id", booking.getFlight());
 
 		dataset = super.unbindObject(booking, "locatorCode", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClasses", travelClasses);
-		dataset.put("flights", flightChoices);
+
+		if (!flights.isEmpty()) {
+			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+			dataset.put("flights", flightChoices);
+		}
 
 		super.getResponse().addData(dataset);
 	}

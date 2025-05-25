@@ -35,7 +35,8 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 		masterId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(masterId);
 		manager = flight == null ? null : flight.getManager();
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
+
+		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager) && !flight.getHasPublishedLegs();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -58,11 +59,7 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 
 	@Override
 	public void validate(final Flight flight) {
-		boolean hasPublishedLegs;
-
-		hasPublishedLegs = flight.getHasAllLegsPublished();
-
-		super.state(!hasPublishedLegs, "*", "acme.validation.flight.cant-delete.message");
+		;
 	}
 
 	@Override
@@ -85,7 +82,7 @@ public class ManagerFlightDeleteService extends AbstractGuiService<Manager, Flig
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasPublishedLegs", "hasAllLegsPublished");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "numberOfLayovers", "hasPublishedLegs", "hasAllLegsPublished");
 
 		super.getResponse().addData(dataset);
 	}

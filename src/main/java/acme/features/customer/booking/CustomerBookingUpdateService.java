@@ -27,21 +27,27 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
+		boolean status = super.getRequest().getMethod().equals("POST");
 
-		Integer bookingId = super.getRequest().getData("id", int.class);
-		Booking booking = this.customerBookingRepository.findBookingById(bookingId);
+		try {
 
-		status = status && booking != null;
+			Integer bookingId = super.getRequest().getData("id", Integer.class);
+			Booking booking = this.customerBookingRepository.findBookingById(bookingId);
 
-		Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = status && booking != null;
 
-		status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+			Integer customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		Integer flightId = super.getRequest().getData("flight", int.class);
-		if (flightId != 0) {
-			Flight flight = this.customerBookingRepository.findFlightById(flightId);
-			status = status && flight != null && !flight.isDraftMode();
+			status = status && booking.getCustomer().getId() == customerId && !booking.getIsPublished();
+
+			Integer flightId = super.getRequest().getData("flight", Integer.class);
+			if (flightId == null || flightId != 0) {
+				Flight flight = this.customerBookingRepository.findFlightById(flightId);
+				status = status && flight != null && !flight.isDraftMode();
+			}
+
+		} catch (Throwable E) {
+			status = false;
 		}
 
 		super.getResponse().setAuthorised(status);
@@ -79,10 +85,8 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		Dataset dataset = super.unbindObject(booking, "flight", "customer", "locatorCode", "purchaseMoment", "travelClass", "price", "lastNibble", "isPublished", "id");
 		dataset.put("travelClass", travelClasses);
 
-		if (!flights.isEmpty()) {
-			SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
-			dataset.put("flights", flightChoices);
-		}
+		SelectChoices flightChoices = SelectChoices.from(flights, "flightSummary", booking.getFlight());
+		dataset.put("flights", flightChoices);
 
 		super.getResponse().addData(dataset);
 	}

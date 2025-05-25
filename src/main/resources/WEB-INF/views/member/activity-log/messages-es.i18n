@@ -13,11 +13,9 @@ member.activity-log.form.button.publish = Publicar
 member.activity-log.form.button.delete = Eliminar
 member.activity-log.form.button.create = Crear
 member.activity-log.list.button.create = Crear
-member.activity-log.form.label.confirmation = Confirme que la asignación de vuelo es correcta
 
 member.activity-log.list.label.registrationMoment = Momento de Registro
 member.activity-log.list.label.typeOfIncident = Tipo de Incidente
 member.activity-log.list.label.description = Descripción
 member.activity-log.list.label.severityLevel = Nivel de Severidad
-
-member.flight-assignment.list.button.create = Crear
+member.activity-log.list.label.draftMode = Modo borrador

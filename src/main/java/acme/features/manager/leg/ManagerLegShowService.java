@@ -12,7 +12,6 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
-import acme.entities.flights.Flight;
 import acme.entities.legs.Leg;
 import acme.entities.legs.LegStatus;
 import acme.realms.Manager;
@@ -32,11 +31,11 @@ public class ManagerLegShowService extends AbstractGuiService<Manager, Leg> {
 	public void authorise() {
 		boolean status;
 		int legId;
-		Flight flight;
+		Leg leg;
 
 		legId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightByLegId(legId);
-		status = flight != null && (!flight.isDraftMode() || super.getRequest().getPrincipal().hasRealm(flight.getManager()));
+		leg = this.repository.findLegById(legId);
+		status = leg != null && (!leg.isDraftMode() || super.getRequest().getPrincipal().hasRealm(leg.getFlight().getManager()));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -66,7 +65,7 @@ public class ManagerLegShowService extends AbstractGuiService<Manager, Leg> {
 
 		airlines = this.repository.findAllAirlines();
 		airports = this.repository.findAllAirports();
-		aircrafts = this.repository.findAllAircrafts();
+		aircrafts = this.repository.findAllActiveAircrafts();
 
 		statusChoices = SelectChoices.from(LegStatus.class, leg.getStatus());
 		airlineChoices = SelectChoices.from(airlines, "IATA", leg.getAirline());
@@ -74,7 +73,7 @@ public class ManagerLegShowService extends AbstractGuiService<Manager, Leg> {
 		arrivalAirportChoices = SelectChoices.from(airports, "iataCode", leg.getArrivalAirport());
 		aircraftChoices = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
 
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "duration", "status");
 		dataset.put("masterId", leg.getFlight().getId());
 		dataset.put("draftMode", leg.isDraftMode());
 		dataset.put("statuses", statusChoices);

@@ -4,7 +4,6 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
@@ -25,14 +24,17 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 	public void authorise() {
 		ActivityLog activityLog;
 		int id;
+		boolean correctMember = false;
+		boolean status = super.getRequest().getMethod().equals("POST");
+		try {
 
-		id = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(id);
-		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
-		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
-
-		boolean status = correctMember && flightAssignmentPublished && inPast && activityLog.isDraftMode();
+			id = super.getRequest().getData("id", int.class);
+			activityLog = this.repository.findActivityLogById(id);
+			correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+			status = status && correctMember && activityLog.isDraftMode();
+		} catch (Throwable e) {
+			status = false;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -71,6 +73,7 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
 
+		dataset.put("buttonsAvaiable", true);
 		super.getResponse().addData(dataset);
 	}
 

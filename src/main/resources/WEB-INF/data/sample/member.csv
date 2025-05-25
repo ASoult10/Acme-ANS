@@ -1,6 +1,6 @@
 key,key:userAccount,key:airline,employeeCode,phoneNumber,languageSkills,yearsOfExperience,availabilityStatus,salary
 member-00,user-account-member-00,airline-00,MP789012,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
-member-01,user-account-member-01,airline-00,PM789012,9876543210,poco nivel,5,ON_VACATION,EUR 5000.00
+member-01,user-account-member-01,airline-00,PM789012,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
 member-02,user-account-member-02,airline-00,JH345678,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
-member-03,user-account-member-03,airline-00,AL901234,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00
+member-03,user-account-member-03,airline-00,AL901234,9876543210,poco nivel,5,ON_VACATION,EUR 5000.00
 member-04,user-account-member-04,airline-00,DV567390,9876543210,poco nivel,5,AVAILABLE,EUR 5000.00

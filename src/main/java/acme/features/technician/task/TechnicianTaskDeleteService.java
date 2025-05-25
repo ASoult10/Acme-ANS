@@ -33,6 +33,10 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 		technician = task == null ? null : task.getTechnician();
 		status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
 
+		String method = super.getRequest().getMethod();
+		if (method.equals("GET"))
+			status = false;
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -60,7 +64,7 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void validate(final Task task) {
-		super.state(true, "*", "technician.task.delete.task-linked");
+		;
 
 	}
 

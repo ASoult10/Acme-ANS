@@ -4,7 +4,6 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
@@ -29,10 +28,8 @@ public class MemberActivityLogPublishService extends AbstractGuiService<Member, 
 		id = super.getRequest().getData("id", int.class);
 		activityLog = this.repository.findActivityLogById(id);
 		boolean correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean flightAssignmentPublished = !activityLog.getFlightAssignment().isDraftMode();
-		boolean inPast = MomentHelper.isPast(activityLog.getFlightAssignment().getLeg().getScheduledArrival());
 
-		boolean status = correctMember && flightAssignmentPublished && inPast && activityLog.isDraftMode();
+		boolean status = correctMember && activityLog.isDraftMode();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -72,7 +69,7 @@ public class MemberActivityLogPublishService extends AbstractGuiService<Member, 
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
 
+		dataset.put("buttonsAvaiable", true);
 		super.getResponse().addData(dataset);
 	}
-
 }

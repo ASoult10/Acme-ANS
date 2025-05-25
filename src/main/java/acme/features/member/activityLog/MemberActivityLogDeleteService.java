@@ -66,10 +66,11 @@ public class MemberActivityLogDeleteService extends AbstractGuiService<Member, A
 		Dataset dataset;
 
 		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
+		dataset.put("registrationMoment", activityLog.getRegistrationMoment());
 		dataset.put("masterId", activityLog.getFlightAssignment().getId());
 		dataset.put("draftMode", activityLog.getFlightAssignment().isDraftMode());
 
+		dataset.put("buttonsAvaiable", true);
 		super.getResponse().addData(dataset);
 	}
-
 }

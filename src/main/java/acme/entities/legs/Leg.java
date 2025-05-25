@@ -1,7 +1,6 @@
 
 package acme.entities.legs;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -39,7 +38,7 @@ public class Leg extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(min = 7, max = 7, pattern = "^[A-Z]{3}\\d{4}$")
+	@ValidString(min = 7, max = 7, pattern = "^[A-Z]{3}\\d{4}$", message = "{acme.validation.leg.flight-number-format.message}")
 	@Column(unique = true)
 	private String				flightNumber;
 
@@ -67,10 +66,13 @@ public class Leg extends AbstractEntity {
 
 
 	@Transient
-	private Double getDuration() {
-		Duration duration = MomentHelper.computeDuration(this.getScheduledDeparture(), this.getScheduledArrival());
+	public Double getDuration() {
+		Double duration = null;
 
-		return duration.getSeconds() / 3600.;
+		if (this.getScheduledDeparture() != null && this.getScheduledArrival() != null)
+			duration = MomentHelper.computeDuration(this.getScheduledDeparture(), this.getScheduledArrival()).getSeconds() / 3600.;
+
+		return duration;
 	}
 
 	// Relationships ----------------------------------------------------------

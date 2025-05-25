@@ -17,7 +17,7 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 	@Autowired
 	private ManagerFlightRepository repository;
 
-	// AbstractService<Employer, Job> -------------------------------------
+	// AbstractService<Manager, Flight> ---------------------------------------
 
 
 	@Override
@@ -30,6 +30,7 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 		masterId = super.getRequest().getData("id", int.class);
 		flight = this.repository.findFlightById(masterId);
 		manager = flight == null ? null : flight.getManager();
+
 		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(manager);
 
 		super.getResponse().setAuthorised(status);
@@ -65,7 +66,7 @@ public class ManagerFlightUpdateService extends AbstractGuiService<Manager, Flig
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "hasPublishedLegs", "hasAllLegsPublished");
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode", "scheduledDeparture", "scheduledArrival", "originCity", "destinationCity", "numberOfLayovers", "hasPublishedLegs", "hasAllLegsPublished");
 
 		super.getResponse().addData(dataset);
 	}
