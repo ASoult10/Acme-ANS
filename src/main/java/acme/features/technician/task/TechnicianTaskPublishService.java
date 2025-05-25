@@ -26,11 +26,20 @@ public class TechnicianTaskPublishService extends AbstractGuiService<Technician,
 		int masterId;
 		Task task;
 		Technician technician;
+		boolean correctTechnician = true;
 
 		masterId = super.getRequest().getData("id", int.class);
 		task = this.repository.findTaskById(masterId);
 		technician = task == null ? null : task.getTechnician();
-		status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
+		Integer technicianId = super.getRequest().hasData("technician") ? super.getRequest().getData("technician", int.class) : 0;
+		Integer techId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		if (technicianId != 0) {
+			Technician technicianf = this.repository.findTechnicianById(technicianId);
+			correctTechnician = technicianf != null && technicianId.equals(techId);
+
+		}
+		status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician) && correctTechnician;
 
 		super.getResponse().setAuthorised(status);
 	}
