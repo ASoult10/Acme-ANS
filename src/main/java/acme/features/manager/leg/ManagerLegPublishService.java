@@ -2,6 +2,7 @@
 package acme.features.manager.leg;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -120,6 +121,19 @@ public class ManagerLegPublishService extends AbstractGuiService<Manager, Leg> {
 
 			correctScheduledDeparture = leg.getScheduledDeparture() != null && MomentHelper.isFuture(leg.getScheduledDeparture());
 			super.state(correctScheduledDeparture, "scheduledDeparture", "acme.validation.leg.scheduled-departure-future.message");
+		}
+		{
+			boolean tramosSeparados = true;
+			List<Leg> legs = this.repository.findLegsByFlight(leg.getFlight().getId());
+
+			for (Integer i = 0; i < legs.size() - 1; i++) {
+				Leg primerTramo = legs.get(i);
+				Leg segundoTramo = legs.get(i + 1);
+
+				tramosSeparados &= MomentHelper.isBefore(primerTramo.getScheduledArrival(), segundoTramo.getScheduledDeparture());
+			}
+
+			super.state(tramosSeparados, "*", "acme.validation.flight.overlapping-legs.message");
 		}
 		{
 			boolean correctAircraft;
