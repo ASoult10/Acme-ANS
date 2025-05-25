@@ -4,24 +4,21 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>  
 
 <acme:form>  
-    <acme:input-moment code="assistance-agent.claim.label.registrationMoment" path="registrationMoment" readonly="true"/>  
-    <acme:input-textbox code="assistance-agent.claim.label.email" path="email"/>  
-    <acme:input-textarea code="assistance-agent.claim.label.description" path="description"/>  
-    <acme:input-select code="assistance-agent.claim.label.type" path="type" choices="${type}"/>  
-    <acme:input-select code="assistance-agent.claim.label.status" path="status" choices="${status}"/> 
-    <acme:input-checkbox code="assistance-agent.claim.label.draftMode" path="draftMode"/> 
-    <acme:input-select code="assistance-agent.claim.label.leg" path="leg" choices="${legs}"/>
-    <acme:input-moment code="assistance-agent.claim.label.agent" path="assistanceAgent" readonly="true"/>  
+    <acme:input-moment code="assistance-agent.tracking-log.label.creationMoment" path="creationMoment" readonly="true"/>  
+    <acme:input-double code="assistance-agent.tracking-log.label.resolutionPercentage" path="resolutionPercentage"/>  
+    <acme:input-textbox code="assistance-agent.tracking-log.label.step" path="step" />
+    <acme:input-select code="assistance-agent.tracking-log.label.indicator" path="indicator" choices="${indicator}"/>
+    <acme:input-moment code="assistance-agent.tracking-log.label.lastUpdateMoment" path="lastUpdateMoment" readonly="true"/>   
+    <acme:input-checkbox code="assistance-agent.tracking-log.label.draftMode" path="draftMode"/> 
 
     <jstl:choose>    
         <jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">  
-            <acme:submit code="assistance-agent.claim.button.update" action="/assistance-agent/claim/update"/>  
-            <acme:submit code="assistance-agent.claim.button.delete" action="/assistance-agent/claim/delete"/>  
-            <acme:submit code="assistance-agent.claim.button.publish" action="/assistance-agent/claim/publish"/>  
+            <acme:submit code="assistance-agent.tracking-log.button.update" action="/assistance-agent/tracking-log/update"/>  
+            <acme:submit code="assistance-agent.tracking-log.button.delete" action="/assistance-agent/tracking-log/delete"/>  
+            <acme:submit code="assistance-agent.tracking-log.button.publish" action="/assistance-agent/tracking-log/publish"/>  
         </jstl:when>   
         <jstl:when test="${_command == 'create'}">  
-        	<acme:input-checkbox code="assistance-agent.claim.form.label.confirmation" path="confirmation"/>
-            <acme:submit code="assistance-agent.claim.button.create" action="/assistance-agent/claim/create"/>  
+    		<acme:button code="assistance-agent.tracking-log.button.create" action="/assistance-agent/activity-log/create?masterId=${masterId}"/>  
         </jstl:when>    
     </jstl:choose>  
 </acme:form>  

@@ -53,10 +53,10 @@ public class AssistanceAgentLogListService extends AbstractGuiService<Assistance
 	public void unbind(final TrackingLog log) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(log, "lastUpdateMoment", "indicator", "resolutionPercentage", "creationMoment", "draftMode");
+		dataset = super.unbindObject(log, "lastUpdateMoment", "indicator", "resolution", "resolutionPercentage");
 		dataset.put("masterId", log.getClaim().getId());
 
-		super.addPayload(dataset, log, "step", "resolution");
+		super.addPayload(dataset, log, "creationMoment", "step");
 		super.getResponse().addData(dataset);
 
 	}
