@@ -70,15 +70,6 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 
 			super.state(tramosFuturos, "*", "acme.validation.flight.future-legs.message");
 		}
-		{
-			boolean correctLegs;
-			Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
-			Integer numberOfPublishedLegs = this.repository.countNumberOfPublishedLegsOfFlight(flight.getId());
-
-			correctLegs = numberOfLegs > 0 && numberOfLegs.equals(numberOfPublishedLegs);
-
-			super.state(correctLegs, "*", "acme.validation.flight.no-legs.message");
-		}
 	}
 
 	@Override
