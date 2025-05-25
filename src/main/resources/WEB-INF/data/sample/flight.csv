@@ -12,7 +12,7 @@ flight-06,โลเร็ม อิปซัม,FALSE,EUR 500000.00,"Lorem ipsum
 flight-07,لوريم إيبسوم,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
 flight-08,洛伦·伊普森,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
 flight-09,<marquee>Hacked</marquee>,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
-flight-10,<script>alert(‘Hacked!’);</script>,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
+flight-10,<script>alert('Hacked!');</script>,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
 flight-11,' or 'A' = 'A,FALSE,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",TRUE,manager-01
 # tag - no singular values
 
@@ -38,7 +38,7 @@ flight-23,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,โลเร็ม อ�
 flight-24,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,لوريم إيبسوم,TRUE,manager-01
 flight-25,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,洛伦·伊普森,TRUE,manager-01
 flight-26,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,<marquee>Hacked</marquee>,TRUE,manager-01
-flight-27,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,<script>alert(‘Hacked!’);</script>,TRUE,manager-01
+flight-27,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,<script>alert('Hacked!');</script>,TRUE,manager-01
 flight-28,Lorem ipsum dolor sit ame,FALSE,EUR 500000.00,' or 'A' = 'A,TRUE,manager-01
 # description - no singular values
 
