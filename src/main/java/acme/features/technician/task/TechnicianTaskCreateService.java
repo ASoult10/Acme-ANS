@@ -33,7 +33,10 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 			}
 
 			status = correctTechnician;
+			if (technicianId == 0)
+				status = false;
 		}
+
 		super.getResponse().setAuthorised(status);
 	}
 

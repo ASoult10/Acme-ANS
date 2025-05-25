@@ -46,6 +46,8 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 				correctAircraft = aircraft != null;
 			}
 			status = correctAircraft && correctStatus && correctTechnician;
+			if (technicianId == 0)
+				status = false;
 		}
 
 		super.getResponse().setAuthorised(status);

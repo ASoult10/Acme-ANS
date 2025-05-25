@@ -47,7 +47,8 @@ public class TechnicianMaintenanceRecordUpdateService extends AbstractGuiService
 			correctTechnician = technicianf != null && technicianId.equals(techId);
 		}
 		status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician) && correctAircraft && correctTechnician;
-
+		if (technicianId == 0)
+			status = false;
 		super.getResponse().setAuthorised(status);
 	}
 
