@@ -70,28 +70,6 @@ public class ManagerFlightPublishService extends AbstractGuiService<Manager, Fli
 
 			super.state(tramosFuturos, "*", "acme.validation.flight.future-legs.message");
 		}
-		{
-			boolean tramosSeparados = true;
-			List<Leg> legs = this.repository.findLegsByFlight(flight.getId());
-
-			for (Integer i = 0; i < legs.size() - 1; i++) {
-				Leg primerTramo = legs.get(i);
-				Leg segundoTramo = legs.get(i + 1);
-
-				tramosSeparados &= MomentHelper.isBefore(primerTramo.getScheduledArrival(), segundoTramo.getScheduledDeparture());
-			}
-
-			super.state(tramosSeparados, "*", "acme.validation.flight.overlapping-legs.message");
-		}
-		{
-			boolean correctLegs;
-			Integer numberOfLegs = this.repository.countNumberOfLegsOfFlight(flight.getId());
-			Integer numberOfPublishedLegs = this.repository.countNumberOfPublishedLegsOfFlight(flight.getId());
-
-			correctLegs = numberOfLegs > 0 && numberOfLegs.equals(numberOfPublishedLegs);
-
-			super.state(correctLegs, "*", "acme.validation.flight.no-legs.message");
-		}
 	}
 
 	@Override
