@@ -40,8 +40,7 @@ public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService
 			}
 
 			if (mrStatus != null)
-				if (!mrStatus.equals(0))
-					correctStatus = !mrStatus.equals(MaintenanceRecordStatus.COMPLETED);
+				correctStatus = !mrStatus.equals(MaintenanceRecordStatus.COMPLETED);
 			if (aircraftId != 0) {
 				Aircraft aircraft = this.repository.findAircraftById(aircraftId);
 				correctAircraft = aircraft != null;
