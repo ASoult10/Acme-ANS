@@ -1,0 +1,13 @@
+# messages-es.i18n
+
+authenticated.member.form.title = Detalles de tripulante
+authenticated.member.form.button.create = Crear
+authenticated.member.form.button.update = Actualizar
+
+authenticated.member.form.label.employeeCode = Código de empleado
+authenticated.member.form.label.phoneNumber = Número de teléfono
+authenticated.member.form.label.languageSkills = Habilidades linguísticas
+authenticated.member.form.label.availabilityStatus = Estado de disponibilidad
+authenticated.member.form.label.salary = Salario
+authenticated.member.form.label.yearsOfExperience = Años de experiencia
+authenticated.member.form.label.airline = Aerolínea

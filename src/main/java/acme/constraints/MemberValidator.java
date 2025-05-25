@@ -1,8 +1,6 @@
 
 package acme.constraints;
 
-import java.util.Optional;
-
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +9,14 @@ import acme.client.components.principals.DefaultUserIdentity;
 import acme.client.components.principals.UserAccount;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.features.authenticated.member.MemberRepository;
+import acme.features.authenticated.member.AuthenticatedMemberRepository;
 import acme.realms.Member;
 
 @Validator
 public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 
 	@Autowired
-	private MemberRepository repository;
+	private AuthenticatedMemberRepository repository;
 
 
 	@Override
@@ -34,7 +32,7 @@ public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 		if (identifier == null)
 			return false;
 		if (identifier.length() < 2) {
-			super.state(context, false, "*", "{acme.validation.member.nullornotpattern.message}");
+			super.state(context, false, "employeeCode", "{acme.validation.member.nullornotpattern.message}");
 			return false;
 		}
 		UserAccount userAccount = member.getUserAccount();
@@ -53,13 +51,13 @@ public class MemberValidator extends AbstractValidator<ValidMember, Member> {
 		String employeeCodeInitials = identifier.substring(0, 2);
 
 		if (!iniciales.equals(employeeCodeInitials)) {
-			super.state(context, false, "*", "{acme.validation.member.notInitials.message}");
+			super.state(context, false, "employeeCode", "{acme.validation.member.notInitials.message}");
 			return false;
 		}
 
-		Optional<Member> memberWithSameCode = this.repository.findOneMemberByEmployeeCode(identifier);
-		if (memberWithSameCode.isPresent() && memberWithSameCode.get().getId() != member.getId()) {
-			super.state(context, false, "*", "{acme.validation.member.repeated.message}: " + identifier);
+		Member memberWithSameCode = this.repository.findMemberByEmployeeCode(identifier);
+		if (memberWithSameCode != null && memberWithSameCode.getId() != member.getId()) {
+			super.state(context, false, "employeeCode", "{acme.validation.member.repeated.message}: " + identifier);
 			return false;
 		}
 

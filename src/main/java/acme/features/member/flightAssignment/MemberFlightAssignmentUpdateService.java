@@ -66,6 +66,8 @@ public class MemberFlightAssignmentUpdateService extends AbstractGuiService<Memb
 		} catch (Throwable e) {
 			status = false;
 		}
+
+		status = super.getRequest().getMethod().equals("POST") && status;
 		super.getResponse().setAuthorised(status);
 	}
 

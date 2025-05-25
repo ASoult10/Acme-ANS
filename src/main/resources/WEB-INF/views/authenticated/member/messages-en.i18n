@@ -1,0 +1,13 @@
+# messages-en.i18n
+
+authenticated.member.form.title = Member details
+authenticated.member.form.button.create = Create
+authenticated.member.form.button.update = Update
+
+authenticated.member.form.label.employeeCode = Employee code
+authenticated.member.form.label.phoneNumber = Phone Number
+authenticated.member.form.label.languageSkills = Language Skills
+authenticated.member.form.label.availabilityStatus = Availability Status
+authenticated.member.form.label.salary = Salary
+authenticated.member.form.label.yearsOfExperience = Years of experience
+authenticated.member.form.label.airline = Airline

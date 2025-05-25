@@ -25,23 +25,24 @@ public class FlightAssignmentValidator extends AbstractValidator<ValidFlightAssi
 
 	@Override
 	protected void initialise(final ValidFlightAssignment annotation) {
-		assert annotation != null;
+		//assert annotation != null;
 	}
 
 	@Override
 	public boolean isValid(final FlightAssignment flightAssignment, final ConstraintValidatorContext context) {
-		assert context != null;
+		//assert context != null;
 
-		if (flightAssignment == null)
-			return false;
+		//if (flightAssignment == null)
+		//	return false;
 
-		if (flightAssignment.getMember() != null) {
-			boolean memberAvailable = flightAssignment.getMember().getAvailabilityStatus().equals(AvailabilityStatus.AVAILABLE);
-			super.state(context, memberAvailable, "member", "{acme.validation.FlightAssignment.memberNotAvailable.message}");
-		}
+		//if (flightAssignment.getMember() != null) {
+		boolean memberAvailable = flightAssignment.getMember().getAvailabilityStatus().equals(AvailabilityStatus.AVAILABLE);
+		boolean pastFlightAssignment = MomentHelper.isPast(flightAssignment.getMoment());
+		super.state(context, memberAvailable || pastFlightAssignment, "member", "{acme.validation.FlightAssignment.memberNotAvailable.message}");
+		//}
 
 		//Restricción legs incompatibles
-		if (flightAssignment.getLeg() != null && flightAssignment.getMember() != null) {
+		if (flightAssignment.getLeg() != null) {
 
 			List<FlightAssignment> flightAssignmentByMember;
 			flightAssignmentByMember = this.repository.findFlightAssignmentByMemberId(flightAssignment.getMember().getId());

@@ -29,21 +29,24 @@ public class MemberActivityLogCreateService extends AbstractGuiService<Member, A
 		boolean flightAssignmentPublished = false;
 		boolean legNotFuture = false;
 
-		Integer masterId = super.getRequest().getData("masterId", Integer.class);
-		if (masterId == null)
-			status = false;
-		else {
+		try {
+			Integer masterId = super.getRequest().getData("masterId", Integer.class);
+			if (masterId == null)
+				status = false;
+			else {
 
-			FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(masterId);
+				FlightAssignment flightAssignment = this.repository.findFlightAssignmentById(masterId);
 
-			if (flightAssignment != null) {
-				correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
-				flightAssignmentPublished = !flightAssignment.isDraftMode();
-				legNotFuture = !MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+				if (flightAssignment != null) {
+					correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
+					flightAssignmentPublished = !flightAssignment.isDraftMode();
+					legNotFuture = !MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+				}
 			}
+			status = flightAssignmentPublished && correctMember && legNotFuture;
+		} catch (Throwable e) {
+			status = false;
 		}
-		status = flightAssignmentPublished && correctMember && legNotFuture;
-
 		super.getResponse().setAuthorised(status);
 
 	}
