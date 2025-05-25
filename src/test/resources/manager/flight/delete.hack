@@ -282,7 +282,7 @@ request-id,request-method,request-path,request-query,request-payload,response-st
 "08389c87-749d-43d7-8e10-76f9a1f91efd",GET,"/libraries/acme/js/acme.js",,,200,application/javascript,,,9967164415661,9967164842618,9967164965948
 "a71ae209-5ec1-4d07-a142-d40e9d63395a",GET,/images/banner.png,,,200,image/png,,,9967181777609,9967182514433,9967182642071
 "ca053b76-9622-412d-a762-34a230908254",GET,/images/logo.png,,,200,image/png,,,9967184090915,9967184342264,9967184449284
-"5922d2bc-1c07-4471-8dae-18a986774ff3",GET,/manager/flight/delete,id=188,,200,text/html;charset=utf-8,"originCity=Sevilla&id=188&tag=Lorem+ipsum+dolor+sit+ame&version=0&draftMode=true&hasPublishedLegs=false&description=Lorem+ipsum+dolor+sit+amet%2C+consectetur+adipiscing&hasAllLegsPublished=false&numberOfLayovers=0&requiresSelfTransfer=false&cost=EUR+500%2C000.00&scheduledDeparture=2000%2F02%2F01+10%3A00&destinationCity=Sevilla&scheduledArrival=2000%2F02%2F01+11%3A00&service=608",,9974525424467,9974533219092,9974549141503
+"5922d2bc-1c07-4471-8dae-18a986774ff3",GET,/manager/flight/delete,id=188,,500,text/html;charset=utf-8,"service=608",,9974525424467,9974533219092,9974549141503
 "eea68ba7-ccec-41ee-a524-e69f2fc0b7f4",GET,"/libraries/fontawesome/5.2.0/css/all.min.css",,,200,text/css,,,9974573423062,9974573970082,9974574101427
 "d3b25541-6e61-4055-977a-eee4c236ad61",GET,"/libraries/chart.js/2.7.2/js/chart.bundle.min.js",,,200,application/javascript,,,9974575195870,9974575517450,9974575638756
 "9e99bd2a-6cdd-43dd-ad48-7c94ead68274",GET,"/libraries/bootstrap/4.1.3/css/bootstrap.min.css",,,200,text/css,,,9974576745802,9974577018361,9974577109671
