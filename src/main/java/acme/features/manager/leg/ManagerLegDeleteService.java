@@ -61,9 +61,4 @@ public class ManagerLegDeleteService extends AbstractGuiService<Manager, Leg> {
 		this.repository.delete(leg);
 	}
 
-	@Override
-	public void unbind(final Leg leg) {
-		;
-	}
-
 }
