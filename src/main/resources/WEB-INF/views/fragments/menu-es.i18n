@@ -78,3 +78,9 @@ master.menu.technician.list-maintenanceRecord = Ver todos los registros de mante
 master.menu.technician.list-mine-maintenanceRecord = Ver mis registros de mantenimiento
 master.menu.technician.list-task = Ver todas las tareas
 master.menu.technician.list-mine-task = Ver mis tareas
+
+# master.menu.agenet ##########################################################
+
+master.menu.agent = Agente
+master.menu.agent.list-claim = Mis reclamaciones
+master.menu.agent.pending-claim = Mis reclamaciones pendientes
