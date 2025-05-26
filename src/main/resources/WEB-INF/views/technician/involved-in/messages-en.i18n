@@ -7,7 +7,6 @@ technician.involved-in.form.label.task = Task:
 
 technician.involved-in.form.button.create = Create
 technician.involved-in.form.button.delete = Delete
-technician.involved-in.form.label.confirmation = Confirm that the task is correct
 
 technician.involved-in.list.label.task = Task:
 technician.involved-in.form.label.type = Type:
