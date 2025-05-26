@@ -46,6 +46,8 @@ customer.booking.form.error.existingPassengers = Cannot delete a booking with pa
 
 authenticated.customer.form.error.duplicateIdentifier = Duplicated Identifier
 
+acme.validation.airline.code.message = Airline code must be three-uppercase-letter
+
 # Student 3 Messages
 acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  

@@ -51,8 +51,9 @@ public class TechnicianInvolvedInCreateService extends AbstractGuiService<Techni
 			if (taskId == 0)
 				taskDisp = true;
 
-			status = status && taskDisp;
 		}
+		if (status)
+			status = taskDisp;
 
 		super.getResponse().setAuthorised(status);
 	}

@@ -24,7 +24,7 @@ import acme.entities.recommendationForCustomer.RecommendationForCustomer;
 @GuiService
 public class AdministratorRecommendationForCustomerCreateService extends AbstractGuiService<Administrator, RecommendationForCustomer> {
 
-	final String												apiKey	= "";
+	final String												apiKey	= "oQxv-ndmfLKbQaYPASUJJ0SRGPKcs885-viO_VKz8Fr_26Q3dH-meBx3upLZLN9Z6wZqCO8JgWnQ7NYwELzERgmSLi5df0jPhjEA2SzB7MpSHVTExvJ09Fd5k0U0aHYx";
 
 	@Autowired
 	private AdministratorRecommendationForCustomerRepository	repository;
