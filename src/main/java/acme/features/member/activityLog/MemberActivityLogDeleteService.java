@@ -22,16 +22,26 @@ public class MemberActivityLogDeleteService extends AbstractGuiService<Member, A
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int activityLogId;
 		ActivityLog activityLog;
+		boolean activityLogDraftMode = false;
+		Integer id;
+		boolean correctMember = false;
+		boolean status = true;
+		try {
 
-		activityLogId = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(activityLogId);
-
-		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == activityLog.getFlightAssignment().getMember().getId();
-		status = activityLog.isDraftMode() && correctMember;
-
+			id = super.getRequest().getData("id", Integer.class);
+			if (id == null)
+				status = false;
+			else {
+				activityLog = this.repository.findActivityLogById(id);
+				activityLogDraftMode = activityLog.isDraftMode();
+				correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+			}
+			status = status && correctMember && activityLogDraftMode;
+		} catch (Throwable e) {
+			status = false;
+		}
+		status = super.getRequest().getMethod().equals("POST") && status;
 		super.getResponse().setAuthorised(status);
 	}
 

@@ -23,18 +23,25 @@ public class MemberActivityLogUpdateService extends AbstractGuiService<Member, A
 	@Override
 	public void authorise() {
 		ActivityLog activityLog;
-		int id;
+		boolean activityLogDraftMode = false;
+		Integer id;
 		boolean correctMember = false;
-		boolean status = super.getRequest().getMethod().equals("POST");
+		boolean status = true;
 		try {
 
-			id = super.getRequest().getData("id", int.class);
-			activityLog = this.repository.findActivityLogById(id);
-			correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
-			status = status && correctMember && activityLog.isDraftMode();
+			id = super.getRequest().getData("id", Integer.class);
+			if (id == null)
+				status = false;
+			else {
+				activityLog = this.repository.findActivityLogById(id);
+				activityLogDraftMode = activityLog.isDraftMode();
+				correctMember = activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId();
+			}
+			status = status && correctMember && activityLogDraftMode;
 		} catch (Throwable e) {
 			status = false;
 		}
+		status = super.getRequest().getMethod().equals("POST") && status;
 		super.getResponse().setAuthorised(status);
 	}
 

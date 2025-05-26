@@ -27,22 +27,26 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 	@Override
 	public void authorise() {
 		boolean status = true;
-		boolean correctMember = true;
+		boolean flightAssignmentPublished = true;
+		boolean legNotFuture = false;
 		Integer masterId;
 		FlightAssignment flightAssignment;
 
-		masterId = super.getRequest().getData("masterId", Integer.class);
-		if (masterId == null)
+		try {
+
+			masterId = super.getRequest().getData("masterId", Integer.class);
+			if (masterId == null)
+				status = false;
+			else {
+
+				flightAssignment = this.repository.findFlightAssignmentById(masterId);
+				legNotFuture = flightAssignment != null && !MomentHelper.isFuture(flightAssignment.getLeg().getScheduledArrival());
+				flightAssignmentPublished = flightAssignment != null && !flightAssignment.isDraftMode();
+			}
+			status = status && flightAssignmentPublished && legNotFuture;
+		} catch (Throwable e) {
 			status = false;
-		else {
-
-			flightAssignment = this.repository.findFlightAssignmentById(masterId);
-			correctMember = flightAssignment != null && //
-				(flightAssignment.getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() ||//
-					!flightAssignment.isDraftMode());
-
 		}
-		status = status && correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -83,7 +87,7 @@ public class MemberActivityLogListService extends AbstractGuiService<Member, Act
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
 		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
-		showCreate = inPast && correctMember && !flightAssignment.isDraftMode();
+		showCreate = correctMember;
 
 		super.getResponse().addGlobal("masterId", masterId);
 		super.getResponse().addGlobal("showCreate", showCreate);

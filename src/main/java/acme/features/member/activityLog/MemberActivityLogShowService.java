@@ -29,18 +29,23 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 		ActivityLog activityLog;
 		Integer id;
 
-		id = super.getRequest().getData("id", Integer.class);
-		if (id == null)
+		try {
+
+			id = super.getRequest().getData("id", Integer.class);
+			if (id == null)
+				status = false;
+			else {
+
+				activityLog = this.repository.findActivityLogById(id);
+				correctMember = activityLog != null && //
+					(activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() //
+						|| !activityLog.isDraftMode());
+
+			}
+			status = status && correctMember;
+		} catch (Throwable e) {
 			status = false;
-		else {
-
-			activityLog = this.repository.findActivityLogById(id);
-			correctMember = activityLog != null && //
-				(activityLog.getFlightAssignment().getMember().getId() == super.getRequest().getPrincipal().getActiveRealm().getId() //
-					|| !activityLog.isDraftMode());
-
 		}
-		status = status && correctMember;
 		super.getResponse().setAuthorised(status);
 	}
 
