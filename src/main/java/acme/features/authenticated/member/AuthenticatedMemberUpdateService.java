@@ -13,6 +13,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.airlines.Airline;
 import acme.entities.flightCrewMembers.AvailabilityStatus;
+import acme.realms.Customer;
 import acme.realms.Member;
 
 @GuiService
@@ -28,7 +29,7 @@ public class AuthenticatedMemberUpdateService extends AbstractGuiService<Authent
 
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Customer.class);
 		if (super.getRequest().getMethod().equals("POST"))
 			try {
 
