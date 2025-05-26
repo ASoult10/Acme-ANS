@@ -46,6 +46,8 @@ customer.booking.form.error.existingPassengers = No se puede eliminar una reserv
 
 authenticated.customer.form.error.duplicateIdentifier = Identificador Duplicado
 
+acme.validation.airline.code.message = El código de la aerolínea debe estar compuesto de tres letras mayúsculas
+
 # Mensajes de estudiante 3
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario

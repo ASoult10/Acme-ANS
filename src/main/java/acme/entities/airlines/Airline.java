@@ -37,7 +37,7 @@ public class Airline extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{3}$", message = "")
+	@ValidString(pattern = "^[A-Z]{3}$", message = "{acme.validation.airline.code.message}")
 	@Column(unique = true)
 	private String				IATA;
 
