@@ -8,6 +8,6 @@ borrar el filtro de visualización. Para visualizar únicamente las tareas del
 estudiante 1 asociadas a otra entrega diferente a la mostrada por defecto
 debe borrar el filtro de visualización e introducir:
 
-	milestone:"S01 - Entregable D0X"
+	milestone:"S01 - Entregable DXX"
 
-Reemplazando la X por el entregable correspondiente.
+Reemplazando XX por el número de entregable correspondiente.
