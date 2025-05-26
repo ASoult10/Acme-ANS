@@ -1,0 +1,15 @@
+assistance-agent.tracking-log.form.title = Tracking log form 
+assistance-agent.tracking-log.list.title = List of tracking logs
+
+assistance-agent.tracking-log.label.indicator = Indicator:
+assistance-agent.tracking-log.label.resolutionPercentage = Resolution percentage:
+assistance-agent.tracking-log.label.resolution = Resolution:
+assistance-agent.tracking-log.label.lastUpdateMoment = Last update moment:
+assistance-agent.tracking-log.label.creationMoment = Creation moment:
+assistance-agent.tracking-log.label.step = Step:
+assistance-agent.tracking-log.label.draftMode = Draft mode:
+
+assistance-agent.tracking-log.button.create = Create
+assistance-agent.tracking-log.button.update = Update
+assistance-agent.tracking-log.button.delete = Delete
+assistance-agent.tracking-log.button.publish = Publish
