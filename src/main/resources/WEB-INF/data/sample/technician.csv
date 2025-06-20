@@ -3,3 +3,4 @@ key,key:userAccount,licenseNumber,phoneNumber,specialisation,annualHealthTest,ye
 # base entity
 technician-01,user-account-technician-01,AB123456,+1234567890,Robotics Engineering,true,8,Electrical Systems Specialist
 technician-02,user-account-technician-02,CDR987654,+1224267690,Structural Repairs,false,5,Composite Materials Specialist
+technician-03,user-account-technician-03,RV555777,+1524267699,Software Engineering,false,6,Software Specialist

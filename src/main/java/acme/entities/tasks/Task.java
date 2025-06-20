@@ -20,7 +20,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "draftMode"), @Index(columnList = "draftMode,technician_id,id"), @Index(columnList = "description")
+	@Index(columnList = "draftMode"), @Index(columnList = "draftMode,technician_id,id")
 })
 public class Task extends AbstractEntity {
 
@@ -52,7 +52,7 @@ public class Task extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	private boolean				draftMode			= true;
+	private boolean				draftMode;
 
 	// Relationships ----------------------------------------------------------
 

@@ -62,7 +62,7 @@ public class MaintenanceRecord extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	private boolean					draftMode			= true;
+	private boolean					draftMode;
 
 	@Optional
 	@ValidString(min = 0, max = 255)

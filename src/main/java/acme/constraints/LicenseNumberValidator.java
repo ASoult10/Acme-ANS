@@ -36,7 +36,7 @@ public class LicenseNumberValidator extends AbstractValidator<ValidLicenseNumber
 
 		String license = technician.getLicenseNumber();
 
-		if (license == null || license.isBlank())
+		if (license == null || license.isBlank() || license.strip().length() < 2)
 			return true;
 
 		DefaultUserIdentity identity = technician.getUserAccount().getIdentity();

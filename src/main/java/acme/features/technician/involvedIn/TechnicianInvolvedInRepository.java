@@ -30,10 +30,10 @@ public interface TechnicianInvolvedInRepository extends AbstractRepository {
 	@Query("select tk from Task tk")
 	Collection<Task> findAllDisponibleTasks();
 
-	@Query("select tk from Task tk where tk.description not in (select ii.task.description from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId) and (tk.draftMode = false or tk.technician.id = :technicianId)")
+	@Query("select tk from Task tk where tk.id not in (select ii.task.id from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId) and (tk.draftMode = false or tk.technician.id = :technicianId)")
 	Collection<Task> findTasksNotInMaintenanceRecord(int maintenanceRecordId, int technicianId);
 
-	@Query("select tk from Task tk where tk.description not in (select ii.task.description from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId) and (tk.draftMode = false or tk.technician.id = :technicianId) and (tk.id = :taskId)")
+	@Query("select tk from Task tk where tk.id not in (select ii.task.id from InvolvedIn ii where ii.maintenanceRecord.id = :maintenanceRecordId) and (tk.draftMode = false or tk.technician.id = :technicianId) and (tk.id = :taskId)")
 	Task findDisponibleTaskForAddition(int maintenanceRecordId, int technicianId, int taskId);
 
 	@Query("select t from Technician t")
