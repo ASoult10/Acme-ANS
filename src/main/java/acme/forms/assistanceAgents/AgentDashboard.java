@@ -2,7 +2,11 @@
 package acme.forms.assistanceAgents;
 
 import acme.client.components.basis.AbstractForm;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AgentDashboard extends AbstractForm {
 
 	// Serialisation version --------------------------------------------------
