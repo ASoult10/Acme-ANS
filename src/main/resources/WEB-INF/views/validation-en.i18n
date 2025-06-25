@@ -74,12 +74,12 @@ acme.validation.trackingLog.increasingPercentage.message = The percentage must i
 # Student 5 Messages
 
 acme.validation.maintenance-record.next-inspection.message = The next inspection due date must be in the future
-acme.validation.license-number.not-matching-initials.message = The license number must match the user's initials  
+acme.validation.license-number.not-matching-initials.message = The first two letters of the license number must match the technician’s initials
 acme.validation.license-number.repeated.message = The technician's license number must be unique
 acme.validation.registration-number.repeated.message = The aircraft's registration number must be unique
 technician.maintenance-record.publish.published-tasks = To publish a maintenance record, it cannot have any unpublished tasks and should have at least one published task
 technician.maintenance-record.publish.status = To publish a maintenance record, its status must be "COMPLETED"
 acme.validation.technician.null.message = Technician cannot be null
-acme.validation.license-number.nullornotpattern.message = The license number must not be null and must follow the correct pattern
-
+acme.validation.license-number.notpattern.message = The license number must follow the pattern of 2 or 3 uppercase letters followed by 6 digits
+acme.validation.phone-number.notpattern.message = The phone number must contain 6 to 15 digits, optionally prefixed with '+'
 

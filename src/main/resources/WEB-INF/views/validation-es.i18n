@@ -72,12 +72,12 @@ acme.validation.trackingLog.increasingPercentage.message = El porcentaje debe se
 # Mensajes del estudiante 5
 
 acme.validation.maintenance-record.next-inspection.message = La fecha de la próxima inspección debe estar en el futuro
-acme.validation.license-number.not-matching-initials.message = El número de licencia debe coincidir con las iniciales del usuario
+acme.validation.license-number.not-matching-initials.message = Las dos primeras letras del número de licencia deben coincidir con las iniciales del técnico
 acme.validation.license-number.repeated.message = El número de licencia del técnico debe ser único
 acme.validation.registration-number.repeated.message = El número de registro de la aeronave debe ser único
 technician.maintenance-record.publish.published-tasks = Para publicar un registro de mantenimiento, este no puede tener tareas no publicadas y debe tener al menos una tarea publicada
 technician.maintenance-record.publish.status = Para publicar un registro de mantenimiento, su estado debe ser "COMPLETED"
 acme.validation.technician.null.message = El técnico no puede ser nulo
-acme.validation.license-number.nullornotpattern.message = El número de licencia no debe ser nulo y debe seguir el patrón correcto
-
+acme.validation.license-number.notpattern.message = El número de licencia debe seguir el patrón de 2 o 3 letras mayúsculas seguidas de 6 dígitos
+acme.validation.phone-number.notpattern.message = El número de teléfono debe contener entre 6 y 15 dígitos, opcionalmente comenzando con '+'
 

@@ -35,36 +35,27 @@ public class LicenseNumberValidator extends AbstractValidator<ValidLicenseNumber
 		}
 
 		String license = technician.getLicenseNumber();
-
-		if (license == null || license.isBlank() || license.strip().length() < 2)
+		if (license == null || license.isBlank())
 			return true;
 
 		DefaultUserIdentity identity = technician.getUserAccount().getIdentity();
+		String name = identity.getName().trim();
+		String surname = identity.getSurname().trim();
 
-		String inicialNombre = String.valueOf(identity.getName().charAt(0)).toUpperCase();
-		String inicial1Apellido = String.valueOf(identity.getSurname().charAt(0)).toUpperCase();
-		String inicial2Apellido = "";
-		Integer initialsLength = 2;
+		String initials = "" + name.charAt(0) + surname.charAt(0);
 
-		if (identity.getSurname().contains(" ")) {
-			inicial2Apellido = String.valueOf(identity.getSurname().split(" ")[1].charAt(0)).toUpperCase();
-			initialsLength++;
-		}
+		// Comprobamos que las iniciales están al principio del licenseNumber
+		boolean matchesInitials = license.toUpperCase().startsWith(initials);
 
-		String expectedInitials = inicialNombre + inicial1Apellido + inicial2Apellido;
-		String licenseInitials = license.substring(0, initialsLength);
+		super.state(context, matchesInitials, "licenseNumber", "{acme.validation.license-number.not-matching-initials.message}");
 
-		if (!expectedInitials.equals(licenseInitials)) {
-			super.state(context, false, "licenseNumber", "{acme.validation.license-number.not-matching-initials.message}");
-			return false;
-		}
-
+		// Validar que el número de licencia no se repite
 		Optional<Technician> technicianWithSameLicense = this.repository.findOneTechnicianByLicenseNumber(license);
-		if (technicianWithSameLicense.isPresent() && technicianWithSameLicense.get().getId() != technician.getId()) {
-			super.state(context, false, "licenseNumber", "{acme.validation.license-number.repeated.message}: " + license);
-			return false;
-		}
+		boolean unique = technicianWithSameLicense.isEmpty() || technicianWithSameLicense.get().getId() == technician.getId();
 
-		return true;
+		super.state(context, unique, "licenseNumber", "{acme.validation.license-number.repeated.message}: " + license);
+
+		return !super.hasErrors(context);
 	}
+
 }
