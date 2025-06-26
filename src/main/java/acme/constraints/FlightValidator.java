@@ -3,23 +3,16 @@ package acme.constraints;
 
 import javax.validation.ConstraintValidatorContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.flights.Flight;
-import acme.entities.legs.LegRepository;
 
 @Validator
 public class FlightValidator extends AbstractValidator<ValidFlight, Flight> {
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	private LegRepository repository;
-
 	// ConstraintValidator interface ------------------------------------------
-
 
 	@Override
 	protected void initialise(final ValidFlight annotation) {
@@ -35,11 +28,8 @@ public class FlightValidator extends AbstractValidator<ValidFlight, Flight> {
 
 		if (flight == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-		else {
-			if (flight.getManager() == null)
-				super.state(context, false, "*", "acme.validation.flight.no-manager.message");
-
-		}
+		else if (flight.getManager() == null)
+			super.state(context, false, "*", "acme.validation.flight.no-manager.message");
 
 		result = !super.hasErrors(context);
 

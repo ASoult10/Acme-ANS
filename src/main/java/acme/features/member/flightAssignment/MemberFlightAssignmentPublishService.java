@@ -86,9 +86,6 @@ public class MemberFlightAssignmentPublishService extends AbstractGuiService<Mem
 		Integer legId;
 		Leg leg;
 
-		Integer memberId;
-		Member member;
-
 		legId = super.getRequest().getData("leg", int.class);
 		leg = this.repository.findLegById(legId);
 

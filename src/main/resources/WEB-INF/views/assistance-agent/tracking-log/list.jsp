@@ -7,7 +7,7 @@
     <acme:list-column code="assistance-agent.tracking-log.label.indicator" path="indicator"/>  
     <acme:list-column code="assistance-agent.tracking-log.label.resolutionPercentage" path="resolutionPercentage"/>  
     <acme:list-column code="assistance-agent.tracking-log.label.resolution" path="resolution"/>
-    <acme:list-column code="assistance-agent.tracking-log.label.lastUpdateMoment" path="lastUpdateMoment" readonly="true"/>    
+    <acme:list-column code="assistance-agent.tracking-log.label.lastUpdateMoment" path="lastUpdateMoment"/>    
    	<acme:list-payload path="payload"/>
    	
 </acme:list>  

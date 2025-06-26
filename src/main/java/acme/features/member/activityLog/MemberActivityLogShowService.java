@@ -4,7 +4,6 @@ package acme.features.member.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLog.ActivityLog;
@@ -71,7 +70,6 @@ public class MemberActivityLogShowService extends AbstractGuiService<Member, Act
 
 		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIncident", "description", "severityLevel", "draftMode");
 
-		boolean inPast = MomentHelper.isPast(flightAssignment.getLeg().getScheduledArrival());
 		boolean correctMember = super.getRequest().getPrincipal().getActiveRealm().getId() == flightAssignment.getMember().getId();
 		boolean draftMode = activityLog.isDraftMode();
 		showCreate = correctMember && draftMode;

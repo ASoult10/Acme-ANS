@@ -88,7 +88,6 @@ public class MemberFlightAssignmentDeleteService extends AbstractGuiService<Memb
 		Integer legId;
 		Leg leg;
 
-		Integer memberId;
 		Member member;
 
 		legId = super.getRequest().getData("leg", int.class);

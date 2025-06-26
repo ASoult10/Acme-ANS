@@ -14,8 +14,6 @@ package acme.features.authenticated.consumer;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import acme.client.components.principals.Authenticated;
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
@@ -26,14 +24,13 @@ public class AuthenticatedConsumerController extends AbstractGuiController<Authe
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	private AuthenticatedConsumerCreateService	createService;
+	//@Autowired
+	//private AuthenticatedConsumerCreateService	createService;
 
-	@Autowired
-	private AuthenticatedConsumerUpdateService	updateService;
+	//@Autowired
+	//private AuthenticatedConsumerUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
-
 
 	@PostConstruct
 	protected void initialise() {

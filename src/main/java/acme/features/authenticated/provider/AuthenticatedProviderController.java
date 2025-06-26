@@ -14,8 +14,6 @@ package acme.features.authenticated.provider;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import acme.client.components.principals.Authenticated;
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
@@ -26,14 +24,13 @@ public class AuthenticatedProviderController extends AbstractGuiController<Authe
 
 	// Internal state ---------------------------------------------------------
 
-	@Autowired
-	private AuthenticatedProviderCreateService	createService;
+	//@Autowired
+	//private AuthenticatedProviderCreateService	createService;
 
-	@Autowired
-	private AuthenticatedProviderUpdateService	updateService;
+	//@Autowired
+	//private AuthenticatedProviderUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
-
 
 	@PostConstruct
 	protected void initialise() {
