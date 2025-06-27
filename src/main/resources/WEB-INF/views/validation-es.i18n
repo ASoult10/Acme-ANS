@@ -53,6 +53,8 @@ acme.validation.airline.phone.message = El número de teléfono debe contener en
 acme.validation.member.nullornotpattern.message = El identificador no debe ser nulo y debe seguir el patrón correcto
 acme.validation.member.notInitials.message = El employee code debe comenzar con las iniciales del usuario
 acme.validation.member.repeated.message = Ya existe una entidad diferente con este employeeCode:
+acme.validation.member.employeeCode.message=El código de empleado debe comenzar con 2 o 3 letras mayúsculas, seguido de exactamente 6 dígitos
+acme.validation.member.phoneNumber.message=Formato inválido. Use de 6 a 15 dígitos, opcionalmente con '+' al inicio
 
 acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment debe ser posterior a la finalización de leg
 acme.validation.FlightAssignment.memberNotAvailable.message = Ese miembro de la tripulacion no está disponible, por lo que la asignación de vuelo no puede ser creada

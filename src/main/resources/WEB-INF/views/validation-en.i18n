@@ -54,6 +54,8 @@ acme.validation.airline.phone.message = The phone number must contain between 6 
 acme.validation.member.nullornotpattern.message = The identifier must not be null and must follow the correct pattern  
 acme.validation.member.notInitials.message = The employee code must start with the user's initials  
 acme.validation.member.repeated.message = A different entity already exists with this employeeCode:  
+acme.validation.member.employeeCode.message=The employee code must start with 2 or 3 uppercase letters followed by exactly 6 digits
+acme.validation.member.phoneNumber.message=Invalid format. Use 6 to 15 digits, optionally starting with a '+'
 
 acme.validation.activityLog.wrongMoment.message = ActivityLog registrationMoment must be after the completion of leg 
 acme.validation.FlightAssignment.memberNotAvailable.message = That member is not available, flightAssignment can not be created

@@ -44,11 +44,6 @@
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-25.6.0/target/classes</locationURI>
 		</link>
 		<link>
-			<name>acme-framework-link</name>
-			<type>2</type>
-			<location>C:/Users/MBG/Desktop/Universidad/EntornoDP2/Workspace-25/Projects/Acme-ANS-C2/target/classes</location>
-		</link>
-		<link>
 			<name>target/classes</name>
 			<type>2</type>
 			<location>C:/Users/MBG/Desktop/Universidad/EntornoDP2/Workspace-25/Projects/Acme-ANS-C2/target/classes</location>
