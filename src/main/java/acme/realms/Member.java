@@ -27,7 +27,7 @@ import lombok.Setter;
 @Setter
 @ValidMember
 @Table(indexes = {
-	@Index(columnList = "employeeCode"), @Index(columnList = "availabilityStatus")
+	@Index(columnList = "availabilityStatus")
 })
 public class Member extends AbstractRole {
 	// Serialisation version --------------------------------------------------
