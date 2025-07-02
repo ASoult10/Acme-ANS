@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>230</x>
+      <y>150</y>
+      <w>580</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Technician
+--
++ licenseNumber: String {Mandatory, ValidString(^[A-Z]{2,3}\d{6}$), Column(unique = true)}  
++ phoneNumber: String {Mandatory, ValidString(^\+?\d{6,15}$), Automapped}  
++ specialisation: String {Mandatory, ValidString(min=1, max=50), Automapped}  
++ annualHealthTest: Boolean {Mandatory, Valid, Automapped}  
++ yearsOfExperience: Integer {Mandatory, ValidNumber(min=0, max=120), Automapped}  
++ certifications: String {Optional, ValidString(min=0, max=255), Automapped}   
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1780</x>
+      <y>410</y>
+      <w>360</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Constraint&gt;&gt;
+MoneyExchange
+--
++ source: Money {Mandatory, ValidMoney}
++ targetCurrency: String {Mandatory, ValidCurrency}
++ moment: Date {Optional, ValidMoment(past=true)}
++ target: Money {Optional, ValidMoney}
++ oops: Throwable {Optional, Valid}</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
