@@ -1,11 +1,1 @@
 https://github.com/users/ASoult10/projects/7
-
-Para filtrar las tareas se han usado las siguientes etiquetas de Github:
-
-- D0X (con X de 1 a 5): Tareas relacionadas con la entrega X
-
-- M (Meetings): Reuniones del equipo
-
-- C2: Tareas realizadas para la segunda convocatoria
-
-- Study: Tareas relacionadas con el estudio de conceptos teóricos
