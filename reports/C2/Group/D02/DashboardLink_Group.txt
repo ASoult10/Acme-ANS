@@ -7,5 +7,3 @@ Para filtrar las tareas se han usado las siguientes etiquetas de Github:
 - M (Meetings): Reuniones del equipo
 
 - C2: Tareas realizadas para la segunda convocatoria
-
-- Study: Tareas relacionadas con el estudio de conceptos teóricos
