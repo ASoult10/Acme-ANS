@@ -10,7 +10,7 @@ Welcome to the Acme AirNav Solutions, Inc. project repository. This project is p
 ## Course and Group Information
 
 - **Course**: Diseño y Pruebas II (Design and Testing II)
-- **Lab Subgroup**: C1.010
+- **Lab Subgroup**: C2.010
 
 ## Project Description
 
