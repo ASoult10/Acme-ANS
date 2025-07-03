@@ -1,1 +1,7 @@
+El link al dashboard es el siguiente:
+
 https://github.com/users/ASoult10/projects/5/views/1
+
+Con el fin de facilitar el filtrado de las tareas se han agregado y asignado las siguientes etiquetas:
+-D0X (donde X representa el número de entrega) Se puede filtrar escribiendo en la barra de búsqueda "label:D0X"
+-C2 Consiste en una etiqueta que permite visualizar solo las tareas realizadas en esta C2. Para filtrar escriba "label:C2"
